@@ -7,9 +7,6 @@
   },
   "description": "React boilerplate with ES2015, Express.js, and Webpack",
   "license": "MIT",
-  "engines": {
-    "node": "8.11.3"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/antonfisher/react-express-webpack.git"

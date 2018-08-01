@@ -40,6 +40,7 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
     "babel-watch": "2.0.7",
+    "compression-webpack-plugin": "^1.1.11",
     "copyfiles": "2.0.0",
     "css-loader": "0.28.11",
     "eslint": "5.1.0",

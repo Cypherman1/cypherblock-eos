@@ -1,0 +1,71 @@
+.search_bgr {
+  background-color: whitesmoke !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.eos-icon {
+  color: #bdbdbd;
+  display: inline-block;
+  font-size: 26px;
+  text-align: center;
+  vertical-align: middle;
+  width: 40px;
+}
+
+.header-col {
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mtext-font {
+  font-size: 16px !important;
+}
+
+.acc-name-font {
+  font-size: 14px !important;
+}
+
+.mi-margin {
+  margin-top: -10px !important;
+}
+.pd-marketinfo {
+  padding-bottom: 10px !important;
+}
+.pd {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.header-border {
+  border-width: 2px !important;
+}
+
+.wl-pb {
+  padding-bottom: 10px !important;
+}
+
+.img-logo {
+  width: 30px !important;
+}
+
+.pd-col {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+.price-font {
+  font-size: 12px !important;
+  font-weight: 600;
+}
+
+.price-row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.actions_font {
+  font-size: 11px !important;
+}

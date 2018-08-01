@@ -17,23 +17,23 @@ const keys = require('./config/keys');
 //process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 3000;
 
-process.on('unhandledRejection', onUnhandledError);
-process.on('uncaughtException', onUnhandledError);
+// process.on('unhandledRejection', onUnhandledError);
+// process.on('uncaughtException', onUnhandledError);
 
 const setupAppRoutes =
   process.env.NODE_ENV === 'production' ? require('./middlewares/production') : require('./middlewares/development');
 
 const app = express();
 
-function onUnhandledError(err) {
-  try {
-    logger.error(err);
-  } catch (e) {
-    console.log('LOGGER ERROR:', e); //eslint-disable-line no-console
-    console.log('APPLICATION ERROR:', err); //eslint-disable-line no-console
-  }
-  process.exit(1);
-}
+// function onUnhandledError(err) {
+//   try {
+//     logger.error(err);
+//   } catch (e) {
+//     console.log('LOGGER ERROR:', e); //eslint-disable-line no-console
+//     console.log('APPLICATION ERROR:', err); //eslint-disable-line no-console
+//   }
+//   process.exit(1);
+// }
 
 const MONGO_URI = keys.mongoURI;
 

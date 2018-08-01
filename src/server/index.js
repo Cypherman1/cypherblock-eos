@@ -14,14 +14,14 @@ const MongoStore = require('connect-mongo')(session);
 const schema = require('./schema/schema');
 const keys = require('./config/keys');
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-process.env.PORT = process.env.PORT || 3000;
+//process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+const PORT = process.env.PORT || 3000;
 
 process.on('unhandledRejection', onUnhandledError);
 process.on('uncaughtException', onUnhandledError);
 
 const setupAppRoutes =
-  process.env.NODE_ENV === 'development' ? require('./middlewares/development') : require('./middlewares/production');
+  process.env.NODE_ENV === 'production' ? require('./middlewares/production') : require('./middlewares/development');
 
 const app = express();
 
@@ -88,7 +88,7 @@ app.use(
   })
 );
 
-app.set('env', process.env.NODE_ENV);
+//app.set('env', process.env.NODE_ENV);
 logger.info(`Application env: ${process.env.NODE_ENV}`);
 
 app.use(logger.expressMiddleware);
@@ -98,6 +98,6 @@ app.use(bodyParser.json());
 //setupApiRoutes(app);
 setupAppRoutes(app);
 
-app.listen(process.env.PORT, () => {
-  logger.info(`HTTP server is now running on http://localhost:${process.env.PORT}`);
+app.listen(PORT, () => {
+  logger.info(`HTTP server is now running on http://localhost:${PORT}`);
 });

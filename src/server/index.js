@@ -15,7 +15,7 @@ const schema = require('./schema/schema');
 const keys = require('./config/keys');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-process.env.HTTP_PORT = process.env.HTTP_PORT || 3000;
+process.env.PORT = process.env.PORT || 3000;
 
 process.on('unhandledRejection', onUnhandledError);
 process.on('uncaughtException', onUnhandledError);
@@ -98,6 +98,6 @@ app.use(bodyParser.json());
 //setupApiRoutes(app);
 setupAppRoutes(app);
 
-http.createServer(app).listen(process.env.HTTP_PORT, () => {
-  logger.info(`HTTP server is now running on http://localhost:${process.env.HTTP_PORT}`);
+app.listen(process.env.PORT, () => {
+  logger.info(`HTTP server is now running on http://localhost:${process.env.PORT}`);
 });

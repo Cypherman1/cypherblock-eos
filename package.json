@@ -18,6 +18,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development node src/server",
     "start": "node build/server",
+    "local": "cross-env NODE_ENV=production node build/server",
     "prebuild": "rimraf build",
     "build": "npm run build:client && npm run build:server",
     "build:client": "cross-env NODE_ENV=production webpack -p --progress --config=config/webpack.config.prod.js",
@@ -109,6 +110,7 @@
     "express": "4.16.3",
     "express-graphql": "0.6.12",
     "express-session": "1.15.6",
+    "express-static-gzip": "^1.1.1",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "graphql-type-json": "^0.2.1",

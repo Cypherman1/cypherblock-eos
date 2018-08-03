@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {renderRamColor} from '../utils/RenderColors';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
 import ErrorPage from '../ErrorPage';
-import eoslogo from '../../assets/imgs/eoslogo1.svg';
+// import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import ErrorBoundary from '../ErrorBoundary';
 
@@ -181,9 +181,7 @@ class AccountInfo extends Component {
                 <div className="title-block row ">
                   <div className="col-12 col-sm-12 header-col">
                     <div className="pb-2 border-bottom header-border">
-                      <div className="ml-1 mr-2 eos-icon">
-                        <img src={eoslogo} />
-                      </div>
+                      <div className="ml-1 mr-2 eos-icon">{/* <img src={eoslogo} /> */}</div>
                       <div className="stat">
                         <div className="value text-info">{`${total_balance.toLocaleString('en', {
                           maximumSignificantDigits: 14

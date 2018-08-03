@@ -30,7 +30,7 @@ module.exports = merge(commonConfig, {
         minifyCSS: true,
         minifyURLs: true
       }
-    // }),
+    })
     // new CompressionPlugin({
     //   asset: '[path].gz[query]',
     //   algorithm: 'gzip',

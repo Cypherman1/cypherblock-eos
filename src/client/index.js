@@ -13,10 +13,17 @@ import {InMemoryCache} from 'apollo-cache-inmemory';
 import './assets/css/app-blue.css';
 import './assets/css/vendor.css';
 import './assets/css/custom.css';
+
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faMemory, faBolt, faMicrochip, faLock, faLockOpen, faKey} from '@fortawesome/free-solid-svg-icons';
+
+// import './assets/css/all.css';
 import Dashboard from './components/Dashboard';
 import LeftSideBar from './components/LeftSideBar';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
+library.add(faMemory, faBolt, faMicrochip, faLock, faLockOpen, faKey);
 
 class DynamicImport extends Component {
   state = {

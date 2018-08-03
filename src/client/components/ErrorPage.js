@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const ErrorPage = error => {
+const ErrorPage = (error) => {
   return (
     <article className="content error-404-page">
       <section className="section">

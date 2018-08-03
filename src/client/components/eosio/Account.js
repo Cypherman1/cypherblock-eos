@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-import MarketInfo from './MarketInfo';
+// import MarketInfo from './MarketInfo';
 import AccountInfo from './AccountInfo';
 import Wallet from './Wallet';
 import Actions from './Actions';
+import ErrorBoundary from '../ErrorBoundary';
 
 const Account = ({match}) => {
   return (
@@ -11,10 +12,16 @@ const Account = ({match}) => {
       <section className="section">
         <div className="row">
           <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-8 stats-col pd-col">
-            <AccountInfo account_name={match.params.account_name} />
-            <Actions account_name={match.params.account_name} />
+            <ErrorBoundary>
+              <AccountInfo account_name={match.params.account_name} />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <Actions account_name={match.params.account_name} />
+            </ErrorBoundary>
           </div>
-          <Wallet account_name={match.params.account_name} />
+          <ErrorBoundary>
+            <Wallet account_name={match.params.account_name} />
+          </ErrorBoundary>
           {/* <Wallet data={data} /> */}
           {/* <MarketInfo
               cmc={cmc}

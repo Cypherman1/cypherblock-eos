@@ -35,6 +35,7 @@
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.6",
     "babel-loader": "7.1.4",
+    "babel-plugin-transform-react-jsx-img-import": "^0.1.4",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.6.1",
     "babel-preset-react": "6.24.1",
@@ -90,6 +91,9 @@
     "whatwg-fetch": "2.0.4"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "^0.1.0-11",
     "apollo-cache-inmemory": "^1.3.0-beta.6",
     "apollo-client": "^2.3.7",
     "apollo-link": "^1.2.2",

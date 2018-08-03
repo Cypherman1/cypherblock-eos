@@ -4,6 +4,9 @@ import {Link} from 'react-router-dom';
 import {renderRamColor} from '../utils/RenderColors';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
 import ErrorPage from '../ErrorPage';
+import eoslogo from '../../assets/imgs/eoslogo1.svg';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import ErrorBoundary from '../ErrorBoundary';
 
 import GetAccountInfo from '../../queries/GetAccountInfo';
 
@@ -64,90 +67,94 @@ var account_name = '';
 
 class AccountInfo extends Component {
   getAccountInfo(account, table_rows) {
-    if (account) {
-      account_name = account.account_name;
-      if (account.total_resources) {
-        staked_net = Number(account.total_resources.net_weight.split(' ')[0]);
-      } else {
-        staked_net = 0;
-      }
-      //staked CPU ammount calculation
-      if (account.total_resources) {
-        staked_cpu = Number(account.total_resources.cpu_weight.split(' ')[0]);
-      } else {
-        staked_cpu = 0;
-      }
-      //unstake ammount calculation
-      if (account.core_liquid_balance) {
-        unstaked = Number(account.core_liquid_balance.split(' ')[0]);
-      } else {
-        unstaked = 0;
-      }
-      //Bandwidth refund ammount calculation
-      if (account.refund_request) {
-        refund_net = Number(account.refund_request.net_amount.split(' ')[0]);
-      } else {
-        refund_net = 0;
-      }
-      //CPU refund ammount calculation
-      if (account.refund_request) {
-        refund_cpu = Number(account.refund_request.cpu_amount.split(' ')[0]);
-      } else {
-        refund_cpu = 0;
-      }
+    try {
+      if (account) {
+        account_name = account.account_name;
+        if (account.total_resources) {
+          staked_net = Number(account.total_resources.net_weight.split(' ')[0]);
+        } else {
+          staked_net = 0;
+        }
+        //staked CPU ammount calculation
+        if (account.total_resources) {
+          staked_cpu = Number(account.total_resources.cpu_weight.split(' ')[0]);
+        } else {
+          staked_cpu = 0;
+        }
+        //unstake ammount calculation
+        if (account.core_liquid_balance) {
+          unstaked = Number(account.core_liquid_balance.split(' ')[0]);
+        } else {
+          unstaked = 0;
+        }
+        //Bandwidth refund ammount calculation
+        if (account.refund_request) {
+          refund_net = Number(account.refund_request.net_amount.split(' ')[0]);
+        } else {
+          refund_net = 0;
+        }
+        //CPU refund ammount calculation
+        if (account.refund_request) {
+          refund_cpu = Number(account.refund_request.cpu_amount.split(' ')[0]);
+        } else {
+          refund_cpu = 0;
+        }
 
-      if (account.voter_info) {
-        staked = Number(
-          account.voter_info.staked.substr(0, account.voter_info.staked.length - 4) +
-            '.' +
-            account.voter_info.staked.substr(account.voter_info.staked.length - 4)
-        );
-      } else {
-        staked = 0;
+        if (account.voter_info) {
+          staked = Number(
+            account.voter_info.staked.substr(0, account.voter_info.staked.length - 4) +
+              '.' +
+              account.voter_info.staked.substr(account.voter_info.staked.length - 4)
+          );
+        } else {
+          staked = 0;
+        }
+        //Total staked ammount
+        //staked = staked_cpu + staked_net;
+        //Total refund ammount calculation
+        refund = refund_cpu + refund_net;
+        //Tolal balance calculation
+        if (staked > 0) {
+          total_balance = staked + unstaked + refund;
+        } else {
+          total_balance = staked_cpu + staked_net + unstaked + refund;
+        }
+        //Banwidth limit
+        limited_net = formatBandUnits(Number(account.net_limit.max));
+        limited_cpu_num = Number(account.net_limit.max);
+        //Bandwidth used
+        used_net = formatBandUnits(Number(account.net_limit.used));
+        used_net_num = Number(account.net_limit.used);
+        //Bandwidth available
+        available_net = formatBandUnits(Number(account.net_limit.available));
+        //CPU limit
+        limited_cpu = formatCPUUnits(Number(account.cpu_limit.max));
+        limited_cpu_num = Number(account.cpu_limit.max);
+        //CPU used
+        used_cpu = formatCPUUnits(Number(account.cpu_limit.used));
+        used_cpu_num = Number(account.cpu_limit.used);
+        //CPU available
+        available_cpu = formatCPUUnits(Number(account.cpu_limit.available));
+        //RAM limited
+        if (account.total_resources) {
+          limited_ram = formatBandUnits(Number(account.total_resources.ram_bytes));
+          limited_ram_num = Number(account.total_resources.ram_bytes);
+        }
+        //RAM used
+        used_ram = formatBandUnits(Number(account.ram_usage));
+        ram_usage_num = Number(account.ram_usage);
+        //RAM price
+        ram_price = (
+          (Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
+            Number(table_rows.rows[0].base.balance.split(' ')[0])) *
+          1024
+        ).toFixed(8);
+        //EOS RAM equivalent
+        if (account.total_resources)
+          eos_ram_equivalent = ((Number(account.total_resources.ram_bytes) * ram_price) / 1024).toFixed(4);
       }
-      //Total staked ammount
-      //staked = staked_cpu + staked_net;
-      //Total refund ammount calculation
-      refund = refund_cpu + refund_net;
-      //Tolal balance calculation
-      if (staked > 0) {
-        total_balance = staked + unstaked + refund;
-      } else {
-        total_balance = staked_cpu + staked_net + unstaked + refund;
-      }
-      //Banwidth limit
-      limited_net = formatBandUnits(Number(account.net_limit.max));
-      limited_cpu_num = Number(account.net_limit.max);
-      //Bandwidth used
-      used_net = formatBandUnits(Number(account.net_limit.used));
-      used_net_num = Number(account.net_limit.used);
-      //Bandwidth available
-      available_net = formatBandUnits(Number(account.net_limit.available));
-      //CPU limit
-      limited_cpu = formatCPUUnits(Number(account.cpu_limit.max));
-      limited_cpu_num = Number(account.cpu_limit.max);
-      //CPU used
-      used_cpu = formatCPUUnits(Number(account.cpu_limit.used));
-      used_cpu_num = Number(account.cpu_limit.used);
-      //CPU available
-      available_cpu = formatCPUUnits(Number(account.cpu_limit.available));
-      //RAM limited
-      if (account.total_resources) {
-        limited_ram = formatBandUnits(Number(account.total_resources.ram_bytes));
-        limited_ram_num = Number(account.total_resources.ram_bytes);
-      }
-      //RAM used
-      used_ram = formatBandUnits(Number(account.ram_usage));
-      ram_usage_num = Number(account.ram_usage);
-      //RAM price
-      ram_price = (
-        (Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
-          Number(table_rows.rows[0].base.balance.split(' ')[0])) *
-        1024
-      ).toFixed(8);
-      //EOS RAM equivalent
-      if (account.total_resources)
-        eos_ram_equivalent = ((Number(account.total_resources.ram_bytes) * ram_price) / 1024).toFixed(4);
+    } catch (e) {
+      throw e;
     }
   }
   render() {
@@ -175,7 +182,7 @@ class AccountInfo extends Component {
                   <div className="col-12 col-sm-12 header-col">
                     <div className="pb-2 border-bottom header-border">
                       <div className="ml-1 mr-2 eos-icon">
-                        <img src="/assets/eoslogo1.svg" />
+                        <img src={eoslogo} />
                       </div>
                       <div className="stat">
                         <div className="value text-info">{`${total_balance.toLocaleString('en', {
@@ -191,7 +198,7 @@ class AccountInfo extends Component {
                 <div className="row row-sm stats-container">
                   <div className="col-12 col-sm-4 stat-col">
                     <div className="stat-icon text-secondary">
-                      <i className="fa fa-unlock" />
+                      <FontAwesomeIcon icon="lock-open" />
                     </div>
                     <div className="stat">
                       <div className="value">
@@ -212,7 +219,7 @@ class AccountInfo extends Component {
                   </div>
                   <div className="col-12 col-sm-4 stat-col">
                     <div className="stat-icon text-secondary">
-                      <i className="fa fa-lock" />
+                      <FontAwesomeIcon icon="lock" />
                     </div>
                     <div className="stat">
                       <div className="value">
@@ -233,7 +240,7 @@ class AccountInfo extends Component {
                   </div>
                   <div className="col-12 col-sm-4  stat-col">
                     <div className="stat-icon text-secondary">
-                      <i className="fa fa-key" />
+                      <FontAwesomeIcon icon="key" />
                     </div>
                     <div className="stat">
                       <div className="value">
@@ -254,7 +261,7 @@ class AccountInfo extends Component {
                   </div>
                   <div className="col-12 col-sm-4  stat-col">
                     <div className="stat-icon text-secondary">
-                      <i className="fa fa-memory" />
+                      <FontAwesomeIcon icon="memory" />
                     </div>
                     <div className="stat">
                       <div className="value">{`${used_ram}/${limited_ram}`}</div>
@@ -271,7 +278,7 @@ class AccountInfo extends Component {
                   </div>
                   <div className="col-12 col-sm-4  stat-col">
                     <div className="stat-icon text-secondary">
-                      <i className="fa fa-microchip" />
+                      <FontAwesomeIcon icon="microchip" />
                     </div>
                     <div className="stat">
                       <div className="value">{`${used_cpu}/${limited_cpu}`}</div>
@@ -290,7 +297,7 @@ class AccountInfo extends Component {
                   </div>
                   <div className="col-12 col-sm-4 stat-col">
                     <div className="stat-icon text-secondary">
-                      <i className="fa fa-exchange-alt" />
+                      <FontAwesomeIcon icon="bolt" />
                     </div>
                     <div className="stat">
                       <div className="value">{`${used_net}/${limited_net}`}</div>

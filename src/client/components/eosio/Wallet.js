@@ -6,6 +6,7 @@ import {renderPPColor} from '../utils/RenderColors';
 import GetWalletInfo from '../../queries/GetWalletInfo';
 import ErrorPage from '../ErrorPage';
 import {Query} from 'react-apollo';
+const images = require.context('../../assets/imgs/symbols');
 
 let AllTokens = [];
 
@@ -45,11 +46,12 @@ class Wallet extends Component {
   renderTokens() {
     let items = [];
     AllTokens.map((token) => {
+      let img_src = images(`./${token.logo}`);
       items.push(
         <div className="row row-sm stats-container border-bottom " key={token.name}>
           <div className="col stat-col pl-0">
             <div className="stat-icon">
-              <img src={token.logo} className="img-logo" />
+              <img src={img_src} className="img-logo" />
             </div>
             <div className="stat pl-1">
               <div className="value">

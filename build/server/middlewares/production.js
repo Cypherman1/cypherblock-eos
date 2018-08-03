@@ -1,11 +1,15 @@
 const {resolve} = require('path');
 const express = require('express');
-const compression = require('compression');
 
 const clientBuildPath = resolve(__dirname, '..', '..', 'client');
 
 module.exports = function setup(app) {
-  app.use(compression());
+  app.get('*.js', function(req, res, next) {
+    req.url += '.gz';
+    res.set('Content-Encoding', 'gzip');
+    next();
+  });
+
   app.use('/', express.static(clientBuildPath));
 
   // all other requests be handled by UI itself

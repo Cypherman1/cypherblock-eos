@@ -1,29 +1,49 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetActions from '../../queries/GetActions';
 import {Query} from 'react-apollo';
 import ErrorPage from '../ErrorPage';
 var action_digests_tmp = '';
 
 class Actions extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      buttonloading: false
+    };
+  }
   renderData(data) {
     let items = [];
     if (typeof data == 'object') {
       for (var name in data) {
-        items.push(
-          <div className="row" key={name}>
-            <a href="#" className="col">
-              {name}
-            </a>
-            <div className="col">
-              <div> {JSON.stringify(data[name])} </div>
+        if (['sender', 'receiver', 'from', 'to', 'voter', 'owner', 'proxy'].indexOf(name) >= 0)
+          items.push(
+            <div key={name} className="row">
+              <div className="col-3">{name}</div>
+              <div className="col-9">
+                <Link to={`/account/${JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)}`}>
+                  {JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)}
+                </Link>
+                {/* <div> {JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)} </div> */}
+              </div>
             </div>
-          </div>
-        );
+          );
+        else
+          items.push(
+            <div key={name} className="row">
+              <div className="col-3">{name}</div>
+              <div className="col-9">
+                <div> {JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)} </div>
+              </div>
+            </div>
+          );
       }
       return <div>{items}</div>;
     } else if (typeof data == 'string') {
       return <div className="wordbreak">{data}</div>;
     }
+    return null;
   }
 
   renderActions(action) {
@@ -31,19 +51,23 @@ class Actions extends Component {
       action_digests_tmp = action.action_trace.receipt.act_digest;
       return (
         <tr key={action.account_action_seq}>
-          <td>{action.account_action_seq}</td>
-          <td>{Date(action.block_time).toString()}</td>
-          <td>{action.action_trace.act.name}</td>
-          <td>{this.renderData(action.action_trace.act.data)}</td>
+          <td data-title="#" className="infostyle">
+            {action.account_action_seq}
+          </td>
+          <td data-title="Time">{new Date(action.block_time).toLocaleString('en-GB', {timeZone: 'UTC'})}</td>
+          <td data-title="Type">{action.action_trace.act.name}</td>
+          <td data-title="Info">{this.renderData(action.action_trace.act.data)}</td>
         </tr>
       );
     }
+    return null;
   }
 
   render() {
     return (
       <Query
         query={GetActions}
+        notifyOnNetworkStatusChange={true}
         variables={{
           account_name: this.props.account_name,
           pos: -1,
@@ -55,7 +79,7 @@ class Actions extends Component {
             return (
               <section className="section">
                 <div className="text-center">
-                  <i className="fa fa-spinner fa-spin fa-1x text-info" />
+                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
                 </div>
               </section>
               //   );
@@ -64,14 +88,14 @@ class Actions extends Component {
           return (
             <div className="card sameheight-item stats" data-exclude="xs">
               <div className="card-block">
-                <div className="table-responsive">
-                  <table className="table actions_font">
+                <div className="no-more-tables">
+                  <table className="table actions_font" style={{tableLayout: 'fixed', width: '100%'}}>
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>time</th>
-                        <th>type</th>
-                        <th>info</th>
+                        <th>Time</th>
+                        <th>Type</th>
+                        <th>Info</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -82,7 +106,6 @@ class Actions extends Component {
                     </tbody>
                   </table>
                 </div>
-
                 <button
                   type="button"
                   className="btn btn-secondary w-100"

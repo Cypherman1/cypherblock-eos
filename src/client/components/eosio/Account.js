@@ -10,7 +10,7 @@ const Account = ({match}) => {
   return (
     <article className="content dashboard-page">
       <section className="section">
-        <div className="row">
+        <div className="row m-0">
           <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-8 stats-col pd-col">
             <ErrorBoundary>
               <AccountInfo account_name={match.params.account_name} />

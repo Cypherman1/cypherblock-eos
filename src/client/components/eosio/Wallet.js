@@ -6,6 +6,7 @@ import {renderPPColor} from '../utils/RenderColors';
 import GetWalletInfo from '../../queries/GetWalletInfo';
 import ErrorPage from '../ErrorPage';
 import {Query} from 'react-apollo';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 const images = require.context('../../assets/imgs/symbols');
 
 let AllTokens = [];
@@ -48,7 +49,7 @@ class Wallet extends Component {
     AllTokens.map((token) => {
       let img_src = images(`./${token.logo}`);
       items.push(
-        <div className="row row-sm stats-container border-bottom " key={token.name}>
+        <div className="row row-sm stats-container border-bottom m-0" key={token.name}>
           <div className="col stat-col pl-0">
             <div className="stat-icon">
               <img src={img_src} className="img-logo" />
@@ -116,9 +117,9 @@ class Wallet extends Component {
         {({loading, error, data}) => {
           if (loading)
             return (
-              <section className="section">
+              <section className="section container">
                 <div className="text-center">
-                  <i className="fa fa-spinner fa-spin fa-1x text-info" />
+                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
                 </div>
               </section>
               //   );

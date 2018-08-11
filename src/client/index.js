@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import ApolloClient from 'apollo-client';
 import {ApolloProvider} from 'react-apollo';
 // import { Router, hashHistory, Route, IndexRoute } from "react-router";
-import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import {Router, Route, Switch} from 'react-router-dom';
 
 import {ApolloLink} from 'apollo-link';
 import {createHttpLink} from 'apollo-link-http';
@@ -11,19 +11,49 @@ import {onError} from 'apollo-link-error';
 import {InMemoryCache} from 'apollo-cache-inmemory';
 
 import './assets/css/app-blue.css';
-import './assets/css/vendor.css';
+//import './assets/css/vendor.css';
 import './assets/css/custom.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/metisMenu.min.css';
+import './assets/js/metisMenu.min.js';
+import './assets/js/sidebar.js';
+// import './components/utils/sidebar.js';
 
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faMemory, faBolt, faMicrochip, faLock, faLockOpen, faKey} from '@fortawesome/free-solid-svg-icons';
+import {
+  faMemory,
+  faBolt,
+  faMicrochip,
+  faLock,
+  faLockOpen,
+  faKey,
+  faSpinner,
+  faBars,
+  faSearch,
+  faHome,
+  faChalkboardTeacher
+} from '@fortawesome/free-solid-svg-icons';
 
 // import './assets/css/all.css';
 import Dashboard from './components/Dashboard';
 import LeftSideBar from './components/LeftSideBar';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import history from './components/history';
 
-library.add(faMemory, faBolt, faMicrochip, faLock, faLockOpen, faKey);
+library.add(
+  faMemory,
+  faBolt,
+  faMicrochip,
+  faLock,
+  faLockOpen,
+  faKey,
+  faSpinner,
+  faBars,
+  faSearch,
+  faHome,
+  faChalkboardTeacher
+);
 
 class DynamicImport extends Component {
   state = {
@@ -68,7 +98,7 @@ const client = new ApolloClient({
 const Root = () => {
   return (
     <ApolloProvider client={client}>
-      <Router>
+      <Router history={history}>
         <div id="main-wrapper">
           <div className="app" id="app">
             <Header />

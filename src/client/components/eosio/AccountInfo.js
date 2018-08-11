@@ -165,7 +165,7 @@ class AccountInfo extends Component {
             return (
               <section className="section">
                 <div className="text-center">
-                  <i className="fa fa-spinner fa-spin fa-1x text-info" />
+                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
                 </div>
               </section>
               //   );
@@ -178,7 +178,7 @@ class AccountInfo extends Component {
           return (
             <div className="card sameheight-item stats" data-exclude="xs">
               <div className="card-block">
-                <div className="title-block row ">
+                <div className="title-block row m-0">
                   <div className="col-12 col-sm-12 header-col">
                     <div className="pb-2 border-bottom header-border">
                       <div className="ml-1 mr-2 eos-icon">
@@ -195,7 +195,7 @@ class AccountInfo extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="row row-sm stats-container">
+                <div className="row row-sm stats-container m-0">
                   <div className="col-12 col-sm-4 stat-col">
                     <div className="stat-icon text-secondary">
                       <FontAwesomeIcon icon="lock-open" />

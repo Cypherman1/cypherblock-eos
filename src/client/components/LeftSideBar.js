@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { graphql } from "react-apollo";
-import query from "../queries/CurrentUser";
-import Sidebar from "./SideBar";
+import React, {Component} from 'react';
+import {graphql} from 'react-apollo';
+import query from '../queries/CurrentUser';
+import Sidebar from './SideBar';
 
 class LeftSideBar extends Component {
   render() {
-    const { loadding, user } = this.props.data;
+    const {loadding, user} = this.props.data;
     if (loadding) {
       return <Sidebar />;
     }

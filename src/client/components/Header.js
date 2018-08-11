@@ -1,32 +1,34 @@
-import React, { Component } from "react";
-import { graphql } from "react-apollo";
-import { Link, hashHistory } from "react-router";
-import query from "../queries/CurrentUser";
-import mutation from "../mutations/Logout";
+import React, {Component} from 'react';
+import {graphql} from 'react-apollo';
+import query from '../queries/CurrentUser';
+import mutation from '../mutations/Logout';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import history from './history';
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      term: ""
+      term: ''
     };
     this.submit = this.submit.bind(this);
     this.changeTerm = this.changeTerm.bind(this);
   }
   changeTerm(event) {
-    this.setState({ term: event.target.value });
+    this.setState({term: event.target.value});
   }
   submit(event) {
-    this.props.history.push(`/account/${this.state.term}`);
+    event.preventDefault();
+    history.push(`/account/${this.state.term}`);
   }
 
   onLogoutClick() {
     this.props.mutate({
-      refetchQueries: [{ query }]
+      refetchQueries: [{query}]
     });
   }
   render() {
-    const { loadding, user } = this.props.data;
+    const {loadding, user} = this.props.data;
     if (loadding) {
       return <div />;
     }
@@ -35,18 +37,14 @@ class Header extends Component {
         <header className="header">
           <div className="header-block header-block-collapse d-lg-none d-xl-none">
             <button className="collapse-btn" id="sidebar-collapse-btn">
-              <i className="fa fa-bars" />
+              <FontAwesomeIcon icon="lock-open" />
             </button>
           </div>
           <div className="header-block">
             <form role="search" onSubmit={this.submit}>
               <div className="input-container">
                 <i className="fa fa-search" />
-                <input
-                  type="search"
-                  placeholder="Search"
-                  onChange={this.changeTerm}
-                />
+                <input type="search" placeholder="AccountName/Public Key/Tx" onChange={this.changeTerm} />
                 <div className="underline" />
               </div>
             </form>
@@ -66,22 +64,19 @@ class Header extends Component {
                   <div className="img" />
                   <span className="name"> </span>
                 </a>
-                <div
-                  className="dropdown-menu profile-dropdown-menu"
-                  aria-labelledby="dropdownMenu1"
-                >
+                <div className="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                   <a className="dropdown-item" href="#">
-                    <i className="fa fa-user icon" /> Profile{" "}
+                    <i className="fa fa-user icon" /> Profile{' '}
                   </a>
                   <a className="dropdown-item" href="#">
-                    <i className="fa fa-bell icon" /> Notifications{" "}
+                    <i className="fa fa-bell icon" /> Notifications{' '}
                   </a>
                   <a className="dropdown-item" href="#">
-                    <i className="fa fa-gear icon" /> Settings{" "}
+                    <i className="fa fa-gear icon" /> Settings{' '}
                   </a>
                   <div className="dropdown-divider" />
                   <a className="dropdown-item" href="login.html">
-                    <i className="fa fa-power-off icon" /> Logout{" "}
+                    <i className="fa fa-power-off icon" /> Logout{' '}
                   </a>
                 </div>
               </li>
@@ -94,24 +89,19 @@ class Header extends Component {
         <header className="header">
           <div className="header-block header-block-collapse d-lg-none d-xl-none">
             <button className="collapse-btn" id="sidebar-collapse-btn">
-              <i className="fa fa-bars" />
+              <FontAwesomeIcon icon="bars" />
             </button>
           </div>
-          <div className="header-block header-block-search w-100">
-            <form
-              role="search"
-              className="float-left w-100"
-              onSubmit={this.submit}
-            >
+          <div className="header-block header-block-search container pt-2">
+            <form role="search" className="float-left card w-100" onSubmit={this.submit}>
               <div className="input-container">
-                <i className="fa fa-search ml-2" />
                 <input
                   type="search"
-                  placeholder="Search"
-                  className="w-100 ml-2"
+                  placeholder="Search by ACCOUNT/PUBKEY/TX"
+                  className="search_font w-100 form-control"
                   onChange={this.changeTerm}
+                  name="search"
                 />
-                <div className="underline" />
               </div>
             </form>
           </div>
@@ -129,22 +119,19 @@ class Header extends Component {
                   <div className="img" />
                   <span className="name"> </span>
                 </a>
-                <div
-                  className="dropdown-menu profile-dropdown-menu"
-                  aria-labelledby="dropdownMenu1"
-                >
+                <div className="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                   <a className="dropdown-item" href="#">
-                    <i className="fa fa-user icon" /> Profile{" "}
+                    <i className="fa fa-user icon" /> Profile{' '}
                   </a>
                   <a className="dropdown-item" href="#">
-                    <i className="fa fa-bell icon" /> Notifications{" "}
+                    <i className="fa fa-bell icon" /> Notifications{' '}
                   </a>
                   <a className="dropdown-item" href="#">
-                    <i className="fa fa-gear icon" /> Settings{" "}
+                    <i className="fa fa-gear icon" /> Settings{' '}
                   </a>
                   <div className="dropdown-divider" />
                   <a className="dropdown-item" href="login.html">
-                    <i className="fa fa-power-off icon" /> Logout{" "}
+                    <i className="fa fa-power-off icon" /> Logout{' '}
                   </a>
                 </div>
               </li>

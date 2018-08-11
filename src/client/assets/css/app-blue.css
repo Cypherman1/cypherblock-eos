@@ -2375,7 +2375,7 @@ span a {
 .sidebar .sidebar-menu li a:hover,
 .sidebar .sidebar-menu li.open > a,
 .sidebar .sidebar-menu li.open a:hover {
-  color: #ffffff;
+  color: #ffffff!important;
   background-color: #2d363f;
 }
 .sidebar .sidebar-menu .arrow {

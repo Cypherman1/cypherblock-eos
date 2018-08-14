@@ -11,10 +11,10 @@ var tmp_total_balance_ramincluded = 0;
 var tmp_to_fiat = 0;
 
 const renderToFiatColor = (to_fiat) => {
-  if (to_fiat > tmp_to_fiat) {
+  if (to_fiat > tmp_to_fiat && tmp_to_fiat > 0) {
     tmp_to_fiat = to_fiat;
     return <span className="text-success">{to_fiat.toLocaleString('en')}</span>;
-  } else if (to_fiat == tmp_to_fiat) {
+  } else if (to_fiat == tmp_to_fiat || tmp_to_fiat == 0) {
     tmp_to_fiat = to_fiat;
     return <span className="text-secondary">{to_fiat.toLocaleString('en')}</span>;
   } else if (to_fiat < tmp_to_fiat) {
@@ -24,7 +24,7 @@ const renderToFiatColor = (to_fiat) => {
 };
 
 const renderTotalBalanceRAMColor = (total_balance_ramincluded) => {
-  if (total_balance_ramincluded > tmp_total_balance_ramincluded) {
+  if (total_balance_ramincluded > tmp_total_balance_ramincluded && tmp_total_balance_ramincluded > 0) {
     tmp_total_balance_ramincluded = total_balance_ramincluded;
     return (
       <span className="text-success">
@@ -33,7 +33,7 @@ const renderTotalBalanceRAMColor = (total_balance_ramincluded) => {
         })}
       </span>
     );
-  } else if (total_balance_ramincluded == tmp_total_balance_ramincluded) {
+  } else if (total_balance_ramincluded == tmp_total_balance_ramincluded || tmp_total_balance_ramincluded == 0) {
     tmp_total_balance_ramincluded = total_balance_ramincluded;
     return (
       <span className="text-secondary">
@@ -55,7 +55,7 @@ const renderTotalBalanceRAMColor = (total_balance_ramincluded) => {
 };
 
 const renderRamColor = (eos_ram_equivalent) => {
-  if (eos_ram_equivalent > tmp_ram) {
+  if (eos_ram_equivalent > tmp_ram && tmp_ram > 0) {
     tmp_ram = eos_ram_equivalent;
     return (
       <span className="text-success">
@@ -64,7 +64,7 @@ const renderRamColor = (eos_ram_equivalent) => {
         })}
       </span>
     );
-  } else if (eos_ram_equivalent == tmp_ram) {
+  } else if (eos_ram_equivalent == tmp_ram || tmp_ram == 0) {
     tmp_ram = eos_ram_equivalent;
     return (
       <span className="text-secondary">

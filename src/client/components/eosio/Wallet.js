@@ -50,18 +50,18 @@ class Wallet extends Component {
       let img_src = images(`./${token.logo}`);
       items.push(
         <div className="row row-sm stats-container border-bottom m-0" key={token.name}>
-          <div className="col stat-col pl-0">
+          <div className="col-8 stat-col p-0">
             <div className="stat-icon">
               <img src={img_src} className="img-logo" />
             </div>
-            <div className="stat pl-1">
+            <div className="stat">
               <div className="value">
                 {token.ammount.toLocaleString('en', {
                   maximumSignificantDigits: 17
                 })}
               </div>
               <div className="name">
-                {token.name} ({(token.ammount * token.price).toFixed(4)} EOS)
+                {token.name} ({Number((token.ammount * token.price).toFixed(4)).toLocaleString('en')} EOS)
               </div>
             </div>
           </div>
@@ -74,8 +74,7 @@ class Wallet extends Component {
   renderBitfinexPrice(token) {
     if (token.price > 0) {
       return (
-        <div className="col pt-1">
-          <div className="stat-icon" />
+        <div className="col-4 p-0">
           <div className="stat float-right">
             <div className="value text-right">{token.price}</div>
             <div className="name float-right">{renderPPColor((token.percent * 100).toFixed(2))}</div>
@@ -131,19 +130,15 @@ class Wallet extends Component {
           return (
             <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">
               <div className="card sameheight-item stats" data-exclude="xs">
+                <div className="card-header card-header-sm bg-light shadow-sm">
+                  <div className="header-block pl-3">
+                    <FontAwesomeIcon icon="wallet" className="mr-2 text-info" />
+                    <h5 className="title text-info ">Wallet</h5>
+                  </div>
+                </div>
                 <div className="card-block">
                   <div className="title-block row ">
                     <div className="col-12 col-sm-12 header-col">
-                      <div className="wl-pb border-bottom header-border ">
-                        <div className="stat-icon">
-                          <i className="fa fa-wallet" />
-                        </div>
-                        <div className="stat">
-                          <div className="value text-info" />
-                          <div className="name acc-name-font" />
-                        </div>
-                      </div>
-
                       <div className="row border-bottom price-row">
                         <div className="col float-left price-font pl-2"> Tokens </div>
                         <div className="col text-right price-font pr-1">Price (Token/EOS)</div>

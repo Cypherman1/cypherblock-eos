@@ -86,13 +86,13 @@ class Header extends Component {
       );
     } else {
       return (
-        <header className="header">
+        <header className="header shadow-sm bg-light">
           <div className="header-block header-block-collapse d-lg-none d-xl-none">
             <button className="collapse-btn" id="sidebar-collapse-btn">
               <FontAwesomeIcon icon="bars" />
             </button>
           </div>
-          <div className="header-block header-block-search container pt-2">
+          <div className="header-block header-block-search w-100 pr-2 pt-2">
             <form role="search" className="float-left card w-100" onSubmit={this.submit}>
               <div className="input-container">
                 <input
@@ -105,7 +105,7 @@ class Header extends Component {
               </div>
             </form>
           </div>
-          <div className="header-block header-block-nav">
+          {/* <div className="header-block header-block-nav">
             <ul className="nav-profile">
               <li className="profile dropdown">
                 <a
@@ -136,7 +136,7 @@ class Header extends Component {
                 </div>
               </li>
             </ul>
-          </div>
+          </div> */}
         </header>
       );
     }

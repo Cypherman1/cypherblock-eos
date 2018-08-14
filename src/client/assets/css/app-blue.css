@@ -937,7 +937,7 @@ pre {
 }
 .card .card-header {
   background-image: none;
-  background-color: #ffffff;
+  background-color: #d7dde4;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -3492,11 +3492,7 @@ span a {
   padding-left: 25px;
   height: 40px;
 }
-@media (max-width: 767.98px) {
-  .header .header-block-search .input-container input {
-    max-width: 400px;
-  }
-}
+
 .header .header-block-search .input-container input:focus + .underline {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);

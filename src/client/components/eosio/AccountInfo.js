@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {Link} from 'react-router-dom';
-import {renderRamColor} from '../utils/RenderColors';
+import {renderRamColor, renderTotalBalanceRAMColor, renderToFiatColor} from '../utils/RenderColors';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
 import ErrorPage from '../ErrorPage';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
@@ -28,6 +28,8 @@ var tmp = 0;
 
 var total_balance = 0;
 
+var total_balance_ramincluded = 0;
+
 var ram_price = 0;
 
 var ram_reserve = 0;
@@ -45,6 +47,9 @@ var used_net_num = 0;
 var limited_cpu_num = 0;
 
 var used_cpu_num = 0;
+
+var to_fiat = 0;
+
 var limited_net = '';
 
 var limited_cpu = '';
@@ -66,7 +71,7 @@ var availabe_ram = '';
 var account_name = '';
 
 class AccountInfo extends Component {
-  getAccountInfo(account, table_rows) {
+  getAccountInfo(account, table_rows, cmc) {
     try {
       if (account) {
         account_name = account.account_name;
@@ -152,6 +157,11 @@ class AccountInfo extends Component {
         //EOS RAM equivalent
         if (account.total_resources)
           eos_ram_equivalent = ((Number(account.total_resources.ram_bytes) * ram_price) / 1024).toFixed(4);
+
+        if (total_balance && eos_ram_equivalent) {
+          total_balance_ramincluded = total_balance + Number(eos_ram_equivalent);
+          if (cmc.data.quotes.USD.price) to_fiat = total_balance_ramincluded * Number(cmc.data.quotes.USD.price);
+        }
       }
     } catch (e) {
       throw e;
@@ -173,30 +183,56 @@ class AccountInfo extends Component {
 
           if (error) return <ErrorPage error={error} />;
 
-          const {account, table_rows} = data;
-          this.getAccountInfo(account, table_rows);
+          const {account, table_rows, cmc} = data;
+          this.getAccountInfo(account, table_rows, cmc);
           return (
             <div className="card sameheight-item stats" data-exclude="xs">
-              <div className="card-block">
-                <div className="title-block row m-0">
-                  <div className="col-12 col-sm-12 header-col">
+              <div className="card-header card-header-sm bg-light shadow-sm">
+                <div className="header-block pl-3">
+                  <FontAwesomeIcon icon="user" className="mr-2 text-info" />
+                  <h5 className="title">
+                    <Link to={`/account/${account_name}`}>{account_name}</Link>
+                  </h5>
+                </div>
+              </div>
+              <div className="card-block ">
+                <div className="row row-sm stats-container m-0">
+                  <div className="col-12 col-sm-4 stat-col p-1">
                     <div className="pb-2 border-bottom header-border">
-                      <div className="ml-1 mr-2 eos-icon">
+                      <div className="mr-2 eos-icon">
                         <img src={eoslogo} />
                       </div>
                       <div className="stat">
-                        <div className="value text-info">{`${total_balance.toLocaleString('en', {
+                        <div className="value">{`${total_balance.toLocaleString('en', {
                           maximumSignificantDigits: 14
                         })} EOS`}</div>
-                        <div className="name acc-name-font">
-                          <Link to={`/account/${account_name}`}>{account_name}</Link>
-                        </div>
+                        <div className="name">Balance</div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="row row-sm stats-container m-0">
-                  <div className="col-12 col-sm-4 stat-col">
+                  <div className="col-12 col-sm-4 stat-col p-1">
+                    <div className="pb-2 border-bottom header-border">
+                      <div className="mr-2 eos-icon">
+                        <img src={eoslogo} />
+                      </div>
+                      <div className="stat">
+                        <div className="value">{renderTotalBalanceRAMColor(total_balance_ramincluded)} EOS</div>
+                        <div className="name">Balance(including RAM)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-sm-4 stat-col p-1">
+                    <div className="pb-2 border-bottom header-border">
+                      <div className="stat-icon text-secondary">
+                        <FontAwesomeIcon icon="dollar-sign" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">{renderToFiatColor(to_fiat)} USD</div>
+                        <div className="name">To fiat</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-sm-4 stat-col p-1">
                     <div className="stat-icon text-secondary">
                       <FontAwesomeIcon icon="lock-open" />
                     </div>
@@ -217,7 +253,7 @@ class AccountInfo extends Component {
                       />
                     </div>
                   </div>
-                  <div className="col-12 col-sm-4 stat-col">
+                  <div className="col-12 col-sm-4 stat-col p-1">
                     <div className="stat-icon text-secondary">
                       <FontAwesomeIcon icon="lock" />
                     </div>
@@ -238,7 +274,7 @@ class AccountInfo extends Component {
                       />
                     </div>
                   </div>
-                  <div className="col-12 col-sm-4  stat-col">
+                  <div className="col-12 col-sm-4  stat-col p-1">
                     <div className="stat-icon text-secondary">
                       <FontAwesomeIcon icon="key" />
                     </div>
@@ -259,7 +295,7 @@ class AccountInfo extends Component {
                       />
                     </div>
                   </div>
-                  <div className="col-12 col-sm-4  stat-col">
+                  <div className="col-12 col-sm-4  stat-col p-1">
                     <div className="stat-icon text-secondary">
                       <FontAwesomeIcon icon="memory" />
                     </div>
@@ -276,7 +312,7 @@ class AccountInfo extends Component {
                       />
                     </div>
                   </div>
-                  <div className="col-12 col-sm-4  stat-col">
+                  <div className="col-12 col-sm-4  stat-col p-1">
                     <div className="stat-icon text-secondary">
                       <FontAwesomeIcon icon="microchip" />
                     </div>
@@ -295,7 +331,7 @@ class AccountInfo extends Component {
                       />
                     </div>
                   </div>
-                  <div className="col-12 col-sm-4 stat-col">
+                  <div className="col-12 col-sm-4 stat-col p-1">
                     <div className="stat-icon text-secondary">
                       <FontAwesomeIcon icon="bolt" />
                     </div>

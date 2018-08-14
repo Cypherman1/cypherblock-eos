@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 export default gql`
   query get_account_info($account_name: String!) {
@@ -37,13 +37,23 @@ export default gql`
         is_proxy
       }
     }
-    table_rows(
-      json: "true"
-      code: "eosio"
-      scope: "eosio"
-      table: "rammarket"
-      limit: "10"
-    ) {
+    cmc {
+      data {
+        quotes {
+          USD {
+            price
+            volume_24h
+            market_cap
+            percent_change_24h
+          }
+        }
+      }
+      metadata {
+        timestamp
+        error
+      }
+    }
+    table_rows(json: "true", code: "eosio", scope: "eosio", table: "rammarket", limit: "10") {
       rows {
         supply
         base {

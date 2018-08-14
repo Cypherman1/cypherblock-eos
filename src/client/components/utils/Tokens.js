@@ -11,7 +11,7 @@ export const Tokens = [
     code: 'everipediaiq',
     account: 'giztemrug4ge',
     symbol: 'IQ',
-    logo: 'IQX.png',
+    logo: 'IQX.svg',
     bitfinex_pair: 'tIQXEOS',
     chaince_pair: ''
   },
@@ -40,18 +40,10 @@ export const Tokens = [
     chaince_pair: ''
   },
   {
-    code: 'challengedac',
-    account: 'giztemrug4ge',
-    symbol: 'CHL',
-    logo: 'CHL.jpg',
-    bitfinex_pair: '',
-    chaince_pair: ''
-  },
-  {
     code: 'therealkarma',
     account: 'giztemrug4ge',
     symbol: 'KARMA',
-    logo: 'KARMA.jpg',
+    logo: 'KARMA.png',
     bitfinex_pair: '',
     chaince_pair: ''
   },
@@ -80,10 +72,106 @@ export const Tokens = [
     chaince_pair: ''
   },
   {
+    code: 'challengedac',
+    account: 'giztemrug4ge',
+    symbol: 'CHL',
+    logo: 'CHL.jpg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
     code: 'eosblackteam',
     account: 'giztemrug4ge',
     symbol: 'BLACK',
-    logo: 'BLACK.png',
+    logo: 'BLACK.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'oo1122334455',
+    account: '',
+    symbol: 'IPOS',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'ethsidechain',
+    account: '',
+    symbol: 'EETH',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'eoxeoxeoxeox',
+    account: '',
+    symbol: 'EOX',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'esbcointoken',
+    account: '',
+    symbol: 'ESB',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'eosvrtokenss',
+    account: '',
+    symbol: 'EVR',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'irespotokens',
+    account: '',
+    symbol: 'IRESPO',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'octtothemoon',
+    account: '',
+    symbol: 'OCT',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'poormantoken',
+    account: '',
+    symbol: 'POOR',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'ridlridlcoin',
+    account: '',
+    symbol: 'RIDL',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'trybenetwork',
+    account: '',
+    symbol: 'TRYBE',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'wizznetwork1',
+    account: '',
+    symbol: 'WIZZ',
+    logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
     chaince_pair: ''
   }

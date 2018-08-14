@@ -50,9 +50,9 @@ class Actions extends Component {
     if (action.action_trace.receipt.act_digest !== action_digests_tmp) {
       action_digests_tmp = action.action_trace.receipt.act_digest;
       return (
-        <tr key={action.account_action_seq}>
+        <tr key={action.global_action_seq}>
           <td data-title="#" className="infostyle">
-            {action.account_action_seq}
+            {action.global_action_seq}
           </td>
           <td data-title="Time">{new Date(action.block_time).toLocaleString('en-GB', {timeZone: 'UTC'})}</td>
           <td data-title="Type">{action.action_trace.act.name}</td>
@@ -87,7 +87,13 @@ class Actions extends Component {
           if (error) return <ErrorPage error={error} />;
           return (
             <div className="card sameheight-item stats" data-exclude="xs">
-              <div className="card-block">
+              <div className="card-header card-header-sm bg-light shadow-sm">
+                <div className="header-block pl-3">
+                  <FontAwesomeIcon icon="list-alt" className="mr-2 text-info" />
+                  <h5 className="title text-info">Recent actions</h5>
+                </div>
+              </div>
+              <div className="card-block pt-0">
                 <div className="no-more-tables">
                   <table className="table actions_font" style={{tableLayout: 'fixed', width: '100%'}}>
                     <thead>

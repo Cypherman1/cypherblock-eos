@@ -31,7 +31,11 @@ import {
   faBars,
   faSearch,
   faHome,
-  faChalkboardTeacher
+  faChalkboardTeacher,
+  faListAlt,
+  faUser,
+  faWallet,
+  faDollarSign
 } from '@fortawesome/free-solid-svg-icons';
 
 // import './assets/css/all.css';
@@ -52,7 +56,11 @@ library.add(
   faBars,
   faSearch,
   faHome,
-  faChalkboardTeacher
+  faChalkboardTeacher,
+  faListAlt,
+  faUser,
+  faWallet,
+  faDollarSign
 );
 
 class DynamicImport extends Component {

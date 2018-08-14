@@ -123,7 +123,14 @@ class Wallet extends Component {
               </section>
               //   );
             );
-          if (error) return <ErrorPage error={error} />;
+          if (error)
+            return (
+              <section className="section container">
+                <div className="text-center">
+                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
+                </div>
+              </section>
+            );
           const {bitfinex_pairs} = data;
 
           this.setAllTokens(data, bitfinex_pairs);

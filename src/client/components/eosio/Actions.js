@@ -45,22 +45,68 @@ class Actions extends Component {
     }
     return null;
   }
-
+  renderDefaultAction(action) {
+    return (
+      <tr key={action.global_action_seq}>
+        <td data-title="#" className="infostyle">
+          {action.global_action_seq}
+        </td>
+        <td data-title="Time">{new Date(action.block_time).toLocaleString('en-GB', {timeZone: 'UTC'})}</td>
+        <td data-title="Type">
+          <div className=" p-1 d-inline bg-warning text-light rounded ">{action.action_trace.act.name}</div>
+        </td>
+        <td data-title="Info">{this.renderData(action.action_trace.act.data)}</td>
+      </tr>
+    );
+  }
+  renderAccountLink(accountName) {
+    return <Link to={`/account/${accountName}`}>{accountName}</Link>;
+  }
+  renderReceivedAction(action) {
+    return (
+      <tr key={action.global_action_seq}>
+        <td data-title="#" className="infostyle">
+          {action.global_action_seq}
+        </td>
+        <td data-title="Time">{new Date(action.block_time).toLocaleString('en-GB', {timeZone: 'UTC'})}</td>
+        <td data-title="Type">
+          <div className=" p-1 d-inline bg-success text-light rounded ">Received</div>
+        </td>
+        <td data-title="Info">
+          <div className="actinfo-font">
+            <span className="text-info">{action.action_trace.act.data.quantity}</span> {` from `}
+            {this.renderAccountLink(action.action_trace.act.data.from)}
+          </div>
+          <div>
+            <span className="font-weight-bold">{`Memo: `}</span>
+            {action.action_trace.act.data.memo}
+          </div>
+        </td>
+      </tr>
+    );
+  }
   renderActions(action) {
     if (action.action_trace.receipt.act_digest !== action_digests_tmp) {
       action_digests_tmp = action.action_trace.receipt.act_digest;
-      return (
-        <tr key={action.global_action_seq}>
-          <td data-title="#" className="infostyle">
-            {action.global_action_seq}
-          </td>
-          <td data-title="Time">{new Date(action.block_time).toLocaleString('en-GB', {timeZone: 'UTC'})}</td>
-          <td data-title="Type">{action.action_trace.act.name}</td>
-          <td data-title="Info">{this.renderData(action.action_trace.act.data)}</td>
-        </tr>
-      );
+      switch (action.action_trace.act.name) {
+        case 'transfer':
+          switch (action.action_trace.act.account) {
+            case 'eosio.token':
+              if (
+                action.action_trace.receipt.receiver == this.props.account_name &&
+                action.action_trace.act.data.to == this.props.account_name
+              )
+                return this.renderReceivedAction(action);
+              else {
+                return this.renderDefaultAction(action);
+              }
+            default:
+              return this.renderDefaultAction(action);
+          }
+        default:
+          return this.renderDefaultAction(action);
+      }
     }
-    return null;
   }
 
   render() {
@@ -84,7 +130,14 @@ class Actions extends Component {
               </section>
               //   );
             );
-          if (error) return <ErrorPage error={error} />;
+          if (error)
+            return (
+              <section className="section">
+                <div className="text-center">
+                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
+                </div>
+              </section>
+            );
           return (
             <div className="card sameheight-item stats" data-exclude="xs">
               <div className="card-header card-header-sm bg-light shadow-sm">

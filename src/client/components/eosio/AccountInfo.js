@@ -149,11 +149,12 @@ class AccountInfo extends Component {
         used_ram = formatBandUnits(Number(account.ram_usage));
         ram_usage_num = Number(account.ram_usage);
         //RAM price
-        ram_price = (
-          (Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
-            Number(table_rows.rows[0].base.balance.split(' ')[0])) *
-          1024
-        ).toFixed(8);
+        if (table_rows)
+          ram_price = (
+            (Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
+              Number(table_rows.rows[0].base.balance.split(' ')[0])) *
+            1024
+          ).toFixed(8);
         //EOS RAM equivalent
         if (account.total_resources)
           eos_ram_equivalent = ((Number(account.total_resources.ram_bytes) * ram_price) / 1024).toFixed(4);
@@ -181,7 +182,14 @@ class AccountInfo extends Component {
               //   );
             );
 
-          if (error) return <ErrorPage error={error} />;
+          if (error)
+            return (
+              <section className="section">
+                <div className="text-center">
+                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
+                </div>
+              </section>
+            );
 
           const {account, table_rows, cmc} = data;
           this.getAccountInfo(account, table_rows, cmc);

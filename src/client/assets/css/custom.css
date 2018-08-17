@@ -57,6 +57,25 @@ a {
   width: 30px !important;
 }
 
+.bg-received {
+  background-color: #41c4ff;
+}
+.bg-vote {
+  background-color: #f262d3;
+}
+.bg-senttoken {
+  background-color: #fc4a1a;
+}
+.bg-delegatebw {
+  background-color: #9574ea;
+}
+.bg-sent {
+  background-color: #ff7d00;
+}
+.bg-default {
+  background-color: #ffd500;
+}
+
 .pd-col {
   padding-left: 5px !important;
   padding-right: 5px !important;
@@ -74,6 +93,11 @@ a {
 
 .actions_font {
   font-size: 11px !important;
+}
+
+.read-more-button {
+  color: green !important;
+  cursor: pointer;
 }
 
 .wordbreak {

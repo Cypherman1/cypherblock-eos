@@ -6662,6 +6662,10 @@ read-chunk@^2.1.0:
     pify "^3.0.0"
     safe-buffer "^5.1.1"
 
+read-more-react@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/read-more-react/-/read-more-react-1.0.6.tgz#cfb2797f62e8a1d1abfa154df82784db65e2c270"
+
 read-pkg-up@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/read-pkg-up/-/read-pkg-up-1.0.1.tgz#9d63c13276c065918d57f002a57f40a1b643fb02"

@@ -2247,7 +2247,7 @@ span a {
 
 .header {
   background-color: #d7dde4;
-  height: 50px;
+  height: 52px;
   position: absolute;
   left: 240px;
   right: 0;
@@ -2834,7 +2834,7 @@ span a {
 
 .dashboard-page .stats .stat-progress {
   height: 2px;
-  margin: 5px 0;
+  margin: 3px 0;
   color: #52bcd3;
   background-color: #dddddd;
 }

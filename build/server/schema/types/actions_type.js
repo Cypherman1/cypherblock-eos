@@ -1,90 +1,83 @@
-const GraphQLJSON = require("graphql-type-json");
+const GraphQLJSON = require('graphql-type-json');
 
-const graphql = require("graphql");
+const graphql = require('graphql');
 
-const {
-  GraphQLObjectType,
-  GraphQLList,
-  GraphQLID,
-  GraphQLInt,
-  GraphQLString,
-  GraphQLBoolean
-} = graphql;
+const {GraphQLObjectType, GraphQLList, GraphQLInt, GraphQLString} = graphql;
 
 const ReceiptType = new GraphQLObjectType({
-  name: "ReceiptType",
+  name: 'ReceiptType',
   fields: () => ({
-    receiver: { type: GraphQLString },
-    act_digest: { type: GraphQLString },
-    global_sequence: { type: GraphQLInt },
-    recv_sequence: { type: GraphQLInt },
-    auth_sequence: { type: new GraphQLList(GraphQLList(GraphQLString)) },
-    code_sequence: { type: GraphQLInt },
-    abi_sequence: { type: GraphQLInt }
+    receiver: {type: GraphQLString},
+    act_digest: {type: GraphQLString},
+    global_sequence: {type: GraphQLInt},
+    recv_sequence: {type: GraphQLInt},
+    auth_sequence: {type: new GraphQLList(GraphQLList(GraphQLString))},
+    code_sequence: {type: GraphQLInt},
+    abi_sequence: {type: GraphQLInt}
   })
 });
 
 const AuthorizationType = new GraphQLObjectType({
-  name: "AuthorizationType",
+  name: 'AuthorizationType',
   fields: () => ({
-    actor: { type: GraphQLString },
-    permission: { type: GraphQLString }
+    actor: {type: GraphQLString},
+    permission: {type: GraphQLString}
   })
 });
 const DataType = new GraphQLObjectType({
-  name: "DataType",
+  name: 'DataType',
   fields: () => ({
-    from: { type: GraphQLString },
-    to: { type: GraphQLString },
-    quantity: { type: GraphQLString },
-    memo: { type: GraphQLString },
-    payer: { type: GraphQLString },
-    receiver: { type: GraphQLString },
-    quant: { type: GraphQLString }
+    from: {type: GraphQLString},
+    to: {type: GraphQLString},
+    quantity: {type: GraphQLString},
+    memo: {type: GraphQLString},
+    payer: {type: GraphQLString},
+    receiver: {type: GraphQLString},
+    quant: {type: GraphQLString}
   })
 });
 
 const ActType = new GraphQLObjectType({
-  name: "ActType",
+  name: 'ActType',
   fields: () => ({
-    account: { type: GraphQLString },
-    name: { type: GraphQLString },
-    authorization: { type: new GraphQLList(AuthorizationType) },
-    data: { type: GraphQLJSON },
-    hex_data: { type: GraphQLString }
+    account: {type: GraphQLString},
+    name: {type: GraphQLString},
+    authorization: {type: new GraphQLList(AuthorizationType)},
+    data: {type: GraphQLJSON},
+    hex_data: {type: GraphQLString}
   })
 });
 
 const ActionTraceType = new GraphQLObjectType({
-  name: "ActionTraceType",
+  name: 'ActionTraceType',
   fields: () => ({
-    receipt: { type: ReceiptType },
-    act: { type: ActType },
-    elapsed: { type: GraphQLInt },
-    cpu_usage: { type: GraphQLInt },
-    console: { type: GraphQLString },
-    total_cpu_usage: { type: GraphQLInt },
-    trx_id: { type: GraphQLString },
-    inline_traces: { type: new GraphQLList(ActionTraceType) }
+    receipt: {type: ReceiptType},
+    act: {type: ActType},
+    elapsed: {type: GraphQLInt},
+    cpu_usage: {type: GraphQLInt},
+    console: {type: GraphQLString},
+    total_cpu_usage: {type: GraphQLInt},
+    trx_id: {type: GraphQLString},
+    inline_traces: {type: new GraphQLList(ActionTraceType)}
   })
 });
 
 const ActionType = new GraphQLObjectType({
-  name: "ActionType",
+  name: 'ActionType',
   fields: () => ({
-    global_action_seq: { type: GraphQLInt },
-    account_action_seq: { type: GraphQLInt },
-    block_num: { type: GraphQLInt },
-    block_time: { type: GraphQLString },
-    action_trace: { type: ActionTraceType }
+    global_action_seq: {type: GraphQLInt},
+    account_action_seq: {type: GraphQLInt},
+    block_num: {type: GraphQLInt},
+    block_time: {type: GraphQLString},
+    action_trace: {type: ActionTraceType}
   })
 });
 
 const ActionsType = new GraphQLObjectType({
-  name: "ActionsType",
+  name: 'ActionsType',
   fields: () => ({
-    actions: { type: new GraphQLList(ActionType) },
-    last_irreversible_block: { type: GraphQLInt }
+    actions: {type: new GraphQLList(ActionType)},
+    last_irreversible_block: {type: GraphQLInt}
   })
 });
 

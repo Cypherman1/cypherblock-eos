@@ -1,35 +1,28 @@
-const graphql = require("graphql");
-const {
-  GraphQLObjectType,
-  GraphQLList,
-  GraphQLID,
-  GraphQLInt,
-  GraphQLString,
-  GraphQLBoolean
-} = graphql;
+const graphql = require('graphql');
+const {GraphQLObjectType, GraphQLList, GraphQLString, GraphQLBoolean} = graphql;
 
 const ValueType = new GraphQLObjectType({
-  name: "ValueType",
+  name: 'ValueType',
   fields: () => ({
-    balance: { type: GraphQLString },
-    weight: { type: GraphQLString }
+    balance: {type: GraphQLString},
+    weight: {type: GraphQLString}
   })
 });
 
 const TableRowType = new GraphQLObjectType({
-  name: "TableRowType",
+  name: 'TableRowType',
   fields: () => ({
-    supply: { type: GraphQLString },
-    base: { type: ValueType },
-    quote: { type: ValueType }
+    supply: {type: GraphQLString},
+    base: {type: ValueType},
+    quote: {type: ValueType}
   })
 });
 
 const TableRowsType = new GraphQLObjectType({
-  name: "TableRowsType",
+  name: 'TableRowsType',
   fields: () => ({
-    rows: { type: new GraphQLList(TableRowType) },
-    more: { type: GraphQLBoolean }
+    rows: {type: new GraphQLList(TableRowType)},
+    more: {type: GraphQLBoolean}
   })
 });
 

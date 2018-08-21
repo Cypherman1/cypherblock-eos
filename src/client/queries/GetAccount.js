@@ -1,13 +1,11 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
-import { Tokens } from "../components/utils/Tokens";
+import {Tokens} from '../components/utils/Tokens';
 
-const GenCurGql = Tokens => {
-  let gqlstr = "";
-  Tokens.map(token => {
-    gqlstr =
-      gqlstr +
-      `${token.symbol}: currency_balance(
+const GenCurGql = (Tokens) => {
+  let gqlstr = '';
+  Tokens.map((token) => {
+    gqlstr += `${token.symbol}: currency_balance(
             code: "${token.code}",
             account: $account_name,
             symbol: "${token.symbol}"

@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 export default gql`
   query get_actions($account_name: String!, $pos: Int, $offset: Int) {

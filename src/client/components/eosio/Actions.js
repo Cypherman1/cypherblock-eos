@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetActions from '../../queries/GetActions';
 import {Query} from 'react-apollo';
 import ReadMoreReact from 'read-more-react';
+import KeyAccountsModal from './KeyAccountsModal';
 
 var action_digests_tmp = '';
 
@@ -11,9 +12,17 @@ class Actions extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonloading: false
+      buttonloading: false,
+      open: false
     };
   }
+  onOpenModal = () => {
+    this.setState({open: true});
+  };
+
+  onCloseModal = () => {
+    this.setState({open: false});
+  };
   renderData(data) {
     let items = [];
     if (typeof data == 'object') {
@@ -63,6 +72,7 @@ class Actions extends Component {
         {this.renderTime(action.block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-default text-light rounded ">{action.action_trace.act.name}</div>
+          <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div>
         </td>
         <td data-title="Info">{this.renderData(action.action_trace.act.data)}</td>
       </tr>
@@ -318,7 +328,7 @@ class Actions extends Component {
         {this.renderSeq(action.global_action_seq)}
         {this.renderTime(action.block_time)}
         <td data-title="Type">
-          <div className=" p-1 d-inline <bg-vote></bg-vote> text-light rounded ">Create account</div>
+          <div className=" p-1 d-inline bg-vote text-light rounded ">Create account</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info">
@@ -377,15 +387,47 @@ class Actions extends Component {
           <div>
             <span className="font-weight-bold"> {'Threshold:'} </span> {action.action_trace.act.data.auth.threshold}
           </div>
-          <div>{this.RenderKeys(action.action_trace.act.data.auth.keys)}</div>
+          <div>{this.RenderAuth(action.action_trace.act.data.auth)}</div>
         </td>
       </tr>
     );
   }
+  RenderAuth(auth) {
+    if (auth.keys.length > 0) {
+      return this.RenderKeys(auth.keys);
+    } else if (auth.accounts.length > 0) {
+      return this.RenderAccounts(auth.accounts);
+    }
+    return null;
+  }
+  RenderAccounts(accounts) {
+    let items = [];
+    items.push(
+      <div className="row" key={1}>
+        <div className="col-8 font-weight-bold">Account</div>
+        <div className="col-4 font-weight-bold text-center ">Weight</div>
+      </div>
+    );
+    if (accounts)
+      accounts.map((account) => {
+        items.push(
+          <div key={account.permission.actor} className="row">
+            <div className="col-8">
+              {this.renderAccountLink(account.permission.actor)} (permission: {account.permission.permission}){' '}
+            </div>
+            <div className="col-4 text-center">{account.weight}</div>
+          </div>
+        );
+      });
+    return items;
+  }
+  KeyClick = () => {
+    this.onOpenModal();
+  };
   RenderKeys(keys) {
     let items = [];
     items.push(
-      <div className="row">
+      <div className="row" key={1}>
         <div className="col-8 font-weight-bold">Key</div>
         <div className="col-4 font-weight-bold">Weight</div>
       </div>
@@ -393,8 +435,9 @@ class Actions extends Component {
     if (keys)
       keys.map((key) => {
         items.push(
-          <div key={key} className="row">
-            <div className="col-8">{key.key} </div>
+          <div key={key.key} className="row">
+            <div className="col-8">{key.key}</div>
+            {/* <KeyAccountsModal public_key={key.key} onCloseModal={this.onCloseModal} open={this.state.open} /> */}
             <div className="col-4">{key.weight}</div>
           </div>
         );

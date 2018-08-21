@@ -1,10 +1,10 @@
-const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLList, GraphQLString } = graphql;
+const graphql = require('graphql');
+const {GraphQLObjectType, GraphQLList, GraphQLString} = graphql;
 
 const CurrencyBalanceType = new GraphQLObjectType({
-  name: "CurrencyBalanceType",
+  name: 'CurrencyBalanceType',
   fields: () => ({
-    data: { type: new GraphQLList(GraphQLString) }
+    data: {type: new GraphQLList(GraphQLString)}
   })
 });
 

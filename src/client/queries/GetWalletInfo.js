@@ -5,8 +5,7 @@ import {Tokens} from '../components/utils/Tokens';
 const GenCurGql = (Tokens) => {
   let gqlstr = '';
   Tokens.map((token) => {
-    gqlstr +=
-      `${token.symbol}: currency_balance(
+    gqlstr += `${token.symbol}: currency_balance(
             code: "${token.code}",
             account: $account_name,
             symbol: "${token.symbol}"

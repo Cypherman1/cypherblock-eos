@@ -3,9 +3,9 @@ import {Query} from 'react-apollo';
 import {Link} from 'react-router-dom';
 import {renderRamColor, renderTotalBalanceRAMColor, renderToFiatColor} from '../utils/RenderColors';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
-import ErrorPage from '../ErrorPage';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {ToastContainer, toast} from 'react-toastify';
 // import ErrorBoundary from '../ErrorBoundary';
 
 import GetAccountInfo from '../../queries/GetAccountInfo';
@@ -154,12 +154,12 @@ class AccountInfo extends Component {
             (Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
               Number(table_rows.rows[0].base.balance.split(' ')[0])) *
             1024
-          ).toFixed(8);
+          ).toFixed(4);
         //EOS RAM equivalent
         if (account.total_resources)
           eos_ram_equivalent = ((Number(account.total_resources.ram_bytes) * ram_price) / 1024).toFixed(4);
 
-        if (total_balance && eos_ram_equivalent) {
+        if (total_balance && eos_ram_equivalent && cmc) {
           total_balance_ramincluded = total_balance + Number(eos_ram_equivalent);
           if (cmc.data.quotes.USD.price) to_fiat = total_balance_ramincluded * Number(cmc.data.quotes.USD.price);
         }
@@ -168,6 +168,10 @@ class AccountInfo extends Component {
       throw e;
     }
   }
+  notify = () =>
+    toast.error('Not exsit!', {
+      position: toast.POSITION.TOP_RIGHT
+    });
   render() {
     return (
       <Query query={GetAccountInfo} variables={{account_name: this.props.account_name}} pollInterval={5000}>
@@ -193,175 +197,181 @@ class AccountInfo extends Component {
 
           const {account, table_rows, cmc} = data;
           this.getAccountInfo(account, table_rows, cmc);
-          return (
-            <div className="card sameheight-item stats" data-exclude="xs">
-              <div className="card-header card-header-sm bg-light shadow-sm">
-                <div className="header-block pl-3">
-                  <FontAwesomeIcon icon="user" className="mr-2 text-info" />
-                  <h5 className="title">
-                    <Link to={`/account/${account_name}`}>{account_name}</Link>
-                  </h5>
+          if (account)
+            return (
+              <div className="card sameheight-item stats" data-exclude="xs">
+                <div className="card-header card-header-sm bg-light shadow-sm">
+                  <div className="header-block pl-3">
+                    <FontAwesomeIcon icon="user" className="mr-2 text-info" />
+                    <h5 className="title">
+                      {account_name}
+                      {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
+                    </h5>
+                  </div>
                 </div>
-              </div>
-              <div className="card-block ">
-                <div className="row row-sm stats-container m-0">
-                  <div className="col-12 col-sm-4 stat-col p-1">
-                    <div className="pb-2 border-bottom header-border">
-                      <div className="mr-2 eos-icon">
-                        <img src={eoslogo} />
-                      </div>
-                      <div className="stat">
-                        <div className="value">{`${total_balance.toLocaleString('en', {
-                          maximumSignificantDigits: 14
-                        })} EOS`}</div>
-                        <div className="name">Balance</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 stat-col p-1">
-                    <div className="pb-2 border-bottom header-border">
-                      <div className="mr-2 eos-icon">
-                        <img src={eoslogo} />
-                      </div>
-                      <div className="stat">
-                        <div className="value">{renderTotalBalanceRAMColor(total_balance_ramincluded)} EOS</div>
-                        <div className="name">Balance(including RAM)</div>
+                <div className="card-block ">
+                  <div className="row row-sm stats-container m-0">
+                    <div className="col-12 col-sm-4 stat-col p-1">
+                      <div className="pb-2 border-bottom header-border">
+                        <div className="mr-2 eos-icon">
+                          <img src={eoslogo} />
+                        </div>
+                        <div className="stat">
+                          <div className="value">{`${total_balance.toLocaleString('en', {
+                            maximumSignificantDigits: 14
+                          })} EOS`}</div>
+                          <div className="name">Balance</div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-12 col-sm-4 stat-col p-1">
-                    <div className="pb-2 border-bottom header-border">
+                    <div className="col-12 col-sm-4 stat-col p-1">
+                      <div className="pb-2 border-bottom header-border">
+                        <div className="mr-2 eos-icon">
+                          <img src={eoslogo} />
+                        </div>
+                        <div className="stat">
+                          <div className="value">{renderTotalBalanceRAMColor(total_balance_ramincluded)} EOS</div>
+                          <div className="name">Balance(including RAM)</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-12 col-sm-4 stat-col p-1">
+                      <div className="pb-2 border-bottom header-border">
+                        <div className="stat-icon text-secondary">
+                          <FontAwesomeIcon icon="dollar-sign" />
+                        </div>
+                        <div className="stat">
+                          <div className="value">{renderToFiatColor(to_fiat)} USD</div>
+                          <div className="name">To fiat</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-12 col-sm-4 stat-col p-1">
                       <div className="stat-icon text-secondary">
-                        <FontAwesomeIcon icon="dollar-sign" />
+                        <FontAwesomeIcon icon="lock-open" />
                       </div>
                       <div className="stat">
-                        <div className="value">{renderToFiatColor(to_fiat)} USD</div>
-                        <div className="name">To fiat</div>
+                        <div className="value">
+                          {unstaked.toLocaleString('en', {
+                            maximumSignificantDigits: 14
+                          })}
+                        </div>
+                        <div className="name"> EOS unstaked </div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `${((unstaked / total_balance) * 100).toFixed(3)}%`
+                          }}
+                        />
                       </div>
                     </div>
-                  </div>
-                  <div className="col-12 col-sm-4 stat-col p-1">
-                    <div className="stat-icon text-secondary">
-                      <FontAwesomeIcon icon="lock-open" />
+                    <div className="col-12 col-sm-4 stat-col p-1">
+                      <div className="stat-icon text-secondary">
+                        <FontAwesomeIcon icon="lock" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">
+                          {staked.toLocaleString('en', {
+                            maximumSignificantDigits: 14
+                          })}
+                        </div>
+                        <div className="name"> EOS staked </div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `${((staked / total_balance) * 100).toFixed(3)}%`
+                          }}
+                        />
+                      </div>
                     </div>
-                    <div className="stat">
-                      <div className="value">
-                        {unstaked.toLocaleString('en', {
+                    <div className="col-12 col-sm-4  stat-col p-1">
+                      <div className="stat-icon text-secondary">
+                        <FontAwesomeIcon icon="key" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">
+                          {refund.toLocaleString('en', {
+                            maximumSignificantDigits: 14
+                          })}
+                        </div>
+                        <div className="name">EOS refunding </div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `${((refund / total_balance) * 100).toFixed(3)}%`
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-12 col-sm-4  stat-col p-1">
+                      <div className="stat-icon text-secondary">
+                        <FontAwesomeIcon icon="memory" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">{`${used_ram}/${limited_ram}`}</div>
+                        <div className="name">RAM ({renderRamColor(eos_ram_equivalent)} EOS)</div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `${((ram_usage_num / limited_ram_num) * 100).toFixed(3)}%`
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-12 col-sm-4  stat-col p-1">
+                      <div className="stat-icon text-secondary">
+                        <FontAwesomeIcon icon="microchip" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">{`${used_cpu}/${limited_cpu}`}</div>
+                        <div className="name">{`CPU (${staked_cpu.toLocaleString('en', {
                           maximumSignificantDigits: 14
-                        })}
+                        })} EOS)`}</div>
                       </div>
-                      <div className="name"> EOS unstaked </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `${((used_cpu_num / limited_cpu_num) * 100).toFixed(3)}%`
+                          }}
+                        />
+                      </div>
                     </div>
-                    <div className="progress stat-progress">
-                      <div
-                        className="progress-bar"
-                        style={{
-                          width: `${((unstaked / total_balance) * 100).toFixed(3)}%`
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 stat-col p-1">
-                    <div className="stat-icon text-secondary">
-                      <FontAwesomeIcon icon="lock" />
-                    </div>
-                    <div className="stat">
-                      <div className="value">
-                        {staked.toLocaleString('en', {
+                    <div className="col-12 col-sm-4 stat-col p-1">
+                      <div className="stat-icon text-secondary">
+                        <FontAwesomeIcon icon="bolt" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">{`${used_net}/${limited_net}`}</div>
+                        <div className="name">{`NET (${staked_net.toLocaleString('en', {
                           maximumSignificantDigits: 14
-                        })}
+                        })} EOS)`}</div>
                       </div>
-                      <div className="name"> EOS staked </div>
-                    </div>
-                    <div className="progress stat-progress">
-                      <div
-                        className="progress-bar"
-                        style={{
-                          width: `${((staked / total_balance) * 100).toFixed(3)}%`
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4  stat-col p-1">
-                    <div className="stat-icon text-secondary">
-                      <FontAwesomeIcon icon="key" />
-                    </div>
-                    <div className="stat">
-                      <div className="value">
-                        {refund.toLocaleString('en', {
-                          maximumSignificantDigits: 14
-                        })}
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `${((used_net_num / limited_net_num) * 100).toFixed(3)}%`
+                          }}
+                        />
                       </div>
-                      <div className="name">EOS refunding </div>
-                    </div>
-                    <div className="progress stat-progress">
-                      <div
-                        className="progress-bar"
-                        style={{
-                          width: `${((refund / total_balance) * 100).toFixed(3)}%`
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4  stat-col p-1">
-                    <div className="stat-icon text-secondary">
-                      <FontAwesomeIcon icon="memory" />
-                    </div>
-                    <div className="stat">
-                      <div className="value">{`${used_ram}/${limited_ram}`}</div>
-                      <div className="name">RAM ({renderRamColor(eos_ram_equivalent)} EOS)</div>
-                    </div>
-                    <div className="progress stat-progress">
-                      <div
-                        className="progress-bar"
-                        style={{
-                          width: `${((ram_usage_num / limited_ram_num) * 100).toFixed(3)}%`
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4  stat-col p-1">
-                    <div className="stat-icon text-secondary">
-                      <FontAwesomeIcon icon="microchip" />
-                    </div>
-                    <div className="stat">
-                      <div className="value">{`${used_cpu}/${limited_cpu}`}</div>
-                      <div className="name">{`CPU (${staked_cpu.toLocaleString('en', {
-                        maximumSignificantDigits: 14
-                      })} EOS)`}</div>
-                    </div>
-                    <div className="progress stat-progress">
-                      <div
-                        className="progress-bar"
-                        style={{
-                          width: `${((used_cpu_num / limited_cpu_num) * 100).toFixed(3)}%`
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 stat-col p-1">
-                    <div className="stat-icon text-secondary">
-                      <FontAwesomeIcon icon="bolt" />
-                    </div>
-                    <div className="stat">
-                      <div className="value">{`${used_net}/${limited_net}`}</div>
-                      <div className="name">{`NET (${staked_net.toLocaleString('en', {
-                        maximumSignificantDigits: 14
-                      })} EOS)`}</div>
-                    </div>
-                    <div className="progress stat-progress">
-                      <div
-                        className="progress-bar"
-                        style={{
-                          width: `${((used_net_num / limited_net_num) * 100).toFixed(3)}%`
-                        }}
-                      />
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
+            );
+          else {
+            this.notify();
+            return <ToastContainer autoClose={2000} />;
+          }
         }}
       </Query>
     );

@@ -14,6 +14,8 @@ import './assets/css/app-blue.css';
 //import './assets/css/vendor.css';
 import './assets/css/custom.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'react-toastify/dist/ReactToastify.css';
 import './assets/css/metisMenu.min.css';
 import './assets/js/metisMenu.min.js';
 import './assets/js/sidebar.js';
@@ -35,7 +37,11 @@ import {
   faListAlt,
   faUser,
   faWallet,
-  faDollarSign
+  faDollarSign,
+  faChartLine,
+  faChartBar,
+  faChartPie,
+  faCoins
 } from '@fortawesome/free-solid-svg-icons';
 
 // import './assets/css/all.css';
@@ -60,7 +66,11 @@ library.add(
   faListAlt,
   faUser,
   faWallet,
-  faDollarSign
+  faDollarSign,
+  faChartLine,
+  faChartBar,
+  faChartPie,
+  faCoins
 );
 
 class DynamicImport extends Component {
@@ -87,9 +97,10 @@ const Account = (props) => (
 
 const errorLink = onError(({graphQLErrors, networkError, operation, response}) => {
   if (graphQLErrors)
-    graphQLErrors.map(({message, locations, path}) =>
-      console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
-    );
+    graphQLErrors.map(({message, locations, path}) => {
+      console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
+      if (message == 'Request failed with status code 503') if (response) response.errors = null;
+    });
   if (networkError) if (response) response.errors = null;
   // console.log(`[Network error]: ${networkError}`);
 });

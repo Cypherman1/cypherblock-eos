@@ -257,9 +257,6 @@ a {
   .no-more-tables > .table > thead > tr > th:nth-child(3) {
     width: 20% !important;
   }
-  .search_font {
-    font-size: 14px;
-  }
 }
 
 @media only screen and (max-width: 767.98px) {
@@ -324,9 +321,6 @@ a {
   .flip-table th:last-child,
   .flip-table td:last-child {
     border-bottom: 1px solid #b8b8b8;
-  }
-  .search_font {
-    font-size: 10px;
   }
 }
 

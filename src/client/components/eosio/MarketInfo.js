@@ -37,8 +37,10 @@ class MarketInfo extends Component {
                 Number(table_rows.rows[0].base.balance.split(' ')[0])) *
               1024
             ).toFixed(8);
-            ram_reserve =
-              (Number(global_data.rows[0].total_ram_bytes_reserved) / Number(global_data.rows[0].max_ram_size)) * 100;
+            ram_reserve = (
+              (Number(global_data.rows[0].total_ram_bytes_reserved) / Number(global_data.rows[0].max_ram_size)) *
+              100
+            ).toFixed(2);
             eosio_ram = Number(eosioram.core_liquid_balance.split(' ')[0]).toLocaleString('en', {
               maximumFractionDigits: 0
             });
@@ -82,14 +84,14 @@ class MarketInfo extends Component {
                         <FontAwesomeIcon icon="chart-pie" />
                       </div>
                       <div className="stat">
-                        <div className="value">{`${ram_reserve.toFixed(2)}%`}</div>
+                        <div className="value">{`${ram_reserve}%`}</div>
                         <div className="name">RAM Reserve (%)</div>
                       </div>
                       <div className="progress stat-progress">
                         <div
                           className="progress-bar"
                           style={{
-                            width: `${ram_reserve.toFixed(0)}%`
+                            width: `${ram_reserve}%`
                           }}
                         />
                       </div>

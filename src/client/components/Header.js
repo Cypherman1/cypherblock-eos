@@ -49,20 +49,20 @@ class Header extends Component {
               <FontAwesomeIcon icon="bars" />
             </button>
           </div>
-          <div className="header-block header-block-search w-100 pr-2 pt-2">
+          <div className="header-block header-block-search w-100 pr-2">
             <form role="search" className="float-left w-100" onSubmit={this.submit}>
               <div className="row">
                 <div className="col pr-0">
                   <input
                     type="text"
                     placeholder="Search by ACCOUNT/PUBKEY/TX"
-                    className="search_font w-100 form-control"
+                    className="w-100 form-control"
                     onChange={this.changeTerm}
                     name="search"
                   />
                 </div>
                 <div className="col-auto pl-1 pr-3">
-                  <button className="btn btn-info text-light" type="submit">
+                  <button className="btn btn-info text-light" type="summit">
                     <FontAwesomeIcon icon="search" />
                   </button>
                 </div>

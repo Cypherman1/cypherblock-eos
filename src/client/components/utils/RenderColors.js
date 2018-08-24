@@ -1,4 +1,5 @@
 import React from 'react';
+import Odometer from 'react-odometerjs';
 
 var tmp_ram = 0;
 
@@ -13,13 +14,25 @@ var tmp_to_fiat = 0;
 const renderToFiatColor = (to_fiat) => {
   if (to_fiat > tmp_to_fiat && tmp_to_fiat > 0) {
     tmp_to_fiat = to_fiat;
-    return <span className="text-success">{to_fiat.toLocaleString('en')}</span>;
+    return (
+      <span className="text-success">
+        <Odometer value={to_fiat} format="(,ddd).dd" />
+      </span>
+    );
   } else if (to_fiat == tmp_to_fiat || tmp_to_fiat == 0) {
     tmp_to_fiat = to_fiat;
-    return <span className="text-secondary">{to_fiat.toLocaleString('en')}</span>;
+    return (
+      <span className="text-secondary">
+        <Odometer value={to_fiat} format="(,ddd).dd" />
+      </span>
+    );
   } else if (to_fiat < tmp_to_fiat) {
     tmp_to_fiat = to_fiat;
-    return <span className="text-danger">{to_fiat.toLocaleString('en')}</span>;
+    return (
+      <span className="text-danger">
+        <Odometer value={to_fiat} format="(,ddd).dd" />
+      </span>
+    );
   }
 };
 
@@ -28,27 +41,21 @@ const renderTotalBalanceRAMColor = (total_balance_ramincluded) => {
     tmp_total_balance_ramincluded = total_balance_ramincluded;
     return (
       <span className="text-success">
-        {total_balance_ramincluded.toLocaleString('en', {
-          maximumSignificantDigits: 14
-        })}
+        <Odometer value={total_balance_ramincluded} format="(,ddd).dddd" />
       </span>
     );
   } else if (total_balance_ramincluded == tmp_total_balance_ramincluded || tmp_total_balance_ramincluded == 0) {
     tmp_total_balance_ramincluded = total_balance_ramincluded;
     return (
       <span className="text-secondary">
-        {total_balance_ramincluded.toLocaleString('en', {
-          maximumSignificantDigits: 14
-        })}
+        <Odometer value={total_balance_ramincluded} format="(,ddd).dddd" />
       </span>
     );
   } else if (total_balance_ramincluded < tmp_total_balance_ramincluded) {
     tmp_total_balance_ramincluded = total_balance_ramincluded;
     return (
       <span className="text-danger">
-        {total_balance_ramincluded.toLocaleString('en', {
-          maximumSignificantDigits: 14
-        })}
+        <Odometer value={total_balance_ramincluded} format="(,ddd).dddd" />
       </span>
     );
   }
@@ -59,55 +66,73 @@ const renderRamColor = (eos_ram_equivalent) => {
     tmp_ram = eos_ram_equivalent;
     return (
       <span className="text-success">
-        {eos_ram_equivalent.toLocaleString('en', {
-          maximumSignificantDigits: 14
-        })}
+        <Odometer value={eos_ram_equivalent} format="(,ddd).dddd" />
       </span>
     );
   } else if (eos_ram_equivalent == tmp_ram || tmp_ram == 0) {
     tmp_ram = eos_ram_equivalent;
     return (
       <span className="text-secondary">
-        {eos_ram_equivalent.toLocaleString('en', {
-          maximumSignificantDigits: 14
-        })}
+        <Odometer value={eos_ram_equivalent} format="(,ddd).dddd" />
       </span>
     );
   } else if (eos_ram_equivalent < tmp_ram) {
     tmp_ram = eos_ram_equivalent;
     return (
       <span className="text-danger">
-        {eos_ram_equivalent.toLocaleString('en', {
-          maximumSignificantDigits: 14
-        })}
+        <Odometer value={eos_ram_equivalent} format="(,ddd).dddd" />
       </span>
     );
   }
 };
 
 const renderRamPriceColor = (ram_price) => {
-  if (ram_price > tmp_ram_price) {
+  if (ram_price > tmp_ram_price && tmp_ram_price > 0) {
     tmp_ram_price = ram_price;
-    return <span className="text-success">{ram_price}</span>;
+    return (
+      <span className="text-success">
+        <Odometer value={ram_price} format="(,ddd).dddddd" />
+      </span>
+    );
   } else if (ram_price == tmp_ram_price) {
     tmp_ram_price = ram_price;
-    return <span className="text-secondary">{ram_price}</span>;
-  } else if (ram_price < tmp_ram_price) {
+    return (
+      <span className="text-secondary">
+        <Odometer value={ram_price} format="(,ddd).dddddd" />
+      </span>
+    );
+  } else if (ram_price < tmp_ram_price || tmp_ram_price == 0) {
     tmp_ram_price = ram_price;
-    return <span className="text-danger">{ram_price}</span>;
+    return (
+      <span className="text-danger">
+        <Odometer value={ram_price} format="(,ddd).dddddd" />
+      </span>
+    );
   }
 };
 
 const renderEOSPriceColor = (eos_price) => {
-  if (eos_price > tmp_eos_price) {
+  if (eos_price > tmp_eos_price && tmp_eos_price > 0) {
     tmp_eos_price = eos_price;
-    return <span className="text-success">{eos_price.toFixed(2)}</span>;
-  } else if (eos_price == tmp_eos_price) {
+    return (
+      <span className="text-success">
+        <Odometer value={eos_price} format="(,ddd).dd" />
+      </span>
+    );
+  } else if (eos_price == tmp_eos_price || tmp_eos_price == 0) {
     tmp_eos_price = eos_price;
-    return <span className="text-secondary">{eos_price.toFixed(2)}</span>;
+    return (
+      <span className="text-secondary">
+        <Odometer value={eos_price} format="(,ddd).dd" />
+      </span>
+    );
   } else if (eos_price < tmp_eos_price) {
     tmp_eos_price = eos_price;
-    return <span className="text-danger">{eos_price.toFixed(2)}</span>;
+    return (
+      <span className="text-danger">
+        <Odometer value={eos_price} format="(,ddd).dd" />
+      </span>
+    );
   }
 };
 const renderPercentColor = (percent_24) => {

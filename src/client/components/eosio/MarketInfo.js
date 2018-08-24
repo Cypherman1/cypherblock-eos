@@ -39,13 +39,15 @@ class MarketInfo extends Component {
             ).toFixed(8);
             ram_reserve =
               (Number(global_data.rows[0].total_ram_bytes_reserved) / Number(global_data.rows[0].max_ram_size)) * 100;
-            eosio_ram = Number(eosioram.core_liquid_balance.split(' ')[0]).toLocaleString('en');
-            eosio_ramfee = Number(eosioramfee.core_liquid_balance.split(' ')[0]).toLocaleString('en');
+            eosio_ram = Number(eosioram.core_liquid_balance.split(' ')[0]).toLocaleString('en', {
+              maximumFractionDigits: 0
+            });
+            eosio_ramfee = Number(eosioramfee.core_liquid_balance.split(' ')[0]).toLocaleString('en', {
+              maximumFractionDigits: 0
+            });
             eos_price = Number(cmc.data.quotes.USD.price);
             percent_change_24h = cmc.data.quotes.USD.percent_change_24h;
-            eos_volume = Number(cmc.data.quotes.USD.volume_24h)
-              .toFixed(0)
-              .toLocaleString('en');
+            eos_volume = Number(cmc.data.quotes.USD.volume_24h).toLocaleString('en', {maximumFractionDigits: 0});
           }
           return (
             <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {CSSTransitionGroup} from 'react-transition-group';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetActions from '../../queries/GetActions';
 import {Query} from 'react-apollo';
 import ReadMoreReact from 'read-more-react';
-import KeyAccountsModal from './KeyAccountsModal';
 
 var action_digests_tmp = '';
 
@@ -62,8 +62,19 @@ class Actions extends Component {
       </td>
     );
   }
+
+  convertUTCDateToLocalDate(date) {
+    var newDate = new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
+
+    var offset = date.getTimezoneOffset() / 60;
+    var hours = date.getHours();
+
+    newDate.setHours(hours - offset);
+
+    return newDate;
+  }
   renderTime(time) {
-    return <td data-title="Time">{new Date(time).toLocaleString('en-GB', {timeZone: 'UTC'})}</td>;
+    return <td data-title="Time">{this.convertUTCDateToLocalDate(new Date(time)).toLocaleString()}</td>;
   }
   renderDefaultAction(action) {
     return (
@@ -599,7 +610,7 @@ class Actions extends Component {
                 </div>
                 <div className="card-block pt-0">
                   <div className="no-more-tables">
-                    <table className="table actions_font" style={{tableLayout: 'fixed', width: '100%'}}>
+                    <table className="table actions_font tablayout">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -608,12 +619,18 @@ class Actions extends Component {
                           <th>Info</th>
                         </tr>
                       </thead>
-                      <tbody>
+
+                      <CSSTransitionGroup
+                        component="tbody"
+                        transitionName="example"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={300}
+                      >
                         {data.actions.actions
                           .slice()
                           .reverse()
                           .map((action) => this.renderActions(action))}
-                      </tbody>
+                      </CSSTransitionGroup>
                     </table>
                   </div>
                   <button

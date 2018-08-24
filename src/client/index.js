@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './assets/css/metisMenu.min.css';
 import './assets/js/metisMenu.min.js';
 import './assets/js/sidebar.js';
+import './bp.json';
 // import './components/utils/sidebar.js';
 
 import {library} from '@fortawesome/fontawesome-svg-core';

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import GetCurrencies from '../../queries/GetCurrencies';
 import {Tokens} from '../utils/Tokens';
-
+import {CSSTransitionGroup} from 'react-transition-group';
 import {renderPPColor} from '../utils/RenderColors';
 import GetWalletInfo from '../../queries/GetWalletInfo';
 import ErrorPage from '../ErrorPage';
@@ -60,6 +60,7 @@ class Wallet extends Component {
                   maximumSignificantDigits: 17
                 })}
               </div>
+
               <div className="name">
                 {token.name} ({Number((token.ammount * token.price).toFixed(4)).toLocaleString('en')} EOS)
               </div>
@@ -152,8 +153,13 @@ class Wallet extends Component {
                       </div>
                     </div>
                   </div>
-
-                  {this.renderTokens()}
+                  <CSSTransitionGroup
+                    transitionName="example"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}
+                  >
+                    {this.renderTokens()}
+                  </CSSTransitionGroup>
                 </div>
               </div>
             </div>

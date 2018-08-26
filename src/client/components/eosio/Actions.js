@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetActions from '../../queries/GetActions';
 import {Query} from 'react-apollo';
 import ReadMoreReact from 'read-more-react';
+import {convertUTCDateToLocalDate} from '../utils/Tools';
 
 var action_digests_tmp = '';
 
@@ -63,18 +64,8 @@ class Actions extends Component {
     );
   }
 
-  convertUTCDateToLocalDate(date) {
-    var newDate = new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
-
-    var offset = date.getTimezoneOffset() / 60;
-    var hours = date.getHours();
-
-    newDate.setHours(hours - offset);
-
-    return newDate;
-  }
   renderTime(time) {
-    return <td data-title="Time">{this.convertUTCDateToLocalDate(new Date(time)).toLocaleString()}</td>;
+    return <td data-title="Time">{convertUTCDateToLocalDate(new Date(time)).toLocaleString()}</td>;
   }
   renderDefaultAction(action) {
     return (

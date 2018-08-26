@@ -1,5 +1,6 @@
 import React from 'react';
 import Odometer from 'react-odometerjs';
+import NumberEasing from 'che-react-number-easing';
 
 var tmp_ram = 0;
 
@@ -36,6 +37,10 @@ const renderToFiatColor = (to_fiat) => {
   }
 };
 
+const renderBlockNum = (block_num) => {
+  return <NumberEasing value={block_num} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />;
+};
+
 const renderTotalBalanceRAMColor = (total_balance_ramincluded) => {
   if (total_balance_ramincluded > tmp_total_balance_ramincluded && tmp_total_balance_ramincluded > 0) {
     tmp_total_balance_ramincluded = total_balance_ramincluded;
@@ -48,7 +53,7 @@ const renderTotalBalanceRAMColor = (total_balance_ramincluded) => {
     tmp_total_balance_ramincluded = total_balance_ramincluded;
     return (
       <span className="text-secondary">
-        <Odometer value={total_balance_ramincluded} format="(,ddd).dddd" />
+        <Odometer value={total_balance_ramincluded} useLocaleString={true} />
       </span>
     );
   } else if (total_balance_ramincluded < tmp_total_balance_ramincluded) {
@@ -158,5 +163,6 @@ export {
   renderPercentColor,
   renderPPColor,
   renderTotalBalanceRAMColor,
-  renderToFiatColor
+  renderToFiatColor,
+  renderBlockNum
 };

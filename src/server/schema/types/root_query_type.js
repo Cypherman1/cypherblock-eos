@@ -12,6 +12,27 @@ const GlobalDataType = require('./global_data_type');
 const CurrencyBalanceType = require('./currency_balance_type');
 const BitfinexPairsType = require('./bitfinex_pairs_type');
 const KeyAccountsType = require('./key_accounts_type');
+const EosStatType = require('./eos_stat_type');
+
+const onError = (error) => {
+  if (error.response) {
+    // The request was made and the server responded with a status code
+    // that falls out of the range of 2xx
+    console.log(error.response.data);
+    console.log(error.response.status);
+    if (error.response.status == '503') return Promise.reject(error);
+    //console.log(error.response.headers);
+  } else if (error.request) {
+    // The request was made but no response was received
+    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+    // http.ClientRequest in node.js
+    console.log(error.request);
+  } else {
+    // Something happened in setting up the request that triggered an Error
+    console.log('Error', error.message);
+  }
+  console.log(error.config);
+};
 
 const RootQueryType = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -26,23 +47,7 @@ const RootQueryType = new GraphQLObjectType({
           })
           .then((res) => res.data)
           .catch((error) => {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              if (error.response.status == '503') return Promise.reject(error);
-              //console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
+            onError(error);
           });
       }
     },
@@ -62,23 +67,31 @@ const RootQueryType = new GraphQLObjectType({
           })
           .then((res) => res.data)
           .catch((error) => {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              if (error.response.status == '503') return Promise.reject(error);
-              //console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
+            onError(error);
+          });
+      }
+    },
+    eos_stat: {
+      type: EosStatType,
+      args: {
+        json: {type: GraphQLString},
+        code: {type: GraphQLString},
+        scope: {type: GraphQLString},
+        table: {type: GraphQLString},
+        limit: {type: GraphQLString}
+      },
+      resolve(parentValue, {json, code, scope, table, limit}) {
+        return axios
+          .post(keys.chainURL + '/v1/chain/get_table_rows', {
+            json,
+            code,
+            scope,
+            table,
+            limit
+          })
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
           });
       }
     },
@@ -94,23 +107,7 @@ const RootQueryType = new GraphQLObjectType({
           })
           .then((res) => res.data)
           .catch((error) => {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              if (error.response.status == '503') return Promise.reject(error);
-              //console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
+            onError(error);
           });
       }
     },
@@ -130,23 +127,7 @@ const RootQueryType = new GraphQLObjectType({
           })
           .then((res) => res)
           .catch((error) => {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              if (error.response.status == '503') return Promise.reject(error);
-              //console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
+            onError(error);
           });
       }
     },
@@ -157,23 +138,7 @@ const RootQueryType = new GraphQLObjectType({
           .get('https://api.bitfinex.com/v2/tickers?symbols=tIQXEOS')
           .then((res) => res)
           .catch((error) => {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              if (error.response.status == '503') return Promise.reject(error);
-              //console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
+            onError(error);
           });
       }
     },
@@ -197,23 +162,7 @@ const RootQueryType = new GraphQLObjectType({
           })
           .then((res) => res.data)
           .catch((error) => {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              if (error.response.status == '503') return Promise.reject(error);
-              //console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
+            onError(error);
           });
       }
     },
@@ -237,23 +186,7 @@ const RootQueryType = new GraphQLObjectType({
           })
           .then((res) => res.data)
           .catch((error) => {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              if (error.response.status == '503') return Promise.reject(error);
-              //console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
+            onError(error);
           });
       }
     },
@@ -264,23 +197,7 @@ const RootQueryType = new GraphQLObjectType({
           .get(keys.chainURL + '/v1/chain/get_info')
           .then((resp) => resp.data)
           .catch((error) => {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              if (error.response.status == '503') return Promise.reject(error);
-              //console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
+            onError(error);
           });
       }
     },
@@ -291,23 +208,7 @@ const RootQueryType = new GraphQLObjectType({
           .get('https://api.coinmarketcap.com/v2/ticker/1765/')
           .then((resp) => resp.data)
           .catch((error) => {
-            if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log(error.response.status);
-              if (error.response.status == '503') return Promise.reject(error);
-              //console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
+            onError(error);
           });
       }
     },

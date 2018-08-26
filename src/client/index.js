@@ -42,7 +42,11 @@ import {
   faChartLine,
   faChartBar,
   faChartPie,
-  faCoins
+  faCoins,
+  faCubes,
+  faCube,
+  faClock,
+  faUserCog
 } from '@fortawesome/free-solid-svg-icons';
 
 // import './assets/css/all.css';
@@ -71,7 +75,11 @@ library.add(
   faChartLine,
   faChartBar,
   faChartPie,
-  faCoins
+  faCoins,
+  faCubes,
+  faCube,
+  faClock,
+  faUserCog
 );
 
 class DynamicImport extends Component {

@@ -31,6 +31,10 @@ a {
   font-size: 13px !important;
 }
 
+.head_block_time_font {
+  font-size: 10px !important;
+}
+
 .acc-name-font {
   font-size: 14px !important;
 }
@@ -340,6 +344,15 @@ a {
 .example-leave.example-leave-active {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
+}
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
 }
 
 .tablayout {

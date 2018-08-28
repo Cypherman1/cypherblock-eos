@@ -18,9 +18,8 @@ class Dashboard extends Component {
                 <Actions account_name="eosio" />
               </ErrorBoundary>
             </div>
-            <ErrorBoundary>
-              <MarketInfo />
-            </ErrorBoundary>
+
+            <MarketInfo />
           </div>
         </section>
       </article>

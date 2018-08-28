@@ -1,14 +1,16 @@
-import React from "react";
+import React from 'react';
 
-const Footer = props => {
+const Footer = (props) => {
   return (
     <footer className="footer">
-      <div className="footer-block buttons" />
+      <div className="footer-block buttons">
+        Vote for <a href="https://eosportal.io/chain/12/producers/cypherblocks"> cypherblocks</a> to bring the best user
+        experience on to EOSIO Blockchain
+      </div>
       <div className="footer-block author">
         <ul>
           <li>
-            created by{" "}
-            <a href="https://github.com/Cypherman1/CypherBlock">Cypherblock</a>
+            created by <a href="#">Cypherblock</a>
           </li>
         </ul>
       </div>

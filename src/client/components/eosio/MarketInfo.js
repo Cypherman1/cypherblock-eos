@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {renderRamPriceColor, renderEOSPriceColor, renderPercentColor} from '../utils/RenderColors';
 import {Query} from 'react-apollo';
+import {renderRamPriceColorM, renderEOSPriceColorM, renderPercentColor} from '../utils/RenderColors';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetMarKetInfo from '../../queries/GetMarketInfo';
 
@@ -32,27 +32,31 @@ class MarketInfo extends Component {
             );
           const {cmc, eosioramfee, eosioram, global_data, table_rows} = data;
           if (table_rows && global_data && cmc && eosioram && eosioramfee) {
-            ram_price = (
-              (Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
-                Number(table_rows.rows[0].base.balance.split(' ')[0])) *
-              1024
-            ).toFixed(8);
-            ram_reserve = (
+            ram_price =
+              (
+                Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
+                Number(table_rows.rows[0].base.balance.split(' ')[0])
+              ).toFixed(8) * 1024;
+            {
+              /* ram_reserve = (
               (Number(global_data.rows[0].total_ram_bytes_reserved) / Number(global_data.rows[0].max_ram_size)) *
               100
-            ).toFixed(2);
+            ).toFixed(2); */
+            }
             eosio_ram = Number(eosioram.core_liquid_balance.split(' ')[0]).toLocaleString('en', {
               maximumFractionDigits: 0
             });
-            eosio_ramfee = Number(eosioramfee.core_liquid_balance.split(' ')[0]).toLocaleString('en', {
+            {
+              /* eosio_ramfee = Number(eosioramfee.core_liquid_balance.split(' ')[0]).toLocaleString('en', {
               maximumFractionDigits: 0
-            });
-            eos_price = Number(cmc.data.quotes.USD.price);
+            }); */
+            }
+            eos_price = Number(cmc.data.quotes.USD.price).toFixed(2);
             percent_change_24h = cmc.data.quotes.USD.percent_change_24h;
             eos_volume = Number(cmc.data.quotes.USD.volume_24h).toLocaleString('en', {maximumFractionDigits: 0});
           }
           return (
-            <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">
+            <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col d-none d-xl-block">
               <div className="card sameheight-item stats" data-exclude="xs">
                 <div className="card-header card-header-sm bg-light shadow-sm">
                   <div className="header-block pl-3">
@@ -67,7 +71,7 @@ class MarketInfo extends Component {
                         <FontAwesomeIcon icon="chart-bar" />
                       </div>
                       <div className="stat">
-                        <div className="value">{renderRamPriceColor(ram_price)}</div>
+                        <div className="value">{renderRamPriceColorM(ram_price)}</div>
                         <div className="name"> RAM Price (EOS) </div>
                       </div>
                       <div className="progress stat-progress">
@@ -79,26 +83,10 @@ class MarketInfo extends Component {
                         />
                       </div>
                     </div>
+
                     <div className="col-12 col-sm-6  stat-col">
                       <div className="stat-icon">
-                        <FontAwesomeIcon icon="chart-pie" />
-                      </div>
-                      <div className="stat">
-                        <div className="value">{`${ram_reserve}%`}</div>
-                        <div className="name">RAM Reserve (%)</div>
-                      </div>
-                      <div className="progress stat-progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: `${ram_reserve}%`
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-12 col-sm-6  stat-col">
-                      <div className="stat-icon">
-                        <FontAwesomeIcon icon="chart-bar" />
+                        <FontAwesomeIcon icon="coins" />
                       </div>
                       <div className="stat">
                         <div className="value">{eosio_ram}</div>
@@ -115,32 +103,14 @@ class MarketInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-12 col-sm-6  stat-col">
-                      <div className="stat-icon">
-                        <FontAwesomeIcon icon="chart-pie" />
-                      </div>
-                      <div className="stat">
-                        <div className="value">{eosio_ramfee}</div>
-                        <div className="name">
-                          <Link to={`/account/eosio.ramfee`}>eosio.ramfee</Link>
-                        </div>
-                      </div>
-                      <div className="progress stat-progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: '0%'
-                          }}
-                        />
-                      </div>
-                    </div>
+
                     <div className="col-12 col-sm-6 stat-col">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="dollar-sign" />
                       </div>
                       <div className="stat">
                         <div className="value">
-                          {renderEOSPriceColor(eos_price)}
+                          {renderEOSPriceColorM(eos_price)}
                           {renderPercentColor(percent_change_24h)}
                         </div>
                         <div className="name"> EOS Price (USD) </div>

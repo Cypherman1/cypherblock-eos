@@ -16,6 +16,28 @@ export default gql`
       last_irreversible_block_num
       head_block_producer
     }
+    table_rows(json: "true", code: "eosio", scope: "eosio", table: "rammarket", limit: "10") {
+      rows {
+        supply
+        base {
+          balance
+        }
+        quote {
+          balance
+        }
+      }
+    }
+    cmc {
+      data {
+        quotes {
+          USD {
+            price
+            volume_24h
+            percent_change_24h
+          }
+        }
+      }
+    }
     global_data(json: "true", code: "eosio", scope: "eosio", table: "global", limit: "10") {
       rows {
         max_ram_size

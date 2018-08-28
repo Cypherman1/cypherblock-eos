@@ -1,30 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {CSSTransitionGroup} from 'react-transition-group';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import GetActions from '../../queries/GetActions';
-import {Query} from 'react-apollo';
+
 import ReadMoreReact from 'read-more-react';
 import {convertUTCDateToLocalDate} from '../utils/Tools';
-import Action from './Action';
 
 var action_digests_tmp = '';
 
-class Actions extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonloading: false,
-      open: false
-    };
-  }
-  onOpenModal = () => {
-    this.setState({open: true});
-  };
-
-  onCloseModal = () => {
-    this.setState({open: false});
-  };
+class Action extends Component {
   renderData(data) {
     let items = [];
     if (typeof data == 'object') {
@@ -77,7 +59,9 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-default text-light rounded ">{action.action_trace.act.name}</div>
           <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div>
         </td>
-        <td data-title="Info">{this.renderData(action.action_trace.act.data)}</td>
+        <td data-title="Info" className="pt-1 pb-1">
+          {this.renderData(action.action_trace.act.data)}
+        </td>
       </tr>
     );
   }
@@ -89,7 +73,7 @@ class Actions extends Component {
         <td data-title="Type">
           <div className=" p-1 d-inline bg-default text-light rounded ">Transfer</div>
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.from)} {' transfered '}
             <span className="text-info">{action.action_trace.act.data.quantity}</span> {` to `}
@@ -112,7 +96,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-default text-light rounded ">Transfer</div>
           <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div>
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.from)} {' transfered '}
             <span className="text-info">{action.action_trace.act.data.quantity}</span> {` to `}
@@ -137,7 +121,7 @@ class Actions extends Component {
         <td data-title="Type">
           <div className=" p-1 d-inline bg-success text-light rounded ">Receive</div>
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.to)} {' received '}
             <span className="text-info">{action.action_trace.act.data.quantity}</span> {` from `}
@@ -160,7 +144,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-received text-light rounded ">Receive(tokens)</div>
           <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div>
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.to)} {' received '}
             <span className="text-info">{action.action_trace.act.data.quantity}</span> {` from `}
@@ -184,7 +168,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-senttoken text-light rounded ">Send(tokens)</div>
           <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div>
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.from)} {' sent '}
             <span className="text-info">{action.action_trace.act.data.quantity}</span> {` to `}
@@ -208,7 +192,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-sent text-light rounded ">send</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.from)} {' sent '}
             <span className="text-info">{action.action_trace.act.data.quantity}</span> {` to `}
@@ -232,7 +216,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-received text-light rounded ">Stake bandwidth</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.from)}
             {` delegated `}
@@ -253,7 +237,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-senttoken text-light rounded ">Unstake</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.from)}
             {` undelegated `}
@@ -274,7 +258,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-received text-light rounded ">Buy RAM</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.payer)}
             {` bought `}
@@ -294,7 +278,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-received text-light rounded ">Buy RAM(bytes)</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.payer)}
             {` bought `}
@@ -314,7 +298,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-senttoken text-light rounded ">Sell RAM</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.account)}
             {` sold `}
@@ -334,7 +318,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-vote text-light rounded ">Create account</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.name)} {' created by '}
             {this.renderAccountLink(action.action_trace.act.data.creator)}
@@ -352,7 +336,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-vote text-light rounded ">Vote Producers</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {this.renderAccountLink(action.action_trace.act.data.voter)} {' voted for producers: '}{' '}
           </div>
@@ -380,7 +364,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-default text-light rounded ">Set Permission</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {'Set '}
             <span className="font-weight-bold text-info"> {action.action_trace.act.data.permission} </span>
@@ -457,7 +441,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-vote text-light rounded ">Set ABI</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">{this.renderAccountLink(action.action_trace.act.data.account)} set ABI:</div>
           <div>
             {/* {action.action_trace.act.data.abi} */}
@@ -476,7 +460,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-vote text-light rounded ">Set code</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">{this.renderAccountLink(action.action_trace.act.data.account)} set code:</div>
           <div>
             {/* {action.action_trace.act.data.abi} */}
@@ -495,7 +479,7 @@ class Actions extends Component {
           <div className=" p-1 d-inline bg-vote text-light rounded ">Refund</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
-        <td data-title="Info">
+        <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">{this.renderAccountLink(action.action_trace.act.data.owner)} got refunded</div>
         </td>
       </tr>
@@ -503,172 +487,65 @@ class Actions extends Component {
   }
 
   renderActions(action) {
-    if (action.action_trace.receipt.act_digest !== action_digests_tmp) {
-      action_digests_tmp = action.action_trace.receipt.act_digest;
-      switch (action.action_trace.act.name) {
-        case 'transfer': // transfer EOS or tokens
-          switch (action.action_trace.act.account) {
-            case 'eosio.token': // transfer EOS
-              if (
-                action.action_trace.receipt.receiver == this.props.account_name &&
-                action.action_trace.act.data.to == this.props.account_name
-              )
-                // received EOS
-                return this.renderReceivedAction(action);
-              else if (action.action_trace.act.data.from == this.props.account_name)
-                // sent EOS
-                return this.renderSentAction(action);
-              else {
-                return this.renderDefaultTransferAction(action);
-              }
-            default:
-              if (
-                action.action_trace.receipt.receiver == this.props.account_name &&
-                action.action_trace.act.data.to == this.props.account_name
-              )
-                // receive other tokens
-                return this.renderTokenReceivedAction(action);
-              else if (action.action_trace.act.data.from == this.props.account_name)
-                // send other tokens
-                return this.renderTokenSentAction(action);
-              else return this.renderDefaultTokenTransferAction(action);
-          }
-        case 'delegatebw':
-          return this.RenderDelegatebw(action);
-        case 'undelegatebw':
-          return this.RenderUndelegatebw(action);
-        case 'buyram':
-          return this.RenderBuyram(action);
-        case 'buyrambytes':
-          if (action.action_trace.act.account == 'eosio') return this.RenderBuyrambytes(action);
-          else return this.renderDefaultAction(action);
-        case 'sellram':
-          return this.RenderSellram(action);
-        case 'newaccount':
-          return this.RenderNewAccount(action);
-        case 'voteproducer':
-          return this.RenderVoteProducers(action);
-        case 'updateauth':
-          return this.RenderUpdateAuth(action);
-        case 'setabi':
-          return this.RenderSetABI(action);
-        case 'setcode':
-          return this.RenderSetCode(action);
-        case 'refund':
-          return this.RenderRefund(action);
-        default:
-          return this.renderDefaultAction(action);
-      }
+    switch (action.action_trace.act.name) {
+      case 'transfer': // transfer EOS or tokens
+        switch (action.action_trace.act.account) {
+          case 'eosio.token': // transfer EOS
+            if (
+              action.action_trace.receipt.receiver == this.props.account_name &&
+              action.action_trace.act.data.to == this.props.account_name
+            )
+              // received EOS
+              return this.renderReceivedAction(action);
+            else if (action.action_trace.act.data.from == this.props.account_name)
+              // sent EOS
+              return this.renderSentAction(action);
+            else {
+              return this.renderDefaultTransferAction(action);
+            }
+          default:
+            if (
+              action.action_trace.receipt.receiver == this.props.account_name &&
+              action.action_trace.act.data.to == this.props.account_name
+            )
+              // receive other tokens
+              return this.renderTokenReceivedAction(action);
+            else if (action.action_trace.act.data.from == this.props.account_name)
+              // send other tokens
+              return this.renderTokenSentAction(action);
+            else return this.renderDefaultTokenTransferAction(action);
+        }
+      case 'delegatebw':
+        return this.RenderDelegatebw(action);
+      case 'undelegatebw':
+        return this.RenderUndelegatebw(action);
+      case 'buyram':
+        return this.RenderBuyram(action);
+      case 'buyrambytes':
+        if (action.action_trace.act.account == 'eosio') return this.RenderBuyrambytes(action);
+        else return this.renderDefaultAction(action);
+      case 'sellram':
+        return this.RenderSellram(action);
+      case 'newaccount':
+        return this.RenderNewAccount(action);
+      case 'voteproducer':
+        return this.RenderVoteProducers(action);
+      case 'updateauth':
+        return this.RenderUpdateAuth(action);
+      case 'setabi':
+        return this.RenderSetABI(action);
+      case 'setcode':
+        return this.RenderSetCode(action);
+      case 'refund':
+        return this.RenderRefund(action);
+      default:
+        return this.renderDefaultAction(action);
     }
   }
-
   render() {
-    return (
-      <Query
-        query={GetActions}
-        variables={{
-          account_name: this.props.account_name,
-          pos: -1,
-          offset: -50
-        }}
-        pollInterval={5000}
-      >
-        {({loading, error, data, fetchMore}) => {
-          if (loading)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-              //   );
-            );
-          if (error)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-            );
-          if (data && data.actions)
-            return (
-              <div>
-                <div className="card sameheight-item stats" data-exclude="xs">
-                  <div className="card-header card-header-sm bg-light shadow-sm">
-                    <div className="header-block pl-3">
-                      <FontAwesomeIcon icon="list-alt" className="mr-2 text-info" />
-                      <h5 className="title text-info">Recent actions</h5>
-                    </div>
-                  </div>
-                  <div className="card-block pt-0">
-                    <div className="no-more-tables">
-                      <table className="table actions_font tablayout">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Time</th>
-                            <th>Type</th>
-                            <th>Info</th>
-                          </tr>
-                        </thead>
-
-                        <CSSTransitionGroup
-                          component="tbody"
-                          transitionName="example"
-                          transitionEnterTimeout={500}
-                          transitionLeaveTimeout={300}
-                        >
-                          {data.actions.actions
-                            .slice()
-                            .reverse()
-                            .map((action) => {
-                              if (action.action_trace.receipt.act_digest !== this.action_digests_tmp) {
-                                this.action_digests_tmp = action.action_trace.receipt.act_digest;
-                                return <Action key={action.global_action_seq} action={action} />;
-                              }
-                            })}
-                        </CSSTransitionGroup>
-                      </table>
-                    </div>
-                    <button
-                      type="button"
-                      className="btn btn-secondary w-100"
-                      onClick={() => {
-                        fetchMore({
-                          variables: {
-                            offset: 0 - data.actions.actions.length - 50
-                          },
-                          updateQuery: (prev, {fetchMoreResult}) => {
-                            if (!fetchMoreResult) return prev;
-                            return Object.assign({}, prev, {
-                              actions: {
-                                actions: [...fetchMoreResult.actions.actions]
-                              }
-                            });
-                          }
-                        }).catch((error) => {
-                          return true;
-                        });
-                      }}
-                    >
-                      Load more
-                    </button>
-                  </div>
-                </div>
-              </div>
-            );
-          return (
-            <section className="section">
-              <div className="text-center">
-                <FontAwesomeIcon icon="spinner" spin className="text-info" />
-              </div>
-            </section>
-          );
-        }}
-      </Query>
-    );
+    const {action} = this.props;
+    return this.renderActions(action);
   }
 }
 
-export default Actions;
+export default Action;

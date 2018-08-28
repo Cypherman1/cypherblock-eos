@@ -8,15 +8,18 @@ const SideBar = () => {
       <aside className="sidebar">
         <div className="sidebar-container">
           <div className="sidebar-header">
-            <div className="brand">
-              <div className="logo">
+            <div className="brand text-info logo-font">
+              {/* <div className="logo">
                 <span className="l l1" />
                 <span className="l l2" />
                 <span className="l l3" />
                 <span className="l l4" />
                 <span className="l l5" />
+              </div> */}
+              <div className="mylogo logo-font">
+                <FontAwesomeIcon icon="cube" />
               </div>
-              Cypherblock
+              CYPHERBLOCK
             </div>
           </div>
           <nav className="menu">
@@ -27,11 +30,11 @@ const SideBar = () => {
                 </Link>
               </li>
 
-              <li className="border-bottom border-secondary">
+              {/* <li className="border-bottom border-secondary">
                 <Link to="/account/cyphercrypto" className="text-secondary">
                   <FontAwesomeIcon icon="chalkboard-teacher" className="mr-2" /> Account
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>

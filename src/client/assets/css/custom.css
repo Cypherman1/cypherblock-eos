@@ -27,6 +27,14 @@ a {
   font-size: 16px !important;
 }
 
+.logo-font {
+  font-size: 22px !important;
+}
+
+.logo-text-font {
+  font-size: 18px !important;
+}
+
 .actinfo-font {
   font-size: 13px !important;
 }
@@ -348,6 +356,11 @@ a {
 
 .example-appear {
   opacity: 0.01;
+}
+
+.mylogo {
+  display: inline-block;
+  margin-right: 8px;
 }
 
 .example-appear.example-appear-active {

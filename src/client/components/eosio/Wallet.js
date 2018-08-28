@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-import GetCurrencies from '../../queries/GetCurrencies';
-import {Tokens} from '../utils/Tokens';
 import {CSSTransitionGroup} from 'react-transition-group';
-import {renderPPColor} from '../utils/RenderColors';
-import GetWalletInfo from '../../queries/GetWalletInfo';
-import ErrorPage from '../ErrorPage';
 import {Query} from 'react-apollo';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {Tokens} from '../utils/Tokens';
+import {renderPPColor} from '../utils/RenderColors';
+import GetWalletInfo from '../../queries/GetWalletInfo';
 const images = require.context('../../assets/imgs/symbols');
+import {renderEOSNum} from '../utils/RenderColors';
 
 let AllTokens = [];
 
@@ -48,27 +47,40 @@ class Wallet extends Component {
     let items = [];
     AllTokens.map((token) => {
       let img_src = images(`./${token.logo}`);
-      items.push(
-        <div className="row row-sm stats-container border-bottom m-0" key={token.name}>
-          <div className="col-8 stat-col p-0">
-            <div className="stat-icon">
-              <img src={img_src} className="img-logo" />
-            </div>
-            <div className="stat">
-              <div className="value">
-                {token.ammount.toLocaleString('en', {
-                  maximumSignificantDigits: 17
-                })}
+      if (token.name == 'EOS') {
+        items.push(
+          <div className="row row-sm stats-container border-bottom m-0" key={token.name}>
+            <div className="col-8 stat-col p-0">
+              <div className="stat-icon">
+                <img src={img_src} className="img-logo" />
               </div>
+              <div className="stat">
+                <div className="value">{renderEOSNum(token.ammount)}</div>
 
-              <div className="name">
-                {token.name} ({Number((token.ammount * token.price).toFixed(4)).toLocaleString('en')} EOS)
+                <div className="name">{token.name}</div>
               </div>
             </div>
+            {this.renderBitfinexPrice(token)}
           </div>
-          {this.renderBitfinexPrice(token)}
-        </div>
-      );
+        );
+      } else
+        items.push(
+          <div className="row row-sm stats-container border-bottom m-0" key={token.name}>
+            <div className="col-8 stat-col p-0">
+              <div className="stat-icon">
+                <img src={img_src} className="img-logo" />
+              </div>
+              <div className="stat">
+                <div className="value">{renderEOSNum(token.ammount)}</div>
+
+                <div className="name">
+                  {token.name} ({Number((token.ammount * token.price).toFixed(4)).toLocaleString('en')} EOS)
+                </div>
+              </div>
+            </div>
+            {this.renderBitfinexPrice(token)}
+          </div>
+        );
     });
     return items;
   }

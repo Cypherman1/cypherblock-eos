@@ -271,13 +271,13 @@ body {
   line-height: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: 600;
+  font-weight: 700;
 }
 .stat .name {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .stat.lg .value {
   font-size: 20px;
@@ -3711,7 +3711,7 @@ span a {
 .sidebar-header .brand {
   color: #fff;
   text-align: left;
-  padding-left: 25px;
+  padding-left: 15px;
   line-height: 50px;
   font-size: 16px;
 }

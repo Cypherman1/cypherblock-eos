@@ -46,7 +46,11 @@ import {
   faCubes,
   faCube,
   faClock,
-  faUserCog
+  faUserCog,
+  faCogs,
+  faThumbsUp,
+  faShoppingBag,
+  faShoppingBasket
 } from '@fortawesome/free-solid-svg-icons';
 
 // import './assets/css/all.css';
@@ -79,7 +83,11 @@ library.add(
   faCubes,
   faCube,
   faClock,
-  faUserCog
+  faUserCog,
+  faCogs,
+  faThumbsUp,
+  faShoppingBag,
+  faShoppingBasket
 );
 
 class DynamicImport extends Component {

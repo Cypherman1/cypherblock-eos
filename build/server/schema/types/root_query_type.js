@@ -1,18 +1,21 @@
 const graphql = require('graphql');
 const axios = require('axios');
-const {GraphQLObjectType, GraphQLNonNull, GraphQLString, GraphQLInt} = graphql;
+const {GraphQLObjectType, GraphQLNonNull, GraphQLString, GraphQLInt, GraphQLBoolean} = graphql;
 const AccountType = require('./account_type');
 const CMCType = require('./cmc_type');
 const ChainType = require('./chain_type');
 const keys = require('../../config/keys');
 const UserType = require('./user_type');
-const ActionsType = require('./actions_type');
+const {ActionsType} = require('./actions_type');
 const TableRowsType = require('./table_rows_type');
 const GlobalDataType = require('./global_data_type');
 const CurrencyBalanceType = require('./currency_balance_type');
 const BitfinexPairsType = require('./bitfinex_pairs_type');
 const KeyAccountsType = require('./key_accounts_type');
 const EosStatType = require('./eos_stat_type');
+const TransactionType = require('./transaction_type');
+const ProducersType = require('./producers_type');
+const BlockType = require('./block_type');
 
 const onError = (error) => {
   if (error.response) {
@@ -44,6 +47,58 @@ const RootQueryType = new GraphQLObjectType({
         return axios
           .post(keys.chainURL + '/v1/chain/get_account', {
             account_name
+          })
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    transaction: {
+      type: TransactionType,
+      args: {
+        id: {type: new GraphQLNonNull(GraphQLString)}
+      },
+      resolve(parentValue, {id}) {
+        return axios
+          .post(keys.chainURL + '/v1/history/get_transaction', {
+            id
+          })
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    block: {
+      type: BlockType,
+      args: {
+        block_num_or_id: {type: new GraphQLNonNull(GraphQLString)}
+      },
+      resolve(parentValue, {block_num_or_id}) {
+        return axios
+          .post(keys.chainURL + '/v1/chain/get_block', {
+            block_num_or_id
+          })
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    producers: {
+      type: ProducersType,
+      args: {
+        limit: {type: GraphQLString},
+        lower_bound: {type: GraphQLString},
+        json: {type: GraphQLBoolean}
+      },
+      resolve(parentValue, {limit, lower_bound, json}) {
+        return axios
+          .post(keys.chainURL + '/v1/chain/get_producers', {
+            limit,
+            lower_bound,
+            json
           })
           .then((res) => res.data)
           .catch((error) => {

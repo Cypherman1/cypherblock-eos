@@ -59,6 +59,8 @@ class Header extends Component {
                     className="w-100 form-control"
                     onChange={this.changeTerm}
                     name="search"
+                    autoCapitalize="off"
+                    spellCheck="false"
                   />
                 </div>
                 <div className="col-auto pl-1 pr-3">

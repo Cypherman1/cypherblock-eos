@@ -72,7 +72,7 @@ var account_name = '';
 class AccountInfo extends Component {
   getAccountInfo(account, table_rows, cmc) {
     try {
-      if (account) {
+      if (account && table_rows && cmc) {
         account_name = account.account_name;
         if (account.total_resources) {
           staked_net = Number(account.total_resources.net_weight.split(' ')[0]);
@@ -197,7 +197,7 @@ class AccountInfo extends Component {
 
           const {account, table_rows, cmc} = data;
           this.getAccountInfo(account, table_rows, cmc);
-          if (account)
+          if (account && table_rows && cmc)
             return (
               <div>
                 <div className="card sameheight-item stats" data-exclude="xs">

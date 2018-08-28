@@ -4,8 +4,8 @@ const Footer = (props) => {
   return (
     <footer className="footer">
       <div className="footer-block buttons">
-        Vote for <a href="https://eosportal.io/chain/12/producers/cypherblocks"> cypherblocks</a> to bring the best user
-        experience on to EOSIO Blockchain
+        Vote for better user experiences on EOSIO Blockchain. Vote for{' '}
+        <a href="https://eosportal.io/chain/12/producers/cypherblocks"> cypherblocks</a>
       </div>
       <div className="footer-block author">
         <ul>

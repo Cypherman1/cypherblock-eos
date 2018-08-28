@@ -569,7 +569,7 @@ class Actions extends Component {
         variables={{
           account_name: this.props.account_name,
           pos: -1,
-          offset: -50
+          offset: -25
         }}
         pollInterval={5000}
       >
@@ -643,7 +643,7 @@ class Actions extends Component {
                       onClick={() => {
                         fetchMore({
                           variables: {
-                            offset: 0 - data.actions.actions.length - 50
+                            offset: 0 - data.actions.actions.length - 25
                           },
                           updateQuery: (prev, {fetchMoreResult}) => {
                             if (!fetchMoreResult) return prev;

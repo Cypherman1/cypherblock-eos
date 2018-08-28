@@ -210,8 +210,7 @@ a {
     margin-bottom: 2px;
   }
   .no-more-tables td:first-child {
-    /* border: 1px solid #ccc; */
-    background-color: lightgrey;
+    background-color: #eee;
   }
 
   .no-more-tables td {

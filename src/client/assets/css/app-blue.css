@@ -63,27 +63,27 @@ body {
   overflow: hidden;
 }
 .app .content {
-  padding: 62px 5px 75px 5px;
+  padding: 62px 5px 45px 5px;
   min-height: 100vh;
 }
 @media (min-width: 1200px) {
   .app .content {
-    padding: 62px 5px 70px 5px;
+    padding: 62px 5px 45px 5px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .app .content {
-    padding: 62px 5px 70px 5px;
+    padding: 62px 5px 45px 5px;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .app .content {
-    padding: 62px 5px 70px 5px;
+    padding: 62px 5px 45px 5px;
   }
 }
 @media (max-width: 767.98px) {
   .app .content {
-    padding: 62px 5px 70px 5px;
+    padding: 62px 5px 45px 5px;
   }
 }
 @media (max-width: 991.98px) {

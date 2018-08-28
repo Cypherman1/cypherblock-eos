@@ -137,6 +137,14 @@ class MarketInfo extends Component {
                 </div>
               </div>
             );
+          } else {
+            return (
+              <section className="section">
+                <div className="text-center">
+                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
+                </div>
+              </section>
+            );
           }
         }}
       </Query>

@@ -664,13 +664,14 @@ class Actions extends Component {
                 </div>
               </div>
             );
-          return (
-            <section className="section">
-              <div className="text-center">
-                <FontAwesomeIcon icon="spinner" spin className="text-info" />
-              </div>
-            </section>
-          );
+          else
+            return (
+              <section className="section">
+                <div className="text-center">
+                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
+                </div>
+              </section>
+            );
         }}
       </Query>
     );

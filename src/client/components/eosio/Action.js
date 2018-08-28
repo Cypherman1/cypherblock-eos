@@ -486,31 +486,25 @@ class Action extends Component {
     );
   }
 
-  renderActions(action) {
+  renderActions(action, account_name) {
     switch (action.action_trace.act.name) {
       case 'transfer': // transfer EOS or tokens
         switch (action.action_trace.act.account) {
           case 'eosio.token': // transfer EOS
-            if (
-              action.action_trace.receipt.receiver == this.props.account_name &&
-              action.action_trace.act.data.to == this.props.account_name
-            )
+            if (action.action_trace.receipt.receiver == account_name && action.action_trace.act.data.to == account_name)
               // received EOS
               return this.renderReceivedAction(action);
-            else if (action.action_trace.act.data.from == this.props.account_name)
+            else if (action.action_trace.act.data.from == account_name)
               // sent EOS
               return this.renderSentAction(action);
             else {
               return this.renderDefaultTransferAction(action);
             }
           default:
-            if (
-              action.action_trace.receipt.receiver == this.props.account_name &&
-              action.action_trace.act.data.to == this.props.account_name
-            )
+            if (action.action_trace.receipt.receiver == account_name && action.action_trace.act.data.to == account_name)
               // receive other tokens
               return this.renderTokenReceivedAction(action);
-            else if (action.action_trace.act.data.from == this.props.account_name)
+            else if (action.action_trace.act.data.from == account_name)
               // send other tokens
               return this.renderTokenSentAction(action);
             else return this.renderDefaultTokenTransferAction(action);
@@ -543,8 +537,8 @@ class Action extends Component {
     }
   }
   render() {
-    const {action} = this.props;
-    return this.renderActions(action);
+    const {action, account_name} = this.props;
+    return this.renderActions(action, account_name);
   }
 }
 

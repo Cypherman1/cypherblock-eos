@@ -8,6 +8,7 @@ export default gql`
         block_time
         action_trace {
           receipt {
+            receiver
             act_digest
           }
           act {

@@ -625,7 +625,13 @@ class Actions extends Component {
                             .map((action) => {
                               if (action.action_trace.receipt.act_digest !== this.action_digests_tmp) {
                                 this.action_digests_tmp = action.action_trace.receipt.act_digest;
-                                return <Action key={action.global_action_seq} action={action} />;
+                                return (
+                                  <Action
+                                    key={action.global_action_seq}
+                                    action={action}
+                                    account_name={this.props.account_name}
+                                  />
+                                );
                               }
                             })}
                         </CSSTransitionGroup>

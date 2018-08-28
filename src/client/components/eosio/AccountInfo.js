@@ -169,7 +169,7 @@ class AccountInfo extends Component {
     }
   }
   notify = () =>
-    toast.error('Not exsit!', {
+    toast.error('Not found!', {
       position: toast.POSITION.TOP_RIGHT
     });
   render() {

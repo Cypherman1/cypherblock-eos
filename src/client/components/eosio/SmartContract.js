@@ -27,7 +27,7 @@ class SmartContract extends Component {
               </section>
             );
           const {abi} = data;
-          if (abi.abi) {
+          if (abi && abi.abi) {
             return (
               <div className="card sameheight-item stats mbc" data-exclude="xs">
                 <div className="card-header card-header-sm bg-light shadow-sm">

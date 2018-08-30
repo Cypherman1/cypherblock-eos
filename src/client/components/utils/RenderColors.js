@@ -173,21 +173,21 @@ const renderRamPriceColor = (ram_price) => {
     tmp_ram_price = ram_price;
     return (
       <span className="text-success">
-        <NumberEasing value={ram_price} ease="backIn" precision={6} speed={500} useLocaleString={true} />
+        <Odometer value={ram_price} format="(,ddd).dddd" />
       </span>
     );
   } else if (ram_price == tmp_ram_price || tmp_ram_price == 0) {
     tmp_ram_price = ram_price;
     return (
       <span className="text-dark">
-        <NumberEasing value={ram_price} ease="backIn" precision={6} speed={500} useLocaleString={true} />
+        <Odometer value={ram_price} format="(,ddd).dddd" />
       </span>
     );
   } else if (ram_price < tmp_ram_price) {
     tmp_ram_price = ram_price;
     return (
       <span className="text-danger">
-        <NumberEasing value={ram_price} ease="backIn" precision={6} speed={500} useLocaleString={true} />
+        <Odometer value={ram_price} format="(,ddd).dddd" />
       </span>
     );
   }
@@ -198,21 +198,21 @@ const renderRamPriceColorM = (ram_price) => {
     tmp_ram_price_m = ram_price;
     return (
       <span className="text-success">
-        <NumberEasing value={ram_price} ease="backIn" precision={6} speed={500} useLocaleString={true} />
+        <Odometer value={ram_price} format="(,ddd).dddd" />
       </span>
     );
   } else if (ram_price == tmp_ram_price_m || tmp_ram_price_m == 0) {
     tmp_ram_price_m = ram_price;
     return (
       <span className="text-dark">
-        <NumberEasing value={ram_price} ease="backIn" precision={6} speed={500} useLocaleString={true} />
+        <Odometer value={ram_price} format="(,ddd).dddd" />
       </span>
     );
   } else if (ram_price < tmp_ram_price_m) {
     tmp_ram_price_m = ram_price;
     return (
       <span className="text-danger">
-        <NumberEasing value={ram_price} ease="backIn" precision={6} speed={500} useLocaleString={true} />
+        <Odometer value={ram_price} format="(,ddd).dddd" />
       </span>
     );
   }

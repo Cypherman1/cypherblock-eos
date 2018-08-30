@@ -16,6 +16,11 @@ const EosStatType = require('./eos_stat_type');
 const TransactionType = require('./transaction_type');
 const ProducersType = require('./producers_type');
 const BlockType = require('./block_type');
+const CodeType = require('./code_type');
+const VoterFullInfoType = require('./voter_info_type');
+const ABIType = require('./abi_type');
+
+let VoterInfo = {};
 
 const onError = (error) => {
   if (error.response) {
@@ -46,6 +51,66 @@ const RootQueryType = new GraphQLObjectType({
       resolve(parentValue, {account_name}) {
         return axios
           .post(keys.chainURL + '/v1/chain/get_account', {
+            account_name
+          })
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    voteinfo: {
+      type: VoterFullInfoType,
+      args: {account_name: {type: new GraphQLNonNull(GraphQLString)}},
+      resolve(parentValue, {account_name}) {
+        return axios
+          .post(keys.chainURL_ALT1 + '/v1/chain/get_account', {
+            account_name
+          })
+          .then((res) => {
+            if (!res.data.voter_info.proxy) {
+              return res.data.voter_info;
+            } else {
+              VoterInfo = res.data.voter_info;
+
+              return axios
+                .post(keys.chainURL_ALT1 + '/v1/chain/get_account', {
+                  account_name: res.data.voter_info.proxy
+                })
+                .then((res1) => {
+                  VoterInfo.proxy_vote_info = res1.data.voter_info;
+                  return VoterInfo;
+                })
+                .catch((error) => {
+                  onError(error);
+                });
+            }
+          })
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    code: {
+      type: CodeType,
+      args: {account_name: {type: new GraphQLNonNull(GraphQLString)}},
+      resolve(parentValue, {account_name}) {
+        return axios
+          .post(keys.chainURL_ALT1 + '/v1/chain/get_code', {
+            account_name
+          })
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    abi: {
+      type: ABIType,
+      args: {account_name: {type: new GraphQLNonNull(GraphQLString)}},
+      resolve(parentValue, {account_name}) {
+        return axios
+          .post(keys.chainURL_ALT1 + '/v1/chain/get_abi', {
             account_name
           })
           .then((res) => res.data)

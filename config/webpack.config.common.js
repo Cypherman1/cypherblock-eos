@@ -19,6 +19,7 @@ module.exports = {
         use: ['babel-loader'],
         exclude: /node_modules/
       },
+      {test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader'},
       {
         test: /\.html$/,
         loader: 'html-loader'

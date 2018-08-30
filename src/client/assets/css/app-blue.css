@@ -63,27 +63,27 @@ body {
   overflow: hidden;
 }
 .app .content {
-  padding: 62px 5px 45px 5px;
+  padding: 55px 4px 45px 4px;
   min-height: 100vh;
 }
 @media (min-width: 1200px) {
   .app .content {
-    padding: 62px 5px 45px 5px;
+    padding: 58px 4px 45px 4px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .app .content {
-    padding: 62px 5px 45px 5px;
+    padding: 58px 4px 45px 4px;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .app .content {
-    padding: 62px 5px 45px 5px;
+    padding: 58px 4px 45px 4px;
   }
 }
 @media (max-width: 767.98px) {
   .app .content {
-    padding: 62px 5px 45px 5px;
+    padding: 58px 4px 45px 4px;
   }
 }
 @media (max-width: 991.98px) {
@@ -260,7 +260,7 @@ body {
 }
 
 .stat {
-  white-space: nowrap;
+  /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
@@ -351,7 +351,7 @@ body {
   font-size: 1.4rem;
 }
 .card .title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #4f5f6f;
 }
 
@@ -962,7 +962,7 @@ pre {
   border-bottom: 1px solid #d7dde4;
 }
 .card .card-header.card-header-sm {
-  min-height: 40px;
+  min-height: 36px;
 }
 .card .card-header > span {
   vertical-align: middle;
@@ -971,7 +971,9 @@ pre {
   margin-left: auto;
 }
 .card .card-header .header-block {
-  padding: 0.5rem 15px;
+  /* padding: 0.5rem 15px; */
+  padding-top: 2px!important;
+  padding-bottom: 2px!important;
 }
 @media (min-width: 1200px) {
   .card .card-header .header-block {

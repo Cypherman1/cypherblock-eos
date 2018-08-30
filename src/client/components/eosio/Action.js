@@ -442,10 +442,9 @@ class Action extends Component {
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
-          <div className="actinfo-font">{this.renderAccountLink(action.action_trace.act.data.account)} set ABI:</div>
-          <div>
-            {/* {action.action_trace.act.data.abi} */}
-            <ReadMoreReact text={action.action_trace.act.data.abi} />
+          <div className="actinfo-font">
+            {this.renderAccountLink(action.action_trace.act.data.account)} set ABI.{' '}
+            <Link to={`/abi/${action.action_trace.act.data.account}`}>View abi</Link>
           </div>
         </td>
       </tr>
@@ -461,11 +460,11 @@ class Action extends Component {
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
-          <div className="actinfo-font">{this.renderAccountLink(action.action_trace.act.data.account)} set code:</div>
-          <div>
-            {/* {action.action_trace.act.data.abi} */}
-            <ReadMoreReact text={action.action_trace.act.data.code} />
+          <div className="actinfo-font">
+            {this.renderAccountLink(action.action_trace.act.data.account)} set code.{' '}
+            <Link to={`/code/${action.action_trace.act.data.account}`}>View code</Link>
           </div>
+          <div />
         </td>
       </tr>
     );

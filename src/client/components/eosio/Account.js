@@ -4,6 +4,8 @@ import React from 'react';
 import AccountInfo from './AccountInfo';
 import Wallet from './Wallet';
 import Actions from './Actions';
+import VoterInfo from './VoterInfo';
+import SmartContract from './SmartContract';
 import ErrorBoundary from '../ErrorBoundary';
 
 const Account = ({match}) => {
@@ -16,12 +18,20 @@ const Account = ({match}) => {
               <AccountInfo account_name={match.params.account_name} />
             </ErrorBoundary>
             <ErrorBoundary>
+              <VoterInfo account_name={match.params.account_name} />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <SmartContract account_name={match.params.account_name} />
+            </ErrorBoundary>
+            <ErrorBoundary>
               <Actions account_name={match.params.account_name} />
             </ErrorBoundary>
           </div>
-          <ErrorBoundary>
+
+          <ErrorBoundary className="d-none d-xl-block">
             <Wallet account_name={match.params.account_name} />
           </ErrorBoundary>
+
           {/* <Wallet data={data} /> */}
           {/* <MarketInfo
               cmc={cmc}

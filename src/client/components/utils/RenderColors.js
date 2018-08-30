@@ -1,5 +1,5 @@
 import React from 'react';
-// import Odometer from 'react-odometerjs';
+import Odometer from 'react-odometerjs';
 import NumberEasing from 'che-react-number-easing';
 
 var tmp_ram = 0;
@@ -223,21 +223,21 @@ const renderEOSPriceColor = (eos_price) => {
     tmp_eos_price = eos_price;
     return (
       <span className="text-success">
-        <NumberEasing value={eos_price} ease="backIn" precision={2} speed={500} trail={true} useLocaleString={true} />
+        <Odometer value={eos_price} format="(,ddd).dd" />
       </span>
     );
   } else if (eos_price == tmp_eos_price || tmp_eos_price == 0) {
     tmp_eos_price = eos_price;
     return (
       <span className="text-dark">
-        <NumberEasing value={eos_price} ease="backIn" precision={2} speed={500} trail={true} useLocaleString={true} />
+        <Odometer value={eos_price} format="(,ddd).dd" />
       </span>
     );
   } else if (eos_price < tmp_eos_price) {
     tmp_eos_price = eos_price;
     return (
       <span className="text-danger">
-        <NumberEasing value={eos_price} ease="backIn" precision={2} speed={500} trail={true} useLocaleString={true} />
+        <Odometer value={eos_price} format="(,ddd).dd" />
       </span>
     );
   }
@@ -248,21 +248,21 @@ const renderEOSPriceColorM = (eos_price) => {
     tmp_eos_price_m = eos_price;
     return (
       <span className="text-success">
-        <NumberEasing value={eos_price} ease="backIn" precision={2} speed={500} trail={true} useLocaleString={true} />
+        <Odometer value={eos_price} format="(,ddd).dd" />
       </span>
     );
   } else if (eos_price == tmp_eos_price_m || tmp_eos_price_m == 0) {
     tmp_eos_price_m = eos_price;
     return (
       <span className="text-dark">
-        <NumberEasing value={eos_price} ease="backIn" precision={2} speed={500} trail={true} useLocaleString={true} />
+        <Odometer value={eos_price} format="(,ddd).dd" />
       </span>
     );
   } else if (eos_price < tmp_eos_price_m) {
     tmp_eos_price_m = eos_price;
     return (
       <span className="text-danger">
-        <NumberEasing value={eos_price} ease="backIn" precision={2} speed={500} trail={true} useLocaleString={true} />
+        <Odometer value={eos_price} format="(,ddd).dd" />
       </span>
     );
   }

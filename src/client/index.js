@@ -50,7 +50,11 @@ import {
   faCogs,
   faThumbsUp,
   faShoppingBag,
-  faShoppingBasket
+  faShoppingBasket,
+  faGavel,
+  faBatteryFull,
+  faHeart,
+  faHandHoldingHeart
 } from '@fortawesome/free-solid-svg-icons';
 
 // import './assets/css/all.css';
@@ -87,7 +91,11 @@ library.add(
   faCogs,
   faThumbsUp,
   faShoppingBag,
-  faShoppingBasket
+  faShoppingBasket,
+  faGavel,
+  faBatteryFull,
+  faHeart,
+  faHandHoldingHeart
 );
 
 class DynamicImport extends Component {
@@ -108,6 +116,18 @@ class DynamicImport extends Component {
 
 const Account = (props) => (
   <DynamicImport load={() => import('./components/eosio/Account')}>
+    {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
+  </DynamicImport>
+);
+
+const CodeView = (props) => (
+  <DynamicImport load={() => import('./components/eosio/CodeView')}>
+    {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
+  </DynamicImport>
+);
+
+const ABIView = (props) => (
+  <DynamicImport load={() => import('./components/eosio/ABIView')}>
     {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
   </DynamicImport>
 );
@@ -143,6 +163,8 @@ const Root = () => {
             <Switch>
               <Route path="/" exact component={Dashboard} />
               <Route path="/account/:account_name" component={Account} />
+              <Route path="/code/:account_name" component={CodeView} />
+              <Route path="/abi/:account_name" component={ABIView} />
             </Switch>
             <Footer />
           </div>

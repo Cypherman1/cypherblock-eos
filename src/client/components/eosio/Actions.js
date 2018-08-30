@@ -596,7 +596,7 @@ class Actions extends Component {
               <div>
                 <div className="card sameheight-item stats" data-exclude="xs">
                   <div className="card-header card-header-sm bg-light shadow-sm">
-                    <div className="header-block pl-3">
+                    <div className="header-block pl-2">
                       <FontAwesomeIcon icon="list-alt" className="mr-2 text-info" />
                       <h5 className="title text-info">Recent actions</h5>
                     </div>

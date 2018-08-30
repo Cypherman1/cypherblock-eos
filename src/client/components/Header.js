@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import {graphql} from 'react-apollo';
-import GetKeyAccounts from '../queries/GetKeyAccounts';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import history from './history';
-import Modal from 'react-responsive-modal';
-import {Query} from 'react-apollo';
 import KeyAccountsModal from './eosio/KeyAccountsModal';
 
 class Header extends Component {
@@ -52,7 +47,7 @@ class Header extends Component {
           <div className="header-block header-block-search w-100 pr-2">
             <form role="search" className="float-left w-100" onSubmit={this.submit}>
               <div className="row">
-                <div className="col pr-0">
+                <div className="col pr-0 pl-2">
                   <input
                     type="text"
                     placeholder="Search by ACCOUNT/PUBKEY/TX"

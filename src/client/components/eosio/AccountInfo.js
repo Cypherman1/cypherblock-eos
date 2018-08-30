@@ -200,9 +200,9 @@ class AccountInfo extends Component {
           if (account && table_rows && cmc)
             return (
               <div>
-                <div className="card sameheight-item stats" data-exclude="xs">
+                <div className="card sameheight-item stats mbc" data-exclude="xs">
                   <div className="card-header card-header-sm bg-light shadow-sm">
-                    <div className="header-block pl-3">
+                    <div className="header-block pl-2">
                       <FontAwesomeIcon icon="user" className="mr-2 text-info" />
                       <h5 className="title text-info">
                         {account_name}
@@ -212,8 +212,8 @@ class AccountInfo extends Component {
                   </div>
                   <div className="card-block ">
                     <div className="row row-sm stats-container m-0">
-                      <div className="col-12 col-sm-4 stat-col p-1">
-                        <div className="pb-2 border-bottom header-border">
+                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                        <div className="pd-bl">
                           <div className="mr-2 eos-icon">
                             <img src={eoslogo} />
                           </div>
@@ -224,10 +224,18 @@ class AccountInfo extends Component {
                             <div className="name">Balance</div>
                           </div>
                         </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
+                        </div>
                       </div>
-                      <div className="col-12 col-sm-4 stat-col p-1">
-                        <div className="pb-2 border-bottom header-border">
-                          <div className="mr-2 eos-icon">
+                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                        <div className="pd-bl">
+                          <div className=" mr-2 eos-icon">
                             <img src={eoslogo} />
                           </div>
                           <div className="stat">
@@ -235,20 +243,34 @@ class AccountInfo extends Component {
                             <div className="name">Balance(including RAM)</div>
                           </div>
                         </div>
-                      </div>
-                      <div className="col-12 col-sm-4 stat-col p-1">
-                        <div className="pb-2 border-bottom header-border">
-                          <div className="stat-icon text-secondary">
-                            <FontAwesomeIcon icon="dollar-sign" />
-                          </div>
-                          <div className="stat">
-                            <div className="value">{renderToFiatColor(to_fiat)} USD</div>
-                            <div className="name">To fiat</div>
-                          </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4 stat-col p-1">
-                        <div className="stat-icon text-secondary">
+                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                        <div className="stat-icon">
+                          <FontAwesomeIcon icon="dollar-sign" />
+                        </div>
+                        <div className="stat">
+                          <div className="value">{renderToFiatColor(to_fiat)} USD</div>
+                          <div className="name">To fiat</div>
+                        </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                        <div className="stat-icon">
                           <FontAwesomeIcon icon="lock-open" />
                         </div>
                         <div className="stat">
@@ -268,8 +290,8 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4 stat-col p-1">
-                        <div className="stat-icon text-secondary">
+                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                        <div className="stat-icon">
                           <FontAwesomeIcon icon="lock" />
                         </div>
                         <div className="stat">
@@ -289,8 +311,8 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4  stat-col p-1">
-                        <div className="stat-icon text-secondary">
+                      <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
+                        <div className="stat-icon">
                           <FontAwesomeIcon icon="key" />
                         </div>
                         <div className="stat">
@@ -310,8 +332,8 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4  stat-col p-1">
-                        <div className="stat-icon text-secondary">
+                      <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
+                        <div className="stat-icon">
                           <FontAwesomeIcon icon="memory" />
                         </div>
                         <div className="stat">
@@ -327,8 +349,8 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4  stat-col p-1">
-                        <div className="stat-icon text-secondary">
+                      <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
+                        <div className="stat-icon">
                           <FontAwesomeIcon icon="microchip" />
                         </div>
                         <div className="stat">
@@ -346,8 +368,8 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4 stat-col p-1">
-                        <div className="stat-icon text-secondary">
+                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                        <div className="stat-icon">
                           <FontAwesomeIcon icon="bolt" />
                         </div>
                         <div className="stat">

@@ -74,9 +74,9 @@ class GeneralInfo extends Component {
             eos_volume = Number(cmc.data.quotes.USD.volume_24h).toLocaleString('en', {maximumFractionDigits: 0});
 
             return (
-              <div className="card sameheight-item stats" data-exclude="xs">
+              <div className="card sameheight-item stats mbc" data-exclude="xs">
                 <div className="card-header card-header-sm bg-light shadow-sm row m-0">
-                  <div className="header-block pl-3 col">
+                  <div className="header-block pl-2 col">
                     <FontAwesomeIcon icon="cubes" className="mr-2 text-info" />
                     <h5 className="title text-info">
                       General Info
@@ -188,7 +188,7 @@ class GeneralInfo extends Component {
                     </div>
                     <div className="col-12 col-sm-4 stat-col p-1">
                       <div className="stat-icon">
-                        <FontAwesomeIcon icon="thumbs-up" />
+                        <FontAwesomeIcon icon="gavel" />
                       </div>
                       <div className="stat">
                         <div className="value">{renderEOSNum(total_activated_stake / 10000)}</div>

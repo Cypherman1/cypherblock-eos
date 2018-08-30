@@ -42,7 +42,7 @@ class MarketInfo extends Component {
               maximumFractionDigits: 0
             });
 
-            eos_price = Number(cmc.data.quotes.USD.price).toFixed(2);
+            eos_price = Number(cmc.data.quotes.USD.price);
             percent_change_24h = cmc.data.quotes.USD.percent_change_24h;
             eos_volume = Number(cmc.data.quotes.USD.volume_24h).toLocaleString('en', {maximumFractionDigits: 0});
 
@@ -50,14 +50,14 @@ class MarketInfo extends Component {
               <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col d-none d-xl-block">
                 <div className="card sameheight-item stats" data-exclude="xs">
                   <div className="card-header card-header-sm bg-light shadow-sm">
-                    <div className="header-block pl-3">
+                    <div className="header-block pl-2">
                       <FontAwesomeIcon icon="chart-line" className="mr-2 text-info" />
                       <h5 className="title text-info">Market info</h5>
                     </div>
                   </div>
                   <div className="card-block">
-                    <div className="row row-sm stats-container">
-                      <div className="col-12 col-sm-6  stat-col">
+                    <div className="row row-sm stats-container m-0">
+                      <div className="col-12 col-sm-6  stat-col p-1">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="chart-bar" />
                         </div>
@@ -74,8 +74,7 @@ class MarketInfo extends Component {
                           />
                         </div>
                       </div>
-
-                      <div className="col-12 col-sm-6  stat-col">
+                      <div className="col-12 col-sm-6  stat-col p-1">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="coins" />
                         </div>
@@ -94,8 +93,7 @@ class MarketInfo extends Component {
                           />
                         </div>
                       </div>
-
-                      <div className="col-12 col-sm-6 stat-col">
+                      <div className="col-12 col-sm-6 stat-col p-1">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="dollar-sign" />
                         </div>
@@ -115,7 +113,7 @@ class MarketInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-6 stat-col">
+                      <div className="col-12 col-sm-6 stat-col p-1">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="coins" />
                         </div>

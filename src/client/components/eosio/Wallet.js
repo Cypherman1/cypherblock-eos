@@ -151,7 +151,7 @@ class Wallet extends Component {
               <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">
                 <div className="card sameheight-item stats" data-exclude="xs">
                   <div className="card-header card-header-sm bg-light shadow-sm">
-                    <div className="header-block pl-3">
+                    <div className="header-block pl-2">
                       <FontAwesomeIcon icon="wallet" className="mr-2 text-info" />
                       <h5 className="title text-info ">Wallet</h5>
                     </div>

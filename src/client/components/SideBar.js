@@ -25,7 +25,7 @@ const SideBar = () => {
           <nav className="menu">
             <ul className="sidebar-menu metismenu" id="sidebar-menu">
               <li className="border-bottom border-top border-secondary">
-                <Link to="/" className="text-secondary">
+                <Link to="/" className="text-light">
                   <FontAwesomeIcon icon="home" className="mr-2" /> Dashboard
                 </Link>
               </li>

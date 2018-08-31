@@ -9,11 +9,11 @@ const ReceiptType = new GraphQLObjectType({
   fields: () => ({
     receiver: {type: GraphQLString},
     act_digest: {type: GraphQLString},
-    global_sequence: {type: GraphQLInt},
-    recv_sequence: {type: GraphQLInt},
+    global_sequence: {type: GraphQLString},
+    recv_sequence: {type: GraphQLString},
     auth_sequence: {type: new GraphQLList(GraphQLList(GraphQLString))},
-    code_sequence: {type: GraphQLInt},
-    abi_sequence: {type: GraphQLInt}
+    code_sequence: {type: GraphQLString},
+    abi_sequence: {type: GraphQLString}
   })
 });
 
@@ -65,9 +65,9 @@ const ActionTraceType = new GraphQLObjectType({
 const ActionType = new GraphQLObjectType({
   name: 'ActionType',
   fields: () => ({
-    global_action_seq: {type: GraphQLInt},
-    account_action_seq: {type: GraphQLInt},
-    block_num: {type: GraphQLInt},
+    global_action_seq: {type: GraphQLString},
+    account_action_seq: {type: GraphQLString},
+    block_num: {type: GraphQLString},
     block_time: {type: GraphQLString},
     action_trace: {type: ActionTraceType}
   })
@@ -77,7 +77,7 @@ const ActionsType = new GraphQLObjectType({
   name: 'ActionsType',
   fields: () => ({
     actions: {type: new GraphQLList(ActionType)},
-    last_irreversible_block: {type: GraphQLInt}
+    last_irreversible_block: {type: GraphQLString}
   })
 });
 

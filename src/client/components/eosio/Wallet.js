@@ -99,21 +99,23 @@ class Wallet extends Component {
 
   gettPairPrice(bitfinex_pairs, tpair) {
     let tPrice = 0;
-    bitfinex_pairs.data.map((pair) => {
-      if (pair[0] == tpair) {
-        tPrice = Number(pair[7]);
-      }
-    });
+    if (bitfinex_pairs)
+      bitfinex_pairs.data.map((pair) => {
+        if (pair[0] == tpair) {
+          tPrice = Number(pair[7]);
+        }
+      });
 
     return tPrice;
   }
   gettPairPercent(bitfinex_pairs, tpair) {
     let tPercent = 0;
-    bitfinex_pairs.data.map((pair) => {
-      if (pair[0] == tpair) {
-        tPercent = Number(pair[6]);
-      }
-    });
+    if (bitfinex_pairs)
+      bitfinex_pairs.data.map((pair) => {
+        if (pair[0] == tpair) {
+          tPercent = Number(pair[6]);
+        }
+      });
     return tPercent;
   }
 
@@ -145,7 +147,8 @@ class Wallet extends Component {
               </section>
             );
           const {bitfinex_pairs} = data;
-          if (data && bitfinex_pairs) {
+
+          if (data) {
             this.setAllTokens(data, bitfinex_pairs);
             return (
               <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">

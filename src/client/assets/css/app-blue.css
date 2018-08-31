@@ -278,6 +278,7 @@ body {
   text-overflow: ellipsis;
   font-size: 12px;
   font-weight: 600;
+  
 }
 .stat.lg .value {
   font-size: 20px;
@@ -2377,7 +2378,7 @@ span a {
 .sidebar .sidebar-menu li a:hover,
 .sidebar .sidebar-menu li.open > a,
 .sidebar .sidebar-menu li.open a:hover {
-  color: #ffffff!important;
+  color: #17a2b8!important;
   background-color: #2d363f;
 }
 .sidebar .sidebar-menu .arrow {

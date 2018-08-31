@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
-import ReadMoreReact from 'read-more-react';
 import {convertUTCDateToLocalDate} from '../utils/Tools';
-
-var action_digests_tmp = '';
 
 class Action extends Component {
   renderData(data) {
@@ -50,61 +46,61 @@ class Action extends Component {
   renderTime(time) {
     return <td data-title="Time">{convertUTCDateToLocalDate(new Date(time)).toLocaleString()}</td>;
   }
-  renderDefaultAction(action) {
+  renderDefaultAction(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
-          <div className=" p-1 d-inline bg-default text-light rounded ">{action.action_trace.act.name}</div>
-          <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div>
+          <div className=" p-1 d-inline bg-default text-light rounded ">{action_trace.act.name}</div>
+          <div className=" p-1">{this.renderAccountLink(action_trace.act.account)}</div>
         </td>
         <td data-title="Info" className="pt-1 pb-1">
-          {this.renderData(action.action_trace.act.data)}
+          {this.renderData(action_trace.act.data)}
         </td>
       </tr>
     );
   }
-  renderDefaultTransferAction(action) {
+  renderDefaultTransferAction(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-default text-light rounded ">Transfer</div>
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.from)} {' transfered '}
-            <span className="text-info">{action.action_trace.act.data.quantity}</span> {` to `}
-            {this.renderAccountLink(action.action_trace.act.data.to)}
+            {this.renderAccountLink(action_trace.act.data.from)} {' transfered '}
+            <span className="text-info">{action_trace.act.data.quantity}</span> {` to `}
+            {this.renderAccountLink(action_trace.act.data.to)}
           </div>
           <div>
             <span className="font-weight-bold">{`Memo: `}</span>
-            {action.action_trace.act.data.memo}
+            {action_trace.act.data.memo}
           </div>
         </td>
       </tr>
     );
   }
-  renderDefaultTokenTransferAction(action) {
+  renderDefaultTokenTransferAction(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-default text-light rounded ">Transfer</div>
-          <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div>
+          <div className=" p-1">{this.renderAccountLink(action_trace.act.account)}</div>
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.from)} {' transfered '}
-            <span className="text-info">{action.action_trace.act.data.quantity}</span> {` to `}
-            {this.renderAccountLink(action.action_trace.act.data.to)}
+            {this.renderAccountLink(action_trace.act.data.from)} {' transfered '}
+            <span className="text-info">{action_trace.act.data.quantity}</span> {` to `}
+            {this.renderAccountLink(action_trace.act.data.to)}
           </div>
           <div>
             <span className="font-weight-bold">{`Memo: `}</span>
-            {action.action_trace.act.data.memo}
+            {action_trace.act.data.memo}
           </div>
         </td>
       </tr>
@@ -113,234 +109,234 @@ class Action extends Component {
   renderAccountLink(accountName) {
     return <Link to={`/account/${accountName}`}>{accountName}</Link>;
   }
-  renderReceivedAction(action) {
+  renderReceivedAction(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-success text-light rounded ">Receive</div>
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.to)} {' received '}
-            <span className="text-info">{action.action_trace.act.data.quantity}</span> {` from `}
-            {this.renderAccountLink(action.action_trace.act.data.from)}
+            {this.renderAccountLink(action_trace.act.data.to)} {' received '}
+            <span className="text-info">{action_trace.act.data.quantity}</span> {` from `}
+            {this.renderAccountLink(action_trace.act.data.from)}
           </div>
           <div>
             <span className="font-weight-bold">{`Memo: `}</span>
-            {action.action_trace.act.data.memo}
+            {action_trace.act.data.memo}
           </div>
         </td>
       </tr>
     );
   }
-  renderTokenReceivedAction(action) {
+  renderTokenReceivedAction(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-received text-light rounded ">Receive(tokens)</div>
-          <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div>
+          <div className=" p-1">{this.renderAccountLink(action_trace.act.account)}</div>
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.to)} {' received '}
-            <span className="text-info">{action.action_trace.act.data.quantity}</span> {` from `}
-            {this.renderAccountLink(action.action_trace.act.data.from)}
+            {this.renderAccountLink(action_trace.act.data.to)} {' received '}
+            <span className="text-info">{action_trace.act.data.quantity}</span> {` from `}
+            {this.renderAccountLink(action_trace.act.data.from)}
           </div>
           <div>
             <span className="font-weight-bold">{`Memo: `}</span>
-            {action.action_trace.act.data.memo}
+            {action_trace.act.data.memo}
           </div>
         </td>
       </tr>
     );
   }
 
-  renderTokenSentAction(action) {
+  renderTokenSentAction(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-senttoken text-light rounded ">Send(tokens)</div>
-          <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div>
+          <div className=" p-1">{this.renderAccountLink(action_trace.act.account)}</div>
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.from)} {' sent '}
-            <span className="text-info">{action.action_trace.act.data.quantity}</span> {` to `}
-            {this.renderAccountLink(action.action_trace.act.data.to)}
+            {this.renderAccountLink(action_trace.act.data.from)} {' sent '}
+            <span className="text-info">{action_trace.act.data.quantity}</span> {` to `}
+            {this.renderAccountLink(action_trace.act.data.to)}
           </div>
           <div>
             <span className="font-weight-bold">{`Memo: `}</span>
-            {action.action_trace.act.data.memo}
+            {action_trace.act.data.memo}
           </div>
         </td>
       </tr>
     );
   }
 
-  renderSentAction(action) {
+  renderSentAction(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-sent text-light rounded ">send</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.from)} {' sent '}
-            <span className="text-info">{action.action_trace.act.data.quantity}</span> {` to `}
-            {this.renderAccountLink(action.action_trace.act.data.to)}
+            {this.renderAccountLink(action_trace.act.data.from)} {' sent '}
+            <span className="text-info">{action_trace.act.data.quantity}</span> {` to `}
+            {this.renderAccountLink(action_trace.act.data.to)}
           </div>
           <div>
             <span className="font-weight-bold">{`Memo: `}</span>
-            {action.action_trace.act.data.memo}
+            {action_trace.act.data.memo}
           </div>
         </td>
       </tr>
     );
   }
 
-  RenderDelegatebw(action) {
+  RenderDelegatebw(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-received text-light rounded ">Stake bandwidth</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.from)}
+            {this.renderAccountLink(action_trace.act.data.from)}
             {` delegated `}
-            <span className="text-info">{action.action_trace.act.data.stake_net_quantity}</span> {` for NET and `}
-            <span className="text-info">{action.action_trace.act.data.stake_cpu_quantity}</span> {` for CPU to `}
-            {this.renderAccountLink(action.action_trace.act.data.receiver)}
+            <span className="text-info">{action_trace.act.data.stake_net_quantity}</span> {` for NET and `}
+            <span className="text-info">{action_trace.act.data.stake_cpu_quantity}</span> {` for CPU to `}
+            {this.renderAccountLink(action_trace.act.data.receiver)}
           </div>
         </td>
       </tr>
     );
   }
-  RenderUndelegatebw(action) {
+  RenderUndelegatebw(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-senttoken text-light rounded ">Unstake</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.from)}
+            {this.renderAccountLink(action_trace.act.data.from)}
             {` undelegated `}
-            <span className="text-info">{action.action_trace.act.data.unstake_net_quantity}</span> {` for NET and `}
-            <span className="text-info">{action.action_trace.act.data.unstake_cpu_quantity}</span> {` for CPU to `}
-            {this.renderAccountLink(action.action_trace.act.data.receiver)}
+            <span className="text-info">{action_trace.act.data.unstake_net_quantity}</span> {` for NET and `}
+            <span className="text-info">{action_trace.act.data.unstake_cpu_quantity}</span> {` for CPU to `}
+            {this.renderAccountLink(action_trace.act.data.receiver)}
           </div>
         </td>
       </tr>
     );
   }
-  RenderBuyram(action) {
+  RenderBuyram(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-received text-light rounded ">Buy RAM</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.payer)}
+            {this.renderAccountLink(action_trace.act.data.payer)}
             {` bought `}
-            <span className="text-info">{action.action_trace.act.data.quant}</span> {` RAM for `}
-            {this.renderAccountLink(action.action_trace.act.data.receiver)}
+            <span className="text-info">{action_trace.act.data.quant}</span> {` RAM for `}
+            {this.renderAccountLink(action_trace.act.data.receiver)}
           </div>
         </td>
       </tr>
     );
   }
-  RenderBuyrambytes(action) {
+  RenderBuyrambytes(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-received text-light rounded ">Buy RAM(bytes)</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.payer)}
+            {this.renderAccountLink(action_trace.act.data.payer)}
             {` bought `}
-            <span className="text-info">{action.action_trace.act.data.bytes}</span> {`bytes RAM for `}
-            {this.renderAccountLink(action.action_trace.act.data.receiver)}
+            <span className="text-info">{action_trace.act.data.bytes}</span> {`bytes RAM for `}
+            {this.renderAccountLink(action_trace.act.data.receiver)}
           </div>
         </td>
       </tr>
     );
   }
-  RenderSellram(action) {
+  RenderSellram(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-senttoken text-light rounded ">Sell RAM</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.account)}
+            {this.renderAccountLink(action_trace.act.data.account)}
             {` sold `}
-            <span className="text-info">{action.action_trace.act.data.bytes}</span> {`bytes RAM `}
+            <span className="text-info">{action_trace.act.data.bytes}</span> {`bytes RAM `}
             {/* {this.renderAccountLink(action.action_trace.act.data.receiver)} */}
           </div>
         </td>
       </tr>
     );
   }
-  RenderNewAccount(action) {
+  RenderNewAccount(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-vote text-light rounded ">Create account</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.name)} {' created by '}
-            {this.renderAccountLink(action.action_trace.act.data.creator)}
+            {this.renderAccountLink(action_trace.act.data.name)} {' created by '}
+            {this.renderAccountLink(action_trace.act.data.creator)}
           </div>
         </td>
       </tr>
     );
   }
-  RenderVoteProducers(action) {
+  RenderVoteProducers(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-vote text-light rounded ">Vote Producers</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.voter)} {' voted for producers: '}{' '}
+            {this.renderAccountLink(action_trace.act.data.voter)} {' voted for producers: '}{' '}
           </div>
-          <div> {this.RenderProducers(action.action_trace.act.data.producers)} </div>
+          <div> {this.RenderProducers(action_trace.act.data.producers)} </div>
         </td>
       </tr>
     );
@@ -355,11 +351,11 @@ class Action extends Component {
     return items;
   }
 
-  RenderUpdateAuth(action) {
+  RenderUpdateAuth(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-default text-light rounded ">Set Permission</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
@@ -367,14 +363,14 @@ class Action extends Component {
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
             {'Set '}
-            <span className="font-weight-bold text-info"> {action.action_trace.act.data.permission} </span>
+            <span className="font-weight-bold text-info"> {action_trace.act.data.permission} </span>
             {' permission for '}
-            {this.renderAccountLink(action.action_trace.act.data.account)}:
+            {this.renderAccountLink(action_trace.act.data.account)}:
           </div>
           <div>
-            <span className="font-weight-bold"> {'Threshold:'} </span> {action.action_trace.act.data.auth.threshold}
+            <span className="font-weight-bold"> {'Threshold:'} </span> {action_trace.act.data.auth.threshold}
           </div>
-          <div>{this.RenderAuth(action.action_trace.act.data.auth)}</div>
+          <div>{this.RenderAuth(action_trace.act.data.auth)}</div>
         </td>
       </tr>
     );
@@ -432,112 +428,112 @@ class Action extends Component {
     else items.push(<span>Noone </span>);
     return items;
   }
-  RenderSetABI(action) {
+  RenderSetABI(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-vote text-light rounded ">Set ABI</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.account)} set ABI.{' '}
-            <Link to={`/abi/${action.action_trace.act.data.account}`}>View abi</Link>
+            {this.renderAccountLink(action_trace.act.data.account)} set ABI.{' '}
+            <Link to={`/abi/${action_trace.act.data.account}`}>View abi</Link>
           </div>
         </td>
       </tr>
     );
   }
-  RenderSetCode(action) {
+  RenderSetCode(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-vote text-light rounded ">Set code</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
           <div className="actinfo-font">
-            {this.renderAccountLink(action.action_trace.act.data.account)} set code.{' '}
-            <Link to={`/code/${action.action_trace.act.data.account}`}>View code</Link>
+            {this.renderAccountLink(action_trace.act.data.account)} set code.{' '}
+            <Link to={`/code/${action_trace.act.data.account}`}>View code</Link>
           </div>
           <div />
         </td>
       </tr>
     );
   }
-  RenderRefund(action) {
+  RenderRefund(action_trace, block_time) {
     return (
-      <tr key={action.global_action_seq}>
-        {this.renderSeq(action.global_action_seq)}
-        {this.renderTime(action.block_time)}
+      <tr key={action_trace.receipt.global_sequence}>
+        {this.renderSeq(action_trace.receipt.global_sequence)}
+        {this.renderTime(block_time)}
         <td data-title="Type">
           <div className=" p-1 d-inline bg-vote text-light rounded ">Refund</div>
           {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
         </td>
         <td data-title="Info" className="pt-1 pb-1">
-          <div className="actinfo-font">{this.renderAccountLink(action.action_trace.act.data.owner)} got refunded</div>
+          <div className="actinfo-font">{this.renderAccountLink(action_trace.act.data.owner)} got refunded</div>
         </td>
       </tr>
     );
   }
 
-  renderActions(action, account_name) {
-    switch (action.action_trace.act.name) {
+  renderActions(action_trace, block_time, account_name) {
+    switch (action_trace.act.name) {
       case 'transfer': // transfer EOS or tokens
-        switch (action.action_trace.act.account) {
+        switch (action_trace.act.account) {
           case 'eosio.token': // transfer EOS
-            if (action.action_trace.receipt.receiver == account_name && action.action_trace.act.data.to == account_name)
+            if (action_trace.receipt.receiver == account_name && action_trace.act.data.to == account_name)
               // received EOS
-              return this.renderReceivedAction(action);
-            else if (action.action_trace.act.data.from == account_name)
+              return this.renderReceivedAction(action_trace, block_time);
+            else if (action_trace.act.data.from == account_name)
               // sent EOS
-              return this.renderSentAction(action);
+              return this.renderSentAction(action_trace, block_time);
             else {
-              return this.renderDefaultTransferAction(action);
+              return this.renderDefaultTransferAction(action_trace, block_time);
             }
           default:
-            if (action.action_trace.receipt.receiver == account_name && action.action_trace.act.data.to == account_name)
+            if (action_trace.receipt.receiver == account_name && action_trace.act.data.to == account_name)
               // receive other tokens
-              return this.renderTokenReceivedAction(action);
-            else if (action.action_trace.act.data.from == account_name)
+              return this.renderTokenReceivedAction(action_trace, block_time);
+            else if (action_trace.act.data.from == account_name)
               // send other tokens
-              return this.renderTokenSentAction(action);
-            else return this.renderDefaultTokenTransferAction(action);
+              return this.renderTokenSentAction(action_trace, block_time);
+            else return this.renderDefaultTokenTransferAction(action_trace, block_time);
         }
       case 'delegatebw':
-        return this.RenderDelegatebw(action);
+        return this.RenderDelegatebw(action_trace, block_time);
       case 'undelegatebw':
-        return this.RenderUndelegatebw(action);
+        return this.RenderUndelegatebw(action_trace, block_time);
       case 'buyram':
-        return this.RenderBuyram(action);
+        return this.RenderBuyram(action_trace, block_time);
       case 'buyrambytes':
-        if (action.action_trace.act.account == 'eosio') return this.RenderBuyrambytes(action);
-        else return this.renderDefaultAction(action);
+        if (action_trace.act.account == 'eosio') return this.RenderBuyrambytes(action_trace, block_time);
+        else return this.renderDefaultAction(action_trace, block_time);
       case 'sellram':
-        return this.RenderSellram(action);
+        return this.RenderSellram(action_trace, block_time);
       case 'newaccount':
-        return this.RenderNewAccount(action);
+        return this.RenderNewAccount(action_trace, block_time);
       case 'voteproducer':
-        return this.RenderVoteProducers(action);
+        return this.RenderVoteProducers(action_trace, block_time);
       case 'updateauth':
-        return this.RenderUpdateAuth(action);
+        return this.RenderUpdateAuth(action_trace, block_time);
       case 'setabi':
-        return this.RenderSetABI(action);
+        return this.RenderSetABI(action_trace, block_time);
       case 'setcode':
-        return this.RenderSetCode(action);
+        return this.RenderSetCode(action_trace, block_time);
       case 'refund':
-        return this.RenderRefund(action);
+        return this.RenderRefund(action_trace, block_time);
       default:
-        return this.renderDefaultAction(action);
+        return this.renderDefaultAction(action_trace, block_time);
     }
   }
   render() {
-    const {action, account_name} = this.props;
-    return this.renderActions(action, account_name);
+    const {action_trace, block_time, account_name} = this.props;
+    return this.renderActions(action_trace, block_time, account_name);
   }
 }
 

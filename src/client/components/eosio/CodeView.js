@@ -2,8 +2,11 @@ import React from 'react';
 import {Query} from 'react-apollo';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetCode from '../../queries/GetCode';
+//require('codemirror/mode/javascript/javascript');
 
 import {UnControlled as CodeMirror} from 'react-codemirror2';
+import 'codemirror/theme/material.css';
+//import 'codemirror/mode/javascript/javascript';
 
 const CodeView = ({match}) => {
   return (

@@ -17,7 +17,7 @@ const TransactionType = new GraphQLObjectType({
 const txType = new GraphQLObjectType({
   name: 'txType',
   fields: () => ({
-    tx: {type: TxReceiveType}
+    receipt: {type: TxReceiveType}
   })
 });
 

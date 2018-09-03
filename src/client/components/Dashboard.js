@@ -15,7 +15,7 @@ class Dashboard extends Component {
                 <GeneralInfo />
               </ErrorBoundary>
               <ErrorBoundary>
-                <Actions account_name="eosio" pollInterval={5000} />
+                <Actions account_name="eosio" pollInterval={5000} showRefetch={false} />
               </ErrorBoundary>
             </div>
 

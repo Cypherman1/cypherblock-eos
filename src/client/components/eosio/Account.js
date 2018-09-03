@@ -24,7 +24,12 @@ const Account = ({match}) => {
               <SmartContract account_name={match.params.account_name} />
             </ErrorBoundary>
             <ErrorBoundary>
-              <Actions account_name={match.params.account_name} pollInterval={0} notifyOnNetworkStatusChange={false} />
+              <Actions
+                account_name={match.params.account_name}
+                pollInterval={0}
+                notifyOnNetworkStatusChange={false}
+                showRefetch={true}
+              />
             </ErrorBoundary>
           </div>
 

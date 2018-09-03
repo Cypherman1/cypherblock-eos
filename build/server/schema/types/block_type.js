@@ -1,4 +1,5 @@
 const graphql = require('graphql');
+const GraphQLJSON = require('graphql-type-json');
 const {GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList} = graphql;
 
 const BlockType = new GraphQLObjectType({
@@ -28,7 +29,7 @@ const BlockTransactionType = new GraphQLObjectType({
     status: {type: GraphQLString},
     cpu_usage_us: {type: GraphQLInt},
     net_usage_words: {type: GraphQLInt},
-    trx: {type: GraphQLString}
+    trx: {type: GraphQLJSON}
   })
 });
 

@@ -6,6 +6,7 @@ export default gql`
       actions {
         global_action_seq
         account_action_seq
+        block_num
         block_time
         action_trace {
           receipt {
@@ -21,6 +22,10 @@ export default gql`
           trx_id
         }
       }
+      last_irreversible_block
+    }
+    chain {
+      head_block_num
     }
   }
 `;

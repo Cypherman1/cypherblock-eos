@@ -59,7 +59,7 @@ class Header extends Component {
                   />
                 </div>
                 <div className="col-auto pl-1 pr-3">
-                  <button className="btn btn-info text-light" type="summit">
+                  <button className="btn btn-primary text-light" type="summit">
                     <FontAwesomeIcon icon="search" />
                   </button>
                 </div>

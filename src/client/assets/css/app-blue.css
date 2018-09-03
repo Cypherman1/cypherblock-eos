@@ -3934,3 +3934,15 @@ span a {
     margin-top: 8px;
   }
 }
+
+.table th {
+    padding: .4rem!important;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table td {
+    padding-left: .4rem!important;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}

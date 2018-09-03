@@ -54,7 +54,9 @@ import {
   faGavel,
   faBatteryFull,
   faHeart,
-  faHandHoldingHeart
+  faHandHoldingHeart,
+  faSyncAlt,
+  faList
 } from '@fortawesome/free-solid-svg-icons';
 
 // import './assets/css/all.css';
@@ -95,7 +97,9 @@ library.add(
   faGavel,
   faBatteryFull,
   faHeart,
-  faHandHoldingHeart
+  faHandHoldingHeart,
+  faSyncAlt,
+  faList
 );
 
 class DynamicImport extends Component {
@@ -128,6 +132,18 @@ const CodeView = (props) => (
 
 const ABIView = (props) => (
   <DynamicImport load={() => import('./components/eosio/ABIView')}>
+    {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
+  </DynamicImport>
+);
+
+const TransactionView = (props) => (
+  <DynamicImport load={() => import('./components/eosio/TransactionView')}>
+    {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
+  </DynamicImport>
+);
+
+const BlockView = (props) => (
+  <DynamicImport load={() => import('./components/eosio/BlockView')}>
     {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
   </DynamicImport>
 );
@@ -165,6 +181,8 @@ const Root = () => {
               <Route path="/account/:account_name" component={Account} />
               <Route path="/code/:account_name" component={CodeView} />
               <Route path="/abi/:account_name" component={ABIView} />
+              <Route path="/transaction/:id" component={TransactionView} />
+              <Route path="/block/:block_num_or_id" component={BlockView} />
             </Switch>
             <Footer />
           </div>

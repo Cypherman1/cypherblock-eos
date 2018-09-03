@@ -249,22 +249,29 @@ a {
   .no-more-tables td:before {
     content: attr(data-title);
   }
+
+  .trx-font {
+    font-size: 9px !important;
+  }
 }
 @media only screen and (min-width: 767.98px) {
+  .trx-font {
+    font-size: 13px !important;
+  }
   .no-more-tables > .table {
     table-layout: fixed;
   }
   .no-more-tables > .table > tbody > tr > th:first-child {
-    width: 15% !important;
+    width: 20% !important;
   }
   .no-more-tables > .table > thead > tr > th:first-child {
-    width: 15% !important;
+    width: 20% !important;
   }
   .no-more-tables > .table > tbody > tr > th:nth-child(2) {
-    width: 15% !important;
+    width: 14% !important;
   }
   .no-more-tables > .table > thead > tr > th:nth-child(2) {
-    width: 15% !important;
+    width: 14% !important;
   }
   .no-more-tables > .table > tbody > tr > th:nth-child(3) {
     width: 20% !important;
@@ -1012,7 +1019,7 @@ span.CodeMirror-selectedtext {
 }
 
 .wordbreak-nomal {
-  word-wrap: break-word !important;
+  word-wrap: break-all !important;
 }
 
 .ftz-11 {
@@ -1023,4 +1030,23 @@ span.CodeMirror-selectedtext {
 }
 .ftz-12 {
   font-size: 12px !important;
+}
+.ftz-8 {
+  font-size: 8px !important;
+}
+.aln-text {
+  text-align: justify;
+}
+
+.irr-mark {
+  font-size: 10px !important;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  padding-bottom: 1px !important;
+  font-weight: 600;
+}
+
+.confirming-mark {
+  font-size: 10px !important;
+  padding-bottom: 1px !important;
 }

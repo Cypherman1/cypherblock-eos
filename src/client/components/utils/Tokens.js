@@ -174,5 +174,21 @@ export const Tokens = [
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
     chaince_pair: ''
+  },
+  {
+    code: 'boidcomtoken',
+    account: '',
+    symbol: 'BOID',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'eoscafekorea',
+    account: '',
+    symbol: 'DAB',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
   }
 ];

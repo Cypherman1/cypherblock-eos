@@ -73,7 +73,7 @@ class VoterInfo extends Component {
                           </h5>
                         </div>
                       </div>
-                      <div className="card-block row row-sm m-0">
+                      <div className="card-block row row-sm m-0 pb-0">
                         <div className="col-12 col-sm-5 col-md-4 pl-1 pr-1 m-0">
                           <div className="stat-icon">
                             <FontAwesomeIcon icon="heart" />
@@ -106,34 +106,20 @@ class VoterInfo extends Component {
                             />
                           </div>
                         </div>
-                        <div className="col-12 col-sm-7 col-md-8 pl-1 pr-1 m-0">
-                          {/* <div className="stat-icon col-sm">
-                        <FontAwesomeIcon icon="coins" />
-                      </div> */}
 
-                          <div className="stat">
-                            <div className="name">Voted producers </div>
-                            <div className="progress stat-progress">
-                              <div
-                                className="progress-bar"
-                                style={{
-                                  width: `0%`
-                                }}
-                              />
+                        <div className="col-12 col-sm-7 col-md-8  pr-0 pl-1">
+                          <div className="card sameheight-item mb-1" data-exclude="xs">
+                            <div className="card-header card-header-sm bg-light shadow-sm row m-0">
+                              <div className="header-block pl-2 col">
+                                <FontAwesomeIcon icon="user-cog" className="mr-2 text-info" />
+                                <h5 className="title text-info ftz-12">Voted producers</h5>
+                              </div>
                             </div>
-                            <div> {this.renderVotedProducers(voteinfo.producers)}</div>
-                            <div className="progress stat-progress">
-                              <div
-                                className="progress-bar"
-                                style={{
-                                  width: `0%`
-                                }}
-                              />
-                            </div>
+
+                            <div className="p-2"> {this.renderVotedProducers(voteinfo.producers)}</div>
                           </div>
                         </div>
                       </div>
-                      <div />
                     </div>
                   );
                 else {
@@ -196,30 +182,16 @@ class VoterInfo extends Component {
                             />
                           </div>
                         </div>
-                        <div className="col-12 col-sm-7 col-md-8 pl-1 pr-1 m-0">
-                          {/* <div className="stat-icon col-sm">
-                        <FontAwesomeIcon icon="coins" />
-                      </div> */}
+                        <div className="col-12 col-sm-7 col-md-8  pr-0 pl-1">
+                          <div className="card sameheight-item mb-1" data-exclude="xs">
+                            <div className="card-header card-header-sm bg-light shadow-sm row m-0">
+                              <div className="header-block pl-2 col">
+                                <FontAwesomeIcon icon="user-cog" className="mr-2 text-info" />
+                                <h5 className="title text-info ftz-12">Voted producers</h5>
+                              </div>
+                            </div>
 
-                          <div className="stat">
-                            <div className="name">Voted producers </div>
-                            <div className="progress stat-progress">
-                              <div
-                                className="progress-bar"
-                                style={{
-                                  width: `0%`
-                                }}
-                              />
-                            </div>
-                            <div> {this.renderVotedProducers(voteinfo.proxy_vote_info.producers)}</div>
-                            <div className="progress stat-progress">
-                              <div
-                                className="progress-bar"
-                                style={{
-                                  width: `0%`
-                                }}
-                              />
-                            </div>
+                            <div className="p-2"> {this.renderVotedProducers(voteinfo.producers)}</div>
                           </div>
                         </div>
                       </div>
@@ -292,30 +264,16 @@ class VoterInfo extends Component {
                             />
                           </div>
                         </div>
-                        <div className="col-12 col-sm-7 col-md-8 pl-1 pr-1 m-0">
-                          {/* <div className="stat-icon col-sm">
-                        <FontAwesomeIcon icon="coins" />
-                      </div> */}
+                        <div className="col-12 col-sm-7 col-md-8  pr-0 pl-1">
+                          <div className="card sameheight-item mb-1" data-exclude="xs">
+                            <div className="card-header card-header-sm bg-light shadow-sm row m-0">
+                              <div className="header-block pl-2 col">
+                                <FontAwesomeIcon icon="user-cog" className="mr-2 text-info" />
+                                <h5 className="title text-info ftz-12">Voted producers</h5>
+                              </div>
+                            </div>
 
-                          <div className="stat">
-                            <div className="name"> Producers </div>
-                            <div className="progress stat-progress">
-                              <div
-                                className="progress-bar"
-                                style={{
-                                  width: `0%`
-                                }}
-                              />
-                            </div>
-                            <div> {this.renderVotedProducers(voteinfo.producers)}</div>
-                            <div className="progress stat-progress">
-                              <div
-                                className="progress-bar"
-                                style={{
-                                  width: `0%`
-                                }}
-                              />
-                            </div>
+                            <div className="p-2"> {this.renderVotedProducers(voteinfo.producers)}</div>
                           </div>
                         </div>
                       </div>
@@ -367,30 +325,15 @@ class VoterInfo extends Component {
                             />
                           </div>
                         </div>
-                        <div className="col-12 col-sm-7 col-md-8 pl-1 pr-1 m-0">
-                          {/* <div className="stat-icon col-sm">
-                        <FontAwesomeIcon icon="coins" />
-                      </div> */}
-
-                          <div className="stat">
-                            <div className="name"> Producers </div>
-                            <div className="progress stat-progress">
-                              <div
-                                className="progress-bar"
-                                style={{
-                                  width: `0%`
-                                }}
-                              />
+                        <div className="col-12 col-sm-7 col-md-8  pr-0 pl-1">
+                          <div className="card sameheight-item mb-1" data-exclude="xs">
+                            <div className="card-header card-header-sm bg-light shadow-sm row m-0">
+                              <div className="header-block pl-2 col">
+                                <FontAwesomeIcon icon="user-cog" className="mr-2 text-info" />
+                                <h5 className="title text-info ftz-12">Voted producers</h5>
+                              </div>
                             </div>
-                            <div> {this.renderVotedProducers(voteinfo.proxy_vote_info.producers)}</div>
-                            <div className="progress stat-progress">
-                              <div
-                                className="progress-bar"
-                                style={{
-                                  width: `0%`
-                                }}
-                              />
-                            </div>
+                            <div className="p-2"> {this.renderVotedProducers(voteinfo.producers)}</div>
                           </div>
                         </div>
                       </div>

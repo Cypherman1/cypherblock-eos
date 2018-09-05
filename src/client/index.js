@@ -56,7 +56,9 @@ import {
   faHeart,
   faHandHoldingHeart,
   faSyncAlt,
-  faList
+  faList,
+  faTasks,
+  faTable
 } from '@fortawesome/free-solid-svg-icons';
 
 // import './assets/css/all.css';
@@ -99,7 +101,9 @@ library.add(
   faHeart,
   faHandHoldingHeart,
   faSyncAlt,
-  faList
+  faList,
+  faTasks,
+  faTable
 );
 
 class DynamicImport extends Component {

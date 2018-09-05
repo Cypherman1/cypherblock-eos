@@ -63,27 +63,27 @@ body {
   overflow: hidden;
 }
 .app .content {
-  padding: 55px 4px 45px 4px;
+  padding: 55px 4px 50px 4px;
   min-height: 100vh;
 }
 @media (min-width: 1200px) {
   .app .content {
-    padding: 58px 4px 45px 4px;
+    padding: 58px 4px 50px 4px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .app .content {
-    padding: 58px 4px 45px 4px;
+    padding: 58px 4px 50px 4px;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .app .content {
-    padding: 58px 4px 45px 4px;
+    padding: 58px 4px 50px 4px;
   }
 }
 @media (max-width: 767.98px) {
   .app .content {
-    padding: 58px 4px 45px 4px;
+    padding: 58px 4px 50px 4px;
   }
 }
 @media (max-width: 991.98px) {
@@ -272,6 +272,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 700;
+  display: inline-block;
 }
 .stat .name {
   overflow: hidden;
@@ -2803,6 +2804,7 @@ span a {
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 500;
+    display: inline-block;
   }
   .stat .name {
     overflow: hidden;

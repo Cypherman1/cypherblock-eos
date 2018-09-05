@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {convertUTCDateToLocalDate} from '../utils/Tools';
+import {convertUTCDateToLocalDate, renderTransactiontLink} from '../utils/Tools';
 import {renderBlockNum} from '../utils/RenderColors';
+import BlockConfirmation from './BlockConfirmation';
 
 class Action extends Component {
   renderData(data) {
@@ -36,22 +37,39 @@ class Action extends Component {
     }
     return null;
   }
+
   renderSeq(seq, block_num, last_irreversible_block, head_block_num, trx_id) {
     if (Number(last_irreversible_block) >= Number(block_num))
       return (
         <td data-title="#" className="infostyle">
-          <div>
-            <Link to={`/transaction/${trx_id}`}>{seq}</Link>
-          </div>
+          <div />
+          {renderTransactiontLink(trx_id, seq)}
           <div className="d-inline bg-success text-light rounded irr-mark ">Irreversible</div>
         </td>
       );
     return (
       <td data-title="#" className="infostyle">
-        <div>
-          <Link to={`/transaction/${trx_id}`}>{seq}</Link>
-        </div>
+        {renderTransactiontLink(trx_id, seq)}
         {this.renderConfirmation(block_num, head_block_num)}
+      </td>
+    );
+  }
+
+  renderBlockStatus(block_num, last_irreversible_block, head_block_num, get_block_status) {
+    if (get_block_status) {
+      return <div />;
+    } else {
+      if (Number(last_irreversible_block) >= Number(block_num)) {
+        return <div className="d-inline bg-success text-light rounded irr-mark ">Irreversible</div>;
+      }
+      return this.renderConfirmation(block_num, head_block_num);
+    }
+  }
+  renderSeq1(seq, block_num, last_irreversible_block, head_block_num, trx_id, get_block_status) {
+    return (
+      <td data-title="#" className="infostyle">
+        {renderTransactiontLink(trx_id, seq)}
+        {this.renderBlockStatus(block_num, last_irreversible_block, head_block_num, get_block_status)}
       </td>
     );
   }
@@ -59,7 +77,8 @@ class Action extends Component {
     if (block_num && head_block_num && Number(head_block_num) >= Number(block_num))
       return (
         <div className="d-inline">
-          Confirmations:<span className="text-danger bold">
+          Confirmations{' '}
+          <span className="text-light bg-info rounded font-weight-bold p-1">
             {renderBlockNum(Number(head_block_num) - Number(block_num))}
           </span>
         </div>
@@ -395,7 +414,7 @@ class Action extends Component {
       producers.map((producer) => {
         items.push(<span key={producer}>{this.renderAccountLink(producer)} </span>);
       });
-    else items.push(<span>Noone </span>);
+    else items.push(<span key="1">Noone </span>);
     return items;
   }
 
@@ -584,16 +603,26 @@ class Action extends Component {
     }
   }
   render() {
-    const {action_trace, block_time, account_name, block_num, last_irreversible_block, head_block_num} = this.props;
+    const {
+      action_trace,
+      block_time,
+      account_name,
+      block_num,
+      last_irreversible_block,
+      head_block_num,
+      get_block_status,
+      trx_id
+    } = this.props;
 
     return (
       <tr key={action_trace.receipt.global_sequence}>
-        {this.renderSeq(
+        {this.renderSeq1(
           action_trace.receipt.global_sequence,
           block_num,
           last_irreversible_block,
           head_block_num,
-          action_trace.trx_id
+          trx_id,
+          get_block_status
         )}
         {this.renderTime(block_time)}
         {this.renderActions(action_trace, account_name)}

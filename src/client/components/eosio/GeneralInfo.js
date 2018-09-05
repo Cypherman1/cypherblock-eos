@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {TransitionGroup} from 'react-transition-group';
+import {Link} from 'react-router-dom';
 import {
   renderBlockNum,
   renderEOSNum,
@@ -91,12 +92,14 @@ class GeneralInfo extends Component {
                 </div>
                 <div className="card-block ">
                   <div className="row row-sm stats-container m-0">
-                    <div className="col-12 col-sm-4 stat-col p-1">
+                    <div className="col-12 col-sm-4 stat-col p-1 mgblocknum">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="cube" />
                       </div>
                       <div className="stat">
-                        <div className="value">{renderBlockNum(head_block_num)}</div>
+                        <div className="value">
+                          <Link to={`/block/${head_block_num}`}>{renderBlockNum(head_block_num)}</Link>
+                        </div>
                         <div className="name"> Head Block Num</div>
                       </div>
                       <div className="progress stat-progress">
@@ -133,12 +136,16 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-12 col-sm-4  stat-col p-1">
+                    <div className="col-12 col-sm-4  stat-col p-1 mgblocknum">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="cube" />
                       </div>
                       <div className="stat">
-                        <div className="value">{renderBlockNum(last_irreversible_block_num)}</div>
+                        <div className="value">
+                          <Link to={`/block/${last_irreversible_block_num}`}>
+                            {renderBlockNum(last_irreversible_block_num)}
+                          </Link>
+                        </div>
                         <div className="name">Last Inreversible Block</div>
                       </div>
                       <div className="progress stat-progress">

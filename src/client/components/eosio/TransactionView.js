@@ -13,7 +13,7 @@ const TransactionView = ({match}) => {
             <div className="card sameheight-item stats mbc" data-exclude="xs">
               <div className="card-header card-header-sm bg-light shadow-sm">
                 <div className="header-block pl-2">
-                  <FontAwesomeIcon icon="list" className="mr-2 text-info" />
+                  <FontAwesomeIcon icon="table" className="mr-2 text-info" />
                   <h5 className="title text-info">
                     <div>Transaction </div>
                   </h5>

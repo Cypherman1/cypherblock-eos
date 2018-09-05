@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import isHash from 'validator/lib/isHash';
+import isLowercase from 'validator/lib/isLowercase';
+import {ToastContainer, toast} from 'react-toastify';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import history from './history';
 import KeyAccountsModal from './eosio/KeyAccountsModal';
@@ -13,6 +16,10 @@ class Header extends Component {
     this.submit = this.submit.bind(this);
     this.changeTerm = this.changeTerm.bind(this);
   }
+  notify = () =>
+    toast.error('Not found!', {
+      position: toast.POSITION.TOP_RIGHT
+    });
   changeTerm(event) {
     this.setState({term: event.target.value});
   }
@@ -25,9 +32,15 @@ class Header extends Component {
   };
   submit(event) {
     event.preventDefault();
-    if (this.state.term.substring(0, 3) == 'EOS') {
+    if (this.state.term.substring(0, 3) == 'EOS' && this.state.term.length == 53) {
       this.onOpenModal();
-    } else history.push(`/account/${this.state.term}`);
+    } else if (isHash(this.state.term, 'sha256') && this.state.term.substring(0, 2) == '00') {
+      history.push(`/block/${this.state.term}`);
+    } else if (isHash(this.state.term, 'sha256') && this.state.term.length == 64) {
+      history.push(`/transaction/${this.state.term}`);
+    } else if (this.state.term.length <= 12 && isLowercase(this.state.term)) {
+      history.push(`/account/${this.state.term}`);
+    }
   }
   renderModal() {
     if (this.state.term.substring(0, 3) == 'EOS' && this.state.term.length == 53) {

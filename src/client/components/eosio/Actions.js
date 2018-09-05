@@ -109,7 +109,7 @@ class Actions extends Component {
           <div className="float-right pr-1">
             <button
               type="button"
-              class="btn btn-primary btn-sm"
+              className="btn btn-primary btn-sm"
               onClick={() => {
                 this.setState({isrefetch: true});
                 refetch().then(() => this.setState({isrefetch: false}));
@@ -161,7 +161,7 @@ class Actions extends Component {
           if (data && data.actions && data.chain)
             return (
               <div>
-                <div className="card sameheight-item stats" data-exclude="xs">
+                <div className="card sameheight-item stats mb-1" data-exclude="xs">
                   <div className="card-header card-header-sm bg-light shadow-sm row m-0">
                     <div className="header-block pl-2 col">
                       <FontAwesomeIcon icon="list-alt" className="mr-2 text-info" />
@@ -204,6 +204,8 @@ class Actions extends Component {
                                     last_irreversible_block={data.actions.last_irreversible_block}
                                     head_block_num={data.chain.head_block_num}
                                     account_name={this.props.account_name}
+                                    get_block_status={false}
+                                    trx_id={action.action_trace.trx_id}
                                   />
                                 );
                               }

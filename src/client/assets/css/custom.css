@@ -113,7 +113,7 @@ a {
 }
 
 .wordbreak {
-  word-wrap: break-word;
+  word-wrap: break-word !important;
 }
 .search-form {
   background: #e1e1e1; /* Fallback color for non-css3 browsers */
@@ -1049,4 +1049,24 @@ span.CodeMirror-selectedtext {
 .confirming-mark {
   font-size: 10px !important;
   padding-bottom: 1px !important;
+}
+
+.nodisplay {
+  display: none !important;
+}
+
+.w-10 {
+  width: 10% !important;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.mgblocknum {
+  margin-top: 3px;
+}
+
+.wconfirm {
+  width: 300 !important;
 }

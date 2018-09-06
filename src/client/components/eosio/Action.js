@@ -9,7 +9,10 @@ class Action extends Component {
     let items = [];
     if (typeof data == 'object') {
       for (var name in data) {
-        if (['sender', 'receiver', 'from', 'to', 'voter', 'owner', 'proxy'].indexOf(name) >= 0)
+        if (
+          ['sender', 'receiver', 'from', 'to', 'voter', 'owner', 'proxy', 'account', 'payee', 'agent'].indexOf(name) >=
+          0
+        )
           items.push(
             <div key={name} className="row">
               <div className="col-3">{name}</div>
@@ -417,7 +420,6 @@ class Action extends Component {
     else items.push(<span key="1">Noone </span>);
     return items;
   }
-
   RenderUpdateAuth(action_trace) {
     let items = [];
     items.push(
@@ -426,36 +428,43 @@ class Action extends Component {
         {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
       </td>
     );
-    items.push(
-      <td data-title="Info" className="pt-1 pb-1" key="2">
-        <div className="actinfo-font">
-          {'Set '}
-          <span className="font-weight-bold text-info"> {action_trace.act.data.permission} </span>
-          {' permission for '}
-          {this.renderAccountLink(action_trace.act.data.account)}:
-        </div>
-        <div>
-          <span className="font-weight-bold"> {'Threshold:'} </span> {action_trace.act.data.auth.threshold}
-        </div>
-        <div>{this.RenderAuth(action_trace.act.data.auth)}</div>
-      </td>
-    );
+    if (action_trace.act.data.auth)
+      items.push(
+        <td data-title="Info" className="pt-1 pb-1" key="2">
+          <div className="actinfo-font">
+            {this.renderAccountLink(action_trace.act.data.account)} {' set '}
+            <span className="font-weight-bold text-info"> {action_trace.act.data.permission} </span>
+            {' permission: '}
+          </div>
+          <div>
+            <span className="font-weight-bold"> {'Threshold:'} </span> {action_trace.act.data.auth.threshold}
+          </div>
+          <div>{this.RenderAuth(action_trace.act.data.auth)}</div>
+        </td>
+      );
+    else {
+      items.push(
+        <td data-title="Info" className="pt-1 pb-1" key="2">
+          {this.renderData(action_trace.act.data)}
+        </td>
+      );
+    }
 
     return items;
   }
   RenderAuth(auth) {
-    if (auth.keys.length > 0) {
-      return this.RenderKeys(auth.keys);
-    } else if (auth.accounts.length > 0) {
-      return this.RenderAccounts(auth.accounts);
-    }
-    return null;
+    // if (auth.keys.length > 0) {
+    //   return this.RenderKeys(auth.keys);
+    // } else if (auth.accounts.length > 0) {
+    //   return this.RenderAccounts(auth.accounts);
+    // }
+    return this.RenderAccounts(auth.accounts, auth.keys);
   }
-  RenderAccounts(accounts) {
+  RenderAccounts(accounts, keys) {
     let items = [];
     items.push(
       <div className="row" key={1}>
-        <div className="col-8 font-weight-bold">Account</div>
+        <div className="col-8 font-weight-bold">Accounts/Keys</div>
         <div className="col-4 font-weight-bold text-center ">Weight</div>
       </div>
     );
@@ -470,11 +479,17 @@ class Action extends Component {
           </div>
         );
       });
+    if (keys)
+      keys.map((key) => {
+        items.push(
+          <div key={key.key} className="row">
+            <div className="col-8">{key.key}</div>
+            <div className="col-4 text-center">{key.weight}</div>
+          </div>
+        );
+      });
     return items;
   }
-  KeyClick = () => {
-    this.onOpenModal();
-  };
   RenderKeys(keys) {
     let items = [];
     items.push(
@@ -496,6 +511,9 @@ class Action extends Component {
     else items.push(<span>Noone </span>);
     return items;
   }
+  KeyClick = () => {
+    this.onOpenModal();
+  };
   RenderSetABI(action_trace) {
     let items = [];
     items.push(

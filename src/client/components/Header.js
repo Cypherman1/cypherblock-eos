@@ -63,7 +63,7 @@ class Header extends Component {
                 <div className="col pr-0 pl-2">
                   <input
                     type="text"
-                    placeholder="Search by ACCOUNT/PUBKEY/TX"
+                    placeholder="Search by account/pubkey/trx/blockid"
                     className="w-100 form-control"
                     onChange={this.changeTerm}
                     name="search"

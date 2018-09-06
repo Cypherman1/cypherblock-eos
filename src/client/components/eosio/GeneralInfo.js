@@ -33,7 +33,7 @@ var eos_total_supply,
 class GeneralInfo extends Component {
   render() {
     return (
-      <Query query={GetGeneralInfo} pollInterval={2000}>
+      <Query query={GetGeneralInfo} pollInterval={5000}>
         {({loading, error, data}) => {
           if (loading)
             return (

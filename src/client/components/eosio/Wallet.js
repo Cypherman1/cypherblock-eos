@@ -126,7 +126,7 @@ class Wallet extends Component {
         variables={{
           account_name: this.props.account_name
         }}
-        pollInterval={10000}
+        pollInterval={60000}
       >
         {({loading, error, data}) => {
           if (loading)

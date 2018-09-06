@@ -5,7 +5,7 @@ import {renderRamPriceColorM, renderEOSPriceColorM, renderPercentColor} from '..
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetMarKetInfo from '../../queries/GetMarketInfo';
 
-var ram_price, ram_reserve, eosio_ram, eosio_ramfee, eos_price, percent_change_24h, eos_volume;
+var ram_price, eosio_ram, eos_price, percent_change_24h, eos_volume;
 
 class MarketInfo extends Component {
   render() {
@@ -30,8 +30,8 @@ class MarketInfo extends Component {
                 </div>
               </section>
             );
-          const {cmc, eosioramfee, eosioram, global_data, table_rows} = data;
-          if (table_rows && global_data && cmc && eosioram && eosioramfee) {
+          const {cmc, eosioram, global_data, table_rows} = data;
+          if (table_rows && global_data && cmc && eosioram) {
             ram_price =
               (
                 Number(table_rows.rows[0].quote.balance.split(' ')[0]) /

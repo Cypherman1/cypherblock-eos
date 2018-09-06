@@ -15,7 +15,7 @@ class Action extends Component {
         )
           items.push(
             <div key={name} className="row">
-              <div className="col-3">{name}</div>
+              <div className="col-3 font-weight-bold">{name}</div>
               <div className="col-9">
                 <Link to={`/account/${JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)}`}>
                   {JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)}
@@ -27,8 +27,8 @@ class Action extends Component {
         else
           items.push(
             <div key={name} className="row">
-              <div className="col-3">{name}</div>
-              <div className="col-9">
+              <div className="col-3 font-weight-bold">{name}:</div>
+              <div className="col-9 aln-text">
                 <div> {JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)} </div>
               </div>
             </div>
@@ -569,6 +569,22 @@ class Action extends Component {
 
     return items;
   }
+  RenderClaimrewards(action_trace) {
+    let items = [];
+    items.push(
+      <td data-title="Type" key="1">
+        <div className=" p-1 d-inline bg-vote text-light rounded ">Claimrewards</div>
+        {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
+      </td>
+    );
+    items.push(
+      <td data-title="Info" className="pt-1 pb-1" key="2">
+        <div className="actinfo-font">{this.renderAccountLink(action_trace.act.data.owner)} claim rewards</div>
+      </td>
+    );
+
+    return items;
+  }
 
   renderActions(action_trace, account_name) {
     switch (action_trace.act.name) {
@@ -616,6 +632,8 @@ class Action extends Component {
         return this.RenderSetCode(action_trace);
       case 'refund':
         return this.RenderRefund(action_trace);
+      case 'claimrewards':
+        return this.RenderClaimrewards(action_trace);
       default:
         return this.renderDefaultAction(action_trace);
     }

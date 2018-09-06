@@ -68,6 +68,11 @@ const renderToFiatColor = (to_fiat) => {
   }
 };
 
+const renderProRank = (index) => {
+  if (Number(index) <= 21) return <span className="text-success"> {index} </span>;
+  return <span className="text-secondary"> {index} </span>;
+};
+
 const renderBlockNum = (block_num) => {
   return <NumberEasing value={block_num} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />;
 };
@@ -296,5 +301,6 @@ export {
   renderEOSNum,
   renderEOSStaked,
   renderEOSPriceColorM,
-  renderRamPriceColorM
+  renderRamPriceColorM,
+  renderProRank
 };

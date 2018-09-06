@@ -89,7 +89,7 @@ class Wallet extends Component {
       return (
         <div className="col-4 p-0">
           <div className="stat float-right">
-            <div className="value text-right">{token.price}</div>
+            <div className="value text-right float-right">{token.price}</div>
             <div className="name float-right">{renderPPColor((token.percent * 100).toFixed(2))}</div>
           </div>
         </div>

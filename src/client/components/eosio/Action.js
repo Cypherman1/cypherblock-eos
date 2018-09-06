@@ -585,6 +585,35 @@ class Action extends Component {
 
     return items;
   }
+  RenderCancelDelay(action_trace) {
+    let items = [];
+    items.push(
+      <td data-title="Type" key="1">
+        <div className=" p-1 d-inline bg-default text-light rounded ">CancelDelay</div>
+        {/* <div className=" p-1">{this.renderAccountLink(action.action_trace.act.account)}</div> */}
+      </td>
+    );
+    items.push(
+      <td data-title="Info" key="2">
+        <div key={2} className="row">
+          <div className="col-4 font-weight-bold">Actor:</div>
+          <div className="col-8 aln-text">
+            <div> {this.renderAccountLink(action_trace.act.data.canceling_auth.actor)} </div>
+          </div>
+          <div className="col-4 font-weight-bold">Permission:</div>
+          <div className="col-8 aln-text text-info">
+            <div> {action_trace.act.data.canceling_auth.permission} </div>
+          </div>
+          <div className="col-4 font-weight-bold">Trx:</div>
+          <div className="col-8 aln-text">
+            <div> {action_trace.act.data.trx_id} </div>
+          </div>
+        </div>
+      </td>
+    );
+
+    return items;
+  }
 
   renderActions(action_trace, account_name) {
     switch (action_trace.act.name) {
@@ -634,6 +663,8 @@ class Action extends Component {
         return this.RenderRefund(action_trace);
       case 'claimrewards':
         return this.RenderClaimrewards(action_trace);
+      case 'canceldelay':
+        return this.RenderCancelDelay(action_trace);
       default:
         return this.renderDefaultAction(action_trace);
     }

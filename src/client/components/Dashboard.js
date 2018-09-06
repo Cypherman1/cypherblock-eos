@@ -3,6 +3,7 @@ import ErrorBoundary from './ErrorBoundary';
 import MarketInfo from './eosio/MarketInfo';
 import GeneralInfo from './eosio/GeneralInfo';
 import Actions from './eosio/Actions';
+import Producers from './eosio/Producers';
 
 class Dashboard extends Component {
   render() {
@@ -18,8 +19,10 @@ class Dashboard extends Component {
                 <Actions account_name="eosio" pollInterval={5000} showRefetch={false} />
               </ErrorBoundary>
             </div>
-
-            <MarketInfo />
+            <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col ">
+              <MarketInfo className="d-none d-xl-block" />
+              <Producers limit="30" />
+            </div>
           </div>
         </section>
       </article>

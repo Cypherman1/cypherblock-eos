@@ -92,7 +92,7 @@ class GeneralInfo extends Component {
                 </div>
                 <div className="card-block ">
                   <div className="row row-sm stats-container m-0">
-                    <div className="col-12 col-sm-4 stat-col p-1 mgblocknum">
+                    <div className="col-12 col-sm-4 stat-col p-1">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="cube" />
                       </div>
@@ -136,7 +136,7 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-12 col-sm-4  stat-col p-1 mgblocknum">
+                    <div className="col-12 col-sm-4  stat-col p-1">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="cube" />
                       </div>

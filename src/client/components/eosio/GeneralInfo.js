@@ -30,29 +30,264 @@ var eos_total_supply,
   percent_change_24h,
   eos_volume;
 
+const GeneralInfoLoading = () => {
+  return (
+    <section className="section">
+      <div className="text-center">
+        <FontAwesomeIcon icon="spinner" spin className="text-info" />
+      </div>
+    </section>
+
+    // <div className="card sameheight-item stats mbc" data-exclude="xs">
+    //   <div className="card-header card-header-sm bg-light shadow-sm row m-0">
+    //     <div className="header-block pl-2 col">
+    //       <FontAwesomeIcon icon="cubes" className="mr-2 text-info" />
+    //       <h5 className="title text-info">
+    //         General Info
+    //         {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
+    //       </h5>
+    //     </div>
+    //     <div className="stat float-right">
+    //       <TransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+    //         <div className="value head_block_time_font" />
+    //       </TransitionGroup>
+    //     </div>
+    //   </div>
+    //   <div className="card-block ">
+    //     <div className="text-center overlay align-middle">
+    //       <FontAwesomeIcon icon="spinner" spin className="text-info mt-5" />
+    //     </div>
+    //     <div className="row row-sm stats-container m-0">
+    //       <div className="col-12 col-sm-4 stat-col p-1">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="cube" />
+    //         </div>
+    //         <div className="stat">
+    //           <div className="value" />
+    //           <div className="name"> Head Block Num</div>
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: `0%`
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="col-12 col-sm-4  stat-col p-1">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="user-cog" />
+    //         </div>
+    //         <div className="stat">
+    //           <TransitionGroup
+    //             transitionName="example"
+    //             transitionEnterTimeout={500}
+    //             transitionLeaveTimeout={300}
+    //             transitionEnter={true}
+    //             transitionLeave={true}
+    //           >
+    //             <div className="value" />
+    //           </TransitionGroup>
+    //           <div className="name">Head Block Producer </div>
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: `0%`
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="col-12 col-sm-4  stat-col p-1">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="cube" />
+    //         </div>
+    //         <div className="stat">
+    //           <div className="value" />
+    //           <div className="name">Last Inreversible Block</div>
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: `0%`
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="col-12 col-sm-4  stat-col p-1">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="coins" />
+    //         </div>
+    //         <div className="stat">
+    //           <div className="value" />
+    //           <div className="name">Total EOS supplied</div>
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: `0%`
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="col-12 col-sm-4 stat-col p-1">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="lock" />
+    //         </div>
+    //         <div className="stat">
+    //           <div className="value" />
+    //           <div className="name" />
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: `0%`
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="col-12 col-sm-4 stat-col p-1">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="gavel" />
+    //         </div>
+    //         <div className="stat">
+    //           <div className="value" />
+    //           <div className="name" />
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: `0%`
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+
+    //       <div className="col-12 col-sm-4  stat-col p-1">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="memory" />
+    //         </div>
+    //         <div className="stat">
+    //           <div className="value" />
+    //           <div className="name">Max RAM size</div>
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: `0%`
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="col-12 col-sm-4 stat-col p-1">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="shopping-bag" />
+    //         </div>
+    //         <div className="stat">
+    //           <div className="value" />
+    //           <div className="name" />
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: `0%`
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="col-12 col-sm-4 stat-col p-1">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="cogs" />
+    //         </div>
+    //         <div className="stat">
+    //           <div className="value" />
+    //           <div className="name" />
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: `0%`
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+
+    //       {/* market info */}
+
+    //       <div className="col-12 col-sm-4  stat-col p-1 d-xl-none">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="chart-bar" />
+    //         </div>
+    //         <div className="stat">
+    //           <div className="value" />
+    //           <div className="name"> RAM Price (EOS/KB) </div>
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: '0%'
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="col-12 col-sm-4 stat-col p-1 d-xl-none">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="dollar-sign" />
+    //         </div>
+    //         <div className="stat">
+    //           <div className="value" />
+    //           <div className="name"> EOS Price (USD) </div>
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: '0%'
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="col-12 col-sm-4 stat-col p-1 d-xl-none">
+    //         <div className="stat-icon">
+    //           <FontAwesomeIcon icon="coins" />
+    //         </div>
+    //         <div className="stat">
+    //           <div className="value" />
+    //           <div className="name"> 24h Volume (USD) </div>
+    //         </div>
+    //         <div className="progress stat-progress">
+    //           <div
+    //             className="progress-bar"
+    //             style={{
+    //               width: '0%'
+    //             }}
+    //           />
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+  );
+};
+
 class GeneralInfo extends Component {
   render() {
     return (
       <Query query={GetGeneralInfo} pollInterval={5000}>
         {({loading, error, data}) => {
-          if (loading)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-              //   );
-            );
+          if (loading) return <GeneralInfoLoading />;
 
-          if (error)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-            );
+          if (error) return <GeneralInfoLoading />;
           const {eos_stat, staked, chain, global_data, cmc, table_rows} = data;
           if (eos_stat && staked && chain && global_data && cmc && table_rows) {
             eos_total_supply = Number(eos_stat.rows[0].supply.split(' ')[0]);
@@ -279,7 +514,7 @@ class GeneralInfo extends Component {
                       </div>
                       <div className="stat">
                         <div className="value">{renderRamPriceColor(ram_price)}</div>
-                        <div className="name"> RAM Price (EOS) </div>
+                        <div className="name"> RAM Price (EOS/KB) </div>
                       </div>
                       <div className="progress stat-progress">
                         <div

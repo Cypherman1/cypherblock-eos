@@ -132,6 +132,7 @@
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.4.1",
     "react-json-pretty": "^1.7.9",
+    "react-loader-advanced": "^1.7.1",
     "react-odometerjs": "^2.1.0",
     "react-responsive-modal": "^3.2.0",
     "react-router-dom": "^4.3.1",

@@ -62,7 +62,7 @@ class MarketInfo extends Component {
                       </div>
                       <div className="stat">
                         <div className="value">{renderRamPriceColorM(ram_price)}</div>
-                        <div className="name"> RAM Price (EOS) </div>
+                        <div className="name"> RAM Price (EOS/KB) </div>
                       </div>
                       <div className="progress stat-progress">
                         <div

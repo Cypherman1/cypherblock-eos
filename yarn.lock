@@ -1371,7 +1371,7 @@ babel-register@^6.26.0, babel-register@^6.9.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
+babel-runtime@^6.10.0, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -6675,6 +6675,15 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
+react-loader-advanced@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/react-loader-advanced/-/react-loader-advanced-1.7.1.tgz#a707a039a18d2aa305b29979e83033e2ec8c158a"
+  dependencies:
+    babel-runtime "^6.10.0"
+    prop-types "^15.5.6"
+    react-transition-group "^1.2.0"
+    wolfy87-eventemitter "^5.2.2"
+
 react-minimalist-portal@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/react-minimalist-portal/-/react-minimalist-portal-2.3.1.tgz#4853e3f48a74a32c1b8767601887cdf7941eeba3"
@@ -6744,7 +6753,7 @@ react-toastify@^4.2.0:
     prop-types "^15.6.0"
     react-transition-group "^2.4.0"
 
-react-transition-group@1.x, react-transition-group@^1.2.1:
+react-transition-group@1.x, react-transition-group@^1.2.0, react-transition-group@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-1.2.1.tgz#e11f72b257f921b213229a774df46612346c7ca6"
   dependencies:
@@ -8492,6 +8501,10 @@ winston@2.4.2:
     eyes "0.1.x"
     isstream "0.1.x"
     stack-trace "0.0.x"
+
+wolfy87-eventemitter@^5.2.2:
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/wolfy87-eventemitter/-/wolfy87-eventemitter-5.2.5.tgz#e7af2adbb84e481c65edeb2a2e01032c8ff1b88f"
 
 wordwrap@~1.0.0:
   version "1.0.0"

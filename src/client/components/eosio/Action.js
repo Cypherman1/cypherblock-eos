@@ -152,7 +152,6 @@ class Action extends Component {
         </div>
       </td>
     );
-
     return items;
   }
   renderAccountLink(accountName) {

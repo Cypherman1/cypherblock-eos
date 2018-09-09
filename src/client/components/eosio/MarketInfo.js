@@ -7,29 +7,101 @@ import GetMarKetInfo from '../../queries/GetMarketInfo';
 
 var ram_price, eosio_ram, eos_price, percent_change_24h, eos_volume;
 
+const MarketInfoLoading = () => {
+  return (
+    <div className="card sameheight-item stats mb-1" data-exclude="xs">
+      <div className="card-header card-header-sm bg-light shadow-sm">
+        <div className="header-block pl-2">
+          <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
+          <h5 className="title text-info">Market info</h5>
+        </div>
+      </div>
+      <div className="card-block">
+        <div className="text-center align-middle overlay pd-mi">
+          <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+        </div>
+        <div className="row row-sm stats-container m-0">
+          <div className="col-12 col-sm-6  stat-col p-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="chart-bar" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name"> RAM Price (EOS/KB) </div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: '0%'
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-12 col-sm-6  stat-col p-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="coins" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name">eosio.ram</div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: '0%'
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-12 col-sm-6 stat-col p-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="dollar-sign" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name"> EOS Price (USD) </div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: '0%'
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-12 col-sm-6 stat-col p-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="coins" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name"> 24h Volume (USD) </div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: '0%'
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 class MarketInfo extends Component {
   render() {
     return (
       <Query query={GetMarKetInfo} pollInterval={5000}>
         {({loading, error, data}) => {
-          if (loading)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-              //   );
-            );
-
-          if (error)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-            );
+          if (loading) return <MarketInfoLoading />;
+          if (error) return <MarketInfoLoading />;
           const {cmc, eosioram, global_data, table_rows} = data;
           if (table_rows && global_data && cmc && eosioram) {
             ram_price =
@@ -50,7 +122,7 @@ class MarketInfo extends Component {
               <div className="card sameheight-item stats mb-1" data-exclude="xs">
                 <div className="card-header card-header-sm bg-light shadow-sm">
                   <div className="header-block pl-2">
-                    <FontAwesomeIcon icon="chart-line" className="mr-2 text-info" />
+                    <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
                     <h5 className="title text-info">Market info</h5>
                   </div>
                 </div>
@@ -58,7 +130,7 @@ class MarketInfo extends Component {
                   <div className="row row-sm stats-container m-0">
                     <div className="col-12 col-sm-6  stat-col p-1">
                       <div className="stat-icon">
-                        <FontAwesomeIcon icon="chart-bar" />
+                        <FontAwesomeIcon icon="chart-line" />
                       </div>
                       <div className="stat">
                         <div className="value">{renderRamPriceColorM(ram_price)}</div>
@@ -134,13 +206,7 @@ class MarketInfo extends Component {
               </div>
             );
           } else {
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-            );
+            return <MarketInfoLoading />;
           }
         }}
       </Query>

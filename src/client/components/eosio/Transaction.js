@@ -11,6 +11,17 @@ import {renderBlockNum} from '../utils/RenderColors';
 var action_digests_tmp = '';
 import BlockConfirmation from './BlockConfirmation';
 
+const TransactionLoading = () => {
+  return (
+    <div className="card-block ">
+      <div className="text-center align-middle overlay pd-vi">
+        <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+      </div>
+      <div className="row row-sm stats-container m-0 plheight" />
+    </div>
+  );
+};
+
 class Transaction extends Component {
   notify = () =>
     toast.error('Not found!', {
@@ -26,23 +37,8 @@ class Transaction extends Component {
         }}
       >
         {({loading, error, data}) => {
-          if (loading)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-              //   );
-            );
-          if (error)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-            );
+          if (loading) return <TransactionLoading />;
+          if (error) return <TransactionLoading />;
           const {transaction, chain} = data;
           if (transaction && chain) {
             this.action_digests_tmp = '';

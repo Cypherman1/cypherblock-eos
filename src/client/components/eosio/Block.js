@@ -1,12 +1,28 @@
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {CSSTransitionGroup} from 'react-transition-group';
+import {ToastContainer, toast} from 'react-toastify';
 import GetBlock from '../../queries/GetBlock';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderTransLink, renderBlockLink, convertUTCDateToLocalDate, renderAccountLink} from '../utils/Tools';
 import BlockConfirmation from './BlockConfirmation';
 
+const BlockLoading = () => {
+  return (
+    <div className="card-block ">
+      <div className="text-center align-middle overlay pd-vi">
+        <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+      </div>
+      <div className="row row-sm stats-container m-0 plheight" />
+    </div>
+  );
+};
+
 class Block extends Component {
+  notify = () =>
+    toast.error('Not found!', {
+      position: toast.POSITION.TOP_RIGHT
+    });
   render() {
     return (
       <Query
@@ -16,23 +32,8 @@ class Block extends Component {
         }}
       >
         {({loading, error, data}) => {
-          if (loading)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-              //   );
-            );
-          if (error)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-            );
+          if (loading) return <BlockLoading />;
+          if (error) return <BlockLoading />;
           const {block} = data;
 
           if (block) {
@@ -204,14 +205,10 @@ class Block extends Component {
                 </div>
               </div>
             );
-          } else
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-            );
+          } else {
+            this.notify();
+            return <ToastContainer autoClose={2000} />;
+          }
         }}
       </Query>
     );

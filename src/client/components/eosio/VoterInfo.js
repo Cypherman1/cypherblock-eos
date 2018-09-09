@@ -23,6 +23,26 @@ const NoVote = () => {
   );
 };
 
+const VoterInfoLoading = () => {
+  return (
+    <div className="card sameheight-item stats mbc" data-exclude="xs">
+      <div className="card-header card-header-sm bg-light shadow-sm">
+        <div className="header-block pl-2">
+          <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
+          <h5 className="title text-info">
+            Voter info
+            {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
+          </h5>
+        </div>
+      </div>
+      <div className="text-center align-middle overlay pd-vi">
+        <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+      </div>
+      <div className="card-block row row-sm m-0 plheight" />
+    </div>
+  );
+};
+
 class VoterInfo extends Component {
   renderVotedProducers(producers) {
     let items = [];
@@ -40,23 +60,8 @@ class VoterInfo extends Component {
     return (
       <Query query={GetVoterInfo} variables={{account_name: this.props.account_name}}>
         {({loading, error, data}) => {
-          if (loading)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-              //   );
-            );
-          if (error)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-            );
+          if (loading) return <VoterInfoLoading />;
+          if (error) return <VoterInfoLoading />;
           const {voteinfo} = data;
           if (voteinfo) {
             if (voteinfo.is_proxy == 0) {

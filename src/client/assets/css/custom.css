@@ -1080,7 +1080,27 @@ span.CodeMirror-selectedtext {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(250, 250, 250, 0);
   z-index: 2;
   cursor: pointer;
+}
+
+.pd-gi {
+  padding-top: 90px;
+}
+
+.pd-mi {
+  padding-top: 70px;
+}
+
+.pd-as {
+  padding-top: 75px;
+}
+
+.pd-vi {
+  padding-top: 50px;
+}
+
+.plheight {
+  height: 50px;
 }

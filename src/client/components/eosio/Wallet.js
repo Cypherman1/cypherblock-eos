@@ -10,6 +10,36 @@ import {renderEOSNum} from '../utils/RenderColors';
 
 let AllTokens = [];
 
+const WalletLoading = () => {
+  return (
+    <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">
+      <div className="card sameheight-item stats" data-exclude="xs">
+        <div className="card-header card-header-sm bg-light shadow-sm">
+          <div className="header-block pl-2">
+            <FontAwesomeIcon icon="wallet" className="mr-2 text-info" />
+            <h5 className="title text-info ">Wallet</h5>
+          </div>
+        </div>
+        <div className="card-block">
+          <div className="text-center align-middle overlay pd-mi">
+            <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+          </div>
+          <div className="title-block row ">
+            <div className="col-12 col-sm-12 header-col">
+              <div className="row border-bottom price-row">
+                <div className="col float-left price-font pl-2"> Tokens </div>
+                <div className="col text-right price-font pr-1">Price (Token/EOS)</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row row-sm stats-container border-bottom m-0 pb-1 plheight" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
 class Wallet extends Component {
   setAllTokens(data, bitfinex_pairs) {
     AllTokens = [];
@@ -129,23 +159,8 @@ class Wallet extends Component {
         pollInterval={60000}
       >
         {({loading, error, data}) => {
-          if (loading)
-            return (
-              <section className="section container">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-              //   );
-            );
-          if (error)
-            return (
-              <section className="section container">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-            );
+          if (loading) return <WalletLoading />;
+          if (error) return <WalletLoading />;
           const {bitfinex_pairs} = data;
 
           if (data) {

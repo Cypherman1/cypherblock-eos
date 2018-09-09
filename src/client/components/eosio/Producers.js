@@ -6,6 +6,34 @@ import GetProducers from '../../queries/GetProducers';
 import {renderAccountLink} from '../utils/Tools';
 import {renderProRank} from '../utils/RenderColors';
 
+const ProducersLoading = () => {
+  return (
+    <div className="card sameheight-item stats" data-exclude="xs">
+      <div className="card-header card-header-sm bg-light shadow-sm">
+        <div className="header-block pl-2">
+          <FontAwesomeIcon icon="user-cog" className="mr-2 text-info" />
+          <h5 className="title text-info ">Top producers</h5>
+        </div>
+      </div>
+      <div className="card-block">
+        <div className="text-center align-middle overlay pd-mi">
+          <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+        </div>
+        <div className="title-block row ">
+          <div className="col-12 col-sm-12 header-col">
+            <div className="row border-bottom price-row">
+              <div className="col float-left price-font pl-2" />
+              <div className="col text-right price-font pr-1">Vote (%)</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row row-sm stats-container border-bottom m-0 pb-1 plheight" />
+      </div>
+    </div>
+  );
+};
+
 class Producers extends Component {
   renderProducer(producer, index, total_producer_vote_weight) {
     return (
@@ -40,15 +68,7 @@ class Producers extends Component {
         }}
       >
         {({loading, error, data}) => {
-          if (loading)
-            return (
-              <section className="section container">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-              //   );
-            );
+          if (loading) return <ProducersLoading />;
           if (error)
             return (
               <section className="section container">

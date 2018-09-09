@@ -69,6 +69,188 @@ var availabe_ram = '';
 
 var account_name = '';
 
+const AccountInfoLoading = () => {
+  return (
+    <div>
+      <div className="card sameheight-item stats mbc" data-exclude="xs">
+        <div className="card-header card-header-sm bg-light shadow-sm">
+          <div className="header-block pl-2">
+            <FontAwesomeIcon icon="user" className="mr-2 text-info" />
+            <h5 className="title text-info">
+              {account_name}
+              {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
+            </h5>
+          </div>
+        </div>
+        <div className="card-block ">
+          <div className="text-center align-middle overlay pd-gi">
+            <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+          </div>
+          <div className="row row-sm stats-container m-0">
+            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+              <div className="pd-bl">
+                <div className="mr-2 eos-icon">
+                  <img src={eoslogo} />
+                </div>
+                <div className="stat">
+                  <div className="value" />
+                  <div className="name">Balance</div>
+                </div>
+              </div>
+              <div className="progress stat-progress">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `0%`
+                  }}
+                />
+              </div>
+            </div>
+            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+              <div className="pd-bl">
+                <div className=" mr-2 eos-icon">
+                  <img src={eoslogo} />
+                </div>
+                <div className="stat">
+                  <div className="value" />
+                  <div className="name">Balance(including RAM)</div>
+                </div>
+              </div>
+              <div className="progress stat-progress">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `0%`
+                  }}
+                />
+              </div>
+            </div>
+            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+              <div className="stat-icon">
+                <FontAwesomeIcon icon="dollar-sign" />
+              </div>
+              <div className="stat">
+                <div className="value" />
+                <div className="name">To fiat</div>
+              </div>
+              <div className="progress stat-progress">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `0%`
+                  }}
+                />
+              </div>
+            </div>
+            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+              <div className="stat-icon">
+                <FontAwesomeIcon icon="lock-open" />
+              </div>
+              <div className="stat">
+                <div className="value" />
+                <div className="name"> EOS unstaked </div>
+              </div>
+              <div className="progress stat-progress">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `${((unstaked / total_balance) * 100).toFixed(3)}%`
+                  }}
+                />
+              </div>
+            </div>
+            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+              <div className="stat-icon">
+                <FontAwesomeIcon icon="lock" />
+              </div>
+              <div className="stat">
+                <div className="value" />
+                <div className="name"> EOS staked </div>
+              </div>
+              <div className="progress stat-progress">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `${((staked / total_balance) * 100).toFixed(3)}%`
+                  }}
+                />
+              </div>
+            </div>
+            <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
+              <div className="stat-icon">
+                <FontAwesomeIcon icon="key" />
+              </div>
+              <div className="stat">
+                <div className="value" />
+                <div className="name">EOS refunding </div>
+              </div>
+              <div className="progress stat-progress">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `${((refund / total_balance) * 100).toFixed(3)}%`
+                  }}
+                />
+              </div>
+            </div>
+            <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
+              <div className="stat-icon">
+                <FontAwesomeIcon icon="memory" />
+              </div>
+              <div className="stat">
+                <div className="value" />
+                <div className="name">RAM </div>
+              </div>
+              <div className="progress stat-progress">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `${((ram_usage_num / limited_ram_num) * 100).toFixed(3)}%`
+                  }}
+                />
+              </div>
+            </div>
+            <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
+              <div className="stat-icon">
+                <FontAwesomeIcon icon="microchip" />
+              </div>
+              <div className="stat">
+                <div className="value" />
+                <div className="name">CPU </div>
+              </div>
+              <div className="progress stat-progress">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `${((used_cpu_num / limited_cpu_num) * 100).toFixed(3)}%`
+                  }}
+                />
+              </div>
+            </div>
+            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+              <div className="stat-icon">
+                <FontAwesomeIcon icon="bolt" />
+              </div>
+              <div className="stat">
+                <div className="value" />
+                <div className="name">NET</div>
+              </div>
+              <div className="progress stat-progress">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `${((used_net_num / limited_net_num) * 100).toFixed(3)}%`
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 class AccountInfo extends Component {
   getAccountInfo(account, table_rows, cmc) {
     try {
@@ -176,24 +358,9 @@ class AccountInfo extends Component {
     return (
       <Query query={GetAccountInfo} variables={{account_name: this.props.account_name}} pollInterval={5000}>
         {({loading, error, data}) => {
-          if (loading)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-              //   );
-            );
+          if (loading) return <AccountInfoLoading />;
 
-          if (error)
-            return (
-              <section className="section">
-                <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
-                </div>
-              </section>
-            );
+          if (error) return <AccountInfoLoading />;
 
           const {account, table_rows, cmc} = data;
           this.getAccountInfo(account, table_rows, cmc);

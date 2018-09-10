@@ -1,8 +1,8 @@
 {
-  "producer_account_name": "cypherblocks",
+  "producer_account_name": "blockinsider",
   "org": {
-    "candidate_name": "Cypherblock",
-    "website": "https://cypherblock.io",
+    "candidate_name": "Block Insider",
+    "website": "https://www.blockinsider.info",
     "code_of_conduct": "",
     "ownership_disclosure": "",
     "email": "",
@@ -25,7 +25,7 @@
       "github": "https://github.com/Cypherman1/",
       "reddit": "",
       "keybase": "",
-      "telegram": "https://t.me/cypherblock",
+      "telegram": "https://t.me/blockinsiderinfo",
       "wechat": ""
     }
   },

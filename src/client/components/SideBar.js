@@ -19,7 +19,7 @@ const SideBar = () => {
               <div className="mylogo logo-font">
                 <FontAwesomeIcon icon="cube" />
               </div>
-              CYPHERBLOCK
+              BLOCKINSIDER
             </div>
           </div>
           <nav className="menu">

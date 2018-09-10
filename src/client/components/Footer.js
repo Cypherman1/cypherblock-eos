@@ -7,7 +7,7 @@ const Footer = (props) => {
         <div>
           <FontAwesomeIcon icon="heart" className="mr-1 text-success" />
           For better experiences on EOSIO blockchain. Vote for{' '}
-          <a href="https://eosportal.io/chain/12/producers/cypherblocks"> cypherblocks</a>
+          <a href="https://eosportal.io/chain/12/producers/blockinsider"> blockinsider</a>
         </div>
       </div>
       <div className="footer-block author">
@@ -16,7 +16,7 @@ const Footer = (props) => {
             created by <a href="#">Cypherblock</a>
           </li> */}
           <li>
-            <a href="https://t.me/cypherblock"> Join our Telegram channel</a>
+            <a href="https://t.me/blockinsiderinfo"> Join our Telegram channel</a>
           </li>
         </ul>
       </div>

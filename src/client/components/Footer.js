@@ -6,7 +6,7 @@ const Footer = (props) => {
       <div className="footer-block buttons ">
         <div>
           <FontAwesomeIcon icon="heart" className="mr-1 text-success" />
-          For better experiences on EOSIO blockchain. Vote for{' '}
+          Vote for a joyful EOSIO blockchain. Vote for{' '}
           <a href="https://eosportal.io/chain/12/producers/blockinsider"> blockinsider</a>
         </div>
       </div>

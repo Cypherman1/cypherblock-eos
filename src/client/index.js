@@ -9,6 +9,11 @@ import {ApolloLink} from 'apollo-link';
 import {createHttpLink} from 'apollo-link-http';
 import {onError} from 'apollo-link-error';
 import {InMemoryCache} from 'apollo-cache-inmemory';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import reduxThunk from 'redux-thunk';
+
+import reducers from './reducers';
 
 import './assets/css/app-blue.css';
 //import './assets/css/vendor.css';
@@ -172,26 +177,30 @@ const client = new ApolloClient({
   queryDeduplication: true
 });
 
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+
 const Root = () => {
   return (
     <ApolloProvider client={client}>
-      <Router history={history}>
-        <div id="main-wrapper">
-          <div className="app" id="app">
-            <Header />
-            <LeftSideBar />
-            <Switch>
-              <Route path="/" exact component={Dashboard} />
-              <Route path="/account/:account_name" component={Account} />
-              <Route path="/code/:account_name" component={CodeView} />
-              <Route path="/abi/:account_name" component={ABIView} />
-              <Route path="/transaction/:id" component={TransactionView} />
-              <Route path="/block/:block_num_or_id" component={BlockView} />
-            </Switch>
-            <Footer />
+      <Provider store={store}>
+        <Router history={history}>
+          <div id="main-wrapper">
+            <div className="app" id="app">
+              <Header />
+              <LeftSideBar />
+              <Switch>
+                <Route path="/" exact component={Dashboard} />
+                <Route path="/account/:account_name" component={Account} />
+                <Route path="/code/:account_name" component={CodeView} />
+                <Route path="/abi/:account_name" component={ABIView} />
+                <Route path="/transaction/:id" component={TransactionView} />
+                <Route path="/block/:block_num_or_id" component={BlockView} />
+              </Switch>
+              <Footer />
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
+      </Provider>
     </ApolloProvider>
   );
 };

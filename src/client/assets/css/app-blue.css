@@ -3471,12 +3471,10 @@ span a {
 }
 .header .header-block-search > form {
   float: right;
-  background-color: white;
 }
 @media (max-width: 767.98px) {
   .header .header-block-search > form {
     padding-left: 0;
-    background-color: white;
   }
 }
 .header .header-block-search .input-container {

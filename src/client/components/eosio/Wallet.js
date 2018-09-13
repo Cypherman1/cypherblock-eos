@@ -5,8 +5,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Tokens} from '../utils/Tokens';
 import {renderPPColor} from '../utils/RenderColors';
 import GetWalletInfo from '../../queries/GetWalletInfo';
-const images = require.context('../../assets/imgs/symbols');
 import {renderEOSNum} from '../utils/RenderColors';
+const images = require.context('../../assets/imgs/symbols');
 
 let AllTokens = [];
 

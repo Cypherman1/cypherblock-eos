@@ -66,7 +66,7 @@ a {
 }
 
 .img-logo {
-  width: 30px !important;
+  width: 26px !important;
 }
 
 .bg-received {
@@ -1103,4 +1103,30 @@ span.CodeMirror-selectedtext {
 
 .plheight {
   height: 50px;
+}
+
+@media (max-width: 767.98px) {
+  .pt-auth {
+    padding-top: 5px;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .pt-auth {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .pt-auth {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .pt-auth {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
 }

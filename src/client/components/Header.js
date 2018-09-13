@@ -22,11 +22,11 @@ class Header extends Component {
     this.onScatterLogout = this.onScatterLogout.bind(this);
   }
   componentDidMount() {
-    try {
-      this.props.getScatter();
-    } catch (ex) {
-      return null;
-    }
+    // try {
+    //   this.props.getScatter();
+    // } catch (ex) {
+    //   return null;
+    // }
   }
   changeTerm(event) {
     this.setState({term: event.target.value});

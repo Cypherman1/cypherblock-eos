@@ -15,8 +15,8 @@ class Action extends Component {
         )
           items.push(
             <div key={name} className="row">
-              <div className="col-3 font-weight-bold">{name}</div>
-              <div className="col-9">
+              <div className="col-4 font-weight-bold pr-0">{name}</div>
+              <div className="col-8">
                 <Link to={`/account/${JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)}`}>
                   {JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)}
                 </Link>
@@ -27,8 +27,8 @@ class Action extends Component {
         else
           items.push(
             <div key={name} className="row">
-              <div className="col-3 font-weight-bold">{name}:</div>
-              <div className="col-9 aln-text">
+              <div className="col-4 font-weight-bold pr-0">{name}:</div>
+              <div className="col-8 aln-text">
                 <div> {JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)} </div>
               </div>
             </div>

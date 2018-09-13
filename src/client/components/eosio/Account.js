@@ -26,7 +26,7 @@ const Account = ({match}) => {
             <ErrorBoundary>
               <Actions
                 account_name={match.params.account_name}
-                pollInterval={0}
+                pollInterval={5000}
                 notifyOnNetworkStatusChange={false}
                 showRefetch={true}
               />

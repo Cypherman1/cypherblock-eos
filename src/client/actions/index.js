@@ -14,8 +14,5 @@ export const getScatter = () => async (dispatch) => {
 };
 
 export const getIdentity = (scatter) => async (dispatch) => {
-  
-  let account = 
-
   dispatch({type: SCATTER_FORGET_IDENTITY, payload: null});
 };

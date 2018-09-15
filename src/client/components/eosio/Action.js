@@ -10,8 +10,19 @@ class Action extends Component {
     if (typeof data == 'object') {
       for (var name in data) {
         if (
-          ['sender', 'receiver', 'from', 'to', 'voter', 'owner', 'proxy', 'account', 'payee', 'agent'].indexOf(name) >=
-          0
+          [
+            'sender',
+            'receiver',
+            'from',
+            'to',
+            'voter',
+            'owner',
+            'proxy',
+            'account',
+            'payee',
+            'agent',
+            'bettor'
+          ].indexOf(name) >= 0
         )
           items.push(
             <div key={name} className="row">
@@ -123,7 +134,7 @@ class Action extends Component {
           {this.renderAccountLink(action_trace.act.data.to)}
         </div>
         <div className="aln-text">
-          <span className="font-weight-bold">{`Memo: `}</span>
+          <span className="font-weight-bold">{`Memo:`}</span>
           {action_trace.act.data.memo}
         </div>
       </td>
@@ -147,7 +158,7 @@ class Action extends Component {
           {this.renderAccountLink(action_trace.act.data.to)}
         </div>
         <div className="aln-text">
-          <span className="font-weight-bold">{`Memo: `}</span>
+          <span className="font-weight-bold">{`Memo:`}</span>
           {action_trace.act.data.memo}
         </div>
       </td>
@@ -172,7 +183,7 @@ class Action extends Component {
           {this.renderAccountLink(action_trace.act.data.from)}
         </div>
         <div className="aln-text">
-          <span className="font-weight-bold">{`Memo: `}</span>
+          <span className="font-weight-bold">{`Memo:`}</span>
           {action_trace.act.data.memo}
         </div>
       </td>
@@ -196,7 +207,7 @@ class Action extends Component {
           {this.renderAccountLink(action_trace.act.data.from)}
         </div>
         <div className="aln-text">
-          <span className="font-weight-bold">{`Memo: `}</span>
+          <span className="font-weight-bold">{`Memo:`}</span>
           {action_trace.act.data.memo}
         </div>
       </td>
@@ -221,7 +232,7 @@ class Action extends Component {
           {this.renderAccountLink(action_trace.act.data.to)}
         </div>
         <div className="aln-text">
-          <span className="font-weight-bold">{`Memo: `}</span>
+          <span className="font-weight-bold">{`Memo:`}</span>
           {action_trace.act.data.memo}
         </div>
       </td>
@@ -246,7 +257,7 @@ class Action extends Component {
           {this.renderAccountLink(action_trace.act.data.to)}
         </div>
         <div className="aln-text">
-          <span className="font-weight-bold">{`Memo: `}</span>
+          <span className="font-weight-bold">{`Memo:`}</span>
           {action_trace.act.data.memo}
         </div>
       </td>

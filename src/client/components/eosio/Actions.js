@@ -3,8 +3,11 @@ import {CSSTransitionGroup} from 'react-transition-group';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetActions from '../../queries/GetActions';
 import {Query} from 'react-apollo';
+import ToggleButton from 'react-toggle-button';
+import {connect} from 'react-redux';
 import Action from './Action';
 import {renderAccountLink} from '../utils/Tools';
+import {setLiveActions, setIsRefetch, setIsButtonLoading, setIsMore} from '../../actions/eosActions';
 
 var action_digests_tmp = '';
 
@@ -53,22 +56,13 @@ class Actions extends Component {
     super(props);
     this.state = {
       buttonloading: false,
-      isMore: true,
-      open: false,
-      disabled: false,
-      isrefetch: false
+      isMore: true
     };
-    this.toggle = this.toggle.bind(this);
-  }
-  toggle(checked) {
-    this.setState({
-      disabled: !this.state.disabled
-    });
   }
 
   renderLoadMoreBtn(fetchMore, morelength) {
     if (this.props.showRefetch) {
-      if (!this.state.isMore) {
+      if (!this.props.eosActions.ismore) {
         return (
           <button type="button" className="btn btn-primary text-light w-100" disabled>
             END!
@@ -99,9 +93,9 @@ class Actions extends Component {
                       buttonloading: false
                     });
                     if (fetchMoreResult.actions.actions[0].account_action_seq == 0) {
-                      this.setState({
-                        isMore: false
-                      });
+                      this.props.setIsMore(false);
+                    } else {
+                      this.props.setIsMore(true);
                     }
                     return Object.assign(
                       {},
@@ -139,16 +133,19 @@ class Actions extends Component {
       );
   }
   renderRefetchBtn(refetch) {
-    if (this.props.showRefetch) {
-      if (!this.state.isrefetch)
+    if (!this.props.eosActions.islive) {
+      if (!this.props.eosActions.isrefetch)
         return (
           <div className="float-right pr-1">
             <button
               type="button"
-              className="btn btn-primary btn-sm"
+              className="btn btn-primary btn-sm col"
               onClick={() => {
-                this.setState({isrefetch: true});
-                refetch().then(() => this.setState({isrefetch: false}));
+                this.props.setIsRefetch(true);
+                refetch().then(() => {
+                  this.props.setIsRefetch(false);
+                  this.props.setIsMore(true);
+                });
               }}
             >
               <FontAwesomeIcon icon="sync-alt" className="text-light" />
@@ -173,7 +170,7 @@ class Actions extends Component {
           pos: -1,
           offset: -25
         }}
-        pollInterval={this.props.pollInterval}
+        pollInterval={this.props.eosActions.islive ? 3000 : 0}
         notifyOnNetworkStatusChange={this.props.notifyOnNetworkStatusChange}
       >
         {({loading, error, data, fetchMore, refetch}) => {
@@ -189,6 +186,16 @@ class Actions extends Component {
                       <h5 className="title text-info">
                         Recent <span className="ml-1 mr-1">{renderAccountLink(this.props.account_name)}</span> actions
                       </h5>
+                    </div>
+                    <div className="col-auto pt-atb pr-1">
+                      <ToggleButton
+                        inactiveLabel={'OFF'}
+                        activeLabel={'LIVE'}
+                        value={this.props.eosActions.islive}
+                        onToggle={(value) => {
+                          this.props.setLiveActions(!value);
+                        }}
+                      />
                     </div>
                     {this.renderRefetchBtn(refetch)}
                   </div>
@@ -247,4 +254,11 @@ class Actions extends Component {
   }
 }
 
-export default Actions;
+function mapStateToProps({eosActions}) {
+  return {eosActions};
+}
+
+export default connect(
+  mapStateToProps,
+  {setLiveActions, setIsRefetch, setIsButtonLoading, setIsMore}
+)(Actions);

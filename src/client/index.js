@@ -63,7 +63,8 @@ import {
   faSyncAlt,
   faList,
   faTasks,
-  faTable
+  faTable,
+  faCircle
 } from '@fortawesome/free-solid-svg-icons';
 
 // import './assets/css/all.css';
@@ -108,7 +109,8 @@ library.add(
   faSyncAlt,
   faList,
   faTasks,
-  faTable
+  faTable,
+  faCircle
 );
 
 class DynamicImport extends Component {

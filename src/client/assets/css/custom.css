@@ -1105,6 +1105,10 @@ span.CodeMirror-selectedtext {
   height: 50px;
 }
 
+.pt-atb {
+  padding-top: 3px;
+}
+
 @media (max-width: 767.98px) {
   .pt-auth {
     padding-top: 5px;

@@ -139,6 +139,7 @@
     "react-responsive-modal": "^3.2.0",
     "react-router-dom": "^4.3.1",
     "react-toastify": "^4.2.0",
+    "react-toggle-button": "^2.2.0",
     "react-transition-group": "1.x",
     "read-more-react": "^1.0.6",
     "redux": "^4.0.0",

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import isHash from 'validator/lib/isHash';
 import isLowercase from 'validator/lib/isLowercase';
 import {connect} from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../actions/scatter';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import history from './history';
 import KeyAccountsModal from './eosio/KeyAccountsModal';

@@ -3104,7 +3104,7 @@ eosjs-ecc@4.0.4:
     ecurve "^1.0.5"
     randombytes "^2.0.5"
 
-eosjs@^16.0.2:
+eosjs@^16.0.2, eosjs@^16.0.7:
   version "16.0.7"
   resolved "https://registry.yarnpkg.com/eosjs/-/eosjs-16.0.7.tgz#9771d10f9ca1665b25750cbd9d9543db61dae78b"
   dependencies:

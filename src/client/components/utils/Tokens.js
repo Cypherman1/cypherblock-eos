@@ -190,5 +190,13 @@ export const Tokens = [
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
     chaince_pair: ''
+  },
+  {
+    code: 'weosservices',
+    account: '',
+    symbol: 'WECASH',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
   }
 ];

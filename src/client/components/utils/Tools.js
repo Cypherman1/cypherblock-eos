@@ -1,6 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+const toTokenNumber = (tokenNum) => {
+  return `${Number(tokenNum.split(' ')[0]).toLocaleString(undefined, {minimumFractionDigits: 4})} ${
+    tokenNum.split(' ')[1]
+  }`;
+};
+
 const convertUTCDateToLocalDate = (date) => {
   var newDate = new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
 
@@ -36,4 +42,11 @@ const renderTransLink = (trx_id) => {
   );
 };
 
-export {convertUTCDateToLocalDate, renderAccountLink, renderBlockLink, renderTransactiontLink, renderTransLink};
+export {
+  convertUTCDateToLocalDate,
+  renderAccountLink,
+  renderBlockLink,
+  renderTransactiontLink,
+  renderTransLink,
+  toTokenNumber
+};

@@ -3,6 +3,6 @@ import authReducer from './authReducer';
 import eosActionsReducer from './eosActionsReducer';
 
 export default combineReducers({
-  scatter: authReducer,
+  auth: authReducer,
   eosActions: eosActionsReducer
 });

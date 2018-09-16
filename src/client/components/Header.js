@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import isHash from 'validator/lib/isHash';
 import isLowercase from 'validator/lib/isLowercase';
 import {connect} from 'react-redux';
-import * as actions from '../actions/scatter';
+import * as actions from '../actions/auth';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import history from './history';
 import KeyAccountsModal from './eosio/KeyAccountsModal';
@@ -27,6 +27,7 @@ class Header extends Component {
     // } catch (ex) {
     //   return null;
     // }
+    // return null;
   }
   changeTerm(event) {
     this.setState({term: event.target.value});
@@ -40,26 +41,12 @@ class Header extends Component {
   };
   onScatterOpen(event) {
     event.preventDefault();
-    const network = {
-      blockchain: 'eos',
-      protocol: 'https',
-      host: 'eos.greymass.com',
-      port: 443,
-      chainId: 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906'
-    };
-
-    const requiredFields = {accounts: [network]};
-
-    this.props.scatter.getIdentity(requiredFields).then(() => {
-      const account = this.props.scatter.identity.accounts.find((x) => x.blockchain === 'eos');
-      console.log(account);
-    });
-    // console.log(this.props.scatter);
+    this.props.getIdentity(this.props.auth.scatter);
+    console.log(this.props.auth);
   }
   onScatterLogout(event) {
     event.preventDefault();
-    this.props.scatter.forgetIdentity();
-    console.log(this.props.scatter);
+    this.props.auth.scatter.forgetIdentity();
   }
   submit(event) {
     event.preventDefault();
@@ -77,6 +64,24 @@ class Header extends Component {
     if (this.state.term.substring(0, 3) == 'EOS' && this.state.term.length == 53) {
       return <KeyAccountsModal public_key={this.state.term} onCloseModal={this.onCloseModal} open={this.state.open} />;
     } else return null;
+  }
+  renderAccount() {
+    if (!this.props.auth.account) {
+      return (
+        <div className="col-auto pt-auth">
+          <button type="button" className="btn btn-outline-info p-1 pr-2" onClick={this.onScatterOpen}>
+            <img src={scatterimg} className="img-logo rounded-circle" /> Login
+          </button>
+        </div>
+      );
+    }
+    return (
+      <div>
+        <button className="btn btn-success" onClick={this.onScatterLogout}>
+          {this.props.auth.account.name}
+        </button>
+      </div>
+    );
   }
 
   render() {
@@ -111,16 +116,7 @@ class Header extends Component {
                 </div>
               </form>
             </div>
-            {/* <div className="col pt-auth">
-              <button type="button" className="btn btn-outline-info p-1 pr-2" onClick={this.onScatterLogout}>
-                <img src={scatterimg} className="img-logo rounded-circle" /> Logout
-              </button>
-            </div>
-            <div className="col-auto pt-auth">
-              <button type="button" className="btn btn-outline-info p-1 pr-2" onClick={this.onScatterOpen}>
-                <img src={scatterimg} className="img-logo rounded-circle" /> Login
-              </button>
-            </div> */}
+            {/* {this.renderAccount()} */}
           </div>
         </header>
         {this.renderModal()}
@@ -129,8 +125,8 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps({scatter}) {
-  return {scatter};
+function mapStateToProps({auth}) {
+  return {auth};
 }
 
 export default connect(

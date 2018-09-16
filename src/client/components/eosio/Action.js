@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {convertUTCDateToLocalDate, renderTransactiontLink} from '../utils/Tools';
+import {convertUTCDateToLocalDate, renderTransactiontLink, toTokenNumber} from '../utils/Tools';
 import {renderBlockNum} from '../utils/RenderColors';
 import BlockConfirmation from './BlockConfirmation';
 
@@ -130,7 +130,7 @@ class Action extends Component {
       <td data-title="Info" className="pt-1 pb-1" key="2">
         <div className="actinfo-font">
           {this.renderAccountLink(action_trace.act.data.from)} {' transfered '}
-          <span className="text-info">{action_trace.act.data.quantity}</span> {` to `}
+          <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
           {this.renderAccountLink(action_trace.act.data.to)}
         </div>
         <div className="aln-text">
@@ -154,7 +154,7 @@ class Action extends Component {
       <td data-title="Info" className="pt-1 pb-1" key="2">
         <div className="actinfo-font">
           {this.renderAccountLink(action_trace.act.data.from)} {' transfered '}
-          <span className="text-info">{action_trace.act.data.quantity}</span> {` to `}
+          <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
           {this.renderAccountLink(action_trace.act.data.to)}
         </div>
         <div className="aln-text">
@@ -179,7 +179,7 @@ class Action extends Component {
       <td data-title="Info" className="pt-1 pb-1" key="2">
         <div className="actinfo-font">
           {this.renderAccountLink(action_trace.act.data.to)} {' received '}
-          <span className="text-info">{action_trace.act.data.quantity}</span> {` from `}
+          <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` from `}
           {this.renderAccountLink(action_trace.act.data.from)}
         </div>
         <div className="aln-text">
@@ -203,7 +203,7 @@ class Action extends Component {
       <td data-title="Info" className="pt-1 pb-1" key="2">
         <div className="actinfo-font">
           {this.renderAccountLink(action_trace.act.data.to)} {' received '}
-          <span className="text-info">{action_trace.act.data.quantity}</span> {` from `}
+          <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` from `}
           {this.renderAccountLink(action_trace.act.data.from)}
         </div>
         <div className="aln-text">
@@ -228,7 +228,7 @@ class Action extends Component {
       <td data-title="Info" className="pt-1 pb-1" key="2">
         <div className="actinfo-font">
           {this.renderAccountLink(action_trace.act.data.from)} {' sent '}
-          <span className="text-info">{action_trace.act.data.quantity}</span> {` to `}
+          <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
           {this.renderAccountLink(action_trace.act.data.to)}
         </div>
         <div className="aln-text">
@@ -253,7 +253,7 @@ class Action extends Component {
       <td data-title="Info" className="pt-1 pb-1" key="2">
         <div className="actinfo-font">
           {this.renderAccountLink(action_trace.act.data.from)} {' sent '}
-          <span className="text-info">{action_trace.act.data.quantity}</span> {` to `}
+          <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
           {this.renderAccountLink(action_trace.act.data.to)}
         </div>
         <div className="aln-text">
@@ -279,8 +279,8 @@ class Action extends Component {
         <div className="actinfo-font">
           {this.renderAccountLink(action_trace.act.data.from)}
           {` delegated `}
-          <span className="text-info">{action_trace.act.data.stake_net_quantity}</span> {` for NET and `}
-          <span className="text-info">{action_trace.act.data.stake_cpu_quantity}</span> {` for CPU to `}
+          <span className="text-info">{toTokenNumber(action_trace.act.data.stake_net_quantity)}</span> {` for NET and `}
+          <span className="text-info">{toTokenNumber(action_trace.act.data.stake_cpu_quantity)}</span> {` for CPU to `}
           {this.renderAccountLink(action_trace.act.data.receiver)}
         </div>
       </td>
@@ -301,8 +301,10 @@ class Action extends Component {
         <div className="actinfo-font">
           {this.renderAccountLink(action_trace.act.data.from)}
           {` undelegated `}
-          <span className="text-info">{action_trace.act.data.unstake_net_quantity}</span> {` for NET and `}
-          <span className="text-info">{action_trace.act.data.unstake_cpu_quantity}</span> {` for CPU to `}
+          <span className="text-info">{toTokenNumber(action_trace.act.data.unstake_net_quantity)}</span>{' '}
+          {` for NET and `}
+          <span className="text-info">{toTokenNumber(action_trace.act.data.unstake_cpu_quantity)}</span>{' '}
+          {` for CPU to `}
           {this.renderAccountLink(action_trace.act.data.receiver)}
         </div>
       </td>
@@ -323,7 +325,7 @@ class Action extends Component {
         <div className="actinfo-font">
           {this.renderAccountLink(action_trace.act.data.payer)}
           {` bought `}
-          <span className="text-info">{action_trace.act.data.quant}</span> {` RAM for `}
+          <span className="text-info">{toTokenNumber(action_trace.act.data.quant)}</span> {` RAM for `}
           {this.renderAccountLink(action_trace.act.data.receiver)}
         </div>
       </td>

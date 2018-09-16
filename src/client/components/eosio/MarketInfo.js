@@ -9,7 +9,7 @@ var ram_price, eosio_ram, eos_price, percent_change_24h, eos_volume;
 
 const MarketInfoLoading = () => {
   return (
-    <div className="card sameheight-item stats mb-1 d-none d-xl-block" data-exclude="xs">
+    <div className="card sameheight-item stats mb-1" data-exclude="xs">
       <div className="card-header card-header-sm bg-light shadow-sm">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
@@ -119,7 +119,7 @@ class MarketInfo extends Component {
             eos_volume = Number(cmc.data.quotes.USD.volume_24h).toLocaleString('en', {maximumFractionDigits: 0});
 
             return (
-              <div className="card sameheight-item stats mb-1" data-exclude="xs">
+              <div className="card sameheight-item stats mb-1 d-none d-xl-block" data-exclude="xs">
                 <div className="card-header card-header-sm bg-light shadow-sm">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />

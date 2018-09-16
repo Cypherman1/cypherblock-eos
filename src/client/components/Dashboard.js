@@ -20,7 +20,7 @@ class Dashboard extends Component {
               </ErrorBoundary>
             </div>
             <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col ">
-              <MarketInfo className="d-none d-xl-block" />
+              <MarketInfo className="d-none d-lg-block" />
               <Producers limit="30" />
             </div>
           </div>

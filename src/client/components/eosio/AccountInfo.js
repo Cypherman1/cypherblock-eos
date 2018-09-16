@@ -87,7 +87,7 @@ const AccountInfoLoading = () => {
             <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
           </div>
           <div className="row row-sm stats-container m-0">
-            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+            <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
               <div className="pd-bl">
                 <div className="mr-2 eos-icon">
                   <img src={eoslogo} />
@@ -106,14 +106,14 @@ const AccountInfoLoading = () => {
                 />
               </div>
             </div>
-            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+            <div className="col-6 col-sm-4 stat-col pr-1 pl-1 d-none d-sm-block">
               <div className="pd-bl">
                 <div className=" mr-2 eos-icon">
                   <img src={eoslogo} />
                 </div>
                 <div className="stat">
                   <div className="value" />
-                  <div className="name">Balance(including RAM)</div>
+                  <div className="name">Balance(RAM included)</div>
                 </div>
               </div>
               <div className="progress stat-progress">
@@ -125,13 +125,13 @@ const AccountInfoLoading = () => {
                 />
               </div>
             </div>
-            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+            <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
               <div className="stat-icon">
                 <FontAwesomeIcon icon="dollar-sign" />
               </div>
               <div className="stat">
                 <div className="value" />
-                <div className="name">To fiat</div>
+                <div className="name">To fiat(RAM included)</div>
               </div>
               <div className="progress stat-progress">
                 <div
@@ -142,7 +142,7 @@ const AccountInfoLoading = () => {
                 />
               </div>
             </div>
-            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+            <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
               <div className="stat-icon">
                 <FontAwesomeIcon icon="lock-open" />
               </div>
@@ -159,7 +159,7 @@ const AccountInfoLoading = () => {
                 />
               </div>
             </div>
-            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+            <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
               <div className="stat-icon">
                 <FontAwesomeIcon icon="lock" />
               </div>
@@ -176,7 +176,7 @@ const AccountInfoLoading = () => {
                 />
               </div>
             </div>
-            <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
+            <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
               <div className="stat-icon">
                 <FontAwesomeIcon icon="key" />
               </div>
@@ -193,7 +193,7 @@ const AccountInfoLoading = () => {
                 />
               </div>
             </div>
-            <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
+            <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
               <div className="stat-icon">
                 <FontAwesomeIcon icon="memory" />
               </div>
@@ -210,7 +210,7 @@ const AccountInfoLoading = () => {
                 />
               </div>
             </div>
-            <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
+            <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
               <div className="stat-icon">
                 <FontAwesomeIcon icon="microchip" />
               </div>
@@ -227,7 +227,7 @@ const AccountInfoLoading = () => {
                 />
               </div>
             </div>
-            <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+            <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
               <div className="stat-icon">
                 <FontAwesomeIcon icon="bolt" />
               </div>
@@ -379,7 +379,7 @@ class AccountInfo extends Component {
                   </div>
                   <div className="card-block ">
                     <div className="row row-sm stats-container m-0">
-                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                      <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
                         <div className="pd-bl">
                           <div className="mr-2 eos-icon">
                             <img src={eoslogo} />
@@ -400,14 +400,14 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                      <div className="col-6 col-sm-4 stat-col pr-1 pl-1 d-none d-sm-block">
                         <div className="pd-bl">
                           <div className=" mr-2 eos-icon">
                             <img src={eoslogo} />
                           </div>
                           <div className="stat">
                             <div className="value">{renderTotalBalanceRAMColor(total_balance_ramincluded)} EOS</div>
-                            <div className="name">Balance(including RAM)</div>
+                            <div className="name">Balance(RAM included)</div>
                           </div>
                         </div>
                         <div className="progress stat-progress">
@@ -419,13 +419,13 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                      <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="dollar-sign" />
                         </div>
                         <div className="stat">
                           <div className="value">{renderToFiatColor(to_fiat)} USD</div>
-                          <div className="name">To fiat</div>
+                          <div className="name">To fiat(RAM included)</div>
                         </div>
                         <div className="progress stat-progress">
                           <div
@@ -436,7 +436,7 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                      <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="lock-open" />
                         </div>
@@ -457,7 +457,7 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                      <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="lock" />
                         </div>
@@ -478,7 +478,7 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
+                      <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="key" />
                         </div>
@@ -499,24 +499,8 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
-                        <div className="stat-icon">
-                          <FontAwesomeIcon icon="memory" />
-                        </div>
-                        <div className="stat">
-                          <div className="value">{`${used_ram}/${limited_ram}`}</div>
-                          <div className="name">RAM ({renderRamColor(eos_ram_equivalent)} EOS)</div>
-                        </div>
-                        <div className="progress stat-progress">
-                          <div
-                            className="progress-bar"
-                            style={{
-                              width: `${((ram_usage_num / limited_ram_num) * 100).toFixed(3)}%`
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <div className="col-12 col-sm-4  stat-col pr-1 pl-1">
+
+                      <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="microchip" />
                         </div>
@@ -535,7 +519,7 @@ class AccountInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
+                      <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="bolt" />
                         </div>
@@ -550,6 +534,23 @@ class AccountInfo extends Component {
                             className="progress-bar"
                             style={{
                               width: `${((used_net_num / limited_net_num) * 100).toFixed(3)}%`
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
+                        <div className="stat-icon">
+                          <FontAwesomeIcon icon="memory" />
+                        </div>
+                        <div className="stat">
+                          <div className="value">{`${used_ram}/${limited_ram}`}</div>
+                          <div className="name">RAM ({renderRamColor(eos_ram_equivalent)} EOS)</div>
+                        </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `${((ram_usage_num / limited_ram_num) * 100).toFixed(3)}%`
                             }}
                           />
                         </div>

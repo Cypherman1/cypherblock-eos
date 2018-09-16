@@ -2,9 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const toTokenNumber = (tokenNum) => {
-  return `${Number(tokenNum.split(' ')[0]).toLocaleString(undefined, {minimumFractionDigits: 4})} ${
-    tokenNum.split(' ')[1]
-  }`;
+  if (tokenNum)
+    return `${Number(tokenNum.split(' ')[0]).toLocaleString(undefined, {minimumFractionDigits: 4})} ${
+      tokenNum.split(' ')[1]
+    }`;
 };
 
 const convertUTCDateToLocalDate = (date) => {

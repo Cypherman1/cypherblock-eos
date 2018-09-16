@@ -199,7 +199,7 @@ a {
   }
 
   .pd-bl {
-    padding-left: 10px;
+    padding-left: 0px;
   }
 
   /* Hide table headers (but not display: none;, for accessibility) */
@@ -1110,6 +1110,13 @@ span.CodeMirror-selectedtext {
 }
 
 @media (max-width: 767.98px) {
+  .blRAM {
+    display: none !important;
+  }
+  .blocktxid {
+    font-size: 8.5px;
+    font-weight: 700;
+  }
   .pt-auth {
     padding-top: 5px;
     padding-right: 0px !important;
@@ -1117,18 +1124,30 @@ span.CodeMirror-selectedtext {
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
+  .blocktxid {
+    font-size: 13px;
+    font-weight: 500;
+  }
   .pt-auth {
     padding-right: 0px !important;
     padding-left: 0px !important;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
+  .blocktxid {
+    font-size: 13px;
+    font-weight: 500;
+  }
   .pt-auth {
     padding-right: 0px !important;
     padding-left: 0px !important;
   }
 }
 @media (min-width: 1200px) {
+  .blocktxid {
+    font-size: 13px;
+    font-weight: 500;
+  }
   .pt-auth {
     padding-right: 0px !important;
     padding-left: 0px !important;

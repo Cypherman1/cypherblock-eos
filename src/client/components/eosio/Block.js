@@ -42,11 +42,8 @@ class Block extends Component {
                 <div className="card-block ">
                   <div className="row row-sm stats-container m-0">
                     <div className="col-12 col-sm-12 stat-col pr-1 pl-1">
-                      <div className="stat-icon">
-                        <FontAwesomeIcon icon="cube" />
-                      </div>
                       <div className="stat">
-                        <div className="value ftz-11">{renderBlockLink(block.id)}</div>
+                        <div className="blocktxid">{block.id}</div>
                         <div className="name">Block ID</div>
                       </div>
                       <div className="progress stat-progress">

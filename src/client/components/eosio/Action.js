@@ -82,8 +82,8 @@ class Action extends Component {
   renderSeq1(seq, block_num, last_irreversible_block, head_block_num, trx_id, get_block_status) {
     return (
       <td data-title="#" className="infostyle">
-        {renderTransactiontLink(trx_id, seq)}
         {this.renderBlockStatus(block_num, last_irreversible_block, head_block_num, get_block_status)}
+        {renderTransactiontLink(trx_id, seq)}
       </td>
     );
   }
@@ -642,13 +642,15 @@ class Action extends Component {
               return this.renderDefaultTransferAction(action_trace);
             }
           default:
-            if (action_trace.receipt.receiver == account_name && action_trace.act.data.to == account_name)
-              // receive other tokens
-              return this.renderTokenReceivedAction(action_trace);
-            else if (action_trace.act.data.from == account_name)
-              // send other tokens
-              return this.renderTokenSentAction(action_trace);
-            else return this.renderDefaultTokenTransferAction(action_trace);
+            if (action_trace.act.data.quantity) {
+              if (action_trace.receipt.receiver == account_name && action_trace.act.data.to == account_name)
+                // receive other tokens
+                return this.renderTokenReceivedAction(action_trace);
+              else if (action_trace.act.data.from == account_name)
+                // send other tokens
+                return this.renderTokenSentAction(action_trace);
+              else return this.renderDefaultTokenTransferAction(action_trace);
+            } else return this.renderDefaultAction(action_trace);
         }
       case 'delegatebw':
         return this.RenderDelegatebw(action_trace);

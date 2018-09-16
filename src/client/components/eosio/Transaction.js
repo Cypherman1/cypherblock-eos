@@ -47,11 +47,8 @@ class Transaction extends Component {
                 <div className="card-block ">
                   <div className="row row-sm stats-container m-0">
                     <div className="col-12 col-sm-12 stat-col pr-1 pl-1">
-                      <div className="stat-icon">
-                        <FontAwesomeIcon icon="table" />
-                      </div>
                       <div className="stat">
-                        <div className="value ftz-11">{transaction.id}</div>
+                        <div className="blocktxid">{transaction.id}</div>
                         <div className="name">Transaction ID</div>
                       </div>
                       <div className="progress stat-progress">

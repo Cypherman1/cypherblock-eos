@@ -52,7 +52,7 @@ const GeneralInfoLoading = () => {
           <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
         </div>
         <div className="row row-sm stats-container m-0">
-          <div className="col-12 col-sm-4 stat-col p-1">
+          <div className="col-6 col-sm-4 stat-col p-1">
             <div className="stat-icon">
               <FontAwesomeIcon icon="cube" />
             </div>
@@ -69,7 +69,7 @@ const GeneralInfoLoading = () => {
               />
             </div>
           </div>
-          <div className="col-12 col-sm-4  stat-col p-1">
+          <div className="col-6 col-sm-4  stat-col p-1">
             <div className="stat-icon">
               <FontAwesomeIcon icon="user-cog" />
             </div>
@@ -94,7 +94,7 @@ const GeneralInfoLoading = () => {
               />
             </div>
           </div>
-          <div className="col-12 col-sm-4  stat-col p-1">
+          <div className="col-6 col-sm-4  stat-col p-1">
             <div className="stat-icon">
               <FontAwesomeIcon icon="cube" />
             </div>
@@ -111,7 +111,7 @@ const GeneralInfoLoading = () => {
               />
             </div>
           </div>
-          <div className="col-12 col-sm-4  stat-col p-1">
+          <div className="col-6 col-sm-4  stat-col p-1">
             <div className="stat-icon">
               <FontAwesomeIcon icon="coins" />
             </div>
@@ -128,7 +128,7 @@ const GeneralInfoLoading = () => {
               />
             </div>
           </div>
-          <div className="col-12 col-sm-4 stat-col p-1">
+          <div className="col-6 col-sm-4 stat-col p-1">
             <div className="stat-icon">
               <FontAwesomeIcon icon="lock" />
             </div>
@@ -145,7 +145,7 @@ const GeneralInfoLoading = () => {
               />
             </div>
           </div>
-          <div className="col-12 col-sm-4 stat-col p-1">
+          <div className="col-6 col-sm-4 stat-col p-1">
             <div className="stat-icon">
               <FontAwesomeIcon icon="gavel" />
             </div>
@@ -162,8 +162,7 @@ const GeneralInfoLoading = () => {
               />
             </div>
           </div>
-
-          <div className="col-12 col-sm-4  stat-col p-1">
+          <div className="col-6 col-sm-4  stat-col p-1">
             <div className="stat-icon">
               <FontAwesomeIcon icon="memory" />
             </div>
@@ -180,7 +179,7 @@ const GeneralInfoLoading = () => {
               />
             </div>
           </div>
-          <div className="col-12 col-sm-4 stat-col p-1">
+          <div className="col-6 col-sm-4 stat-col p-1">
             <div className="stat-icon">
               <FontAwesomeIcon icon="shopping-bag" />
             </div>
@@ -197,7 +196,7 @@ const GeneralInfoLoading = () => {
               />
             </div>
           </div>
-          <div className="col-12 col-sm-4 stat-col p-1">
+          <div className="col-6 col-sm-4 stat-col p-1">
             <div className="stat-icon">
               <FontAwesomeIcon icon="cogs" />
             </div>
@@ -214,10 +213,25 @@ const GeneralInfoLoading = () => {
               />
             </div>
           </div>
-
           {/* market info */}
-
-          <div className="col-12 col-sm-4  stat-col p-1 d-xl-none">
+          <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="coins" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name"> 24h Volume (USD) </div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: '0%'
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-6 col-sm-4  stat-col p-1 d-xl-none">
             <div className="stat-icon">
               <FontAwesomeIcon icon="chart-bar" />
             </div>
@@ -234,30 +248,13 @@ const GeneralInfoLoading = () => {
               />
             </div>
           </div>
-          <div className="col-12 col-sm-4 stat-col p-1 d-xl-none">
+          <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
             <div className="stat-icon">
               <FontAwesomeIcon icon="dollar-sign" />
             </div>
             <div className="stat">
               <div className="value" />
               <div className="name"> EOS Price (USD) </div>
-            </div>
-            <div className="progress stat-progress">
-              <div
-                className="progress-bar"
-                style={{
-                  width: '0%'
-                }}
-              />
-            </div>
-          </div>
-          <div className="col-12 col-sm-4 stat-col p-1 d-xl-none">
-            <div className="stat-icon">
-              <FontAwesomeIcon icon="coins" />
-            </div>
-            <div className="stat">
-              <div className="value" />
-              <div className="name"> 24h Volume (USD) </div>
             </div>
             <div className="progress stat-progress">
               <div
@@ -321,7 +318,7 @@ class GeneralInfo extends Component {
                 </div>
                 <div className="card-block ">
                   <div className="row row-sm stats-container m-0">
-                    <div className="col-12 col-sm-4 stat-col p-1">
+                    <div className="col-6 col-sm-4 stat-col p-1">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="cube" />
                       </div>
@@ -340,7 +337,7 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-12 col-sm-4  stat-col p-1">
+                    <div className="col-6 col-sm-4  stat-col p-1">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="user-cog" />
                       </div>
@@ -365,7 +362,7 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-12 col-sm-4  stat-col p-1">
+                    <div className="col-6 col-sm-4  stat-col p-1">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="cube" />
                       </div>
@@ -386,7 +383,7 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-12 col-sm-4  stat-col p-1">
+                    <div className="col-6 col-sm-4  stat-col p-1">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="coins" />
                       </div>
@@ -403,7 +400,7 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-12 col-sm-4 stat-col p-1">
+                    <div className="col-6 col-sm-4 stat-col p-1">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="lock" />
                       </div>
@@ -422,7 +419,7 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-12 col-sm-4 stat-col p-1">
+                    <div className="col-6 col-sm-4 stat-col p-1">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="gavel" />
                       </div>
@@ -442,8 +439,7 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-
-                    <div className="col-12 col-sm-4  stat-col p-1">
+                    <div className="col-6 col-sm-4  stat-col p-1">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="memory" />
                       </div>
@@ -460,13 +456,13 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-12 col-sm-4 stat-col p-1">
+                    <div className="col-6 col-sm-4 stat-col p-1">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="shopping-bag" />
                       </div>
                       <div className="stat">
                         <div className="value">{formatBandUnits(total_ram_bytes_reserved)}</div>
-                        <div className="name">{`Total RAM reserved (${(
+                        <div className="name">{`RAM reserved (${(
                           (total_ram_bytes_reserved / max_ram_size) *
                           100
                         ).toFixed(2)}%)`}</div>
@@ -480,13 +476,13 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-12 col-sm-4 stat-col p-1">
+                    <div className="col-6 col-sm-4 stat-col p-1">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="cogs" />
                       </div>
                       <div className="stat">
                         <div className="value">{formatBandUnits(total_ram_stake)}</div>
-                        <div className="name">{`Total RAM staked (${((total_ram_stake / max_ram_size) * 100).toFixed(
+                        <div className="name">{`RAM staked (${((total_ram_stake / max_ram_size) * 100).toFixed(
                           2
                         )}%)`}</div>
                       </div>
@@ -499,10 +495,25 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-
                     {/* market info */}
-
-                    <div className="col-12 col-sm-4  stat-col p-1 d-xl-none">
+                    <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
+                      <div className="stat-icon">
+                        <FontAwesomeIcon icon="coins" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">{eos_volume}</div>
+                        <div className="name"> 24h Volume (USD) </div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: '0%'
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="chart-bar" />
                       </div>
@@ -519,7 +530,7 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-12 col-sm-4 stat-col p-1 d-xl-none">
+                    <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="dollar-sign" />
                       </div>
@@ -529,23 +540,6 @@ class GeneralInfo extends Component {
                           {renderPercentColor(percent_change_24h)}
                         </div>
                         <div className="name"> EOS Price (USD) </div>
-                      </div>
-                      <div className="progress stat-progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: '0%'
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-12 col-sm-4 stat-col p-1 d-xl-none">
-                      <div className="stat-icon">
-                        <FontAwesomeIcon icon="coins" />
-                      </div>
-                      <div className="stat">
-                        <div className="value">{eos_volume}</div>
-                        <div className="name"> 24h Volume (USD) </div>
                       </div>
                       <div className="progress stat-progress">
                         <div

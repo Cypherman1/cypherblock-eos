@@ -10,7 +10,6 @@ import {renderAccountLink} from '../utils/Tools';
 import {setLiveActions, setIsRefetch, setIsButtonLoading, setIsMore} from '../../actions/eosActions';
 
 var action_digests_tmp = '';
-
 const ActionsLoading = () => {
   return (
     <div>

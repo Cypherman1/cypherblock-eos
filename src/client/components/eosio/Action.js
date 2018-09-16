@@ -578,7 +578,6 @@ class Action extends Component {
         <div className="actinfo-font">Refunded for {this.renderAccountLink(action_trace.act.data.owner)} </div>
       </td>
     );
-
     return items;
   }
   RenderClaimrewards(action_trace) {
@@ -623,7 +622,6 @@ class Action extends Component {
         </div>
       </td>
     );
-
     return items;
   }
 

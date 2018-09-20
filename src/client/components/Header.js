@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import isHash from 'validator/lib/isHash';
 import isLowercase from 'validator/lib/isLowercase';
 import {connect} from 'react-redux';
-import * as actions from '../actions/auth';
+// import * as actions from '../actions/auth';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import history from './history';
 import KeyAccountsModal from './eosio/KeyAccountsModal';
 const images = require.context('../assets/imgs');
-let scatterimg = images('./Scatter.jpg');
+// let scatterimg = images('./Scatter.jpg');
 
 class Header extends Component {
   constructor(props) {
@@ -18,17 +18,17 @@ class Header extends Component {
     };
     this.submit = this.submit.bind(this);
     this.changeTerm = this.changeTerm.bind(this);
-    this.onScatterOpen = this.onScatterOpen.bind(this);
-    this.onScatterLogout = this.onScatterLogout.bind(this);
+    // this.onScatterOpen = this.onScatterOpen.bind(this);
+    // this.onScatterLogout = this.onScatterLogout.bind(this);
   }
-  componentDidMount() {
-    // try {
-    //   this.props.getScatter();
-    // } catch (ex) {
-    //   return null;
-    // }
-    // return null;
-  }
+  // componentDidMount() {
+  //   // try {
+  //   //   this.props.getScatter();
+  //   // } catch (ex) {
+  //   //   return null;
+  //   // }
+  //   // return null;
+  // }
   changeTerm(event) {
     this.setState({term: event.target.value});
   }
@@ -39,15 +39,14 @@ class Header extends Component {
   onCloseModal = () => {
     this.setState({open: false});
   };
-  onScatterOpen(event) {
-    event.preventDefault();
-    this.props.getIdentity(this.props.auth.scatter);
-    console.log(this.props.auth);
-  }
-  onScatterLogout(event) {
-    event.preventDefault();
-    this.props.auth.scatter.forgetIdentity();
-  }
+  // onScatterOpen(event) {
+  //   event.preventDefault();
+  //   this.props.getIdentity(this.props.auth.scatter);
+  // }
+  // onScatterLogout(event) {
+  //   event.preventDefault();
+  //   this.props.auth.scatter.forgetIdentity();
+  // }
   submit(event) {
     event.preventDefault();
     if (this.state.term.substring(0, 3) == 'EOS' && this.state.term.length == 53) {
@@ -65,24 +64,24 @@ class Header extends Component {
       return <KeyAccountsModal public_key={this.state.term} onCloseModal={this.onCloseModal} open={this.state.open} />;
     } else return null;
   }
-  renderAccount() {
-    if (!this.props.auth.account) {
-      return (
-        <div className="col-auto pt-auth">
-          <button type="button" className="btn btn-outline-info p-1 pr-2" onClick={this.onScatterOpen}>
-            <img src={scatterimg} className="img-logo rounded-circle" /> Login
-          </button>
-        </div>
-      );
-    }
-    return (
-      <div>
-        <button className="btn btn-success" onClick={this.onScatterLogout}>
-          {this.props.auth.account.name}
-        </button>
-      </div>
-    );
-  }
+  // renderAccount() {
+  //   if (!this.props.auth.account) {
+  //     return (
+  //       <div className="col-auto pt-auth">
+  //         <button type="button" className="btn btn-outline-info p-1 pr-2" onClick={this.onScatterOpen}>
+  //           <img src={scatterimg} className="img-logo rounded-circle" /> Login
+  //         </button>
+  //       </div>
+  //     );
+  //   }
+  //   return (
+  //     <div>
+  //       <button className="btn btn-success" onClick={this.onScatterLogout}>
+  //         {this.props.auth.account.name}
+  //       </button>
+  //     </div>
+  //   );
+  // }
 
   render() {
     return (
@@ -125,11 +124,13 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps({auth}) {
-  return {auth};
-}
+// function mapStateToProps({auth}) {
+//   return {auth};
+// }
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Header);
+// export default connect(
+//   mapStateToProps,
+//   actions
+// )(Header);
+
+export default Header;

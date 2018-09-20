@@ -19,7 +19,7 @@ import './assets/css/app-blue.css';
 //import './assets/css/vendor.css';
 import './assets/css/custom.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'react-toastify/dist/ReactToastify.css';
 import './assets/css/metisMenu.min.css';
 import './assets/js/metisMenu.min.js';
@@ -64,7 +64,9 @@ import {
   faList,
   faTasks,
   faTable,
-  faCircle
+  faCircle,
+  faCode,
+  faInfoCircle
 } from '@fortawesome/free-solid-svg-icons';
 
 // import './assets/css/all.css';
@@ -110,7 +112,9 @@ library.add(
   faList,
   faTasks,
   faTable,
-  faCircle
+  faCircle,
+  faCode,
+  faInfoCircle
 );
 
 class DynamicImport extends Component {

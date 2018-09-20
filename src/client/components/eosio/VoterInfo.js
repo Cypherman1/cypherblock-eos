@@ -303,7 +303,6 @@ class VoterInfo extends Component {
                                 <h5 className="title text-info ftz-12">Voted producers</h5>
                               </div>
                             </div>
-
                             <div className="p-2"> {this.renderVotedProducers(voteinfo.producers)}</div>
                           </div>
                         </div>

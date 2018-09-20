@@ -17,6 +17,10 @@ export default gql`
           act {
             account
             name
+            authorization {
+              actor
+              permission
+            }
             data
           }
           trx_id

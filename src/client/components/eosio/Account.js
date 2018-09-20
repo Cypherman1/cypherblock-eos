@@ -7,6 +7,7 @@ import Actions from './Actions';
 import VoterInfo from './VoterInfo';
 import SmartContract from './SmartContract';
 import ErrorBoundary from '../ErrorBoundary';
+import ActionsCard from './ActionsCard';
 
 const Account = ({match}) => {
   return (
@@ -24,9 +25,8 @@ const Account = ({match}) => {
               <SmartContract account_name={match.params.account_name} />
             </ErrorBoundary>
             <ErrorBoundary>
-              <Actions
+              <ActionsCard
                 account_name={match.params.account_name}
-                pollInterval={0}
                 notifyOnNetworkStatusChange={false}
                 showRefetch={true}
               />

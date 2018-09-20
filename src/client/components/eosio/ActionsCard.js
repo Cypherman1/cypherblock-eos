@@ -5,12 +5,12 @@ import GetActions from '../../queries/GetActions';
 import {Query} from 'react-apollo';
 import ToggleButton from 'react-toggle-button';
 import {connect} from 'react-redux';
-import Action from './Action';
+import ActionCard from './ActionCard';
 import {renderAccountLink} from '../utils/Tools';
 import {setLiveActions, setIsRefetch, setIsButtonLoading, setIsMore} from '../../actions/eosActions';
 
 var action_digests_tmp = '';
-const ActionsLoading = () => {
+const ActionsCardLoading = () => {
   return (
     <div>
       <div className="card sameheight-item stats mb-1" data-exclude="xs">
@@ -20,29 +20,9 @@ const ActionsLoading = () => {
             <h5 className="title text-info">Recent actions</h5>
           </div>
         </div>
-        <div className="card-block pt-0">
-          <div className="text-center align-middle overlay pd-as">
+        <div className="card-block pt-0 plheight">
+          <div className="text-center align-middle overlay pd-vi">
             <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
-          </div>
-          <div className="no-more-tables">
-            <table className="table actions_font tablayout">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Time</th>
-                  <th>Type</th>
-                  <th>Info</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td />
-                  <td />
-                  <td />
-                  <td />
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
       </div>
@@ -50,7 +30,7 @@ const ActionsLoading = () => {
   );
 };
 
-class Actions extends Component {
+class ActionsCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -169,11 +149,11 @@ class Actions extends Component {
           pos: -1,
           offset: -25
         }}
-        pollInterval={this.props.eosActions.islive ? 3000 : 0}
+        pollInterval={this.props.eosActions.islive ? 5000 : 0}
       >
         {({loading, error, data, fetchMore, refetch}) => {
-          if (loading) return <ActionsLoading />;
-          if (error) return <ActionsLoading />;
+          if (loading) return <ActionsCardLoading />;
+          if (error) return <ActionsCardLoading />;
           if (data && data.actions && data.chain)
             return (
               <div>
@@ -197,55 +177,44 @@ class Actions extends Component {
                     </div>
                     {this.renderRefetchBtn(refetch)}
                   </div>
-                  <div className="card-block pt-0">
-                    <div className="no-more-tables">
-                      <table className="table actions_font tablayout">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Time</th>
-                            <th>Type</th>
-                            <th>Info</th>
-                          </tr>
-                        </thead>
-                        <CSSTransitionGroup
-                          component="tbody"
-                          transitionName="example"
-                          transitionEnterTimeout={500}
-                          transitionLeaveTimeout={300}
-                        >
-                          {data.actions.actions
-                            .slice()
-                            .reverse()
-                            .map((action) => {
-                              if (action.action_trace.receipt.act_digest !== this.action_digests_tmp) {
-                                this.action_digests_tmp = action.action_trace.receipt.act_digest;
+                  <div className="card-block bg-actions pt-2 ">
+                    <CSSTransitionGroup
+                      component="div"
+                      transitionName="example"
+                      transitionEnterTimeout={100}
+                      transitionLeaveTimeout={0}
+                    >
+                      {data.actions.actions
+                        .slice()
+                        .reverse()
+                        .map((action) => {
+                          if (action.action_trace.receipt.act_digest !== this.action_digests_tmp) {
+                            this.action_digests_tmp = action.action_trace.receipt.act_digest;
 
-                                return (
-                                  <Action
-                                    key={action.global_action_seq}
-                                    action_trace={action.action_trace}
-                                    block_time={action.block_time}
-                                    block_num={action.block_num}
-                                    last_irreversible_block={data.actions.last_irreversible_block}
-                                    head_block_num={data.chain.head_block_num}
-                                    account_name={this.props.account_name}
-                                    get_block_status={false}
-                                    trx_id={action.action_trace.trx_id}
-                                  />
-                                );
-                              }
-                              return null;
-                            })}
-                        </CSSTransitionGroup>
-                      </table>
-                    </div>
+                            return (
+                              <ActionCard
+                                key={action.global_action_seq}
+                                action_trace={action.action_trace}
+                                block_time={action.block_time}
+                                block_num={action.block_num}
+                                last_irreversible_block={data.actions.last_irreversible_block}
+                                head_block_num={data.chain.head_block_num}
+                                account_name={this.props.account_name}
+                                get_block_status={false}
+                                trx_id={action.action_trace.trx_id}
+                              />
+                            );
+                          }
+                          return null;
+                        })}
+                    </CSSTransitionGroup>
+
                     {this.renderLoadMoreBtn(fetchMore, data.actions.actions.length)}
                   </div>
                 </div>
               </div>
             );
-          else return <ActionsLoading />;
+          else return <ActionsCardLoading />;
         }}
       </Query>
     );
@@ -259,4 +228,4 @@ function mapStateToProps({eosActions}) {
 export default connect(
   mapStateToProps,
   {setLiveActions, setIsRefetch, setIsButtonLoading, setIsMore}
-)(Actions);
+)(ActionsCard);

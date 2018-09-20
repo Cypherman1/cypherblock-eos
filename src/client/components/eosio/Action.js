@@ -73,7 +73,7 @@ class Action extends Component {
     if (get_block_status) {
       return <div />;
     } else {
-      if (Number(last_irreversible_block) >= Number(block_num)) {
+      if (Number(last_irreversible_block) >= Number(block_num) || Number(head_block_num) - Number(block_num) > 370) {
         return <div className="d-inline bg-success text-light rounded irr-mark ">Irreversible</div>;
       }
       return this.renderConfirmation(block_num, head_block_num);
@@ -107,7 +107,7 @@ class Action extends Component {
     let items = [];
     items.push(
       <td data-title="Type" key="1">
-        <div className=" p-1 d-inline bg-default text-light rounded ">{action_trace.act.name}</div>
+        <div className=" p-1 d-inline bg-secondary text-light rounded ">{action_trace.act.name}</div>
         <div className=" p-1">{this.renderAccountLink(action_trace.act.account)}</div>
       </td>
     );

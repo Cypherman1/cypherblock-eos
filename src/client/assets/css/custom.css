@@ -1031,6 +1031,9 @@ span.CodeMirror-selectedtext {
 .ftz-12 {
   font-size: 12px !important;
 }
+.ftz-13 {
+  font-size: 13px !important;
+}
 .ftz-8 {
   font-size: 8px !important;
 }
@@ -1109,7 +1112,65 @@ span.CodeMirror-selectedtext {
   padding-top: 3px;
 }
 
+.action_fp {
+  padding: 0.2rem 0.2rem !important;
+}
+
+.action_header_bgr {
+  background-color: #fff !important;
+}
+
+.json-string {
+  color: green;
+}
+.number {
+  color: darkorange;
+}
+.boolean {
+  color: blue;
+}
+.null {
+  color: magenta;
+}
+.json-key {
+  color: red;
+  font-weight: 500;
+}
+.act-head-height {
+  min-height: 20px !important;
+}
+.act-xs-height {
+  min-height: 20px !important;
+}
+.act-info-height {
+  min-height: 25px !important;
+}
+
+.bg-actions {
+  background-color: #e9ebee;
+}
+.pd-confirm {
+  padding: 1px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.actype-height {
+  padding: 2px;
+}
+
+.ftz-9 {
+  font-size: 9px !important;
+}
+.ftz-8 {
+  font-size: 8px !important;
+}
+
 @media (max-width: 767.98px) {
+  .act-date-fz {
+    font-size: 9px;
+    font-weight: 600;
+  }
   .blRAM {
     display: none !important;
   }
@@ -1122,6 +1183,12 @@ span.CodeMirror-selectedtext {
     padding-right: 0px !important;
     padding-left: 0px !important;
   }
+  .receiver-style {
+    font-size: 10px !important;
+  }
+  .pd-acttype {
+    padding-top: 10px;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .blocktxid {
@@ -1131,6 +1198,12 @@ span.CodeMirror-selectedtext {
   .pt-auth {
     padding-right: 0px !important;
     padding-left: 0px !important;
+  }
+  .receiver-style {
+    font-size: 12px !important;
+  }
+  .pd-acttype {
+    padding-top: 5px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -1142,6 +1215,12 @@ span.CodeMirror-selectedtext {
     padding-right: 0px !important;
     padding-left: 0px !important;
   }
+  .receiver-style {
+    font-size: 12px !important;
+  }
+  .pd-acttype {
+    padding-top: 5px;
+  }
 }
 @media (min-width: 1200px) {
   .blocktxid {
@@ -1151,5 +1230,11 @@ span.CodeMirror-selectedtext {
   .pt-auth {
     padding-right: 0px !important;
     padding-left: 0px !important;
+  }
+  .receiver-style {
+    font-size: 12px !important;
+  }
+  .pd-acttype {
+    padding-top: 5px;
   }
 }

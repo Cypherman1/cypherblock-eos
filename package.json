@@ -124,6 +124,7 @@
     "graphql-tag": "^2.9.2",
     "graphql-type-json": "^0.2.1",
     "jquery": "^3.3.1",
+    "json-beautify": "^1.0.1",
     "material-ui": "^0.20.2",
     "metismenu": "^2.7.9",
     "mongoose": "4.7.8",

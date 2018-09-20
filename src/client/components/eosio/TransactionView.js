@@ -3,8 +3,13 @@ import React from 'react';
 import Transaction from './Transaction';
 import ErrorBoundary from '../ErrorBoundary';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import history from '../history';
 
 const TransactionView = ({match}) => {
+  const back = (e) => {
+    e.stopPropagation();
+    history.goBack();
+  };
   return (
     <article className="content dashboard-page">
       <section className="section">
@@ -17,6 +22,9 @@ const TransactionView = ({match}) => {
                   <h5 className="title text-info">
                     <div>Transaction </div>
                   </h5>
+                  {/* <button type="button" className="btn btn-primary" onClick={back}>
+                    Go Back
+                  </button> */}
                 </div>
               </div>
               <ErrorBoundary>

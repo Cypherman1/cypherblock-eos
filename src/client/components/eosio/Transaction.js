@@ -5,6 +5,7 @@ import {ToastContainer, toast} from 'react-toastify';
 import GetTransaction from '../../queries/GetTransaction';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Action from './Action';
+import ActionCard from './ActionCard';
 import {convertUTCDateToLocalDate, renderBlockLink} from '../utils/Tools';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
 import {renderBlockNum} from '../utils/RenderColors';
@@ -62,10 +63,6 @@ class Transaction extends Component {
                     </div>
 
                     <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
-                      {/* Block time */}
-                      {/* <div className="stat-icon">
-                          <FontAwesomeIcon icon="dollar-sign" />
-                        </div> */}
                       <div className="row m-0">
                         <div className="col-6 col-sm-12 col-md-6 p-1">
                           <div className="stat">
@@ -189,49 +186,37 @@ class Transaction extends Component {
                             <h5 className="title text-info ftz-12">Actions</h5>
                           </div>
                         </div>
-                        <div className="card-block pt-0">
-                          <div className="no-more-tables">
-                            <table className="table actions_font tablayout mb-0">
-                              <thead>
-                                <tr>
-                                  <th>#</th>
-                                  <th>Time</th>
-                                  <th>Type</th>
-                                  <th>Info</th>
-                                </tr>
-                              </thead>
-                              <CSSTransitionGroup
-                                component="tbody"
-                                transitionName="example"
-                                transitionEnterTimeout={500}
-                                transitionLeaveTimeout={300}
-                              >
-                                {transaction.traces
-                                  .slice()
-                                  .reverse()
-                                  .map((trace) => {
-                                    if (trace.receipt.act_digest !== this.action_digests_tmp) {
-                                      this.action_digests_tmp = trace.receipt.act_digest;
+                        <div className="card-block pt-2 bg-actions">
+                          <CSSTransitionGroup
+                            component="div"
+                            transitionName="example"
+                            transitionEnterTimeout={500}
+                            transitionLeaveTimeout={300}
+                          >
+                            {transaction.traces
+                              .slice()
+                              .reverse()
+                              .map((trace) => {
+                                if (trace.receipt.act_digest !== this.action_digests_tmp) {
+                                  this.action_digests_tmp = trace.receipt.act_digest;
 
-                                      return (
-                                        <Action
-                                          key={trace.receipt.global_sequence}
-                                          action_trace={trace}
-                                          block_time={transaction.block_time}
-                                          block_num={transaction.block_num}
-                                          last_irreversible_block={transaction.last_irreversible_block}
-                                          head_block_num={chain.head_block_num}
-                                          get_block_status={true}
-                                          trx_id={transaction.id}
-                                          /* account_name={this.props.account_name} */
-                                        />
-                                      );
-                                    }
-                                    return null;
-                                  })}
-                              </CSSTransitionGroup>
-                            </table>
-                          </div>
+                                  return (
+                                    <ActionCard
+                                      key={trace.receipt.global_sequence}
+                                      action_trace={trace}
+                                      block_time={transaction.block_time}
+                                      block_num={transaction.block_num}
+                                      last_irreversible_block={transaction.last_irreversible_block}
+                                      head_block_num={chain.head_block_num}
+                                      get_block_status={true}
+                                      trx_id={transaction.id}
+                                      /* account_name={this.props.account_name} */
+                                    />
+                                  );
+                                }
+                                return null;
+                              })}
+                          </CSSTransitionGroup>
                         </div>
                       </div>
                     </div>

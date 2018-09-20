@@ -3,6 +3,7 @@ import ErrorBoundary from './ErrorBoundary';
 import MarketInfo from './eosio/MarketInfo';
 import GeneralInfo from './eosio/GeneralInfo';
 import Actions from './eosio/Actions';
+import ActionsCard from './eosio/ActionsCard';
 import Producers from './eosio/Producers';
 
 class Dashboard extends Component {
@@ -16,7 +17,12 @@ class Dashboard extends Component {
                 <GeneralInfo />
               </ErrorBoundary>
               <ErrorBoundary>
-                <Actions account_name="eosio" pollInterval={3000} showRefetch={true} />
+                <ActionsCard
+                  account_name="eosio"
+                  notifyOnNetworkStatusChange={false}
+                  showRefetch={true}
+                  pollInterval={0}
+                />
               </ErrorBoundary>
             </div>
             <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col ">

@@ -1209,7 +1209,7 @@ span.CodeMirror-selectedtext {
     font-size: 12px !important;
   }
   .pd-acttype {
-    padding-top: 5px;
+    padding-top: 3px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -1225,7 +1225,7 @@ span.CodeMirror-selectedtext {
     font-size: 12px !important;
   }
   .pd-acttype {
-    padding-top: 5px;
+    padding-top: 3px;
   }
 }
 @media (min-width: 1200px) {
@@ -1241,6 +1241,6 @@ span.CodeMirror-selectedtext {
     font-size: 12px !important;
   }
   .pd-acttype {
-    padding-top: 5px;
+    padding-top: 3px;
   }
 }

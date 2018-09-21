@@ -372,20 +372,20 @@ class AccountInfo extends Component {
               <div>
                 <div className="card sameheight-item stats mbc" data-exclude="xs">
                   <div className="card-header card-header-sm bg-light shadow-sm">
-                    <div className="header-block pl-2">
+                    <div className="header-block pl-2 col">
                       <div className="d-inline-block">
                         <FontAwesomeIcon icon="user" className="mr-2 text-info ftz-16 mb-accname" />
                       </div>
                       <div className="d-inline-block ">
                         <div className="d-inline-block text-info">{account_name}</div>
-                        <div className="ftz-10 text-success">
+                        <div className="ftz-9 text-success font-weight-bold">
                           Created: {convertUTCDateToLocalDate(new Date(account.created)).toLocaleString()}{' '}
                         </div>
 
                         {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
                       </div>
                     </div>
-                    {/* <div className="stat float-right">
+                    <div className="stat float-right">
                       <TransitionGroup
                         transitionName="example"
                         transitionEnterTimeout={500}
@@ -395,7 +395,7 @@ class AccountInfo extends Component {
                           {convertUTCDateToLocalDate(new Date(account.head_block_time)).toLocaleString()}
                         </div>
                       </TransitionGroup>
-                    </div> */}
+                    </div>
                   </div>
                   <div className="card-block ">
                     <div className="row row-sm stats-container m-0">

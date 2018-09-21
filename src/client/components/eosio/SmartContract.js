@@ -6,8 +6,8 @@ import GetABI from '../../queries/GetABI';
 
 const SmartContractLoading = () => {
   return (
-    <div className="card sameheight-item stats mbc" data-exclude="xs">
-      <div className="card-header card-header-sm bg-light shadow-sm">
+    <div className="card sameheight-item stats mbc border-0 pr-1 pl-1" data-exclude="xs">
+      <div className="card-header card-header-sm bg-light shadow-sm act-xs-height">
         <div className="header-block pl-2 pr-2">
           <FontAwesomeIcon icon="cogs" className="mr-2 text-info" />
           <h5 className="title text-info">
@@ -34,8 +34,8 @@ class SmartContract extends Component {
           const {abi} = data;
           if (abi && abi.abi) {
             return (
-              <div className="card sameheight-item stats mbc" data-exclude="xs">
-                <div className="card-header card-header-sm bg-light shadow-sm">
+              <div className="card sameheight-item stats mbc border-0 pr-1 pl-1" data-exclude="xs">
+                <div className="card-header card-header-sm bg-light shadow-sm act-xs-height">
                   <div className="header-block pl-2 pr-2">
                     <FontAwesomeIcon icon="cogs" className="mr-2 text-info" />
                     <h5 className="title text-info">

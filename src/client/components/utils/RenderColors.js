@@ -81,6 +81,10 @@ const renderEOSNum = (eos_num) => {
   return <NumberEasing value={eos_num} ease="backIn" precision={4} speed={500} trail={true} useLocaleString={true} />;
 };
 
+const renderHeadBlockTime = (head_block_time) => {
+  return <Odometer value={head_block_time} />;
+};
+
 const renderTotalBalanceRAMColor = (total_balance_ramincluded) => {
   if (total_balance_ramincluded > tmp_total_balance_ramincluded && tmp_total_balance_ramincluded > 0) {
     tmp_total_balance_ramincluded = total_balance_ramincluded;
@@ -197,7 +201,7 @@ const renderRamPriceColor = (ram_price) => {
     );
   }
 };
-
+//for mobile
 const renderRamPriceColorM = (ram_price) => {
   if (ram_price > tmp_ram_price_m && tmp_ram_price_m > 0) {
     tmp_ram_price_m = ram_price;
@@ -248,6 +252,7 @@ const renderEOSPriceColor = (eos_price) => {
   }
 };
 
+//for mobile
 const renderEOSPriceColorM = (eos_price) => {
   if (eos_price > tmp_eos_price_m && tmp_eos_price_m > 0) {
     tmp_eos_price_m = eos_price;
@@ -302,5 +307,6 @@ export {
   renderEOSStaked,
   renderEOSPriceColorM,
   renderRamPriceColorM,
-  renderProRank
+  renderProRank,
+  renderHeadBlockTime
 };

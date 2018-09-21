@@ -13,8 +13,8 @@ var action_digests_tmp = '';
 const ActionsCardLoading = () => {
   return (
     <div>
-      <div className="card sameheight-item stats mb-1" data-exclude="xs">
-        <div className="card-header card-header-sm bg-light shadow-sm row m-0">
+      <div className="card sameheight-item stats mb-1 border-0 pr-1 pl-1" data-exclude="xs">
+        <div className="card-header card-header-sm bg-light shadow-sm row m-0 act-xs-height">
           <div className="header-block pl-2 col">
             <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
             <h5 className="title text-info">Recent actions</h5>
@@ -158,10 +158,10 @@ class ActionsCard extends Component {
             action_digests_tmp = '';
             return (
               <div>
-                <div className="card sameheight-item stats mb-1" data-exclude="xs">
-                  <div className="card-header card-header-sm bg-light shadow-sm row m-0">
-                    <div className="header-block pl-2 col">
-                      <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
+                <div className="card sameheight-item stats mb-1 border-0 pr-1 pl-1" data-exclude="xs">
+                  <div className="card-header card-header-sm bg-light boder-1 shadow-sm row m-0">
+                    <div className="header-block pl-1 col ">
+                      <FontAwesomeIcon icon="list-alt" className="mr-2 text-info" />
                       <h5 className="title text-info">
                         Recent <span className="ml-1 mr-1">{renderAccountLink(this.props.account_name)}</span> actions
                       </h5>

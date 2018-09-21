@@ -312,7 +312,8 @@ class GeneralInfo extends Component {
                   </div>
                   <div className="stat float-right">
                     <TransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-                      <div className="value head_block_time_font">{head_block_time}</div>
+                      <div className="head_block_time_font font-weight-bold">{head_block_time}</div>
+                      <div className="head_block_time_font text-right">Head Block Time</div>
                     </TransitionGroup>
                   </div>
                 </div>

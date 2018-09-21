@@ -24,6 +24,9 @@ export default gql`
         cpu_weight
         ram_bytes
       }
+      voter_info {
+        staked
+      }
       refund_request {
         owner
         request_time

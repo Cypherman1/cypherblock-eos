@@ -10,7 +10,7 @@ module.exports = {
   output: {
     publicPath: '/',
     path: resolve(__dirname, '..', 'build', 'client'),
-    filename: '[name].js'
+    filename: '[name][contenthash].js'
   },
   module: {
     rules: [

@@ -75,12 +75,12 @@ const renderAuthorization = (auths) => {
       items.push(
         <div className="col-12 col-sm-12 col-md-12 p-0" key={auth.actor}>
           <div className="row m-0 pr-1">
-            <div className="col-12 col-sm-12 col-md-6 p-0 pr-1 pl-1">
+            <div className="col-12 col-sm-12 col-md-6 p-0 pr-1 pl-1 stat-col">
               {/* <div className="stat-icon">
                               <FontAwesomeIcon icon="dollar-sign" />
                             </div> */}
               <div className="stat">
-                <div className="value ftz-11">{renderAccountLink(auth.actor)}</div>
+                <div className="value">{renderAccountLink(auth.actor)}</div>
                 <div className="name">Actor</div>
               </div>
               <div className="progress stat-progress">
@@ -92,12 +92,12 @@ const renderAuthorization = (auths) => {
                 />
               </div>
             </div>
-            <div className="col-12 col-sm-12 col-md-6 p-0 pr-1 pl-1">
+            <div className="col-12 col-sm-12 col-md-6 p-0 pr-1 pl-1 stat-col">
               {/* <div className="stat-icon">
                               <FontAwesomeIcon icon="dollar-sign" />
                             </div> */}
               <div className="stat">
-                <div className="value ftz-11 text-info">{auth.permission}</div>
+                <div className="value text-info">{auth.permission}</div>
                 <div className="name">Permission</div>
               </div>
               <div className="progress stat-progress">
@@ -680,7 +680,7 @@ const ActionCommon = ({
 
           <div className="col text-right pr-2 pt-1 pl-0">
             <div className="act-date-fz"> {renderTime(block_time)} </div>
-            <div className="receiver-style">Receiver: {renderAccountLink(action_trace.receipt.receiver)}</div>
+            <div>Receiver: {renderAccountLink(action_trace.receipt.receiver)}</div>
           </div>
         </div>
       </div>
@@ -698,12 +698,12 @@ const ActionCommon = ({
         <div className="row">
           <div className="col-4 pr-1 border-right">
             <div className="row m-0">
-              <div className="col-12 col-sm-12 col-md-6 p-0 pr-1 pl-1">
+              <div className="col-12 col-sm-12 col-md-6 p-0 pr-1 pl-1 stat-col">
                 {/* <div className="stat-icon">
                               <FontAwesomeIcon icon="dollar-sign" />
                             </div> */}
                 <div className="stat">
-                  <div className="value ftz-11"> {renderAccountLink(action_trace.act.account)} </div>
+                  <div className="value"> {renderAccountLink(action_trace.act.account)} </div>
                   <div className="name">Account</div>
                 </div>
                 <div className="progress stat-progress">
@@ -715,12 +715,12 @@ const ActionCommon = ({
                   />
                 </div>
               </div>
-              <div className="col-12 col-sm-12 col-md-6 p-0 pr-1 pl-1">
+              <div className="col-12 col-sm-12 col-md-6 p-0 pr-1 pl-1 stat-col">
                 {/* <div className="stat-icon">
                               <FontAwesomeIcon icon="dollar-sign" />
                             </div> */}
                 <div className="stat">
-                  <div className="value ftz-11 text-info"> {action_trace.act.name} </div>
+                  <div className="value text-info"> {action_trace.act.name} </div>
                   <div className="name">Act name</div>
                 </div>
                 <div className="progress stat-progress">

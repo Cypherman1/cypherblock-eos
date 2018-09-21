@@ -18,9 +18,9 @@ const Account = ({match}) => {
             <ErrorBoundary>
               <AccountInfo account_name={match.params.account_name} />
             </ErrorBoundary>
-            <ErrorBoundary>
+            {/* <ErrorBoundary>
               <VoterInfo account_name={match.params.account_name} />
-            </ErrorBoundary>
+            </ErrorBoundary> */}
             <ErrorBoundary>
               <SmartContract account_name={match.params.account_name} />
             </ErrorBoundary>

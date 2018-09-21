@@ -277,8 +277,8 @@ body {
 .stat .name {
   /* overflow: hidden;
   text-overflow: ellipsis; */
-  font-size: 12px;
-  font-weight: 600;
+  /* font-size: 11px; */
+  font-weight: 500;
   
 }
 .stat.lg .value {

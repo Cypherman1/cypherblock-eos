@@ -154,7 +154,8 @@ class ActionsCard extends Component {
         {({loading, error, data, fetchMore, refetch}) => {
           if (loading) return <ActionsCardLoading />;
           if (error) return <ActionsCardLoading />;
-          if (data && data.actions && data.chain)
+          if (data && data.actions && data.chain) {
+            action_digests_tmp = '';
             return (
               <div>
                 <div className="card sameheight-item stats mb-1" data-exclude="xs">
@@ -188,8 +189,8 @@ class ActionsCard extends Component {
                         .slice()
                         .reverse()
                         .map((action) => {
-                          if (action.action_trace.receipt.act_digest !== this.action_digests_tmp) {
-                            this.action_digests_tmp = action.action_trace.receipt.act_digest;
+                          if (action.action_trace.receipt.act_digest !== action_digests_tmp) {
+                            action_digests_tmp = action.action_trace.receipt.act_digest;
 
                             return (
                               <ActionCard
@@ -214,7 +215,7 @@ class ActionsCard extends Component {
                 </div>
               </div>
             );
-          else return <ActionsCardLoading />;
+          } else return <ActionsCardLoading />;
         }}
       </Query>
     );

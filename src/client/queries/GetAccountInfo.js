@@ -4,6 +4,8 @@ export default gql`
   query get_account_info($account_name: String!) {
     account(account_name: $account_name) {
       account_name
+      head_block_time
+      created
       core_liquid_balance
       net_limit {
         used
@@ -28,12 +30,22 @@ export default gql`
         cpu_amount
         net_amount
       }
-      voter_info {
+    }
+    voteinfo(account_name: $account_name) {
+      owner
+      proxy
+      producers
+      staked
+      last_vote_weight
+      proxied_vote_weight
+      is_proxy
+      proxy_vote_info {
         owner
         proxy
         producers
         staked
         last_vote_weight
+        proxied_vote_weight
         is_proxy
       }
     }
@@ -43,14 +55,9 @@ export default gql`
           USD {
             price
             volume_24h
-            market_cap
             percent_change_24h
           }
         }
-      }
-      metadata {
-        timestamp
-        error
       }
     }
     table_rows(json: "true", code: "eosio", scope: "eosio", table: "rammarket", limit: "10") {

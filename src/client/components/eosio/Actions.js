@@ -218,8 +218,8 @@ class Actions extends Component {
                             .slice()
                             .reverse()
                             .map((action) => {
-                              if (action.action_trace.receipt.act_digest !== this.action_digests_tmp) {
-                                this.action_digests_tmp = action.action_trace.receipt.act_digest;
+                              if (action.action_trace.receipt.act_digest !== action_digests_tmp) {
+                                action_digests_tmp = action.action_trace.receipt.act_digest;
 
                                 return (
                                   <Action

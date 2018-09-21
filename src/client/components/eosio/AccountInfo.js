@@ -5,6 +5,7 @@ import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {ToastContainer, toast} from 'react-toastify';
+import VoterInfo from './VoterInfo';
 // import ErrorBoundary from '../ErrorBoundary';
 
 import GetAccountInfo from '../../queries/GetAccountInfo';
@@ -362,9 +363,9 @@ class AccountInfo extends Component {
 
           if (error) return <AccountInfoLoading />;
 
-          const {account, table_rows, cmc} = data;
+          const {account, table_rows, cmc, voteinfo} = data;
           this.getAccountInfo(account, table_rows, cmc);
-          if (account && table_rows && cmc)
+          if (account && table_rows && cmc && voteinfo)
             return (
               <div>
                 <div className="card sameheight-item stats mbc" data-exclude="xs">
@@ -558,6 +559,7 @@ class AccountInfo extends Component {
                     </div>
                   </div>
                 </div>
+                <VoterInfo voteinfo={voteinfo} />
               </div>
             );
           else {

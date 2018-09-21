@@ -1165,6 +1165,12 @@ span.CodeMirror-selectedtext {
 .ftz-8 {
   font-size: 8px !important;
 }
+.ftz-16 {
+  font-size: 20px !important;
+}
+.mb-accname {
+  margin-bottom: 6px;
+}
 
 @media (max-width: 767.98px) {
   .act-date-fz {

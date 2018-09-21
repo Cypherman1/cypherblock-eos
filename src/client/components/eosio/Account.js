@@ -3,8 +3,6 @@ import React from 'react';
 // import MarketInfo from './MarketInfo';
 import AccountInfo from './AccountInfo';
 import Wallet from './Wallet';
-import Actions from './Actions';
-import VoterInfo from './VoterInfo';
 import SmartContract from './SmartContract';
 import ErrorBoundary from '../ErrorBoundary';
 import ActionsCard from './ActionsCard';

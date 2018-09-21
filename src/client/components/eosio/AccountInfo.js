@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
+import {TransitionGroup} from 'react-transition-group';
 import {renderRamColor, renderTotalBalanceRAMColor, renderToFiatColor} from '../utils/RenderColors';
+import {convertUTCDateToLocalDate} from '../utils/Tools';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -365,18 +367,35 @@ class AccountInfo extends Component {
 
           const {account, table_rows, cmc, voteinfo} = data;
           this.getAccountInfo(account, table_rows, cmc);
-          if (account && table_rows && cmc && voteinfo)
+          if (account && table_rows && cmc)
             return (
               <div>
                 <div className="card sameheight-item stats mbc" data-exclude="xs">
                   <div className="card-header card-header-sm bg-light shadow-sm">
                     <div className="header-block pl-2">
-                      <FontAwesomeIcon icon="user" className="mr-2 text-info" />
-                      <h5 className="title text-info">
-                        {account_name}
+                      <div className="d-inline-block">
+                        <FontAwesomeIcon icon="user" className="mr-2 text-info ftz-16 mb-accname" />
+                      </div>
+                      <div className="d-inline-block ">
+                        <div className="d-inline-block text-info">{account_name}</div>
+                        <div className="ftz-10 text-success">
+                          Created: {convertUTCDateToLocalDate(new Date(account.created)).toLocaleString()}{' '}
+                        </div>
+
                         {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-                      </h5>
+                      </div>
                     </div>
+                    {/* <div className="stat float-right">
+                      <TransitionGroup
+                        transitionName="example"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={300}
+                      >
+                        <div className="value head_block_time_font">
+                          {convertUTCDateToLocalDate(new Date(account.head_block_time)).toLocaleString()}
+                        </div>
+                      </TransitionGroup>
+                    </div> */}
                   </div>
                   <div className="card-block ">
                     <div className="row row-sm stats-container m-0">

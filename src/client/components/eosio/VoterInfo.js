@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderAccountLink} from '../utils/Tools';
+import {renderStake2Vote} from '../utils/RenderColors';
+
+const block_timestamp_epoch = 946684800000 / 1000;
+const seconds_per_day = 24 * 60 * 60;
+let stake2vote = 0;
 
 const NoVote = () => {
   return (
@@ -34,13 +39,19 @@ class VoterInfo extends Component {
     return items;
   }
   render() {
-    const {voteinfo} = this.props;
+    const {voteinfo, head_block_time} = this.props;
 
-    if (voteinfo) {
+    if (voteinfo && head_block_time) {
+      stake2vote = (
+        Number(voteinfo.staked) *
+        Math.pow(2, (Math.floor(new Date(head_block_time)) / 1000 - block_timestamp_epoch) / (seconds_per_day * 7) / 52)
+      ).toFixed(0);
+
       if (voteinfo.is_proxy == 0) {
         if (voteinfo.producers.length > 0 || voteinfo.proxy) {
-          if (!voteinfo.proxy)
+          if (!voteinfo.proxy) {
             //vote normaly
+
             return (
               <div className="card sameheight-item stats mbc border-0 pl-1 pr-1" data-exclude="xs">
                 <div className="card-header card-header-sm bg-light shadow-sm act-xs-height">
@@ -93,6 +104,45 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
+                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0">
+                        <div className="stat-icon">
+                          <FontAwesomeIcon icon="sync-alt" />
+                        </div>
+                        <div className="stat">
+                          <div className="value ftz-11">{renderStake2Vote(Number(stake2vote))}</div>
+                          <div className="name">Stake2Vote Now</div>
+                        </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-4 col-sm-4 col-md-12 pl-1 pr-0 m-0">
+                        <div className="stat-icon">
+                          <FontAwesomeIcon icon="arrow-alt-circle-down" />
+                        </div>
+                        <div className="stat">
+                          <div className="value text-danger">
+                            {(
+                              ((Number(stake2vote) - Number(voteinfo.last_vote_weight)) / Number(stake2vote)) *
+                              100
+                            ).toLocaleString(undefined, {maximumFractionDigits: 4})}
+                          </div>
+                          <div className="name"> % Vote decayed</div>
+                        </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div className="col-12 col-sm-12 col-md-8 pr-0 pl-1">
@@ -103,7 +153,7 @@ class VoterInfo extends Component {
                 </div>
               </div>
             );
-          else {
+          } else {
             // voted by proxy
             return (
               <div className="card sameheight-item stats mbc border-0 pl-1 pr-1" data-exclude="xs">
@@ -119,7 +169,7 @@ class VoterInfo extends Component {
                 <div className="card-block row row-sm m-0">
                   <div className="col-12 col-sm-12 col-md-4 pl-1 pr-1 m-0">
                     <div className="row m-0">
-                      <div className="col-12 col-sm-12 col-md-12 pl-0 pr-0 m-0">
+                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-0 m-0">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="heart" />
                         </div>
@@ -140,15 +190,54 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-
                       {/* render # vote */}
-                      <div className="col-6 col-sm-6 col-md-12 pl-1 pr-1 m-0">
+                      <div className="col-8 col-sm-8 col-md-12 pl-1 pr-1 m-0">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="hand-holding-heart" />
                         </div>
                         <div className="stat">
                           <div className="value">{voteinfo.proxy_vote_info.producers.length}</div>
                           <div className="name"># producers</div>
+                        </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
+                        </div>
+                      </div>
+                      {/* render decay */}
+                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0">
+                        <div className="stat-icon">
+                          <FontAwesomeIcon icon="heart" />
+                        </div>
+                        <div className="stat">
+                          <div className="value ftz-11">{renderStake2Vote(Number(stake2vote))}</div>
+                          <div className="name">Stake2Vote Now</div>
+                        </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-4 col-sm-4 col-md-12 pl-1 pr-0 m-0">
+                        <div className="stat-icon">
+                          <FontAwesomeIcon icon="hand-holding-heart" />
+                        </div>
+                        <div className="stat">
+                          <div className="value text-danger">
+                            {(
+                              ((Number(stake2vote) - Number(voteinfo.last_vote_weight)) / Number(stake2vote)) *
+                              100
+                            ).toLocaleString(undefined, {maximumFractionDigits: 2})}
+                          </div>
+                          <div className="name"> %Vote decayed</div>
                         </div>
                         <div className="progress stat-progress">
                           <div
@@ -210,43 +299,90 @@ class VoterInfo extends Component {
                 </div>
                 <div className="card-block row row-sm m-0">
                   <div className="col-12 col-sm-5 col-md-4 pl-1 pr-1 m-0">
-                    <div className="stat-icon">
-                      <FontAwesomeIcon icon="heart" />
+                    <div className="col-8 col-sm-8 col-md-12 pl-0 pr-0 m-0">
+                      <div className="stat-icon">
+                        <FontAwesomeIcon icon="heart" />
+                      </div>
+                      <div className="stat">
+                        <div className="value ftz-11">{Number(voteinfo.last_vote_weight).toLocaleString()}</div>
+                        <div className="name">Last vote weight</div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `0%`
+                          }}
+                        />
+                      </div>
                     </div>
-                    <div className="stat">
-                      <div className="value ftz-11">{Number(voteinfo.last_vote_weight).toLocaleString()}</div>
-                      <div className="name">Last vote weight</div>
+                    <div className="col-4 col-sm-4 col-md-12 pl-0 pr-0 m-0">
+                      <div className="stat-icon">
+                        <FontAwesomeIcon icon="hand-holding-heart" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">{voteinfo.producers.length}</div>
+                        <div className="name"> #producers</div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `0%`
+                          }}
+                        />
+                      </div>
                     </div>
-                    <div className="progress stat-progress">
-                      <div
-                        className="progress-bar"
-                        style={{
-                          width: `0%`
-                        }}
-                      />
+                    <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0">
+                      <div className="stat-icon">
+                        <FontAwesomeIcon icon="heart" />
+                      </div>
+                      <div className="stat">
+                        <div className="value ftz-11">{renderStake2Vote(Number(stake2vote))}</div>
+                        <div className="name">Stake2Vote Now</div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `0%`
+                          }}
+                        />
+                      </div>
                     </div>
-                    <div className="stat-icon">
-                      <FontAwesomeIcon icon="heart" />
+                    <div className="col-4 col-sm-4 col-md-12 pl-1 pr-0 m-0">
+                      <div className="stat-icon">
+                        <FontAwesomeIcon icon="hand-holding-heart" />
+                      </div>
+                      <div className="stat">
+                        <div className="value text-danger">
+                          {(
+                            ((Number(stake2vote) -
+                              (Number(voteinfo.last_vote_weight) - Number(voteinfo.proxied_vote_weight))) /
+                              Number(stake2vote)) *
+                            100
+                          ).toLocaleString(undefined, {maximumFractionDigits: 2})}
+                        </div>
+                        <div className="name"> % decayed</div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `0%`
+                          }}
+                        />
+                      </div>
                     </div>
-                    <div className="stat">
-                      <div className="value ftz-11">{Number(voteinfo.proxied_vote_weight).toLocaleString()}</div>
-                      <div className="name">Proxied vote weight</div>
-                    </div>
-                    <div className="progress stat-progress" />
-                    <div
-                      className="progress-bar"
-                      style={{
-                        width: `0%`
-                      }}
-                    />
-                    <div className="stat-icon">
-                      <FontAwesomeIcon icon="hand-holding-heart" />
-                    </div>
-                    <div className="stat">
-                      <div className="value">{voteinfo.producers.length}</div>
-                      <div className="name"> #producers</div>
-                    </div>
-                    <div className="progress stat-progress">
+                    <div className="col-8 col-sm-8 col-md-12 pl-0 pr-0 m-0">
+                      <div className="stat-icon">
+                        <FontAwesomeIcon icon="heart" />
+                      </div>
+                      <div className="stat">
+                        <div className="value ftz-11">{Number(voteinfo.proxied_vote_weight).toLocaleString()}</div>
+                        <div className="name">Proxied vote weight</div>
+                      </div>
+                      <div className="progress stat-progress" />
                       <div
                         className="progress-bar"
                         style={{
@@ -265,76 +401,7 @@ class VoterInfo extends Component {
               </div>
             );
           else {
-            return (
-              <div className="card sameheight-item stats mbc" data-exclude="xs">
-                <div className="card-header card-header-sm bg-light shadow-sm">
-                  <div className="header-block pl-2">
-                    <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
-                    <h5 className="title text-info">
-                      Voter info
-                      {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-                    </h5>
-                  </div>
-                </div>
-                <div className="card-block row row-sm m-0">
-                  <div className="col-12 col-sm-5 col-md-4 pl-1 pr-1 m-0">
-                    <div className="stat-icon">
-                      <FontAwesomeIcon icon="coins" />
-                    </div>
-                    <div className="stat">
-                      <div className="value">{Number(voteinfo.last_vote_weight).toLocaleString()}</div>
-                      <div className="name">Last vote weight</div>
-                    </div>
-                    <div className="progress stat-progress">
-                      <div
-                        className="progress-bar"
-                        style={{
-                          width: `0%`
-                        }}
-                      />
-                    </div>
-                    <div className="stat-icon">
-                      <FontAwesomeIcon icon="coins" />
-                    </div>
-                    <div className="stat">
-                      <div className="value">{renderAccountLink(voteinfo.proxy)}</div>
-                      <div className="name">proxy</div>
-                    </div>
-                    <div className="progress stat-progress">
-                      <div
-                        className="progress-bar"
-                        style={{
-                          width: `0%`
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-7 col-md-8 pl-1 pr-1 m-0">
-                    <div className="stat">
-                      <div className="name"> Producers </div>
-                      <div className="progress stat-progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: `0%`
-                          }}
-                        />
-                      </div>
-                      <div> {this.renderVotedProducers(voteinfo.proxy_vote_info.producers)}</div>
-                      <div className="progress stat-progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: `0%`
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div />
-              </div>
-            );
+            return <div />;
           }
         } else {
           return <NoVote />;

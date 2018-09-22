@@ -77,6 +77,14 @@ const renderBlockNum = (block_num) => {
   return <NumberEasing value={block_num} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />;
 };
 
+const renderStake2Vote = (stake2vote) => {
+  return (
+    <span className="text-success">
+      <NumberEasing value={stake2vote} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />
+    </span>
+  );
+};
+
 const renderEOSNum = (eos_num) => {
   return <NumberEasing value={eos_num} ease="backIn" precision={4} speed={500} trail={true} useLocaleString={true} />;
 };
@@ -308,5 +316,6 @@ export {
   renderEOSPriceColorM,
   renderRamPriceColorM,
   renderProRank,
-  renderHeadBlockTime
+  renderHeadBlockTime,
+  renderStake2Vote
 };

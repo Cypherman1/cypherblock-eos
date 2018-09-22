@@ -72,6 +72,8 @@ var availabe_ram = '';
 
 var account_name = '';
 
+var block_timestamp_epoch = 946684800000;
+
 const AccountInfoLoading = () => {
   return (
     <div>
@@ -367,6 +369,7 @@ class AccountInfo extends Component {
 
           const {account, table_rows, cmc, voteinfo} = data;
           this.getAccountInfo(account, table_rows, cmc);
+
           if (account && table_rows && cmc)
             return (
               <div>
@@ -573,7 +576,7 @@ class AccountInfo extends Component {
                     </div>
                   </div>
                 </div>
-                <VoterInfo voteinfo={voteinfo} className="p-1" />
+                <VoterInfo voteinfo={voteinfo} head_block_time={account.head_block_time} />
               </div>
             );
           else {

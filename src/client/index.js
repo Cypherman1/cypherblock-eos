@@ -66,7 +66,8 @@ import {
   faTable,
   faCircle,
   faCode,
-  faInfoCircle
+  faInfoCircle,
+  faArrowAltCircleDown
 } from '@fortawesome/free-solid-svg-icons';
 
 // import './assets/css/all.css';
@@ -114,7 +115,8 @@ library.add(
   faTable,
   faCircle,
   faCode,
-  faInfoCircle
+  faInfoCircle,
+  faArrowAltCircleDown
 );
 
 class DynamicImport extends Component {

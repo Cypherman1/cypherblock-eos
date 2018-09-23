@@ -129,7 +129,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="stat">
                           <div className="value text-danger">
-                            {(((stake2vote - voteinfo.last_vote_weight) / stake2vote) * 100).toFixed(4)} %
+                            {(((stake2vote - voteinfo.last_vote_weight) / stake2vote) * 100).toFixed(2)} %
                           </div>
                           <div className="name">Vote decayed</div>
                         </div>
@@ -231,7 +231,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="stat">
                           <div className="value text-danger">
-                            {(((stake2vote - voteinfo.last_vote_weight) / stake2vote) * 100).toFixed(4)} %
+                            {(((stake2vote - voteinfo.last_vote_weight) / stake2vote) * 100).toFixed(2)} %
                           </div>
                           <div className="name">Vote decayed</div>
                         </div>
@@ -356,7 +356,7 @@ class VoterInfo extends Component {
                             {(
                               ((stake2vote - (voteinfo.last_vote_weight - voteinfo.proxied_vote_weight)) / stake2vote) *
                               100
-                            ).toLocaleString(undefined, {maximumFractionDigits: 4})}{' '}
+                            ).toFixed(2)}{' '}
                             %
                           </div>
                           <div className="name">Vote decayed</div>

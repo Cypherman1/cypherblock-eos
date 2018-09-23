@@ -268,7 +268,7 @@ body {
 }
 .stat .value {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 20px; 
   /* overflow: hidden;
   text-overflow: ellipsis; */
   font-weight: 700;
@@ -277,7 +277,7 @@ body {
 .stat .name {
   /* overflow: hidden;
   text-overflow: ellipsis; */
-  /* font-size: 11px; */
+  font-size: 11px; 
   font-weight: 500;
   
 }
@@ -2800,7 +2800,7 @@ span a {
   }
   .stat .value {
     font-size: 13px;
-    line-height: 18px;
+    /* line-height: 18px; */
      overflow: hidden;
     text-overflow: ellipsis; 
     font-weight: 700;

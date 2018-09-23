@@ -347,7 +347,7 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-4 col-sm-4 col-md-12 pl-1 pr-1 m-0 stat-col">
+                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-1 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="arrow-alt-circle-down" />
                         </div>

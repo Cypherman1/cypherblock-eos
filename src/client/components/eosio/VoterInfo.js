@@ -144,7 +144,7 @@ class VoterInfo extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-12 col-sm-12 col-md-8 pr-0 pl-1">
+                  <div className="col-12 col-sm-12 col-md-8 pr-0 pl-2">
                     <div className="card sameheight-item mb-1 border-0" data-exclude="xs">
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.producers)}</div>
                     </div>
@@ -264,7 +264,7 @@ class VoterInfo extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-12 col-sm-12 col-md-8  pr-0 pl-1">
+                  <div className="col-12 col-sm-12 col-md-8  pr-0 pl-2">
                     <div className="card sameheight-item mb-1 border-0" data-exclude="xs">
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.proxy_vote_info.producers)}</div>
                     </div>
@@ -388,7 +388,7 @@ class VoterInfo extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-12 col-sm-12 col-md-8  pr-0 pl-1">
+                  <div className="col-12 col-sm-12 col-md-8  pr-0 pl-2">
                     <div className="card sameheight-item mb-1 border-0" data-exclude="xs">
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.producers)}</div>
                     </div>

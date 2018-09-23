@@ -399,17 +399,16 @@ class AccountInfo extends Component {
                 <div className="card-block ">
                   <div className="row row-sm stats-container m-0">
                     <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
-                      <div className="pd-bl">
-                        <div className="mr-1 eos-icon">
-                          <img src={eoslogo} />
-                        </div>
-                        <div className="stat">
-                          <div className="value">{`${total_balance.toLocaleString('en', {
-                            maximumSignificantDigits: 14
-                          })} EOS`}</div>
-                          <div className="name">Balance</div>
-                        </div>
+                      <div className="mr-1 eos-icon">
+                        <img src={eoslogo} />
                       </div>
+                      <div className="stat">
+                        <div className="value">{`${total_balance.toLocaleString('en', {
+                          maximumSignificantDigits: 14
+                        })} EOS`}</div>
+                        <div className="name">Balance</div>
+                      </div>
+
                       <div className="progress stat-progress">
                         <div
                           className="progress-bar"

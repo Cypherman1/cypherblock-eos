@@ -1104,6 +1104,10 @@ span.CodeMirror-selectedtext {
   padding-top: 40px;
 }
 
+.pt-50 {
+  padding-top: 50px;
+}
+
 .plheight {
   height: 50px;
 }

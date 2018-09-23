@@ -4,18 +4,16 @@ import {CSSTransitionGroup} from 'react-transition-group';
 import {ToastContainer, toast} from 'react-toastify';
 import GetTransaction from '../../queries/GetTransaction';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import Action from './Action';
 import ActionCard from './ActionCard';
 import {convertUTCDateToLocalDate, renderBlockLink} from '../utils/Tools';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
-import {renderBlockNum} from '../utils/RenderColors';
 var action_digests_tmp = '';
 import BlockConfirmation from './BlockConfirmation';
 
 const TransactionLoading = () => {
   return (
     <div className="card-block ">
-      <div className="text-center align-middle overlay pd-vi">
+      <div className="text-center align-middle overlay pt-50">
         <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
       </div>
       <div className="row row-sm stats-container m-0 plheight" />
@@ -42,7 +40,7 @@ class Transaction extends Component {
           if (error) return <TransactionLoading />;
           const {transaction, chain} = data;
           if (transaction && chain) {
-            this.action_digests_tmp = '';
+            action_digests_tmp = '';
             return (
               <div>
                 <div className="card-block ">
@@ -197,8 +195,8 @@ class Transaction extends Component {
                               .slice()
                               .reverse()
                               .map((trace) => {
-                                if (trace.receipt.act_digest !== this.action_digests_tmp) {
-                                  this.action_digests_tmp = trace.receipt.act_digest;
+                                if (trace.receipt.act_digest !== action_digests_tmp) {
+                                  action_digests_tmp = trace.receipt.act_digest;
 
                                   return (
                                     <ActionCard

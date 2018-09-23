@@ -456,7 +456,7 @@ const RenderAction = (action_trace, account_name) => {
             // received EOS
             items.push(
               <ActType bg="bg-received" key="1">
-                Receive
+                Receive EOS
               </ActType>
             );
             items.push(<ReceivedAction action_trace={action_trace} key="2" />);
@@ -465,7 +465,7 @@ const RenderAction = (action_trace, account_name) => {
             // sent EOS
             items.push(
               <ActType bg="bg-sent" key="1">
-                Send
+                Send EOS
               </ActType>
             );
             items.push(<SentAction action_trace={action_trace} key="2" />);

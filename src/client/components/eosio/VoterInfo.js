@@ -3,7 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderAccountLink} from '../utils/Tools';
 import {renderStake2Vote} from '../utils/RenderColors';
 
-const block_timestamp_epoch = 946684800000 / 1000;
+const block_timestamp_epoch = 946684800000;
 const seconds_per_day = 24 * 60 * 60;
 let stake2vote = 0;
 
@@ -42,10 +42,12 @@ class VoterInfo extends Component {
     const {voteinfo, head_block_time} = this.props;
 
     if (voteinfo && head_block_time) {
-      stake2vote = (
-        Number(voteinfo.staked) *
-        Math.pow(2, (Math.floor(new Date(head_block_time)) / 1000 - block_timestamp_epoch) / (seconds_per_day * 7) / 52)
-      ).toFixed(0);
+      stake2vote =
+        voteinfo.staked *
+        Math.pow(
+          2,
+          (new Date(head_block_time).getTime() / 1000 - block_timestamp_epoch / 1000) / (seconds_per_day * 7) / 52
+        );
 
       if (voteinfo.is_proxy == 0) {
         if (voteinfo.producers.length > 0 || voteinfo.proxy) {
@@ -71,7 +73,7 @@ class VoterInfo extends Component {
                           <FontAwesomeIcon icon="heart" />
                         </div>
                         <div className="stat">
-                          <div className="value ftz-11">
+                          <div className="value">
                             {Number(voteinfo.last_vote_weight).toLocaleString(undefined, {
                               maximumFractionDigits: 0
                             })}
@@ -109,8 +111,8 @@ class VoterInfo extends Component {
                           <FontAwesomeIcon icon="sync-alt" />
                         </div>
                         <div className="stat">
-                          <div className="value ftz-11">{renderStake2Vote(Number(stake2vote))}</div>
-                          <div className="name">Stake2Vote Now</div>
+                          <div className="value">{renderStake2Vote(stake2vote.toFixed(0))}</div>
+                          <div className="name">Current Stake2Vote</div>
                         </div>
                         <div className="progress stat-progress">
                           <div
@@ -127,11 +129,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="stat">
                           <div className="value text-danger">
-                            {(
-                              ((Number(stake2vote) - Number(voteinfo.last_vote_weight)) / Number(stake2vote)) *
-                              100
-                            ).toLocaleString(undefined, {maximumFractionDigits: 2})}{' '}
-                            %
+                            {(((stake2vote - voteinfo.last_vote_weight) / stake2vote) * 100).toFixed(4)} %
                           </div>
                           <div className="name">Vote decayed</div>
                         </div>
@@ -175,7 +173,7 @@ class VoterInfo extends Component {
                           <FontAwesomeIcon icon="heart" />
                         </div>
                         <div className="stat">
-                          <div className="value ftz-11">
+                          <div className="value">
                             {Number(voteinfo.last_vote_weight).toLocaleString(undefined, {
                               maximumFractionDigits: 0
                             })}
@@ -215,8 +213,8 @@ class VoterInfo extends Component {
                           <FontAwesomeIcon icon="sync-alt" />
                         </div>
                         <div className="stat">
-                          <div className="value ftz-11">{renderStake2Vote(Number(stake2vote))}</div>
-                          <div className="name">Stake2Vote Now</div>
+                          <div className="value">{renderStake2Vote(stake2vote.toFixed(0))}</div>
+                          <div className="name">Current Stake2Vote</div>
                         </div>
                         <div className="progress stat-progress">
                           <div
@@ -233,11 +231,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="stat">
                           <div className="value text-danger">
-                            {(
-                              ((Number(stake2vote) - Number(voteinfo.last_vote_weight)) / Number(stake2vote)) *
-                              100
-                            ).toLocaleString(undefined, {maximumFractionDigits: 2})}{' '}
-                            %
+                            {(((stake2vote - voteinfo.last_vote_weight) / stake2vote) * 100).toFixed(4)} %
                           </div>
                           <div className="name">Vote decayed</div>
                         </div>
@@ -307,7 +301,7 @@ class VoterInfo extends Component {
                           <FontAwesomeIcon icon="heart" />
                         </div>
                         <div className="stat">
-                          <div className="value ftz-11">{Number(voteinfo.last_vote_weight).toLocaleString()}</div>
+                          <div className="value ">{Number(voteinfo.last_vote_weight).toLocaleString()}</div>
                           <div className="name">Last vote weight</div>
                         </div>
                         <div className="progress stat-progress">
@@ -341,8 +335,8 @@ class VoterInfo extends Component {
                           <FontAwesomeIcon icon="sync-alt" />
                         </div>
                         <div className="stat">
-                          <div className="value ftz-11">{renderStake2Vote(Number(stake2vote))}</div>
-                          <div className="name">Stake2Vote Now</div>
+                          <div className="value">{renderStake2Vote(stake2vote.toFixed(0))}</div>
+                          <div className="name">Current Stake2Vote</div>
                         </div>
                         <div className="progress stat-progress">
                           <div
@@ -360,11 +354,9 @@ class VoterInfo extends Component {
                         <div className="stat">
                           <div className="value text-danger">
                             {(
-                              ((Number(stake2vote) -
-                                (Number(voteinfo.last_vote_weight) - Number(voteinfo.proxied_vote_weight))) /
-                                Number(stake2vote)) *
+                              ((stake2vote - (voteinfo.last_vote_weight - voteinfo.proxied_vote_weight)) / stake2vote) *
                               100
-                            ).toLocaleString(undefined, {maximumFractionDigits: 2})}{' '}
+                            ).toLocaleString(undefined, {maximumFractionDigits: 4})}{' '}
                             %
                           </div>
                           <div className="name">Vote decayed</div>
@@ -383,7 +375,7 @@ class VoterInfo extends Component {
                           <FontAwesomeIcon icon="heart" />
                         </div>
                         <div className="stat">
-                          <div className="value ftz-11">{Number(voteinfo.proxied_vote_weight).toLocaleString()}</div>
+                          <div className="value">{Number(voteinfo.proxied_vote_weight).toLocaleString()}</div>
                           <div className="name">Proxied vote weight</div>
                         </div>
                         <div className="progress stat-progress" />

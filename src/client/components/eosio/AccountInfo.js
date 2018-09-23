@@ -486,7 +486,7 @@ class AccountInfo extends Component {
                             maximumSignificantDigits: 14
                           })}
                         </div>
-                        <div className="name"> EOS staked </div>
+                        <div className="name"> EOS staked(Vote power) </div>
                       </div>
                       <div className="progress stat-progress">
                         <div

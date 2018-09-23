@@ -2800,7 +2800,7 @@ span a {
   }
   .stat .value {
     font-size: 13px;
-    /* line-height: 18px; */
+    line-height: 13px;
      overflow: hidden;
     text-overflow: ellipsis; 
     font-weight: 700;
@@ -2810,6 +2810,7 @@ span a {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 10px;
+    line-height: 10px;
   }
 }
 

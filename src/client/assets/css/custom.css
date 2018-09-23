@@ -1195,9 +1195,11 @@ span.CodeMirror-selectedtext {
   .pd-acttype {
     padding-top: 10px;
   }
-  .stat .value {
-    line-height: 12px !important;
+  /* .stat .value {
+    line-height: 40px !important;
   }
+  .stat .name {
+    /* line-height: 10px !important; */
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .blocktxid {

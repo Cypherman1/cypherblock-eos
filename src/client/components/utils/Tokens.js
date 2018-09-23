@@ -198,5 +198,61 @@ export const Tokens = [
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
     chaince_pair: ''
+  },
+  {
+    code: 'publytoken11',
+    account: '',
+    symbol: 'PUB',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'epraofficial',
+    account: '',
+    symbol: 'EPRA',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'gmaslaunches',
+    account: '',
+    symbol: 'SHAPE',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'eosnewdawn12',
+    account: '',
+    symbol: 'COA',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'ridlridlcoin',
+    account: '',
+    symbol: 'RIDL',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'betdividends',
+    account: '',
+    symbol: 'BET',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'eosiomeetone',
+    account: '',
+    symbol: 'MEETONE',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
   }
 ];

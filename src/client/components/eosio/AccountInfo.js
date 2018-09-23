@@ -374,11 +374,11 @@ class AccountInfo extends Component {
             return (
               <div>
                 <div className="card-header card-header-sm bg-light shadow-sm">
-                  <div className="header-block pl-2 col">
+                  <div className="header-block pl-2 col stat-col">
                     <div className="d-inline-block">
                       <FontAwesomeIcon icon="user" className="mr-2 text-info ftz-16 mb-accname" />
                     </div>
-                    <div className="d-inline-block ">
+                    <div className="d-inline-block">
                       <div className="d-inline-block text-info font-weight-bold">{account_name}</div>
                       <div className="ftz-9 text-success font-weight-bold">
                         Created: {convertUTCDateToLocalDate(new Date(account.created)).toLocaleString()}{' '}

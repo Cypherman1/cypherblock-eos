@@ -65,7 +65,7 @@ class VoterInfo extends Component {
                     </h5>
                   </div>
                 </div>
-                <div className="card-block row row-sm m-0 pb-0">
+                <div className="card-block row row-sm m-0 pb-0 pr-0 pl-0">
                   <div className="col-12 col-sm-12 col-md-4 pl-1 pr-1 m-0">
                     <div className="row m-0">
                       <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0">
@@ -89,7 +89,7 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-4 col-sm-4 col-md-12 pl-1 pr-0 m-0">
+                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-0 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="hand-holding-heart" />
                         </div>
@@ -123,7 +123,7 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-4 col-sm-4 col-md-12 pl-1 pr-0 m-0">
+                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-0 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="arrow-alt-circle-down" />
                         </div>
@@ -131,7 +131,7 @@ class VoterInfo extends Component {
                           <div className="value text-danger">
                             {(((stake2vote - voteinfo.last_vote_weight) / stake2vote) * 100).toFixed(2)} %
                           </div>
-                          <div className="name">Vote decayed</div>
+                          <div className="name">Vote Decayed</div>
                         </div>
                         <div className="progress stat-progress">
                           <div
@@ -165,10 +165,10 @@ class VoterInfo extends Component {
                     </h5>
                   </div>
                 </div>
-                <div className="card-block row row-sm m-0">
+                <div className="card-block row row-sm m-0 pr-0 pl-0">
                   <div className="col-12 col-sm-12 col-md-4 pl-1 pr-1 m-0">
                     <div className="row m-0">
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-0 m-0">
+                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="heart" />
                         </div>
@@ -190,7 +190,7 @@ class VoterInfo extends Component {
                         </div>
                       </div>
                       {/* render # vote */}
-                      <div className="col-4 col-sm-4 col-md-12 pl-1 pr-1 m-0">
+                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-1 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="hand-holding-heart" />
                         </div>
@@ -208,7 +208,7 @@ class VoterInfo extends Component {
                         </div>
                       </div>
                       {/* render decay */}
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0">
+                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="sync-alt" />
                         </div>
@@ -225,7 +225,7 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-4 col-sm-4 col-md-12 pl-1 pr-0 m-0">
+                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-1 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="arrow-alt-circle-down" />
                         </div>
@@ -245,7 +245,7 @@ class VoterInfo extends Component {
                         </div>
                       </div>
                       {/* render proxy */}
-                      <div className="col-6 col-sm-6 col-md-12 pl-1 pr-1 m-0">
+                      <div className="col-8 col-sm-8 col-md-12 pl-1 pr-1 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="user-cog" />
                         </div>
@@ -293,10 +293,10 @@ class VoterInfo extends Component {
                   </div>
                   <span className="badge badge-pill badge-primary mb-2">Proxy</span>
                 </div>
-                <div className="card-block row row-sm m-0">
-                  <div className="col-12 col-sm-12 col-md-4 pl-1 pr-1 m-0">
+                <div className="card-block row row-sm m-0 pr-0 pl-0">
+                  <div className="col-12 col-sm-12 col-md-4 pl-1 pr-1 m-0 stat-col">
                     <div className="row m-0">
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-0 m-0">
+                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="heart" />
                         </div>
@@ -313,7 +313,7 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-0 m-0">
+                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-1 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="hand-holding-heart" />
                         </div>
@@ -330,7 +330,7 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0">
+                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="sync-alt" />
                         </div>
@@ -347,7 +347,7 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-4 col-sm-4 col-md-12 pl-1 pr-0 m-0">
+                      <div className="col-4 col-sm-4 col-md-12 pl-1 pr-1 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="arrow-alt-circle-down" />
                         </div>
@@ -370,7 +370,7 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-0 m-0">
+                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0 stat-col">
                         <div className="stat-icon">
                           <FontAwesomeIcon icon="heart" />
                         </div>

@@ -667,7 +667,7 @@ const ActionCommon = ({
     <div className="card ftz-11 mb-1 shadow-sm" key={action_trace.receipt.global_sequence}>
       <div className="card-header bg-light shadow-sm act-head-height">
         <div className="row w-100 m-0">
-          <div className="col pl-2 pt-1 pr-0 ">
+          <div className="col pl-2 pt-1 pr-0">
             <div className="">{renderTransactiontLink(trx_id, action_trace.receipt.global_sequence)}</div>
             <div className="">
               {renderBlockStatus(block_num, last_irreversible_block, head_block_num, get_block_status)}
@@ -692,7 +692,6 @@ const ActionCommon = ({
           </div>
         </div>
       </div>
-
       <div className="card-body p-1">
         {/* {this.renderActions(action_trace, account_name)} */}
         <div className="row">

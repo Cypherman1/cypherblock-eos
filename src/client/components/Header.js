@@ -3,10 +3,11 @@ import isHash from 'validator/lib/isHash';
 import isLowercase from 'validator/lib/isLowercase';
 import {connect} from 'react-redux';
 // import * as actions from '../actions/auth';
+import {setSidebarStatus} from '../actions/sidebar';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import history from './history';
 import KeyAccountsModal from './eosio/KeyAccountsModal';
-const images = require.context('../assets/imgs');
+// const images = require.context('../assets/imgs');
 // let scatterimg = images('./Scatter.jpg');
 
 class Header extends Component {
@@ -18,6 +19,7 @@ class Header extends Component {
     };
     this.submit = this.submit.bind(this);
     this.changeTerm = this.changeTerm.bind(this);
+    this.submitSidebarStatus = this.submitSidebarStatus.bind(this);
     // this.onScatterOpen = this.onScatterOpen.bind(this);
     // this.onScatterLogout = this.onScatterLogout.bind(this);
   }
@@ -47,6 +49,10 @@ class Header extends Component {
   //   event.preventDefault();
   //   this.props.auth.scatter.forgetIdentity();
   // }
+  submitSidebarStatus(event) {
+    event.preventDefault();
+    this.props.setSidebarStatus(true);
+  }
   submit(event) {
     event.preventDefault();
     if (this.state.term.substring(0, 3) == 'EOS' && this.state.term.length == 53) {
@@ -88,7 +94,7 @@ class Header extends Component {
       <div>
         <header className="header shadow-sm bg-light">
           <div className="header-block header-block-collapse d-lg-none d-xl-none">
-            <button className="collapse-btn" id="sidebar-collapse-btn">
+            <button className="collapse-btn" id="sidebar-collapse-btn" onClick={this.submitSidebarStatus}>
               <FontAwesomeIcon icon="bars" />
             </button>
           </div>
@@ -124,13 +130,13 @@ class Header extends Component {
   }
 }
 
-// function mapStateToProps({auth}) {
-//   return {auth};
-// }
+function mapStateToProps({sidebar}) {
+  return {sidebar};
+}
 
-// export default connect(
-//   mapStateToProps,
-//   actions
-// )(Header);
+export default connect(
+  mapStateToProps,
+  {setSidebarStatus}
+)(Header);
 
-export default Header;
+// export default Header;

@@ -206,7 +206,7 @@ class Transaction extends Component {
                                       block_num={transaction.block_num}
                                       last_irreversible_block={transaction.last_irreversible_block}
                                       head_block_num={chain.head_block_num}
-                                      get_block_status={true}
+                                      get_block_status={false}
                                       trx_id={transaction.id}
                                       /* account_name={this.props.account_name} */
                                     />

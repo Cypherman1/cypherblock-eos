@@ -1141,7 +1141,7 @@ span.CodeMirror-selectedtext {
   font-weight: 500;
 }
 .act-head-height {
-  min-height: 20px !important;
+  min-height: 34px !important;
 }
 .act-xs-height {
   min-height: 20px !important;
@@ -1174,6 +1174,10 @@ span.CodeMirror-selectedtext {
 }
 .mb-accname {
   margin-bottom: 6px;
+}
+.act-date-fz {
+  font-size: 10px;
+  font-weight: 600;
 }
 
 @media (max-width: 767.98px) {
@@ -1347,4 +1351,45 @@ i.metismenu-state-icon {
 i.metismenu-state-icon.rotate-minus-90 {
   transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg);
+}
+
+.action-icon {
+  display: inline-block;
+  font-size: 24px;
+  text-align: center;
+  width: 24px;
+}
+.icon-background1 {
+  color: #ffc0ff;
+}
+.pt-act-icon {
+  padding-top: 4px;
+  padding-left: 2px;
+}
+.pd-actname {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.icon-receivetoken {
+  color: #007bff;
+}
+.icon-received {
+  color: #28a745;
+}
+.icon-vote {
+  color: #ff4273;
+}
+.icon-sent {
+  color: #fc4a1a;
+}
+.icon-delegatebw {
+  color: #9574ea;
+}
+.icon-senttoken {
+  color: #ff7d00;
+}
+.icon-default {
+  color: #f9a828;
+  margin-left: 1px;
 }

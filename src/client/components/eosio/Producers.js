@@ -11,13 +11,13 @@ const ProducersLoading = () => {
     <div className="card sameheight-item stats" data-exclude="xs">
       <div className="card-header card-header-sm bg-light shadow-sm">
         <div className="header-block pl-2">
-          <FontAwesomeIcon icon="user-cog" className="mr-2 text-info" />
+          <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
           <h5 className="title text-info ">Top producers</h5>
         </div>
       </div>
       <div className="card-block">
         <div className="text-center align-middle overlay pd-mi">
-          <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+          <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x " />
         </div>
         <div className="title-block row ">
           <div className="col-12 col-sm-12 header-col">
@@ -83,7 +83,7 @@ class Producers extends Component {
               <div className="card sameheight-item stats" data-exclude="xs">
                 <div className="card-header card-header-sm bg-light shadow-sm">
                   <div className="header-block pl-2">
-                    <FontAwesomeIcon icon="user-cog" className="mr-2 text-info" />
+                    <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
                     <h5 className="title text-info ">Top producers</h5>
                   </div>
                 </div>

@@ -31,7 +31,7 @@ class VoterInfo extends Component {
     let items = [];
     producers.map((producer) => {
       items.push(
-        <div className="d-inline-block mr-2 ftz-12" key={producer}>
+        <div className="d-inline-block mr-2 pl-1 ftz-12" key={producer}>
           {renderAccountLink(producer)}
         </div>
       );
@@ -53,7 +53,6 @@ class VoterInfo extends Component {
         if (voteinfo.producers.length > 0 || voteinfo.proxy) {
           if (!voteinfo.proxy) {
             //vote normaly
-
             return (
               <div className="card sameheight-item stats mbc border-0 pl-1 pr-1" data-exclude="xs">
                 <div className="card-header card-header-sm bg-light shadow-sm act-xs-height">
@@ -66,10 +65,10 @@ class VoterInfo extends Component {
                   </div>
                 </div>
                 <div className="card-block row row-sm m-0 pb-0 pr-0 pl-0">
-                  <div className="col-12 col-sm-12 col-md-4 pl-1 pr-1 m-0">
+                  <div className="col-12 col-sm-12 col-md-5 pl-1 pr-1 m-0">
                     <div className="row m-0">
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0">
-                        <div className="stat-icon">
+                      <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="heart" />
                         </div>
                         <div className="stat">
@@ -89,8 +88,8 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-0 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-4 col-sm-4 col-md-4 pl-0 pr-0 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="hand-holding-heart" />
                         </div>
                         <div className="stat">
@@ -106,8 +105,8 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0">
-                        <div className="stat-icon">
+                      <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="sync-alt" />
                         </div>
                         <div className="stat">
@@ -123,8 +122,8 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-0 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-4 col-sm-4 col-md-4 pl-0 pr-0 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="arrow-alt-circle-down" />
                         </div>
                         <div className="stat">
@@ -144,7 +143,8 @@ class VoterInfo extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-12 col-sm-12 col-md-8 pr-0 pl-2">
+                  <div className="col-12 col-sm-12 col-md-7 pr-0 pl-2">
+                    <div className="ftz-10 font-weight-bold border-bottom mr-2 text-info"> Producers</div>
                     <div className="card sameheight-item mb-1 border-0" data-exclude="xs">
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.producers)}</div>
                     </div>
@@ -166,10 +166,10 @@ class VoterInfo extends Component {
                   </div>
                 </div>
                 <div className="card-block row row-sm m-0 pr-0 pl-0">
-                  <div className="col-12 col-sm-12 col-md-4 pl-1 pr-1 m-0">
+                  <div className="col-12 col-sm-12 col-md-5 pl-1 pr-1 m-0">
                     <div className="row m-0">
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="heart" />
                         </div>
                         <div className="stat">
@@ -190,8 +190,8 @@ class VoterInfo extends Component {
                         </div>
                       </div>
                       {/* render # vote */}
-                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-1 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-4 col-sm-4 col-md-4 pl-0 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="hand-holding-heart" />
                         </div>
                         <div className="stat">
@@ -208,8 +208,8 @@ class VoterInfo extends Component {
                         </div>
                       </div>
                       {/* render decay */}
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="sync-alt" />
                         </div>
                         <div className="stat">
@@ -225,8 +225,8 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-1 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-4 col-sm-4 col-md-4 pl-0 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="arrow-alt-circle-down" />
                         </div>
                         <div className="stat">
@@ -245,8 +245,8 @@ class VoterInfo extends Component {
                         </div>
                       </div>
                       {/* render proxy */}
-                      <div className="col-8 col-sm-8 col-md-12 pl-1 pr-1 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-8 col-sm-8 col-md-8 pl-1 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="user-cog" />
                         </div>
                         <div className="stat">
@@ -264,7 +264,8 @@ class VoterInfo extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-12 col-sm-12 col-md-8  pr-0 pl-2">
+                  <div className="col-12 col-sm-12 col-md-7  pr-0 pl-2">
+                    <div className="ftz-10 font-weight-bold border-bottom mr-2 text-info"> Producers</div>
                     <div className="card sameheight-item mb-1 border-0" data-exclude="xs">
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.proxy_vote_info.producers)}</div>
                     </div>
@@ -294,10 +295,10 @@ class VoterInfo extends Component {
                   <span className="badge badge-pill badge-primary mb-2">Proxy</span>
                 </div>
                 <div className="card-block row row-sm m-0 pr-0 pl-0">
-                  <div className="col-12 col-sm-12 col-md-4 pl-1 pr-1 m-0 stat-col">
+                  <div className="col-12 col-sm-12 col-md-5 pl-1 pr-1 m-0 stat-col">
                     <div className="row m-0">
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="heart" />
                         </div>
                         <div className="stat">
@@ -313,8 +314,8 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-1 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-4 col-sm-4 col-md-4 pl-0 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="hand-holding-heart" />
                         </div>
                         <div className="stat">
@@ -330,8 +331,8 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="sync-alt" />
                         </div>
                         <div className="stat">
@@ -347,8 +348,8 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-4 col-sm-4 col-md-12 pl-0 pr-1 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-4 col-sm-4 col-md-4 pl-0 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="arrow-alt-circle-down" />
                         </div>
                         <div className="stat">
@@ -370,8 +371,8 @@ class VoterInfo extends Component {
                           />
                         </div>
                       </div>
-                      <div className="col-8 col-sm-8 col-md-12 pl-0 pr-1 m-0 stat-col">
-                        <div className="stat-icon">
+                      <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
+                        <div className="stat-icon d-inline-block d-md-none">
                           <FontAwesomeIcon icon="heart" />
                         </div>
                         <div className="stat">
@@ -388,7 +389,8 @@ class VoterInfo extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-12 col-sm-12 col-md-8  pr-0 pl-2">
+                  <div className="col-12 col-sm-12 col-md-7  pr-0 pl-2">
+                    <div className="ftz-10 font-weight-bold border-bottom mr-2 text-info"> Producers</div>
                     <div className="card sameheight-item mb-1 border-0" data-exclude="xs">
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.producers)}</div>
                     </div>

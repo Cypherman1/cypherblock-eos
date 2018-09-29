@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
-import {convertUTCDateToLocalDate, renderTransactiontLink, toTokenNumber, renderAccountLink} from '../utils/Tools';
+import {convertUTCDateToLocalDate, toTokenNumber, renderAccountLink} from '../utils/Tools';
 import {renderBlockNum} from '../utils/RenderColors';
-import BlockConfirmation from './BlockConfirmation';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import JSONPretty from 'react-json-pretty';
@@ -25,7 +24,8 @@ const renderData = (data) => {
           'agent',
           'bettor',
           'recipient'
-        ].indexOf(name) >= 0
+        ].indexOf(name) >= 0 &&
+        name.length <= 12
       )
         items.push(
           <div key={name} className="row">
@@ -138,7 +138,7 @@ const ReceivedAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.to)} {' received '}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` from `}
+        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` from `}
         {renderAccountLink(action_trace.act.data.from)}
       </div>
       <div className="aln-text actinfo-font">
@@ -153,7 +153,7 @@ const SentAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' sent '}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
+        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
@@ -169,7 +169,7 @@ const DefaultTransferAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' transfered '}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
+        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
@@ -185,7 +185,7 @@ const TokenReceivedAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.to)} {' received '}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` from `}
+        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` from `}
         {renderAccountLink(action_trace.act.data.from)}
       </div>
       <div className="aln-text actinfo-font">
@@ -201,7 +201,7 @@ const TokenSentAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' sent '}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
+        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
@@ -217,7 +217,7 @@ const DefaultTokenTransferAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' transfered '}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
+        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
@@ -684,9 +684,9 @@ const ActSign = ({icon, color, trx_id}) => {
   return (
     <Link to={`/transaction/${trx_id}`}>
       <div className="d-inline-block pt-act-icon">
-        <span class="fa-stack fa-lg">
-          <i class={`fa fa-circle fa-stack-2x ${color}`} />
-          <i class={`fa ${icon} fa-stack-1x text-light`} />
+        <span className="fa-stack fa-lg">
+          <i className={`fa fa-circle fa-stack-2x ${color}`} />
+          <i className={`fa ${icon} fa-stack-1x text-light`} />
         </span>
       </div>
     </Link>
@@ -706,11 +706,11 @@ const ActionCommon = ({
 }) => {
   return (
     <div className="card ftz-11 mb-1 shadow-sm" key={action_trace.receipt.global_sequence}>
-      <div className="card-header bg-light shadow-sm act-head-height">
+      <div className="card-header bg-light shadow-sm act-head-height pt-1">
         <div className="row w-100 m-0">
           {children[0]}
 
-          <div className="col pl-1 pr-0 ftz-9">
+          <div className="col pl-1 pr-0">
             <div className="">{children[1]}</div>
             <div className="pb-1">
               {renderBlockStatus(block_num, last_irreversible_block, head_block_num, get_block_status)}

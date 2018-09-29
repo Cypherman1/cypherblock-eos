@@ -161,7 +161,7 @@ class ActionsCard extends Component {
                 <div className="card sameheight-item stats mb-1 border-0 pr-1 pl-1 pb-1" data-exclude="xs">
                   <div className="card-header card-header-sm bg-light boder-1 shadow-sm row m-0">
                     <div className="header-block pl-1 col ">
-                      <FontAwesomeIcon icon="list-alt" className="mr-2 text-info" />
+                      <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
                       <h5 className="title text-info">
                         Recent <span className="ml-1 mr-1">{renderAccountLink(this.props.account_name)}</span> actions
                       </h5>

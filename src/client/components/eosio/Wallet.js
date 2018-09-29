@@ -16,7 +16,7 @@ const WalletLoading = () => {
       <div className="card sameheight-item stats" data-exclude="xs">
         <div className="card-header card-header-sm bg-light shadow-sm">
           <div className="header-block pl-2">
-            <FontAwesomeIcon icon="wallet" className="mr-2 text-info" />
+            <FontAwesomeIcon icon="wallet" className="mr-2 text-info fa-lg" />
             <h5 className="title text-info ">Wallet</h5>
           </div>
         </div>
@@ -170,7 +170,7 @@ class Wallet extends Component {
                 <div className="card sameheight-item stats" data-exclude="xs">
                   <div className="card-header card-header-sm bg-light shadow-sm">
                     <div className="header-block pl-2">
-                      <FontAwesomeIcon icon="wallet" className="mr-2 text-info" />
+                      <FontAwesomeIcon icon="wallet" className="mr-2 text-info fa-lg" />
                       <h5 className="title text-info ">Wallet</h5>
                     </div>
                   </div>

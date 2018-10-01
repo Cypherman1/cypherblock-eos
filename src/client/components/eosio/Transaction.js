@@ -233,3 +233,5 @@ class Transaction extends Component {
 }
 
 export default Transaction;
+
+int64_t((now() - block_timestamp::block_timestamp_epoch / 1000) / (seconds_per_day * 7));

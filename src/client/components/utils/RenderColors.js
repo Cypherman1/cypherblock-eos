@@ -77,12 +77,36 @@ const renderBlockNum = (block_num) => {
   return <NumberEasing value={block_num} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />;
 };
 
-const renderStake2Vote = (stake2vote) => {
-  return (
-    <span className="text-success">
-      <NumberEasing value={stake2vote} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />
-    </span>
-  );
+const renderStake2Vote = (stake2vote, last_vote_weight) => {
+  if (Number(stake2vote) > Number(last_vote_weight)) {
+    return (
+      <span className="text-success">
+        <NumberEasing value={stake2vote} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />
+      </span>
+    );
+  } else {
+    return (
+      <span className="text-dark">
+        <NumberEasing value={stake2vote} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />
+      </span>
+    );
+  }
+};
+
+const renderDecayedPercent = (stake2vote, last_vote_weight) => {
+  if (Number(stake2vote) > Number(last_vote_weight)) {
+    return (
+      <span className="text-danger">
+        {(((Number(stake2vote) - Number(last_vote_weight)) / Number(stake2vote)) * 100).toFixed(2)} %
+      </span>
+    );
+  } else {
+    return (
+      <span className="text-success">
+        {(((Number(stake2vote) - Number(last_vote_weight)) / Number(stake2vote)) * 100).toFixed(2)} %
+      </span>
+    );
+  }
 };
 
 const renderEOSNum = (eos_num) => {
@@ -317,5 +341,6 @@ export {
   renderRamPriceColorM,
   renderProRank,
   renderHeadBlockTime,
-  renderStake2Vote
+  renderStake2Vote,
+  renderDecayedPercent
 };

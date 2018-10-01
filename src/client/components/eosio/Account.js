@@ -7,6 +7,7 @@ import SmartContract from './SmartContract';
 import ErrorBoundary from '../ErrorBoundary';
 import ActionsCard from './ActionsCard';
 
+
 const Account = ({match}) => {
   return (
     <article className="content dashboard-page">

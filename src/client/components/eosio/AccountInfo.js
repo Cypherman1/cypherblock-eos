@@ -8,6 +8,7 @@ import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {ToastContainer, toast} from 'react-toastify';
 import VoterInfo from './VoterInfo';
+import AccPermsInfo from './AccPermsInfo';
 // import ErrorBoundary from '../ErrorBoundary';
 
 import GetAccountInfo from '../../queries/GetAccountInfo';
@@ -575,6 +576,7 @@ class AccountInfo extends Component {
                     </div>
                   </div>
                 </div>
+                {/* <AccPermsInfo /> */}
                 <VoterInfo voteinfo={voteinfo} head_block_time={account.head_block_time} />
               </div>
             );

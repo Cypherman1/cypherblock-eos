@@ -93,24 +93,42 @@ class Wallet extends Component {
             {this.renderBitfinexPrice(token)}
           </div>
         );
-      } else
-        items.push(
-          <div className="row row-sm stats-container border-bottom m-0" key={token.name}>
-            <div className="col-8 stat-col p-0">
-              <div className="stat-icon">
-                <img src={img_src} className="img-logo" />
-              </div>
-              <div className="stat">
-                <div className="value">{renderEOSNum(token.ammount)}</div>
+      } else {
+        if (token.price > 0) {
+          items.push(
+            <div className="row row-sm stats-container border-bottom m-0" key={token.name}>
+              <div className="col-8 stat-col p-0">
+                <div className="stat-icon">
+                  <img src={img_src} className="img-logo" />
+                </div>
+                <div className="stat">
+                  <div className="value">{renderEOSNum(token.ammount)}</div>
 
-                <div className="name">
-                  {token.name} ({Number((token.ammount * token.price).toFixed(4)).toLocaleString('en')} EOS)
+                  <div className="name">
+                    {token.name} ({Number((token.ammount * token.price).toFixed(4)).toLocaleString('en')} EOS)
+                  </div>
+                </div>
+              </div>
+              {this.renderBitfinexPrice(token)}
+            </div>
+          );
+        } else {
+          items.push(
+            <div className="row row-sm stats-container border-bottom m-0" key={token.name}>
+              <div className="col-8 stat-col p-0">
+                <div className="stat-icon">
+                  <img src={img_src} className="img-logo" />
+                </div>
+                <div className="stat">
+                  <div className="value">{renderEOSNum(token.ammount)}</div>
+
+                  <div className="name">{token.name}</div>
                 </div>
               </div>
             </div>
-            {this.renderBitfinexPrice(token)}
-          </div>
-        );
+          );
+        }
+      }
     });
     return items;
   }

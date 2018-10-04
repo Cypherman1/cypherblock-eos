@@ -42,7 +42,6 @@ class Producers extends Component {
           <div className="stat-icon">{renderProRank(index)}</div>
           <div className="stat">
             <div className="value">{renderAccountLink(producer.owner)}</div>
-
             <div className="name">
               <a href={producer.url}> {producer.url} </a>{' '}
             </div>

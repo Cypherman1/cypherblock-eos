@@ -1,3 +1,4 @@
+const GraphQLJSON = require('graphql-type-json');
 const graphql = require('graphql');
 const {GraphQLObjectType, GraphQLList, GraphQLInt, GraphQLString, GraphQLBoolean} = graphql;
 
@@ -97,7 +98,7 @@ const AccountType = new GraphQLObjectType({
     net_limit: {type: ResLimitType},
     cpu_limit: {type: ResLimitType},
     ram_usage: {type: GraphQLString},
-    permissions: {type: new GraphQLList(PermissionType)},
+    permissions: {type: GraphQLJSON},
     total_resources: {type: TotalResourcesType},
     self_delegated_bandwidth: {type: SelfDelegatedBandwidthType},
     refund_request: {type: RefundRequestType},

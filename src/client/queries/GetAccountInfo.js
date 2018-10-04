@@ -18,6 +18,7 @@ export default gql`
         max
       }
       ram_usage
+      permissions
       total_resources {
         owner
         net_weight

@@ -53,6 +53,8 @@ var used_cpu_num = 0;
 
 var to_fiat = 0;
 
+var refunded_time = null;
+
 var limited_net = '';
 
 var limited_cpu = '';
@@ -74,6 +76,12 @@ var availabe_ram = '';
 var account_name = '';
 
 var block_timestamp_epoch = 946684800000;
+
+Date.prototype.addDays = function(days) {
+  var date = new Date(this.valueOf());
+  date.setDate(date.getDate() + days);
+  return date;
+};
 
 const AccountInfoLoading = () => {
   return (
@@ -292,6 +300,12 @@ class AccountInfo extends Component {
           refund_cpu = 0;
         }
 
+        if (account.refund_request) {
+          refunded_time = convertUTCDateToLocalDate(
+            new Date(account.refund_request.request_time).addDays(3)
+          ).toLocaleString();
+        }
+
         if (account.voter_info) {
           staked = Number(
             account.voter_info.staked.substr(0, account.voter_info.staked.length - 4) +
@@ -505,9 +519,12 @@ class AccountInfo extends Component {
                         <div className="value">
                           {refund.toLocaleString('en', {
                             maximumSignificantDigits: 14
-                          })}
+                          })}{' '}
+                          EOS
                         </div>
-                        <div className="name">EOS refunding </div>
+                        <div className="name">
+                          Refunding<span className="ftz-8 text-success font-weight-bold"> {refunded_time}</span>{' '}
+                        </div>
                       </div>
                       <div className="progress stat-progress">
                         <div
@@ -576,7 +593,7 @@ class AccountInfo extends Component {
                     </div>
                   </div>
                 </div>
-                {/* <AccPermsInfo /> */}
+                {/* <AccPermsInfo permissions={account.permissions} /> */}
                 <VoterInfo voteinfo={voteinfo} head_block_time={account.head_block_time} />
               </div>
             );

@@ -304,6 +304,8 @@ class AccountInfo extends Component {
           refunded_time = convertUTCDateToLocalDate(
             new Date(account.refund_request.request_time).addDays(3)
           ).toLocaleString();
+        } else {
+          refunded_time = null;
         }
 
         if (account.voter_info) {

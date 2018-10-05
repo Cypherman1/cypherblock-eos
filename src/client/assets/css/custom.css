@@ -1406,8 +1406,9 @@ i.metismenu-state-icon.rotate-minus-90 {
 .threshold-icon {
   color: #bdbdbd;
   display: inline-block;
-  font-size: 20px;
-  line-height: 14px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 11px;
   text-align: center;
   vertical-align: middle;
   width: 30px;
@@ -1415,4 +1416,27 @@ i.metismenu-state-icon.rotate-minus-90 {
 
 .ftz-7 {
   font-size: 7px !important;
+}
+.ftz-6 {
+  font-size: 7.8px !important;
+}
+.ftz-threshold {
+  font-size: 5px !important;
+}
+
+.pt-auth-key {
+  padding-top: 3px;
+}
+
+.weight-w {
+  min-width: 16px !important;
+  text-align: center;
+  font-size: 11px;
+}
+
+.mr-auth-weight {
+  margin-right: 2px;
+}
+.pb-permname {
+  padding-bottom: 0px;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {convertUTCDateToLocalDate, toTokenNumber, renderAccountLink} from '../utils/Tools';
+import {convertUTCDateToLocalDate, toTokenNumber, renderAccountLink, renderPerm} from '../utils/Tools';
 import {renderBlockNum} from '../utils/RenderColors';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
@@ -338,16 +338,20 @@ const NewAccount = ({action_trace}) => {
 const UpdateAuth = ({action_trace}) => {
   if (action_trace.act.data.auth)
     return (
-      <div data-title="Info" className="pt-1 pb-1" key="2">
-        <div className="actinfo-font">
-          {renderAccountLink(action_trace.act.data.account)} {' set '}
-          <span className="font-weight-bold text-info"> {action_trace.act.data.permission} </span>
-          {' permission as: '}
+      <div className="pt-1 pb-1 row" key="2">
+        <div className="actinfo-font col-12 col-sm-5">
+          {renderAccountLink(action_trace.act.data.account)} {' update permission: '}
         </div>
-        <div>
-          <span className="font-weight-bold"> {'Threshold:'} </span> {action_trace.act.data.auth.threshold}
+
+        <div className="col-12 col-sm-7">
+          {renderPerm(
+            action_trace.act.data.permission,
+            action_trace.act.data.auth.threshold,
+            action_trace.act.data.auth.accounts,
+            action_trace.act.data.auth.keys,
+            action_trace.act.data.account
+          )}
         </div>
-        <div>{RenderAuth(action_trace.act.data.auth)}</div>
       </div>
     );
   else {

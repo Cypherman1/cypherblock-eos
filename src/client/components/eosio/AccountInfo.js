@@ -85,178 +85,186 @@ Date.prototype.addDays = function(days) {
 
 const AccountInfoLoading = () => {
   return (
-    <div>
-      <div className="card sameheight-item stats mbc" data-exclude="xs">
-        <div className="card-header card-header-sm bg-light shadow-sm">
-          <div className="header-block pl-2">
-            <FontAwesomeIcon icon="user" className="mr-2 text-info" />
-            <h5 className="title text-info">
-              {account_name}
-              {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-            </h5>
+    <div className="sameheight-item stats mbc" data-exclude="xs">
+      <div className="card-header card-header-sm bg-light shadow-sm">
+        <div className="header-block pl-2 col stat-col">
+          <div className="d-inline-block">
+            <FontAwesomeIcon icon="user" className="mr-2 text-info ftz-16 mb-accname" />
+          </div>
+          <div className="d-inline-block">
+            <div className="d-inline-block text-info font-weight-bold" />
+            <div className="ftz-8 text-success">Created:</div>
+
+            {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
           </div>
         </div>
-        <div className="card-block ">
-          <div className="text-center align-middle overlay pd-gi">
-            <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+        <div className="stat float-right mt-1">
+          <TransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+            <div className="head_block_time_font font-weight-bold" />
+            <div className="head_block_time_font text-right">Head Block Time</div>
+          </TransitionGroup>
+        </div>
+      </div>
+      <div className="card-block ">
+        <div className="text-center align-middle overlay pd-gi">
+          <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+        </div>
+        <div className="row row-sm stats-container m-0">
+          <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
+            <div className="pd-bl">
+              <div className="mr-2 eos-icon">
+                <img src={eoslogo} />
+              </div>
+              <div className="stat">
+                <div className="value" />
+                <div className="name">Balance</div>
+              </div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `0%`
+                }}
+              />
+            </div>
           </div>
-          <div className="row row-sm stats-container m-0">
-            <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
-              <div className="pd-bl">
-                <div className="mr-2 eos-icon">
-                  <img src={eoslogo} />
-                </div>
-                <div className="stat">
-                  <div className="value" />
-                  <div className="name">Balance</div>
-                </div>
-              </div>
-              <div className="progress stat-progress">
-                <div
-                  className="progress-bar"
-                  style={{
-                    width: `0%`
-                  }}
-                />
-              </div>
-            </div>
-            <div className="col-6 col-sm-4 stat-col pr-1 pl-1 d-none d-sm-block">
-              <div className="pd-bl">
-                <div className=" mr-2 eos-icon">
-                  <img src={eoslogo} />
-                </div>
-                <div className="stat">
-                  <div className="value" />
-                  <div className="name">Balance(RAM included)</div>
-                </div>
-              </div>
-              <div className="progress stat-progress">
-                <div
-                  className="progress-bar"
-                  style={{
-                    width: `0%`
-                  }}
-                />
-              </div>
-            </div>
-            <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
-              <div className="stat-icon">
-                <FontAwesomeIcon icon="dollar-sign" />
+          <div className="col-6 col-sm-4 stat-col pr-1 pl-1 d-none d-sm-block">
+            <div className="pd-bl">
+              <div className=" mr-2 eos-icon">
+                <img src={eoslogo} />
               </div>
               <div className="stat">
                 <div className="value" />
-                <div className="name">To fiat(RAM included)</div>
-              </div>
-              <div className="progress stat-progress">
-                <div
-                  className="progress-bar"
-                  style={{
-                    width: `0%`
-                  }}
-                />
+                <div className="name">Balance(RAM included)</div>
               </div>
             </div>
-            <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
-              <div className="stat-icon">
-                <FontAwesomeIcon icon="lock-open" />
-              </div>
-              <div className="stat">
-                <div className="value" />
-                <div className="name"> EOS unstaked </div>
-              </div>
-              <div className="progress stat-progress">
-                <div
-                  className="progress-bar"
-                  style={{
-                    width: `${((unstaked / total_balance) * 100).toFixed(3)}%`
-                  }}
-                />
-              </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `0%`
+                }}
+              />
             </div>
-            <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
-              <div className="stat-icon">
-                <FontAwesomeIcon icon="lock" />
-              </div>
-              <div className="stat">
-                <div className="value" />
-                <div className="name"> EOS staked </div>
-              </div>
-              <div className="progress stat-progress">
-                <div
-                  className="progress-bar"
-                  style={{
-                    width: `${((staked / total_balance) * 100).toFixed(3)}%`
-                  }}
-                />
-              </div>
+          </div>
+          <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="dollar-sign" />
             </div>
-            <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
-              <div className="stat-icon">
-                <FontAwesomeIcon icon="key" />
-              </div>
-              <div className="stat">
-                <div className="value" />
-                <div className="name">EOS refunding </div>
-              </div>
-              <div className="progress stat-progress">
-                <div
-                  className="progress-bar"
-                  style={{
-                    width: `${((refund / total_balance) * 100).toFixed(3)}%`
-                  }}
-                />
-              </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name">To fiat(RAM included)</div>
             </div>
-            <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
-              <div className="stat-icon">
-                <FontAwesomeIcon icon="memory" />
-              </div>
-              <div className="stat">
-                <div className="value" />
-                <div className="name">RAM </div>
-              </div>
-              <div className="progress stat-progress">
-                <div
-                  className="progress-bar"
-                  style={{
-                    width: `${((ram_usage_num / limited_ram_num) * 100).toFixed(3)}%`
-                  }}
-                />
-              </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `0%`
+                }}
+              />
             </div>
-            <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
-              <div className="stat-icon">
-                <FontAwesomeIcon icon="microchip" />
-              </div>
-              <div className="stat">
-                <div className="value" />
-                <div className="name">CPU </div>
-              </div>
-              <div className="progress stat-progress">
-                <div
-                  className="progress-bar"
-                  style={{
-                    width: `${((used_cpu_num / limited_cpu_num) * 100).toFixed(3)}%`
-                  }}
-                />
-              </div>
+          </div>
+          <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="lock-open" />
             </div>
-            <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
-              <div className="stat-icon">
-                <FontAwesomeIcon icon="bolt" />
-              </div>
-              <div className="stat">
-                <div className="value" />
-                <div className="name">NET</div>
-              </div>
-              <div className="progress stat-progress">
-                <div
-                  className="progress-bar"
-                  style={{
-                    width: `${((used_net_num / limited_net_num) * 100).toFixed(3)}%`
-                  }}
-                />
-              </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name"> EOS unstaked </div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `${((unstaked / total_balance) * 100).toFixed(3)}%`
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="lock" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name"> EOS staked </div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `${((staked / total_balance) * 100).toFixed(3)}%`
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="key" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name">EOS refunding </div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `${((refund / total_balance) * 100).toFixed(3)}%`
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="memory" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name">RAM </div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `${((ram_usage_num / limited_ram_num) * 100).toFixed(3)}%`
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="microchip" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name">CPU </div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `${((used_cpu_num / limited_cpu_num) * 100).toFixed(3)}%`
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="bolt" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name">NET</div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `${((used_net_num / limited_net_num) * 100).toFixed(3)}%`
+                }}
+              />
             </div>
           </div>
         </div>
@@ -397,7 +405,7 @@ class AccountInfo extends Component {
                     </div>
                     <div className="d-inline-block">
                       <div className="d-inline-block text-info font-weight-bold">{account_name}</div>
-                      <div className="ftz-9 text-success font-weight-bold">
+                      <div className="ftz-8 text-success">
                         Created: {convertUTCDateToLocalDate(new Date(account.created)).toLocaleString()}{' '}
                       </div>
 
@@ -595,7 +603,7 @@ class AccountInfo extends Component {
                     </div>
                   </div>
                 </div>
-                {/* <AccPermsInfo permissions={account.permissions} /> */}
+                <AccPermsInfo permissions={account.permissions} account_name={account_name} />
                 <VoterInfo voteinfo={voteinfo} head_block_time={account.head_block_time} />
               </div>
             );

@@ -68,22 +68,26 @@ const RootQueryType = new GraphQLObjectType({
             account_name
           })
           .then((res) => {
-            if (!res.data.voter_info.proxy) {
+            if (res.data.voter_info && !res.data.voter_info.proxy) {
               return res.data.voter_info;
             } else {
-              VoterInfo = res.data.voter_info;
+              if (res.data.voter_info) {
+                VoterInfo = res.data.voter_info;
 
-              return axios
-                .post(keys.chainURL_ALT1 + '/v1/chain/get_account', {
-                  account_name: res.data.voter_info.proxy
-                })
-                .then((res1) => {
-                  VoterInfo.proxy_vote_info = res1.data.voter_info;
-                  return VoterInfo;
-                })
-                .catch((error) => {
-                  onError(error);
-                });
+                return axios
+                  .post(keys.chainURL_ALT1 + '/v1/chain/get_account', {
+                    account_name: res.data.voter_info.proxy
+                  })
+                  .then((res1) => {
+                    VoterInfo.proxy_vote_info = res1.data.voter_info;
+                    return VoterInfo;
+                  })
+                  .catch((error) => {
+                    onError(error);
+                  });
+              } else {
+                return null;
+              }
             }
           })
           .catch((error) => {

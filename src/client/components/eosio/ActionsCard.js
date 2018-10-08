@@ -7,9 +7,11 @@ import ToggleButton from 'react-toggle-button';
 import {connect} from 'react-redux';
 import ActionCard from './ActionCard';
 import {renderAccountLink} from '../utils/Tools';
+import {IsSpam} from '../utils/IsSpam';
 import {setLiveActions, setIsRefetch, setIsButtonLoading, setIsMore} from '../../actions/eosActions';
 
 var action_digests_tmp = '';
+var showAction = false;
 const ActionsCardLoading = () => {
   return (
     <div>
@@ -59,7 +61,7 @@ class ActionsCard extends Component {
                 });
                 fetchMore({
                   variables: {
-                    offset: 0 - morelength - 25
+                    offset: this.props.eosActions.islive ? 0 - morelength - 25 : 0 - morelength - 100
                   },
                   updateQuery: (prev, {fetchMoreResult}) => {
                     if (!fetchMoreResult) {
@@ -147,7 +149,7 @@ class ActionsCard extends Component {
         variables={{
           account_name: this.props.account_name,
           pos: -1,
-          offset: -25
+          offset: this.props.eosActions.islive ? -25 : -100
         }}
         pollInterval={this.props.eosActions.islive ? 5000 : 0}
       >
@@ -156,6 +158,7 @@ class ActionsCard extends Component {
           if (error) return <ActionsCardLoading />;
           if (data && data.actions && data.chain) {
             action_digests_tmp = '';
+
             return (
               <div>
                 <div className="card sameheight-item stats mb-1 border-0 pr-1 pl-1 pb-1 " data-exclude="xs">
@@ -189,7 +192,10 @@ class ActionsCard extends Component {
                         .slice()
                         .reverse()
                         .map((action) => {
-                          if (action.action_trace.receipt.act_digest !== action_digests_tmp) {
+                          if (
+                            action.action_trace.receipt.act_digest !== action_digests_tmp &&
+                            !IsSpam(action.action_trace)
+                          ) {
                             action_digests_tmp = action.action_trace.receipt.act_digest;
 
                             return (
@@ -222,8 +228,8 @@ class ActionsCard extends Component {
   }
 }
 
-function mapStateToProps({eosActions}) {
-  return {eosActions};
+function mapStateToProps({eosActions, antispam}) {
+  return {eosActions, antispam};
 }
 
 export default connect(

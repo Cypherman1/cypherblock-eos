@@ -10,3 +10,6 @@ export const SET_IS_MORE = 'set_is_more';
 // sidebar
 export const SET_ACTIVE_LINK_ID = 'set_active_link_id';
 export const SET_SIDEBAR_STATUS = 'set_sidebar_status';
+// antispam
+
+export const SET_ANTISPAM_CONFIG = 'set_antispam_config';

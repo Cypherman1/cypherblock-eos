@@ -16,11 +16,12 @@ const ActionsCardLoading = () => {
   return (
     <div>
       <div className="card sameheight-item stats mb-1 border-0 pr-1 pl-1" data-exclude="xs">
-        <div className="card-header card-header-sm bg-light shadow-sm row m-0 act-xs-height">
-          <div className="header-block pl-2 col">
+        <div className="card-header bg-light border-bottom boder-1 shadow-sm row m-0">
+          <div className="header-block pl-1 col stat-col">
             <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
             <h5 className="title text-info">Recent actions</h5>
           </div>
+          <div className="col-auto pt-atb pr-1" />
         </div>
         <div className="card-block pt-0 plheight">
           <div className="text-center align-middle overlay pd-vi">
@@ -33,14 +34,6 @@ const ActionsCardLoading = () => {
 };
 
 class ActionsCard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonloading: false,
-      isMore: true
-    };
-  }
-
   renderLoadMoreBtn(fetchMore, morelength) {
     if (this.props.showRefetch) {
       if (!this.props.eosActions.ismore) {
@@ -50,29 +43,24 @@ class ActionsCard extends Component {
           </button>
         );
       } else {
-        if (!this.state.buttonloading) {
+        if (!this.props.eosActions.isbuttonloading) {
           return (
             <button
               type="button"
               className="btn btn-primary w-100"
               onClick={() => {
-                this.setState({
-                  buttonloading: true
-                });
+                this.props.setIsButtonLoading(true);
+
                 fetchMore({
                   variables: {
                     offset: this.props.eosActions.islive ? 0 - morelength - 25 : 0 - morelength - 100
                   },
                   updateQuery: (prev, {fetchMoreResult}) => {
                     if (!fetchMoreResult) {
-                      this.setState({
-                        buttonloading: false
-                      });
+                      this.props.setIsButtonLoading(false);
                       return prev;
                     }
-                    this.setState({
-                      buttonloading: false
-                    });
+                    this.props.setIsButtonLoading(false);
                     if (fetchMoreResult.actions.actions[0].account_action_seq == 0) {
                       this.props.setIsMore(false);
                     } else {
@@ -89,9 +77,7 @@ class ActionsCard extends Component {
                     );
                   }
                 }).catch((error) => {
-                  this.setState({
-                    buttonloading: false
-                  });
+                  this.props.setIsButtonLoading(false);
                   return true;
                 });
               }}
@@ -162,7 +148,7 @@ class ActionsCard extends Component {
             return (
               <div>
                 <div className="card sameheight-item stats mb-1 border-0 pr-1 pl-1 pb-1 " data-exclude="xs">
-                  <div className="card-header card-header-sm bg-light boder-1 shadow-sm row m-0">
+                  <div className="card-header bg-light border-bottom boder-1 shadow-sm row m-0">
                     <div className="header-block pl-1 col stat-col">
                       <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
                       <h5 className="title text-info">

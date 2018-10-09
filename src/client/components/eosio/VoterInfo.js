@@ -11,8 +11,8 @@ let nextDecayDate = null;
 
 const NoVote = () => {
   return (
-    <div className="card sameheight-item stats mbc border-0 pr-1 pl-1" data-exclude="xs">
-      <div className="card-header card-header-sm bg-light shadow-sm act-xs-height">
+    <div className="card sameheight-item stats mbc mr-2 ml-2 pr-1 pl-1" data-exclude="xs">
+      <div className="card-header card-header-sm bg-white border-bottom act-xs-height">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
           <h5 className="title text-info">
@@ -67,8 +67,8 @@ class VoterInfo extends Component {
           if (!voteinfo.proxy) {
             //vote normaly
             return (
-              <div className="card sameheight-item stats mbc border-0 pl-1 pr-1" data-exclude="xs">
-                <div className="card-header card-header-sm bg-light shadow-sm act-xs-height">
+              <div className="card sameheight-item stats mbc mr-2 ml-2 pr-1 pl-1" data-exclude="xs">
+                <div className="card-header card-header-sm bg-white border-bottom act-xs-height">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
                     <h5 className="title text-info">

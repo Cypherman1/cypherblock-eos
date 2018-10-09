@@ -86,7 +86,7 @@ Date.prototype.addDays = function(days) {
 const AccountInfoLoading = () => {
   return (
     <div className="sameheight-item stats mbc" data-exclude="xs">
-      <div className="card-header card-header-sm bg-light shadow-sm">
+      <div className="card-header  bg-light border-bottom">
         <div className="header-block pl-2 col stat-col">
           <div className="d-inline-block">
             <FontAwesomeIcon icon="user" className="mr-2 text-info ftz-16 mb-accname" />
@@ -398,7 +398,7 @@ class AccountInfo extends Component {
           if (account && table_rows && cmc)
             return (
               <div>
-                <div className="card-header card-header-sm bg-light shadow-sm">
+                <div className="card-header border-bottom bg-light">
                   <div className="header-block pl-2 col stat-col">
                     <div className="d-inline-block">
                       <FontAwesomeIcon icon="user" className="mr-2 text-info ftz-16 mb-accname" />

@@ -92,38 +92,42 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <header className="header shadow-sm bg-light">
+        <header className="header bg-white shadow-sm">
           <div className="header-block header-block-collapse d-lg-none d-xl-none">
             <button className="collapse-btn" id="sidebar-collapse-btn" onClick={this.submitSidebarStatus}>
               <FontAwesomeIcon icon="bars" />
             </button>
           </div>
           <div className="w-100 row m-0 pr-2 pt-2">
-            <div className="header-block header-block-search col pr-1">
+            <div className="header-block header-block-search col pr-0 pl-search">
               <form role="search" className="float-left w-100" onSubmit={this.submit}>
-                <div className="row">
-                  <div className="col pr-0 pl-2">
-                    <input
-                      type="text"
-                      placeholder="Search by account/pubkey/trx/blockid"
-                      className="w-100 form-control"
-                      onChange={this.changeTerm}
-                      name="search"
-                      autoCapitalize="off"
-                      spellCheck="false"
-                    />
-                  </div>
-                  <div className="col-auto pl-1 pr-3">
-                    <button className="btn btn-primary text-light" type="summit">
-                      <FontAwesomeIcon icon="search" />
+                <div className="input-group input-group-seamless">
+                  <input
+                    type="text"
+                    placeholder="Search by account/pubkey/trx/blockid"
+                    className="w-100 form-control rounded border border-info"
+                    onChange={this.changeTerm}
+                    name="search"
+                    autoCapitalize="off"
+                    spellCheck="false"
+                  />
+                  <div className="input-group-append">
+                    <button type="button" className="btn btn-info mb-0">
+                      <i className="fa fa-search text-light" />
                     </button>
                   </div>
                 </div>
+                {/* <div className="col-auto pl-1 pr-3">
+                    <button className="btn btn-primary text-light" type="summit">
+                      <FontAwesomeIcon icon="search" />
+                    </button>
+                  </div> */}
               </form>
             </div>
             {/* {this.renderAccount()} */}
           </div>
         </header>
+
         {this.renderModal()}
       </div>
     );

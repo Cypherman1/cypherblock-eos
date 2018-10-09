@@ -9,7 +9,7 @@ import {renderProRank} from '../utils/RenderColors';
 const ProducersLoading = () => {
   return (
     <div className="card sameheight-item stats" data-exclude="xs">
-      <div className="card-header card-header-sm bg-light shadow-sm">
+      <div className="card-header bg-light border-bottom">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
           <h5 className="title text-info ">Top producers</h5>
@@ -80,7 +80,7 @@ class Producers extends Component {
           if (producers) {
             return (
               <div className="card sameheight-item stats" data-exclude="xs">
-                <div className="card-header card-header-sm bg-light shadow-sm">
+                <div className="card-header bg-light border-bottom">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
                     <h5 className="title text-info ">Top producers</h5>

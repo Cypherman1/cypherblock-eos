@@ -1378,7 +1378,7 @@ i.metismenu-state-icon.rotate-minus-90 {
   color: #28a745;
 }
 .icon-vote {
-  color: #ff4273;
+  color: #ff4273 !important;
 }
 .icon-sent {
   color: #fc4a1a;
@@ -1439,4 +1439,7 @@ i.metismenu-state-icon.rotate-minus-90 {
 }
 .pb-permname {
   padding-bottom: 0px;
+}
+.pl-search {
+  padding-left: 7px !important;
 }

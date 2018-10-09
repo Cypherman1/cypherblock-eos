@@ -11,7 +11,7 @@ const BlockView = ({match}) => {
         <div className="row m-0">
           <div className="col col-12 col-sm-12 col-md-12 col-l-12 col-xl-12 pd-col">
             <div className="card sameheight-item stats mbc" data-exclude="xs">
-              <div className="card-header card-header-sm bg-light shadow-sm">
+              <div className="card-header  bg-light shadow-sm">
                 <div className="header-block pl-2">
                   <FontAwesomeIcon icon="cube" className="mr-2 text-info" />
                   <h5 className="title text-info">

@@ -18,7 +18,7 @@ const ActionCommon = ({
 }) => {
   return (
     <div className="card ftz-11 mb-1 shadow-sm" key={action_trace.receipt.global_sequence}>
-      <div className="card-header bg-light shadow-sm act-head-height pt-1">
+      <div className="card-header bg-white border-0 act-head-height pt-1 shadow-sm">
         <div className="row w-100 m-0">
           {children[0]}
 
@@ -35,7 +35,7 @@ const ActionCommon = ({
         </div>
       </div>
 
-      <div className="card-body p-1">
+      <div className="card-body border-0 p-1">
         {/* {this.renderActions(action_trace, account_name)} */}
         <div className="row m-0">
           <div className="col-12 p-0">
@@ -47,7 +47,7 @@ const ActionCommon = ({
           </div>
         </div>
       </div>
-      <div className="card-footer border-light action_fp">
+      <div className="card-footer action_fp border-0 bg-light">
         <div className="w-100 ml-1 pr-1">
           <a
             className="badge badge-warning text-light float-right"

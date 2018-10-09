@@ -14,7 +14,7 @@ const WalletLoading = () => {
   return (
     <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">
       <div className="card sameheight-item stats" data-exclude="xs">
-        <div className="card-header bg-light border-bottom">
+        <div className="card-header shadow-sm bg-white">
           <div className="header-block pl-2">
             <FontAwesomeIcon icon="wallet" className="mr-2 text-info fa-lg" />
             <h5 className="title text-info ">Wallet</h5>
@@ -186,7 +186,7 @@ class Wallet extends Component {
             return (
               <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">
                 <div className="card sameheight-item stats" data-exclude="xs">
-                  <div className="card-header  bg-light border-bottom">
+                  <div className="card-header  shadow-sm bg-white">
                     <div className="header-block pl-2">
                       <FontAwesomeIcon icon="wallet" className="mr-2 text-info fa-lg" />
                       <h5 className="title text-info ">Wallet</h5>

@@ -11,8 +11,8 @@ let nextDecayDate = null;
 
 const NoVote = () => {
   return (
-    <div className="card sameheight-item stats mbc mr-2 ml-2 pr-1 pl-1" data-exclude="xs">
-      <div className="card-header card-header-sm bg-white border-bottom act-xs-height">
+    <div className="card sameheight-item stats mbc mr-2 ml-2 " data-exclude="xs">
+      <div className="card-header card-header-sm shadow-sm bg-white ">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
           <h5 className="title text-info">
@@ -67,8 +67,8 @@ class VoterInfo extends Component {
           if (!voteinfo.proxy) {
             //vote normaly
             return (
-              <div className="card sameheight-item stats mbc mr-2 ml-2 pr-1 pl-1" data-exclude="xs">
-                <div className="card-header card-header-sm bg-white border-bottom act-xs-height">
+              <div className="card sameheight-item stats mbc mr-2 ml-2" data-exclude="xs">
+                <div className="card-header card-header-sm shadow-sm bg-white ">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
                     <h5 className="title text-info">
@@ -77,7 +77,7 @@ class VoterInfo extends Component {
                     </h5>
                   </div>
                 </div>
-                <div className="card-block row row-sm m-0 pb-0 pr-0 pl-0">
+                <div className="card-block row row-sm m-0 pb-0 pr-1 pl-1">
                   <div className="col-12 col-sm-12 col-md-5 pl-1 pr-1 m-0">
                     <div className="row m-0">
                       <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
@@ -188,8 +188,8 @@ class VoterInfo extends Component {
           } else {
             // voted by proxy
             return (
-              <div className="card sameheight-item stats mbc border-0 pl-1 pr-1" data-exclude="xs">
-                <div className="card-header card-header-sm bg-light shadow-sm act-xs-height">
+              <div className="card sameheight-item stats mbc mr-2 ml-2" data-exclude="xs">
+                <div className="card-header card-header-sm bg-white shadow-sm ">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
                     <h5 className="title text-info">
@@ -198,7 +198,7 @@ class VoterInfo extends Component {
                     </h5>
                   </div>
                 </div>
-                <div className="card-block row row-sm m-0 pr-0 pl-0">
+                <div className="card-block row row-sm m-0 pr-1 pl-1">
                   <div className="col-12 col-sm-12 col-md-5 pl-1 pr-1 m-0">
                     <div className="row m-0">
                       <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
@@ -333,8 +333,8 @@ class VoterInfo extends Component {
         if (voteinfo.producers.length > 0 || voteinfo.proxy) {
           if (!voteinfo.proxy)
             return (
-              <div className="card sameheight-item stats mbc border-0 pr-1 pl-1" data-exclude="xs">
-                <div className="card-header card-header-sm bg-light shadow-sm act-xs-height">
+              <div className="card sameheight-item stats mbc mr-2 ml-2" data-exclude="xs">
+                <div className="card-header card-header-sm bg-white shadow-sm ">
                   <div className="header-block pl-2 pr-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
                     <h5 className="title text-info">
@@ -344,7 +344,7 @@ class VoterInfo extends Component {
                   </div>
                   <span className="badge badge-pill badge-primary mb-2">Proxy</span>
                 </div>
-                <div className="card-block row row-sm m-0 pr-0 pl-0">
+                <div className="card-block row row-sm m-0 pr-1 pl-1">
                   <div className="col-12 col-sm-12 col-md-5 pl-1 pr-1 m-0 stat-col">
                     <div className="row m-0">
                       <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">

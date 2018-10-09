@@ -33,7 +33,7 @@ var eos_total_supply,
 const GeneralInfoLoading = () => {
   return (
     <div className="card sameheight-item stats mbc" data-exclude="xs">
-      <div className="card-header border-bottom bg-light row m-0">
+      <div className="card-header shadow-sm bg-white row m-0">
         <div className="header-block pl-2 col">
           <FontAwesomeIcon icon="cubes" className="mr-2 text-info fa-lg" />
           <h5 className="title text-info">
@@ -302,7 +302,7 @@ class GeneralInfo extends Component {
 
             return (
               <div className="card sameheight-item stats mbc" data-exclude="xs">
-                <div className="card-header bg-light border-bottom row m-0">
+                <div className="card-header shadow-sm bg-white row m-0">
                   <div className="header-block pl-2 col">
                     <FontAwesomeIcon icon="cubes" className="mr-2 text-info fa-lg" />
                     <h5 className="title text-info">

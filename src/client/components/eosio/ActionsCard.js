@@ -16,7 +16,7 @@ const ActionsCardLoading = () => {
   return (
     <div>
       <div className="card sameheight-item stats mb-1 border-0 pr-1 pl-1" data-exclude="xs">
-        <div className="card-header bg-light border-bottom boder-1 shadow-sm row m-0">
+        <div className="card-header bg-white border-bottom boder-1 row m-0">
           <div className="header-block pl-1 col stat-col">
             <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
             <h5 className="title text-info">Recent actions</h5>
@@ -147,8 +147,8 @@ class ActionsCard extends Component {
 
             return (
               <div>
-                <div className="card sameheight-item stats mb-1 border-0 pr-1 pl-1 pb-1 " data-exclude="xs">
-                  <div className="card-header bg-light border-bottom boder-1 shadow-sm row m-0">
+                <div className="card sameheight-item bg-white stats mb-1 border-0 pr-1 pl-1 pb-1 " data-exclude="xs">
+                  <div className="card-header bg-white row m-0">
                     <div className="header-block pl-1 col stat-col">
                       <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
                       <h5 className="title text-info">

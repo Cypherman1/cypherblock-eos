@@ -21,7 +21,6 @@ const ActionCommon = ({
       <div className="card-header bg-white  act-head-height pt-1 shadow-sm">
         <div className="row w-100 m-0">
           {children[0]}
-
           <div className="col pl-1 pr-0">
             <div className="">{children[1]}</div>
             <div className="pb-1">

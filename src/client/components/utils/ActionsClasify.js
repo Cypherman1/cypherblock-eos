@@ -398,7 +398,7 @@ export const renderTime = (time) => {
   return <div data-title="Time">{convertUTCDateToLocalDate(new Date(time)).toLocaleString()}</div>;
 };
 const ActType = ({bg, children}) => {
-  return <span className={`bg-light ${bg} font-weight-bold ftz-13`}>{children}</span>;
+  return <span className={`bg-white ${bg} font-weight-bold ftz-13`}>{children}</span>;
 };
 const ReceivedAction = ({action_trace}) => {
   return (

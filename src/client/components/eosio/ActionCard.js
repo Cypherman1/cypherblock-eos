@@ -45,22 +45,20 @@ const ActionCommon = ({
             </div>
           </div>
         </div>
+        <a
+          className="badge badge-warning text-light float-right p-1"
+          data-toggle="collapse"
+          href={`#collapse${action_trace.receipt.global_sequence}`}
+          role="button"
+          aria-expanded="true"
+          aria-controls={`collapse${action_trace.receipt.global_sequence}`}
+        >
+          <FontAwesomeIcon icon="code" className="mr-0 text-light" /> json
+        </a>
       </div>
-      <div className="card-footer action_fp border-0 bg-light">
-        <div className="w-100 ml-1 pr-1">
-          <a
-            className="badge badge-warning text-light float-right"
-            data-toggle="collapse"
-            href={`#collapse${action_trace.receipt.global_sequence}`}
-            role="button"
-            aria-expanded="false"
-            aria-controls={`collapse${action_trace.receipt.global_sequence}`}
-          >
-            <FontAwesomeIcon icon="code" className="mr-0 text-light" /> JSON
-          </a>
-          <div className="collapse" id={`collapse${action_trace.receipt.global_sequence}`}>
-            <JSONPretty id="json-pretty" json={action_trace} className="my-json-pretty" />
-          </div>
+      <div className="card-footer action_fp border-0">
+        <div className="collapse" id={`collapse${action_trace.receipt.global_sequence}`}>
+          <JSONPretty id="json-pretty" json={action_trace} className="my-json-pretty" />
         </div>
       </div>
     </div>

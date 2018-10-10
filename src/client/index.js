@@ -12,15 +12,14 @@ import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
 
-import './assets/css/app-blue.css';
-import './assets/css/shards.min.css';
-import './assets/css/custom.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/app-blue.css';
+import './assets/css/custom.css';
+import './assets/css/shards.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'react-toastify/dist/ReactToastify.css';
 // import './assets/css/metisMenu.min.css';
-// import './assets/js/metisMenu.min.js';
-// import './assets/js/sidebar.js';
+//import './assets/js/popper.min.js';
 import './bp.json';
 import App from './components/App';
 // import './components/utils/sidebar.js';
@@ -67,7 +66,8 @@ import {
   faInfoCircle,
   faArrowAltCircleDown,
   faUserLock,
-  faGlobe
+  faGlobe,
+  faCog
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -111,7 +111,8 @@ library.add(
   faInfoCircle,
   faArrowAltCircleDown,
   faUserLock,
-  faGlobe
+  faGlobe,
+  faCog
 );
 
 const errorLink = onError(({graphQLErrors, networkError, operation, response}) => {

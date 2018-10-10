@@ -164,8 +164,25 @@ class ActionsCard extends Component {
                           this.props.setLiveActions(!value);
                         }}
                       />
+                      {/* <button
+                        type="button"
+                        class="btn btn-white btn-pill p-1"
+                        data-toggle="collapse"
+                        data-target="#collapseExample"
+                        aria-expanded="false"
+                        aria-controls="collapseExample"
+                      >
+                        <FontAwesomeIcon icon="cog" className="text-info" size="lg" />
+                      </button> */}
                     </div>
+
                     {this.renderRefetchBtn(refetch)}
+                  </div>
+                  <div className="collapse border-top  mt-1 " id="collapseExample">
+                    <div className="card card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                      Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    </div>
                   </div>
                   <div className="card-block bg-actions pt-1 pb-0 pr-1 pl-1 ">
                     <CSSTransitionGroup

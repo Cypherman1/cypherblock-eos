@@ -35,7 +35,7 @@ const GeneralInfoLoading = () => {
     <div className="card sameheight-item stats mbc" data-exclude="xs">
       <div className="card-header shadow-sm bg-white row m-0">
         <div className="header-block pl-2 col">
-          <FontAwesomeIcon icon="cubes" className="mr-2 text-info fa-lg" />
+          <FontAwesomeIcon icon="globe" className="mr-2 text-info fa-lg" />
           <h5 className="title text-info">
             General Info
             {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
@@ -304,7 +304,7 @@ class GeneralInfo extends Component {
               <div className="card sameheight-item stats mbc" data-exclude="xs">
                 <div className="card-header shadow-sm bg-white row m-0">
                   <div className="header-block pl-2 col">
-                    <FontAwesomeIcon icon="cubes" className="mr-2 text-info fa-lg" />
+                    <FontAwesomeIcon icon="globe" className="mr-2 text-info fa-lg" />
                     <h5 className="title text-info">
                       General Info
                       {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}

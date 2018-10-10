@@ -348,7 +348,7 @@ const renderPerm = (perm_name, threshold, accounts, keys, account_name) => {
 const RoundedIcon = ({icon, color}) => {
   return (
     <div className="d-inline-block pt-act-icon">
-      <span className="fa-stack fa-lg">
+      <span className="fa-stack">
         <i className={`fa fa-circle fa-stack-2x ${color}`} />
         <i className={`fa ${icon} fa-stack-1x text-light`} />
       </span>

@@ -11,7 +11,7 @@ let nextDecayDate = null;
 
 const NoVote = () => {
   return (
-    <div className="card sameheight-item stats mbc mr-2 ml-2 " data-exclude="xs">
+    <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 pb-1 shadow-sm " data-exclude="xs">
       <div className="card-header card-header-sm shadow-sm bg-white ">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
@@ -67,7 +67,7 @@ class VoterInfo extends Component {
           if (!voteinfo.proxy) {
             //vote normaly
             return (
-              <div className="card sameheight-item stats mbc mr-2 ml-2" data-exclude="xs">
+              <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 pb-1 shadow-sm" data-exclude="xs">
                 <div className="card-header card-header-sm shadow-sm bg-white ">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
@@ -188,7 +188,7 @@ class VoterInfo extends Component {
           } else {
             // voted by proxy
             return (
-              <div className="card sameheight-item stats mbc mr-2 ml-2" data-exclude="xs">
+              <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 pb-1 shadow-sm" data-exclude="xs">
                 <div className="card-header card-header-sm bg-white shadow-sm ">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
@@ -333,7 +333,7 @@ class VoterInfo extends Component {
         if (voteinfo.producers.length > 0 || voteinfo.proxy) {
           if (!voteinfo.proxy)
             return (
-              <div className="card sameheight-item stats mbc mr-2 ml-2" data-exclude="xs">
+              <div className="card sameheight-item stats mbc mr-1 ml-1  border-0 shadow-sm" data-exclude="xs">
                 <div className="card-header card-header-sm bg-white shadow-sm ">
                   <div className="header-block pl-2 pr-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />

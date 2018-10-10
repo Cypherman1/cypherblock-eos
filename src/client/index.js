@@ -66,7 +66,8 @@ import {
   faCode,
   faInfoCircle,
   faArrowAltCircleDown,
-  faUserLock
+  faUserLock,
+  faGlobe
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -109,7 +110,8 @@ library.add(
   faCode,
   faInfoCircle,
   faArrowAltCircleDown,
-  faUserLock
+  faUserLock,
+  faGlobe
 );
 
 const errorLink = onError(({graphQLErrors, networkError, operation, response}) => {

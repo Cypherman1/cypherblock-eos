@@ -12,7 +12,7 @@ class SmartContract extends Component {
           const {abi} = data;
           if (abi && abi.abi) {
             return (
-              <div className="card sameheight-item stats mbc mr-2 ml-2 pr-1 pl-1" data-exclude="xs">
+              <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 shadow-sm " data-exclude="xs">
                 <div className="card-header card-header-sm bg-white">
                   <div className="header-block pl-2 pr-2">
                     <FontAwesomeIcon icon="cogs" className="mr-2 text-info" />

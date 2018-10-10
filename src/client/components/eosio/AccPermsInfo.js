@@ -7,7 +7,7 @@ const renderPerms = (permissions, account_name) => {
   let items = [];
   permissions.map((permission) => {
     items.push(
-      <div className="col-12 col-sm-6 stat-col pl-1 pr-0 pb-1" key={permission.perm_name}>
+      <div className="col-12 col-sm-6 stat-col pl-2 pr-0 pb-1" key={permission.perm_name}>
         {renderPerm(
           permission.perm_name,
           permission.required_auth.threshold,
@@ -23,7 +23,7 @@ const renderPerms = (permissions, account_name) => {
 
 const AccPermsInfo = ({permissions, account_name}) => {
   return (
-    <div className="card sameheight-item stats mbc mr-2 ml-2 " data-exclude="xs">
+    <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 shadow-sm " data-exclude="xs">
       <div className="card-header card-header-sm shadow-sm bg-white">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="user-lock" className="mr-2 text-info" />

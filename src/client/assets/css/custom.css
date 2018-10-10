@@ -1108,6 +1108,10 @@ span.CodeMirror-selectedtext {
   padding-top: 50px;
 }
 
+.pt-60 {
+  padding-top: 65px;
+}
+
 .plheight {
   height: 50px;
 }
@@ -1172,6 +1176,11 @@ span.CodeMirror-selectedtext {
 .ftz-16 {
   font-size: 20px !important;
 }
+
+.ftz-24 {
+  font-size: 24px !important;
+}
+
 .mb-accname {
   margin-bottom: 6px;
 }

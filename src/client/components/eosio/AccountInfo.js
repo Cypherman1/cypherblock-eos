@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {TransitionGroup} from 'react-transition-group';
 import {renderRamColor, renderTotalBalanceRAMColor, renderToFiatColor} from '../utils/RenderColors';
-import {convertUTCDateToLocalDate} from '../utils/Tools';
+import {convertUTCDateToLocalDate, RoundedIcon} from '../utils/Tools';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {ToastContainer, toast} from 'react-toastify';
 import VoterInfo from './VoterInfo';
 import AccPermsInfo from './AccPermsInfo';
+import SmartContract from './SmartContract';
+
 // import ErrorBoundary from '../ErrorBoundary';
 
 import GetAccountInfo from '../../queries/GetAccountInfo';
@@ -85,14 +87,14 @@ Date.prototype.addDays = function(days) {
 
 const AccountInfoLoading = () => {
   return (
-    <div className="sameheight-item stats mbc" data-exclude="xs">
-      <div className="card-header  shadow-sm bg-white">
+    <div className="bg-actions">
+      <div className="card-header bg-white">
         <div className="header-block pl-2 col stat-col">
           <div className="d-inline-block">
             <FontAwesomeIcon icon="user" className="mr-2 text-info ftz-16 mb-accname" />
           </div>
           <div className="d-inline-block">
-            <div className="d-inline-block text-info font-weight-bold" />
+            <div className="d-inline-block text-info font-weight-bold">{account_name}</div>
             <div className="ftz-8 text-success">Created:</div>
 
             {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
@@ -105,21 +107,29 @@ const AccountInfoLoading = () => {
           </TransitionGroup>
         </div>
       </div>
-      <div className="card-block ">
+      <div className="card sameheight-item stats mbc m-1 border-0 shadow-sm  pb-1">
         <div className="text-center align-middle overlay pd-gi">
           <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
         </div>
-        <div className="row row-sm stats-container m-0">
+        <div className="card-header card-header-sm shadow-sm bg-white mb-1">
+          <div className="header-block pl-2">
+            <FontAwesomeIcon icon="globe" className="mr-2 text-info" />
+            <h5 className="title text-info">
+              General info
+              {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
+            </h5>
+          </div>
+        </div>
+        <div className=" row row-sm stats-container m-0 ">
           <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
-            <div className="pd-bl">
-              <div className="mr-2 eos-icon">
-                <img src={eoslogo} />
-              </div>
-              <div className="stat">
-                <div className="value" />
-                <div className="name">Balance</div>
-              </div>
+            <div className="mr-1 eos-icon">
+              <img src={eoslogo} />
             </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name">Balance</div>
+            </div>
+
             <div className="progress stat-progress">
               <div
                 className="progress-bar"
@@ -177,7 +187,7 @@ const AccountInfoLoading = () => {
               <div
                 className="progress-bar"
                 style={{
-                  width: `${((unstaked / total_balance) * 100).toFixed(3)}%`
+                  width: `0%`
                 }}
               />
             </div>
@@ -188,13 +198,13 @@ const AccountInfoLoading = () => {
             </div>
             <div className="stat">
               <div className="value" />
-              <div className="name"> EOS staked </div>
+              <div className="name"> EOS staked(Vote power) </div>
             </div>
             <div className="progress stat-progress">
               <div
                 className="progress-bar"
                 style={{
-                  width: `${((staked / total_balance) * 100).toFixed(3)}%`
+                  width: `0%`
                 }}
               />
             </div>
@@ -205,13 +215,48 @@ const AccountInfoLoading = () => {
             </div>
             <div className="stat">
               <div className="value" />
-              <div className="name">EOS refunding </div>
+              <div className="name">Refunding</div>
             </div>
             <div className="progress stat-progress">
               <div
                 className="progress-bar"
                 style={{
-                  width: `${((refund / total_balance) * 100).toFixed(3)}%`
+                  width: `0%`
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="microchip" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name">{`CPU `}</div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `0%`
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
+            <div className="stat-icon">
+              <FontAwesomeIcon icon="bolt" />
+            </div>
+            <div className="stat">
+              <div className="value" />
+              <div className="name">{`NET`}</div>
+            </div>
+            <div className="progress stat-progress">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `0%`
                 }}
               />
             </div>
@@ -228,44 +273,43 @@ const AccountInfoLoading = () => {
               <div
                 className="progress-bar"
                 style={{
-                  width: `${((ram_usage_num / limited_ram_num) * 100).toFixed(3)}%`
+                  width: `0%`
                 }}
               />
             </div>
           </div>
-          <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
-            <div className="stat-icon">
-              <FontAwesomeIcon icon="microchip" />
-            </div>
-            <div className="stat">
-              <div className="value" />
-              <div className="name">CPU </div>
-            </div>
-            <div className="progress stat-progress">
-              <div
-                className="progress-bar"
-                style={{
-                  width: `${((used_cpu_num / limited_cpu_num) * 100).toFixed(3)}%`
-                }}
-              />
-            </div>
+        </div>
+      </div>
+      <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 shadow-sm " data-exclude="xs">
+        <div className="card-header card-header-sm shadow-sm bg-white">
+          <div className="header-block pl-2">
+            <FontAwesomeIcon icon="user-lock" className="mr-2 text-info" />
+            <h5 className="title text-info">
+              Permissions info
+              {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
+            </h5>
           </div>
-          <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
-            <div className="stat-icon">
-              <FontAwesomeIcon icon="bolt" />
-            </div>
-            <div className="stat">
-              <div className="value" />
-              <div className="name">NET</div>
-            </div>
-            <div className="progress stat-progress">
-              <div
-                className="progress-bar"
-                style={{
-                  width: `${((used_net_num / limited_net_num) * 100).toFixed(3)}%`
-                }}
-              />
-            </div>
+        </div>
+      </div>
+      <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 pb-1 shadow-sm " data-exclude="xs">
+        <div className="card-header card-header-sm shadow-sm bg-white ">
+          <div className="header-block pl-2">
+            <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
+            <h5 className="title text-info">
+              Voter info
+              {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 shadow-sm " data-exclude="xs">
+        <div className="card-header card-header-sm bg-white">
+          <div className="header-block pl-2 pr-2">
+            <FontAwesomeIcon icon="cogs" className="mr-2 text-info" />
+            <h5 className="title text-info">
+              Smart contract
+              {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
+            </h5>
           </div>
         </div>
       </div>
@@ -397,8 +441,8 @@ class AccountInfo extends Component {
 
           if (account && table_rows && cmc)
             return (
-              <div>
-                <div className="card-header shadow-sm bg-white">
+              <div className="bg-actions">
+                <div className="card-header bg-white">
                   <div className="header-block pl-2 col stat-col">
                     <div className="d-inline-block">
                       <FontAwesomeIcon icon="user" className="mr-2 text-info ftz-16 mb-accname" />
@@ -421,8 +465,17 @@ class AccountInfo extends Component {
                     </TransitionGroup>
                   </div>
                 </div>
-                <div className="card-block ">
-                  <div className="row row-sm stats-container m-0">
+                <div className="card sameheight-item stats mbc m-1 border-0 shadow-sm  pb-1">
+                  <div className="card-header card-header-sm shadow-sm bg-white mb-1">
+                    <div className="header-block pl-2">
+                      <FontAwesomeIcon icon="globe" className="mr-2 text-info" />
+                      <h5 className="title text-info">
+                        General info
+                        {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
+                      </h5>
+                    </div>
+                  </div>
+                  <div className=" row row-sm stats-container m-0 ">
                     <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
                       <div className="mr-1 eos-icon">
                         <img src={eoslogo} />
@@ -605,6 +658,7 @@ class AccountInfo extends Component {
                 </div>
                 <AccPermsInfo permissions={account.permissions} account_name={account_name} />
                 <VoterInfo voteinfo={voteinfo} head_block_time={account.head_block_time} />
+                <SmartContract account_name={account_name} />
               </div>
             );
           else {

@@ -41,6 +41,7 @@ const WalletLoading = () => {
 };
 
 class Wallet extends Component {
+  // Create AllTokens array
   setAllTokens(data, bitfinex_pairs) {
     AllTokens = [];
     for (var token in data) {

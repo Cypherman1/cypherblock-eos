@@ -88,6 +88,30 @@ export const Tokens = [
     chaince_pair: ''
   },
   {
+    code: 'publytoken11',
+    account: '',
+    symbol: 'PUB',
+    logo: 'pub.png',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'trybenetwork',
+    account: '',
+    symbol: 'TRYBE',
+    logo: 'TRYBE.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
+    code: 'eosiomeetone',
+    account: '',
+    symbol: 'MEETONE',
+    logo: 'MEETONE.png',
+    bitfinex_pair: '',
+    chaince_pair: ''
+  },
+  {
     code: 'oo1122334455',
     account: '',
     symbol: 'IPOS',
@@ -160,14 +184,6 @@ export const Tokens = [
     chaince_pair: ''
   },
   {
-    code: 'trybenetwork',
-    account: '',
-    symbol: 'TRYBE',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: ''
-  },
-  {
     code: 'wizznetwork1',
     account: '',
     symbol: 'WIZZ',
@@ -195,14 +211,6 @@ export const Tokens = [
     code: 'weosservices',
     account: '',
     symbol: 'WECASH',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: ''
-  },
-  {
-    code: 'publytoken11',
-    account: '',
-    symbol: 'PUB',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
     chaince_pair: ''
@@ -243,14 +251,6 @@ export const Tokens = [
     code: 'betdividends',
     account: '',
     symbol: 'BET',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: ''
-  },
-  {
-    code: 'eosiomeetone',
-    account: '',
-    symbol: 'MEETONE',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
     chaince_pair: ''

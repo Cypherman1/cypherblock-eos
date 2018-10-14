@@ -105,7 +105,7 @@ class Header extends Component {
                   <input
                     type="text"
                     placeholder="Search by account/pubkey/trx/blockid"
-                    className="w-100 form-control rounded border border-info"
+                    className="w-100 form-control rounded border border-info pl-3"
                     onChange={this.changeTerm}
                     name="search"
                     autoCapitalize="off"

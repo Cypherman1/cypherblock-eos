@@ -19,6 +19,8 @@ const BlockType = require('./block_type');
 const CodeType = require('./code_type');
 const VoterFullInfoType = require('./voter_info_type');
 const ABIType = require('./abi_type');
+const BigOneTickersType = require('./bigone_tickers_type');
+const BlockSenceTickersType = require('./blocksence_tickers_type');
 
 let VoterInfo = {};
 
@@ -260,6 +262,50 @@ const RootQueryType = new GraphQLObjectType({
       resolve() {
         return axios
           .get('https://api.bitfinex.com/v2/tickers?symbols=tIQXEOS')
+          .then((res) => res)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    bigone_tickers: {
+      type: BigOneTickersType,
+      resolve() {
+        let result = {data: []};
+        return axios
+          .get('https://big.one/api/v2/tickers')
+          .then((res) => {
+            res.data.data.map((item) => {
+              if (
+                [
+                  'BLACK-EOS',
+                  'KARMA-EOS',
+                  'HORUS-EOS',
+                  'ADD-EOS',
+                  'ATD-EOS',
+                  'MEETONE-EOS',
+                  'EDNA-EOS',
+                  'BOID-EOS',
+                  'LUCK-EOS',
+                  'CHL-EOS',
+                  'DEOS-EOS'
+                ].indexOf(item.market_id) >= 0
+              )
+                result.data.push(item);
+            });
+            return result;
+          })
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    blocksence_tickers: {
+      type: BlockSenceTickersType,
+      resolve() {
+        let result = {data: []};
+        return axios
+          .get('https://blocksense.one/api/token.json')
           .then((res) => res)
           .catch((error) => {
             onError(error);

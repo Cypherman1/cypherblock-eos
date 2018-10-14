@@ -9,14 +9,13 @@ import {InMemoryCache} from 'apollo-cache-inmemory';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import reduxThunk from 'redux-thunk';
-
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import reducers from './reducers';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/css/app-blue.css';
 import './assets/css/custom.css';
 import './assets/css/shards.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'react-toastify/dist/ReactToastify.css';
 // import './assets/css/metisMenu.min.css';
 //import './assets/js/popper.min.js';
@@ -67,7 +66,8 @@ import {
   faArrowAltCircleDown,
   faUserLock,
   faGlobe,
-  faCog
+  faCog,
+  faChevronCircleRight
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -112,7 +112,8 @@ library.add(
   faArrowAltCircleDown,
   faUserLock,
   faGlobe,
-  faCog
+  faCog,
+  faChevronCircleRight
 );
 
 const errorLink = onError(({graphQLErrors, networkError, operation, response}) => {

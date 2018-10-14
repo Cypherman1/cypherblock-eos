@@ -24,6 +24,7 @@ export const AG_RESOURCES = 'Account Resources';
 ////1.3.1. Types
 export const AT_CREATE_ACCOUNT = 'Create Account';
 export const AT_UPDATE_AUTH = 'Update Authorization';
+export const AT_BID_NAME = 'Bid Name';
 ////1.3.2. Groups
 export const AG_ACCOUNT = 'Account';
 
@@ -74,6 +75,18 @@ export const AntiSpams = {
     {
       act_account: 'eosbaycasino',
       act_name: 'ping'
+    },
+    {
+      act_account: 'eosblackdrop',
+      act_name: 'alert'
+    },
+    {
+      act_account: 'watchdoggiee',
+      act_name: 'ping'
+    },
+    {
+      act_account: 'eospromdress',
+      act_name: 'dice'
     }
   ]
 };

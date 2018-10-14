@@ -30,7 +30,8 @@ import {
   AT_CANCELDELAY,
   AT_OTHERS,
   AG_OTHERS,
-  AG_VOTE
+  AG_VOTE,
+  AT_BID_NAME
 } from '../utils/ConstTypes';
 
 const classifyAction = (action_trace, account_name) => {
@@ -260,6 +261,15 @@ const classifyAction = (action_trace, account_name) => {
       };
 
       return ActionInfo;
+    case 'bidname':
+      ActionInfo = {
+        action_type: AT_BID_NAME,
+        action_component: BidName,
+        action_style: {icon: 'fa-hammer', color: 'icon-vote'},
+        action_group: AG_RESOURCES
+      };
+
+      return ActionInfo;
     default:
       ActionInfo = {
         action_type: null,
@@ -347,54 +357,7 @@ export const renderBlockStatus = (block_num, last_irreversible_block, head_block
     return renderConfirmation(block_num, head_block_num);
   }
 };
-// const renderAuthorization = (auths) => {
-//   let items = [];
-//   if (auths)
-//     auths.map((auth) => {
-//       items.push(
-//         <div className="col-12 col-sm-12 col-md-12 p-0" key={auth.actor}>
-//           <div className="row m-0 pr-1">
-//             <div className="col-12 col-sm-12 col-md-6 p-0 pr-1 pl-1 stat-col">
-//               {/* <div className="stat-icon">
-//                               <FontAwesomeIcon icon="dollar-sign" />
-//                             </div> */}
-//               <div className="stat">
-//                 <div className="value">{renderAccountLink(auth.actor)}</div>
-//                 <div className="name">Actor</div>
-//               </div>
-//               <div className="progress stat-progress">
-//                 <div
-//                   className="progress-bar"
-//                   style={{
-//                     width: `0%`
-//                   }}
-//                 />
-//               </div>
-//             </div>
-//             <div className="col-12 col-sm-12 col-md-6 p-0 pr-1 pl-1 stat-col">
-//               {/* <div className="stat-icon">
-//                               <FontAwesomeIcon icon="dollar-sign" />
-//                             </div> */}
-//               <div className="stat">
-//                 <div className="value text-info">{auth.permission}</div>
-//                 <div className="name">Permission</div>
-//               </div>
-//               <div className="progress stat-progress">
-//                 <div
-//                   className="progress-bar"
-//                   style={{
-//                     width: `0%`
-//                   }}
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       );
-//     });
-//   // else items.push(<span>Noone </span>);
-//   return items;
-// };
+
 export const renderTime = (time) => {
   return <div data-title="Time">{convertUTCDateToLocalDate(new Date(time)).toLocaleString()}</div>;
 };
@@ -505,6 +468,19 @@ const Delegatebw = ({action_trace}) => {
         <span className="text-info">{toTokenNumber(action_trace.act.data.stake_net_quantity)}</span> {` for NET and `}
         <span className="text-info">{toTokenNumber(action_trace.act.data.stake_cpu_quantity)}</span> {` for CPU to `}
         {renderAccountLink(action_trace.act.data.receiver)}
+      </div>
+    </div>
+  );
+};
+
+const BidName = ({action_trace}) => {
+  return (
+    <div className="pt-1 pb-1">
+      <div className="actinfo-font">
+        {renderAccountLink(action_trace.act.data.bidder)}
+        {` bided `}
+        <span className="text-info">{toTokenNumber(action_trace.act.data.bid)}</span> {` on name `}
+        {renderAccountLink(action_trace.act.data.newname)}
       </div>
     </div>
   );

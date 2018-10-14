@@ -26,6 +26,7 @@ const Account = ({match}) => {
                 account_name={match.params.account_name}
                 notifyOnNetworkStatusChange={false}
                 showRefetch={true}
+                isLive={false}
               />
             </ErrorBoundary>
           </div>

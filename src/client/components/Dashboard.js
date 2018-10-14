@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ErrorBoundary from './ErrorBoundary';
 import MarketInfo from './eosio/MarketInfo';
 import GeneralInfo from './eosio/GeneralInfo';
-import Actions from './eosio/Actions';
 import ActionsCard from './eosio/ActionsCard';
 import Producers from './eosio/Producers';
 
@@ -21,7 +20,7 @@ class Dashboard extends Component {
                   account_name="eosio"
                   notifyOnNetworkStatusChange={false}
                   showRefetch={true}
-                  pollInterval={0}
+                  isLive={true}
                 />
               </ErrorBoundary>
             </div>

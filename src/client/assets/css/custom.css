@@ -1212,6 +1212,11 @@ span.CodeMirror-selectedtext {
   .pd-acttype {
     padding-top: 10px;
   }
+
+  .pd-action-setting {
+    padding-right: 10px !important;
+    padding-left: 15px !important;
+  }
   /* .stat .value {
     line-height: 40px !important;
   }
@@ -1458,6 +1463,7 @@ i.metismenu-state-icon.rotate-minus-90 {
 }
 .font-weight-normal {
   font-weight: 300 !important;
+  position: static !important;
 }
 
 .act-out-transition {
@@ -1493,7 +1499,7 @@ i.metismenu-state-icon.rotate-minus-90 {
 
 .react-tagsinput-tag a::before {
   content: ' ×';
-  color:#ccc;
+  color: #ccc;
 }
 
 .react-tagsinput-input {
@@ -1521,4 +1527,9 @@ i.metismenu-state-icon.rotate-minus-90 {
   border-radius: 0.375rem;
   box-shadow: none;
   transition: box-shadow 250ms cubic-bezier(0.27, 0.01, 0.38, 1.06), border 250ms cubic-bezier(0.27, 0.01, 0.38, 1.06);
+}
+
+.pd-action-setting {
+  padding-right: 10px !important;
+  padding-left: 20px !important;
 }

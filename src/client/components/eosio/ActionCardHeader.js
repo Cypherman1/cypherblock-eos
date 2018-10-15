@@ -105,12 +105,12 @@ const ActionCardHeader = ({
         </div>
       </div>
       <div className="collapse card border shadow-sm" id="collapseExample">
-        <div className="card card-body pt-2 pr-3 pl-3 pb-0 ">
+        <div className="card card-body pt-2 pd-action-setting pb-0 border-0">
           <div className="row  ">
-            <div className="col-12 col-sm-6 font-weight-normal">
+            <div className="col-6 col-sm-6 ftz-12 font-weight-normal pr-0">
               {/* Toggles */}
               <fieldset>
-                <strong className="text-muted d-block mb-2 h6">Config</strong>
+                <strong className="text-info d-block mb-2 h6">Config</strong>
                 <div className="custom-control custom-toggle custom-toggle mb-3">
                   <input
                     type="checkbox"
@@ -122,7 +122,7 @@ const ActionCardHeader = ({
                       setIsAntiSpam(!isAntiSpamed);
                     }}
                   />
-                  <label className="custom-control-label font-weight-normal" htmlFor="antiSpam">
+                  <label className="custom-control-label font-weight-normal pt-1" htmlFor="antiSpam">
                     Anti spam
                   </label>
                 </div>
@@ -137,14 +137,14 @@ const ActionCardHeader = ({
                       setLiveActions(!islive);
                     }}
                   />
-                  <label className="custom-control-label font-weight-normal" htmlFor="liveAction">
+                  <label className="custom-control-label font-weight-normal pt-1" htmlFor="liveAction">
                     Live Actions
                   </label>
                 </div>
                 <label className="font-weight-normal">
                   <select
                     id="inputLimit"
-                    className="form-control-sm mr-2"
+                    className="form-control-sm mr-2 offset-select-width"
                     value={limit}
                     onChange={(event) => {
                       setLimitValue(event.target.value);
@@ -162,9 +162,9 @@ const ActionCardHeader = ({
 
               {/* / Toggles */}
             </div>
-            <div className="col-12 col-sm-6 ftz-12">
+            <div className="col-6 col-sm-6 ftz-12">
               {/* Checkboxes */}
-              <strong className="text-muted d-block mb-2 h6">Show/Filter</strong>
+              <strong className="text-info d-block mb-2 h6">Show/Filter</strong>
               <fieldset>
                 <div className="custom-control custom-checkbox mb-1 pt-actgrp">
                   <input
@@ -176,7 +176,7 @@ const ActionCardHeader = ({
                       setFilterSendReceieEOS(event.target.checked);
                     }}
                   />
-                  <label className="custom-control-label font-weight-normal  text-success" htmlFor="ckxSendReceiveEOS">
+                  <label className="custom-control-label font-weight-normal" htmlFor="ckxSendReceiveEOS">
                     Send/Receive EOS
                   </label>
                 </div>
@@ -191,7 +191,7 @@ const ActionCardHeader = ({
                       setFilterSendReceieTokens(event.target.checked);
                     }}
                   />
-                  <label className="custom-control-label font-weight-normal  text-info" htmlFor="cbxSendReceiveToken">
+                  <label className="custom-control-label font-weight-normal  " htmlFor="cbxSendReceiveToken">
                     Send/Receive tokens
                   </label>
                 </div>
@@ -205,7 +205,7 @@ const ActionCardHeader = ({
                       setFilterResources(event.target.checked);
                     }}
                   />
-                  <label className="custom-control-label font-weight-normal text-primary" htmlFor="cbxResources">
+                  <label className="custom-control-label font-weight-normal" htmlFor="cbxResources">
                     Account, Resources, Contract
                   </label>
                 </div>
@@ -220,7 +220,7 @@ const ActionCardHeader = ({
                       setFilterSmartContract(event.target.checked);
                     }}
                   />
-                  <label className="custom-control-label font-weight-normal text-danger" htmlFor="cbxSmartContract">
+                  <label className="custom-control-label font-weight-normal " htmlFor="cbxSmartContract">
                     Vote,Producers
                   </label>
                 </div>
@@ -234,7 +234,7 @@ const ActionCardHeader = ({
                       setFilterOthers(event.target.checked);
                     }}
                   />
-                  <label className="custom-control-label font-weight-normal text-warning" htmlFor="cbxOthers">
+                  <label className="custom-control-label font-weight-normal " htmlFor="cbxOthers">
                     Others
                   </label>
                 </div>
@@ -242,7 +242,7 @@ const ActionCardHeader = ({
               {/* / Checkboxes */}
             </div>
             <div className="col-12 ftz-12">
-              <strong className="text-muted d-block mb-2 h6">Search</strong>
+              <strong className="text-info d-block mb-2 h6">Search</strong>
               <fieldset>
                 <TagsInput
                   value={memoTags}

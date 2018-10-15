@@ -113,7 +113,7 @@ class Header extends Component {
                   />
                   <div className="input-group-append">
                     <button type="button" className="btn btn-info mb-0" onClick={this.submit}>
-                      <i className="fa fa-search text-light" />
+                      <i className="fa fa-search text-white" />
                     </button>
                   </div>
                 </div>

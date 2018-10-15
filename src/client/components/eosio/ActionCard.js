@@ -46,14 +46,14 @@ const ActionCommon = ({
           </div>
         </div>
         <a
-          className="badge badge-warning text-light float-right p-1"
+          className="badge badge-warning text-white float-right p-1"
           data-toggle="collapse"
           href={`#collapse${action_trace.receipt.global_sequence}`}
           role="button"
           aria-expanded="true"
           aria-controls={`collapse${action_trace.receipt.global_sequence}`}
         >
-          <FontAwesomeIcon icon="code" className="mr-0 text-light" /> json
+          <FontAwesomeIcon icon="code" className="mr-0 text-white" /> json
         </a>
       </div>
       <div className="card-footer action_fp border-0">

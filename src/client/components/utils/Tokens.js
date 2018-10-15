@@ -1,14 +1,14 @@
 export const Tokens = [
-  {
-    code: 'eosio.token',
-    account: 'giztemrug4ge',
-    symbol: 'EOS',
-    logo: 'eoslogo.svg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
+  // {
+  //   code: 'eosio.token',
+  //   account: 'giztemrug4ge',
+  //   symbol: 'EOS',
+  //   logo: 'eoslogo.svg',
+  //   bitfinex_pair: '',
+  //   chaince_pair: '',
+  //   bigone_ticker: '',
+  //   blocksence_ticker: ''
+  // },
   {
     code: 'everipediaiq',
     account: 'giztemrug4ge',
@@ -27,7 +27,7 @@ export const Tokens = [
     bitfinex_pair: '',
     chaince_pair: '',
     bigone_ticker: '',
-    blocksence_ticker: ''
+    blocksence_ticker: 'EOSDAC'
   },
   {
     code: 'eosiochaince',
@@ -37,7 +37,7 @@ export const Tokens = [
     bitfinex_pair: '',
     chaince_pair: '',
     bigone_ticker: '',
-    blocksence_ticker: ''
+    blocksence_ticker: 'CET'
   },
   {
     code: 'eosadddddddd',
@@ -117,7 +117,7 @@ export const Tokens = [
     bitfinex_pair: '',
     chaince_pair: '',
     bigone_ticker: '',
-    blocksence_ticker: ''
+    blocksence_ticker: 'PUB'
   },
   {
     code: 'trybenetwork',
@@ -138,6 +138,26 @@ export const Tokens = [
     chaince_pair: '',
     bigone_ticker: 'MEETONE-EOS',
     blocksence_ticker: ''
+  },
+  {
+    code: 'boidcomtoken',
+    account: '',
+    symbol: 'BOID',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: 'BOID-EOS',
+    blocksence_ticker: ''
+  },
+  {
+    code: 'octtothemoon',
+    account: '',
+    symbol: 'OCT',
+    logo: 'AIRDROP.jpeg',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: 'OCT'
   },
   {
     code: 'oo1122334455',
@@ -200,16 +220,6 @@ export const Tokens = [
     blocksence_ticker: ''
   },
   {
-    code: 'octtothemoon',
-    account: '',
-    symbol: 'OCT',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
     code: 'poormantoken',
     account: '',
     symbol: 'POOR',
@@ -237,16 +247,6 @@ export const Tokens = [
     bitfinex_pair: '',
     chaince_pair: '',
     bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
-    code: 'boidcomtoken',
-    account: '',
-    symbol: 'BOID',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: 'BOID-EOS',
     blocksence_ticker: ''
   },
   {

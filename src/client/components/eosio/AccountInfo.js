@@ -90,14 +90,15 @@ const AccountInfoLoading = () => {
     <div className="bg-actions">
       <div className="card-header bg-white">
         <div className="header-block pl-2 col stat-col">
-          <div className="d-inline-block">
-            <FontAwesomeIcon icon="user" className="mr-2 text-info ftz-16 mb-accname" />
+          <div className="head-icon">
+            <FontAwesomeIcon icon="user" className="mr-2 text-info fa-lg" />
           </div>
-          <div className="d-inline-block">
-            <div className="d-inline-block text-info font-weight-bold">{account_name}</div>
-            <div className="ftz-8 text-success">Created:</div>
+          <div className="stat">
+            <div className="value">
+              <h5 className="title text-info " />
+            </div>
 
-            {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
+            <div className="name ftz-8 text-success">Created:</div>
           </div>
         </div>
         <div className="stat float-right mt-1">
@@ -444,16 +445,17 @@ class AccountInfo extends Component {
               <div className="bg-actions">
                 <div className="card-header bg-white">
                   <div className="header-block pl-2 col stat-col">
-                    <div className="d-inline-block">
-                      <FontAwesomeIcon icon="user" className="mr-2 text-info ftz-16 mb-accname" />
+                    <div className="head-icon">
+                      <FontAwesomeIcon icon="user" className="mr-2 text-info fa-lg" />
                     </div>
-                    <div className="d-inline-block">
-                      <div className="d-inline-block text-info font-weight-bold">{account_name}</div>
-                      <div className="ftz-8 text-success">
-                        Created: {convertUTCDateToLocalDate(new Date(account.created)).toLocaleString()}{' '}
+                    <div className="stat">
+                      <div className="value">
+                        <h5 className="title text-info ">{account_name}</h5>
                       </div>
 
-                      {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
+                      <div className="name ftz-8 text-success">
+                        Created: {convertUTCDateToLocalDate(new Date(account.created)).toLocaleString()}{' '}
+                      </div>
                     </div>
                   </div>
                   <div className="stat float-right mt-1">

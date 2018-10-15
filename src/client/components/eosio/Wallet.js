@@ -9,15 +9,24 @@ import {renderEOSNum} from '../utils/RenderColors';
 const images = require.context('../../assets/imgs/symbols');
 
 let AllTokens = [];
+let total_token_value = 0;
 
 const WalletLoading = () => {
   return (
     <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">
       <div className="card sameheight-item stats" data-exclude="xs">
         <div className="card-header shadow-sm bg-white">
-          <div className="header-block pl-2">
-            <FontAwesomeIcon icon="wallet" className="mr-2 text-info fa-lg" />
-            <h5 className="title text-info ">Wallet</h5>
+          <div className="header-block pl-2 stat-col">
+            <div className="head-icon">
+              <FontAwesomeIcon icon="wallet" className="mr-2 text-info fa-lg" />
+            </div>
+            <div className="stat">
+              <div className="value">
+                <h5 className="title text-info ">Tokens</h5>
+              </div>
+
+              <div className="name ftz-10 font-weight-bold pl-tokeneos "> ... EOS </div>
+            </div>
           </div>
         </div>
         <div className="card-block">
@@ -147,7 +156,7 @@ class Wallet extends Component {
       return (
         <div className="col-4 p-0">
           <div className="stat float-right">
-            <div className="value text-right w-100 font-weight-normal">{token.price}</div>
+            <div className="value text-right w-100">{token.price}</div>
             <div className="name">{renderPPColor((token.percent * 100).toFixed(2))}</div>
           </div>
         </div>
@@ -171,6 +180,15 @@ class Wallet extends Component {
           tPrice = Number(ticker.close);
         }
       });
+
+    if (data.blocksence_tickers && data.blocksence_tickers.data && blocksence_ticker) {
+      for (var ticker in data.blocksence_tickers.data) {
+        if (ticker == blocksence_ticker) {
+          tPrice = data.blocksence_tickers.data[ticker].eos_price;
+        }
+      }
+    }
+
     return tPrice;
   }
   //get the token price percent change
@@ -189,10 +207,19 @@ class Wallet extends Component {
           tPercent = Number(ticker.daily_change_perc) / 100;
         }
       });
+
+    if (data.blocksence_tickers && data.blocksence_tickers.data && blocksence_ticker) {
+      for (var ticker in data.blocksence_tickers.data) {
+        if (ticker == blocksence_ticker) {
+          tPercent = Number(data.blocksence_tickers.data[ticker].percent_change) / 100;
+        }
+      }
+    }
     return tPercent;
   }
 
   render() {
+    total_token_value = 0;
     return (
       <Query
         query={GetWalletInfo}
@@ -208,20 +235,33 @@ class Wallet extends Component {
 
           if (data) {
             this.setAllTokens(data);
+            AllTokens.map((token) => {
+              total_token_value = total_token_value + token.ammount * token.price;
+            });
             return (
               <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">
                 <div className="card sameheight-item stats" data-exclude="xs">
                   <div className="card-header  shadow-sm bg-white">
-                    <div className="header-block pl-2">
-                      <FontAwesomeIcon icon="wallet" className="mr-2 text-info fa-lg" />
-                      <h5 className="title text-info ">Wallet</h5>
+                    <div className="header-block pl-2 stat-col">
+                      <div className="head-icon">
+                        <FontAwesomeIcon icon="wallet" className="mr-2 text-info fa-lg" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">
+                          <h5 className="title text-info ">Tokens</h5>
+                        </div>
+
+                        <div className="name ftz-10 font-weight-bold pl-tokeneos ">
+                          {total_token_value.toFixed(2)} EOS
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div className="card-block">
                     <div className="title-block row ">
                       <div className="col-12 col-sm-12 header-col">
                         <div className="row border-bottom price-row">
-                          <div className="col float-left price-font pl-2"> Tokens </div>
+                          <div className="col float-left price-font pl-2" />
                           <div className="col text-right price-font pr-1">Price (Token/EOS)</div>
                         </div>
                       </div>

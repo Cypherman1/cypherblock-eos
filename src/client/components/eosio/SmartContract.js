@@ -23,12 +23,12 @@ class SmartContract extends Component {
                   </div>
                   <span className="badge badge-pill badge-warning mr-2">
                     <Link to={`/abi/${this.props.account_name}`}>
-                      <span className="text-light"> View ABI </span>
+                      <span className="text-white"> View ABI </span>
                     </Link>
                   </span>
                   <span className="badge badge-pill badge-warning">
                     <Link to={`/code/${this.props.account_name}`}>
-                      <span className="text-light"> View code </span>
+                      <span className="text-white"> View code </span>
                     </Link>
                   </span>
                 </div>

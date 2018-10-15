@@ -1093,7 +1093,7 @@ span.CodeMirror-selectedtext {
 }
 
 .pd-mi {
-  padding-top: 70px;
+  padding-top: 85px;
 }
 
 .pd-as {
@@ -1576,4 +1576,17 @@ i.metismenu-state-icon.rotate-minus-90 {
 .pd-action-setting {
   padding-right: 10px !important;
   padding-left: 20px !important;
+}
+
+.head-icon {
+  color: #bdbdbd;
+  display: inline-block;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+  width: 30px;
+}
+
+.pl-tokeneos {
+  padding-left: 2px;
 }

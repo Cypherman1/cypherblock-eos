@@ -54,7 +54,7 @@ const SideBar = (props) => {
       <aside className="sidebar">
         <div className="sidebar-container">
           <div className="sidebar-header">
-            <div className="brand text-light logo-text-font">
+            <div className="brand text-white logo-text-font">
               <div className="mylogo logo-font">
                 <FontAwesomeIcon icon="cube" />
               </div>

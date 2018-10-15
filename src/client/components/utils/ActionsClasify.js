@@ -265,7 +265,7 @@ const classifyAction = (action_trace, account_name) => {
       ActionInfo = {
         action_type: AT_BID_NAME,
         action_component: BidName,
-        action_style: {icon: 'fa-hammer', color: 'icon-vote'},
+        action_style: {icon: 'fa-hourglass', color: 'icon-vote'},
         action_group: AG_RESOURCES
       };
 
@@ -726,7 +726,7 @@ const ActSign = ({icon, color, trx_id}) => {
       <div className="d-inline-block pt-act-icon">
         <span className="fa-stack fa-lg">
           <i className={`fa fa-circle fa-stack-2x ${color}`} />
-          <i className={`fa ${icon} fa-stack-1x text-light`} />
+          <i className={`fa  ${icon} fa-stack-1x text-light`} />
         </span>
       </div>
     </Link>

@@ -1573,7 +1573,7 @@ i.metismenu-state-icon.rotate-minus-90 {
   transition: box-shadow 250ms cubic-bezier(0.27, 0.01, 0.38, 1.06), border 250ms cubic-bezier(0.27, 0.01, 0.38, 1.06);
 }
 
-/* .pd-action-setting {
+.pd-action-setting {
   padding-right: 10px !important;
   padding-left: 20px !important;
-} */
+}

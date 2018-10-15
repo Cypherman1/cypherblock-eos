@@ -22,7 +22,7 @@ module.exports = merge(commonConfig, {
         removeComments: true,
         collapseWhitespace: true,
         removeRedundantAttributes: true,
-        useShortDoctype: true,
+        useShortDoctype: false,
         removeEmptyAttributes: true,
         removeStyleLinkTypeAttributes: true,
         keepClosingSlash: true,

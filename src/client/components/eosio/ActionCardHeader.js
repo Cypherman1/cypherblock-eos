@@ -105,13 +105,13 @@ const ActionCardHeader = ({
         </div>
       </div>
       <div className="collapse card border shadow-sm" id="collapseExample">
-        <div className="card card-body pt-2 pb-0 ">
+        <div className="card card-body pt-2 pb-0 pd-action-setting">
           <div className="row  ">
             <div className="col-6 font-weight-normal">
               {/* Toggles */}
               <fieldset>
                 <strong className="text-muted d-block mb-2 h6">Config</strong>
-                <div className="custom-control  custom-checkbox mb-3">
+                <div className="custom-control  custom-toggle mb-3">
                   <input
                     type="checkbox"
                     id="antiSpam"
@@ -126,7 +126,7 @@ const ActionCardHeader = ({
                     Anti spam
                   </label>
                 </div>
-                <div className="custom-control custom-checkbox  mb-3">
+                <div className="custom-control custom-toggle  mb-3">
                   <input
                     type="checkbox"
                     id="liveAction"
@@ -162,7 +162,7 @@ const ActionCardHeader = ({
 
               {/* / Toggles */}
             </div>
-            <div className="col-6 ftz-12">
+            <div className="col-6 ftz-12 pl-0">
               {/* Checkboxes */}
               <strong className="text-muted d-block mb-2 h6">Show/Filter</strong>
               <fieldset>

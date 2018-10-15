@@ -12,7 +12,7 @@ import reduxThunk from 'redux-thunk';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import reducers from './reducers';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/bootstrap.min.css';
 import './assets/css/app-blue.css';
 import './assets/css/custom.css';
 import './assets/css/shards.css';

@@ -116,7 +116,7 @@ const ActionCardHeader = ({
                     type="checkbox"
                     id="antiSpam"
                     name="antiSpam"
-                    className="custom-control-input"
+                    className="custom-control-input position-static"
                     checked={isAntiSpamed}
                     onChange={() => {
                       setIsAntiSpam(!isAntiSpamed);
@@ -131,7 +131,7 @@ const ActionCardHeader = ({
                     type="checkbox"
                     id="liveAction"
                     name="liveAction"
-                    className="custom-control-input"
+                    className="custom-control-input position-static"
                     checked={islive}
                     onChange={() => {
                       setLiveActions(!islive);
@@ -144,7 +144,7 @@ const ActionCardHeader = ({
                 <label className="font-weight-normal">
                   <select
                     id="inputLimit"
-                    className="form-control-sm mr-2 offset-select-width"
+                    className="form-control-sm mr-offset"
                     value={limit}
                     onChange={(event) => {
                       setLimitValue(event.target.value);
@@ -156,7 +156,7 @@ const ActionCardHeader = ({
                     <option value={200}>200</option>
                     <option value={500}>500</option>
                   </select>
-                  Fetch offset
+                  Offset
                 </label>
               </fieldset>
 

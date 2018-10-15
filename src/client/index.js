@@ -12,16 +12,11 @@ import reduxThunk from 'redux-thunk';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import reducers from './reducers';
 
-import './assets/css/bootstrap.min.css';
-import './assets/css/app-blue.css';
-import './assets/css/custom.css';
-import './assets/css/shards.css';
+import './assets/css/bootstrap.css';
 import 'react-toastify/dist/ReactToastify.css';
-// import './assets/css/metisMenu.min.css';
-//import './assets/js/popper.min.js';
+import './assets/css/custom.css';
 import './bp.json';
 import App from './components/App';
-// import './components/utils/sidebar.js';
 
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {

@@ -122,7 +122,7 @@ const ActionCardHeader = ({
                       setIsAntiSpam(!isAntiSpamed);
                     }}
                   />
-                  <label className="position-static custom-control-label font-weight-normal pt-1" htmlFor="antiSpam">
+                  <label className="custom-control-label font-weight-normal pl-toggle pt-1" htmlFor="antiSpam">
                     Anti spam
                   </label>
                 </div>
@@ -137,11 +137,11 @@ const ActionCardHeader = ({
                       setLiveActions(!islive);
                     }}
                   />
-                  <label className="position-static custom-control-label font-weight-normal pt-1" htmlFor="liveAction">
+                  <label className="custom-control-label font-weight-normal pl-toggle pt-1" htmlFor="liveAction">
                     Live Actions
                   </label>
                 </div>
-                <label className="font-weight-normal">
+                {/* <label className="font-weight-normal">
                   <select
                     id="inputLimit"
                     className="form-control-sm mr-offset"
@@ -157,7 +157,7 @@ const ActionCardHeader = ({
                     <option value={500}>500</option>
                   </select>
                   Offset
-                </label>
+                </label> */}
               </fieldset>
 
               {/* / Toggles */}

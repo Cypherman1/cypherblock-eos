@@ -111,7 +111,7 @@ const ActionCardHeader = ({
               {/* Toggles */}
               <fieldset>
                 <strong className="text-info d-block mb-2 h6">Config</strong>
-                <div className="custom-control custom-toggle mb-3">
+                <div className="custom-control custom-checkbox mb-3">
                   <input
                     type="checkbox"
                     id="antiSpam"
@@ -126,7 +126,7 @@ const ActionCardHeader = ({
                     Anti spam
                   </label>
                 </div>
-                <div className="custom-control custom-toggle  mb-3">
+                <div className="custom-control custom-checkbox  mb-3">
                   <input
                     type="checkbox"
                     id="liveAction"
@@ -141,7 +141,7 @@ const ActionCardHeader = ({
                     Live Actions
                   </label>
                 </div>
-                {/* <label className="font-weight-normal">
+                <label className="font-weight-normal">
                   <select
                     id="inputLimit"
                     className="form-control-sm mr-offset"
@@ -157,7 +157,7 @@ const ActionCardHeader = ({
                     <option value={500}>500</option>
                   </select>
                   Offset
-                </label> */}
+                </label>
               </fieldset>
 
               {/* / Toggles */}

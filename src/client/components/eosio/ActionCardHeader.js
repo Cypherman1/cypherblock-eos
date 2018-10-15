@@ -105,9 +105,9 @@ const ActionCardHeader = ({
         </div>
       </div>
       <div className="collapse card border shadow-sm" id="collapseExample">
-        <div className="card card-body pt-2 pb-0 ">
+        <div className="card card-body pt-2 pr-3 pl-3 pb-0 ">
           <div className="row  ">
-            <div className="col-6 font-weight-normal">
+            <div className="col-12 col-sm-6 font-weight-normal">
               {/* Toggles */}
               <fieldset>
                 <strong className="text-muted d-block mb-2 h6">Config</strong>
@@ -162,7 +162,7 @@ const ActionCardHeader = ({
 
               {/* / Toggles */}
             </div>
-            <div className="col-6 ftz-12">
+            <div className="col-12 col-sm-6 ftz-12">
               {/* Checkboxes */}
               <strong className="text-muted d-block mb-2 h6">Show/Filter</strong>
               <fieldset>

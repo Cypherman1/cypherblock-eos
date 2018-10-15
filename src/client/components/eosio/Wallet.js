@@ -41,8 +41,8 @@ const WalletLoading = () => {
 };
 
 class Wallet extends Component {
-  // Create AllTokens array
-  setAllTokens(data, bitfinex_pairs) {
+  // Create AllTokens array containing all Token infomation: Token_name, balance, price, percent,...
+  setAllTokens(data) {
     AllTokens = [];
     for (var token in data) {
       if (
@@ -55,21 +55,30 @@ class Wallet extends Component {
         token != 'eosioramfee' &&
         token != 'cmc' &&
         token != 'global_data' &&
-        token != 'table_rows'
+        token != 'table_rows' &&
+        token != 'blocksence_tickers' &&
+        token != 'bigone_tickers'
       ) {
         let atoken = {
-          name: data[token].data[0].split(' ')[1],
-          ammount: Number(data[token].data[0].split(' ')[0]),
-          logo: Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).logo,
+          name: data[token].data[0].split(' ')[1], //token name
+          ammount: Number(data[token].data[0].split(' ')[0]), // token ammount
+          logo: Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).logo, //token logo
           price: this.gettPairPrice(
-            bitfinex_pairs,
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bitfinex_pair
+            //get token price
+            data,
+            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bitfinex_pair, //get bitfinex pair name of the token
+            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_ticker,
+            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).blocksence_ticker
           ),
           percent: this.gettPairPercent(
-            bitfinex_pairs,
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bitfinex_pair
+            //get token percent
+            data,
+            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bitfinex_pair,
+            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_ticker,
+            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).blocksence_ticker
           )
         };
+        //console.log(Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_tiker);
         AllTokens.push(atoken);
       }
     }
@@ -138,31 +147,46 @@ class Wallet extends Component {
       return (
         <div className="col-4 p-0">
           <div className="stat float-right">
-            <div className="value text-right">{token.price}</div>
+            <div className="value text-right w-100 font-weight-normal">{token.price}</div>
             <div className="name">{renderPPColor((token.percent * 100).toFixed(2))}</div>
           </div>
         </div>
       );
     }
   }
-
-  gettPairPrice(bitfinex_pairs, tpair) {
+  // get the token pirce
+  gettPairPrice(data, bitfinex_pair, bigone_ticker, blocksence_ticker) {
     let tPrice = 0;
-    if (bitfinex_pairs)
-      bitfinex_pairs.data.map((pair) => {
-        if (pair[0] == tpair) {
+    if (data.bitfinex_pairs && bitfinex_pair)
+      data.bitfinex_pairs.data.map((pair) => {
+        if (pair[0] == bitfinex_pair) {
           tPrice = Number(pair[7]);
         }
       });
 
+    // console.log(bigone_tiker);
+    if (data.bigone_tickers && bigone_ticker)
+      data.bigone_tickers.data.map((ticker) => {
+        if (ticker.market_id == bigone_ticker) {
+          tPrice = Number(ticker.close);
+        }
+      });
     return tPrice;
   }
-  gettPairPercent(bitfinex_pairs, tpair) {
+  //get the token price percent change
+  gettPairPercent(data, bitfinex_pair, bigone_ticker, blocksence_ticker) {
     let tPercent = 0;
-    if (bitfinex_pairs)
-      bitfinex_pairs.data.map((pair) => {
-        if (pair[0] == tpair) {
+    if (data.bitfinex_pairs)
+      data.bitfinex_pairs.data.map((pair) => {
+        if (pair[0] == bitfinex_pair) {
           tPercent = Number(pair[6]);
+        }
+      });
+
+    if (data.bigone_tickers && bigone_ticker)
+      data.bigone_tickers.data.map((ticker) => {
+        if (ticker.market_id == bigone_ticker) {
+          tPercent = Number(ticker.daily_change_perc) / 100;
         }
       });
     return tPercent;
@@ -183,7 +207,7 @@ class Wallet extends Component {
           const {bitfinex_pairs} = data;
 
           if (data) {
-            this.setAllTokens(data, bitfinex_pairs);
+            this.setAllTokens(data);
             return (
               <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">
                 <div className="card sameheight-item stats" data-exclude="xs">

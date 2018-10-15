@@ -5,7 +5,9 @@ export const Tokens = [
     symbol: 'EOS',
     logo: 'eoslogo.svg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'everipediaiq',
@@ -13,7 +15,9 @@ export const Tokens = [
     symbol: 'IQ',
     logo: 'IQX.svg',
     bitfinex_pair: 'tIQXEOS',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'eosdactokens',
@@ -21,7 +25,9 @@ export const Tokens = [
     symbol: 'EOSDAC',
     logo: 'EOSDAC.svg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'eosiochaince',
@@ -29,7 +35,9 @@ export const Tokens = [
     symbol: 'CET',
     logo: 'CET.png',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'eosadddddddd',
@@ -37,7 +45,9 @@ export const Tokens = [
     symbol: 'ADD',
     logo: 'ADD.png',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: 'ADD-EOS',
+    blocksence_ticker: ''
   },
   {
     code: 'therealkarma',
@@ -45,7 +55,9 @@ export const Tokens = [
     symbol: 'KARMA',
     logo: 'KARMA.png',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: 'KARMA-EOS',
+    blocksence_ticker: ''
   },
   {
     code: 'ednazztokens',
@@ -53,7 +65,9 @@ export const Tokens = [
     symbol: 'EDNA',
     logo: 'ENDA.png',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: 'EDNA-EOS',
+    blocksence_ticker: ''
   },
   {
     code: 'horustokenio',
@@ -61,7 +75,9 @@ export const Tokens = [
     symbol: 'HORUS',
     logo: 'HORUS.png',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: 'HORUS-EOS',
+    blocksence_ticker: ''
   },
   {
     code: 'eosatidiumio',
@@ -69,7 +85,9 @@ export const Tokens = [
     symbol: 'ATD',
     logo: 'ATD.png',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: 'ATD-EOS',
+    blocksence_ticker: ''
   },
   {
     code: 'challengedac',
@@ -77,7 +95,9 @@ export const Tokens = [
     symbol: 'CHL',
     logo: 'CHL.jpg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: 'CHL-EOS',
+    blocksence_ticker: ''
   },
   {
     code: 'eosblackteam',
@@ -85,7 +105,9 @@ export const Tokens = [
     symbol: 'BLACK',
     logo: 'BLACK.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: 'BLACK-EOS',
+    blocksence_ticker: ''
   },
   {
     code: 'publytoken11',
@@ -93,7 +115,9 @@ export const Tokens = [
     symbol: 'PUB',
     logo: 'pub.png',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'trybenetwork',
@@ -101,7 +125,9 @@ export const Tokens = [
     symbol: 'TRYBE',
     logo: 'TRYBE.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'eosiomeetone',
@@ -109,7 +135,9 @@ export const Tokens = [
     symbol: 'MEETONE',
     logo: 'MEETONE.png',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: 'MEETONE-EOS',
+    blocksence_ticker: ''
   },
   {
     code: 'oo1122334455',
@@ -117,7 +145,9 @@ export const Tokens = [
     symbol: 'IPOS',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'ethsidechain',
@@ -125,7 +155,9 @@ export const Tokens = [
     symbol: 'EETH',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'eoxeoxeoxeox',
@@ -133,7 +165,9 @@ export const Tokens = [
     symbol: 'EOX',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'esbcointoken',
@@ -141,7 +175,9 @@ export const Tokens = [
     symbol: 'ESB',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'eosvrtokenss',
@@ -149,7 +185,9 @@ export const Tokens = [
     symbol: 'EVR',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'irespotokens',
@@ -157,7 +195,9 @@ export const Tokens = [
     symbol: 'IRESPO',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'octtothemoon',
@@ -165,7 +205,9 @@ export const Tokens = [
     symbol: 'OCT',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'poormantoken',
@@ -173,7 +215,9 @@ export const Tokens = [
     symbol: 'POOR',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'ridlridlcoin',
@@ -181,7 +225,9 @@ export const Tokens = [
     symbol: 'RIDL',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'wizznetwork1',
@@ -189,7 +235,9 @@ export const Tokens = [
     symbol: 'WIZZ',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'boidcomtoken',
@@ -197,7 +245,9 @@ export const Tokens = [
     symbol: 'BOID',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: 'BOID-EOS',
+    blocksence_ticker: ''
   },
   {
     code: 'eoscafekorea',
@@ -205,7 +255,9 @@ export const Tokens = [
     symbol: 'DAB',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'weosservices',
@@ -213,7 +265,9 @@ export const Tokens = [
     symbol: 'WECASH',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'epraofficial',
@@ -221,7 +275,9 @@ export const Tokens = [
     symbol: 'EPRA',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'gmaslaunches',
@@ -229,7 +285,9 @@ export const Tokens = [
     symbol: 'SHAPE',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'eosnewdawn12',
@@ -237,7 +295,9 @@ export const Tokens = [
     symbol: 'COA',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'ridlridlcoin',
@@ -245,7 +305,9 @@ export const Tokens = [
     symbol: 'RIDL',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   },
   {
     code: 'betdividends',
@@ -253,6 +315,8 @@ export const Tokens = [
     symbol: 'BET',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
-    chaince_pair: ''
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
   }
 ];

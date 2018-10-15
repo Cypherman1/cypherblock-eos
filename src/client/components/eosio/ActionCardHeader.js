@@ -105,7 +105,7 @@ const ActionCardHeader = ({
         </div>
       </div>
       <div className="collapse card border shadow-sm" id="collapseExample">
-        <div className="card card-body pt-2 pb-0 border-0 pd-action-setting ">
+        <div className="card card-body pt-2 pb-0 ">
           <div className="row  ">
             <div className="col-6 font-weight-normal">
               {/* Toggles */}

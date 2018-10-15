@@ -111,33 +111,33 @@ const ActionCardHeader = ({
               {/* Toggles */}
               <fieldset>
                 <strong className="text-info d-block mb-2 h6">Config</strong>
-                <div className="custom-control custom-toggle custom-toggle mb-3">
+                <div className="custom-control custom-toggle mb-3">
                   <input
                     type="checkbox"
                     id="antiSpam"
                     name="antiSpam"
-                    className="custom-control-input position-static"
+                    className="custom-control-input "
                     checked={isAntiSpamed}
                     onChange={() => {
                       setIsAntiSpam(!isAntiSpamed);
                     }}
                   />
-                  <label className="custom-control-label font-weight-normal pt-1" htmlFor="antiSpam">
+                  <label className="position-static custom-control-label font-weight-normal pt-1" htmlFor="antiSpam">
                     Anti spam
                   </label>
                 </div>
-                <div className="custom-control custom-toggle custom-toggle mb-3">
+                <div className="custom-control custom-toggle  mb-3">
                   <input
                     type="checkbox"
                     id="liveAction"
                     name="liveAction"
-                    className="custom-control-input position-static"
+                    className="custom-control-input "
                     checked={islive}
                     onChange={() => {
                       setLiveActions(!islive);
                     }}
                   />
-                  <label className="custom-control-label font-weight-normal pt-1" htmlFor="liveAction">
+                  <label className="position-static custom-control-label font-weight-normal pt-1" htmlFor="liveAction">
                     Live Actions
                   </label>
                 </div>

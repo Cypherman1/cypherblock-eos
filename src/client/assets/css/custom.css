@@ -1251,7 +1251,7 @@ span.CodeMirror-selectedtext {
     padding-left: 15px !important;
   }
   .mr-offset {
-    margin-right: 24px;
+    margin-right: 12px;
   }
   /* .stat .value {
     line-height: 40px !important;
@@ -1275,12 +1275,12 @@ span.CodeMirror-selectedtext {
     padding-top: 3px;
   }
   .mr-offset {
-    margin-right: 24px;
+    margin-right: 12px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .mr-offset {
-    margin-right: 24px;
+    margin-right: 12px;
   }
   .blocktxid {
     font-size: 13px;
@@ -1299,7 +1299,7 @@ span.CodeMirror-selectedtext {
 }
 @media (min-width: 1200px) {
   .mr-offset {
-    margin-right: 24px;
+    margin-right: 12px;
   }
   .blocktxid {
     font-size: 13px;

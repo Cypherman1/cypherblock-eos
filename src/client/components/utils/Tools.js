@@ -356,6 +356,61 @@ const RoundedIcon = ({icon, color}) => {
   );
 };
 
+// get the token pirce
+const gettPairPrice = (data, bitfinex_pair, bigone_ticker, blocksence_ticker) => {
+  let tPrice = 0;
+  if (data.bitfinex_pairs && bitfinex_pair)
+    data.bitfinex_pairs.data.map((pair) => {
+      if (pair[0] == bitfinex_pair) {
+        tPrice = Number(pair[7]);
+      }
+    });
+
+  // console.log(bigone_tiker);
+  if (data.bigone_tickers && bigone_ticker)
+    data.bigone_tickers.data.map((ticker) => {
+      if (ticker.market_id == bigone_ticker) {
+        tPrice = Number(ticker.close);
+      }
+    });
+
+  if (data.blocksence_tickers && data.blocksence_tickers.data && blocksence_ticker) {
+    for (var ticker in data.blocksence_tickers.data) {
+      if (ticker == blocksence_ticker) {
+        tPrice = data.blocksence_tickers.data[ticker].eos_price;
+      }
+    }
+  }
+
+  return tPrice;
+};
+//get the token price percent change
+const gettPairPercent = (data, bitfinex_pair, bigone_ticker, blocksence_ticker) => {
+  let tPercent = 0;
+  if (data.bitfinex_pairs)
+    data.bitfinex_pairs.data.map((pair) => {
+      if (pair[0] == bitfinex_pair) {
+        tPercent = Number(pair[6]);
+      }
+    });
+
+  if (data.bigone_tickers && bigone_ticker)
+    data.bigone_tickers.data.map((ticker) => {
+      if (ticker.market_id == bigone_ticker) {
+        tPercent = Number(ticker.daily_change_perc) / 100;
+      }
+    });
+
+  if (data.blocksence_tickers && data.blocksence_tickers.data && blocksence_ticker) {
+    for (var ticker in data.blocksence_tickers.data) {
+      if (ticker == blocksence_ticker) {
+        tPercent = Number(data.blocksence_tickers.data[ticker].percent_change) / 100;
+      }
+    }
+  }
+  return tPercent;
+};
+
 export {
   convertUTCDateToLocalDate,
   renderAccountLink,
@@ -365,5 +420,7 @@ export {
   toTokenNumber,
   renderPerm,
   antispamCheck,
-  RoundedIcon
+  RoundedIcon,
+  gettPairPrice,
+  gettPairPercent
 };

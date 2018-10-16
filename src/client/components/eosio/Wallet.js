@@ -3,6 +3,7 @@ import {CSSTransitionGroup} from 'react-transition-group';
 import {Query} from 'react-apollo';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Tokens} from '../utils/Tokens';
+import {gettPairPrice, gettPairPercent} from '../utils/Tools';
 import {renderPPColor} from '../utils/RenderColors';
 import GetWalletInfo from '../../queries/GetWalletInfo';
 import {renderEOSNum} from '../utils/RenderColors';
@@ -10,6 +11,7 @@ const images = require.context('../../assets/imgs/symbols');
 
 let AllTokens = [];
 let total_token_value = 0;
+let atoken = null;
 
 const WalletLoading = () => {
   return (
@@ -25,7 +27,7 @@ const WalletLoading = () => {
                 <h5 className="title text-info ">Tokens</h5>
               </div>
 
-              <div className="name ftz-10 font-weight-bold pl-tokeneos "> ... EOS </div>
+              <div className="name ftz-10">Total value: ... EOS </div>
             </div>
           </div>
         </div>
@@ -68,18 +70,18 @@ class Wallet extends Component {
         token != 'blocksence_tickers' &&
         token != 'bigone_tickers'
       ) {
-        let atoken = {
+        atoken = {
           name: data[token].data[0].split(' ')[1], //token name
           ammount: Number(data[token].data[0].split(' ')[0]), // token ammount
           logo: Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).logo, //token logo
-          price: this.gettPairPrice(
+          price: gettPairPrice(
             //get token price
             data,
             Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bitfinex_pair, //get bitfinex pair name of the token
             Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_ticker,
             Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).blocksence_ticker
           ),
-          percent: this.gettPairPercent(
+          percent: gettPairPercent(
             //get token percent
             data,
             Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bitfinex_pair,
@@ -235,8 +237,9 @@ class Wallet extends Component {
 
           if (data) {
             this.setAllTokens(data);
+            total_token_value = 0;
             AllTokens.map((token) => {
-              total_token_value = total_token_value + token.ammount * token.price;
+              total_token_value += token.ammount * token.price;
             });
             return (
               <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">
@@ -251,8 +254,8 @@ class Wallet extends Component {
                           <h5 className="title text-info ">Tokens</h5>
                         </div>
 
-                        <div className="name ftz-10 font-weight-bold pl-tokeneos ">
-                          {total_token_value.toFixed(2)} EOS
+                        <div className="name ftz-10">
+                          Total value: <span className="font-weight-bold"> {total_token_value.toFixed(2)} EOS </span>
                         </div>
                       </div>
                     </div>

@@ -1,14 +1,14 @@
 export const Tokens = [
-  // {
-  //   code: 'eosio.token',
-  //   account: 'giztemrug4ge',
-  //   symbol: 'EOS',
-  //   logo: 'eoslogo.svg',
-  //   bitfinex_pair: '',
-  //   chaince_pair: '',
-  //   bigone_ticker: '',
-  //   blocksence_ticker: ''
-  // },
+  {
+    code: 'eosio.token',
+    account: 'giztemrug4ge',
+    symbol: 'EOS',
+    logo: 'eoslogo.svg',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: ''
+  },
   {
     code: 'everipediaiq',
     account: 'giztemrug4ge',

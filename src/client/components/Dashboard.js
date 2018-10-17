@@ -4,6 +4,7 @@ import MarketInfo from './eosio/MarketInfo';
 import GeneralInfo from './eosio/GeneralInfo';
 import ActionsCard from './eosio/ActionsCard';
 import Producers from './eosio/Producers';
+import TokenMarket from './eosio/TokenMarket';
 
 class Dashboard extends Component {
   render() {
@@ -25,7 +26,7 @@ class Dashboard extends Component {
               </ErrorBoundary>
             </div>
             <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col ">
-              <MarketInfo className="d-none d-lg-block" />
+              <TokenMarket className="d-none d-lg-block" />
               <Producers limit="30" />
             </div>
           </div>

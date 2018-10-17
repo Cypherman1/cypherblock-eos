@@ -1177,6 +1177,10 @@ span.CodeMirror-selectedtext {
   font-size: 20px !important;
 }
 
+.ftz-18 {
+  font-size: 17px !important;
+}
+
 .ftz-24 {
   font-size: 24px !important;
 }
@@ -1589,4 +1593,12 @@ i.metismenu-state-icon.rotate-minus-90 {
 
 .pl-tokeneos {
   padding-left: 2px;
+}
+.token_logo {
+  width: 22px;
+  height: 22px;
+}
+
+.token_price_weight {
+  font-weight: 550;
 }

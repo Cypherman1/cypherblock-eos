@@ -271,7 +271,8 @@ class Wallet extends Component {
                         </div>
 
                         <div className="name ftz-10">
-                          Total value: <span className="font-weight-bold"> {total_token_value.toFixed(2)} EOS </span>
+                          Total value:{' '}
+                          <span className="font-weight-bold">{total_token_value.toLocaleString()} EOS</span>
                         </div>
                       </div>
                     </div>

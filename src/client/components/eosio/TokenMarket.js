@@ -70,7 +70,6 @@ class TokenMarket extends Component {
                 aria-label="Text input with checkbox"
                 onChange={(event) => {
                   this.props.setSearchSymbol(event.target.value);
-                  console.log(event.target.value);
                 }}
               />
               <div className="input-group-append">

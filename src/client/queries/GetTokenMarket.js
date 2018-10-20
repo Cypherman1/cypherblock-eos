@@ -32,6 +32,15 @@ export default gql`
     blocksence_tickers {
       data
     }
+    newdex_tickers {
+      data {
+        symbol
+        contract
+        currency
+        last
+        change
+      }
+    }
     bigone_tickers {
       data {
         market_id

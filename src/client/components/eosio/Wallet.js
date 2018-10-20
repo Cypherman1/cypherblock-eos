@@ -36,15 +36,15 @@ const WalletLoading = () => {
             <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
           </div>
           <div className="title-block row ">
-            <div className="col-12 col-sm-12 header-col">
-              <div className="row border-bottom price-row">
+            <div className="col-12 col-sm-12 header-col p0">
+              <div className="row shadow-sm price-row">
                 <div className="col float-left price-font pl-2"> Tokens </div>
                 <div className="col text-right price-font pr-1">Price (Token/EOS)</div>
               </div>
             </div>
           </div>
 
-          <div className="row row-sm stats-container border-bottom m-0 pb-1 plheight" />
+          <div className="row row-sm stats-container shadow-sm m-0 pb-1 plheight" />
         </div>
       </div>
     </div>
@@ -68,7 +68,8 @@ class Wallet extends Component {
         token != 'global_data' &&
         token != 'table_rows' &&
         token != 'blocksence_tickers' &&
-        token != 'bigone_tickers'
+        token != 'bigone_tickers' &&
+        token != 'newdex_tickers'
       ) {
         atoken = {
           name: data[token].data[0].split(' ')[1], //token name
@@ -79,14 +80,16 @@ class Wallet extends Component {
             data,
             Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bitfinex_pair, //get bitfinex pair name of the token
             Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_ticker,
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).blocksence_ticker
+            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).blocksence_ticker,
+            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).newdex_pair
           ),
           percent: gettPairPercent(
             //get token percent
             data,
             Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bitfinex_pair,
             Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_ticker,
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).blocksence_ticker
+            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).blocksence_ticker,
+            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).newdex_pair
           )
         };
         //console.log(Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_tiker);
@@ -100,7 +103,7 @@ class Wallet extends Component {
       let img_src = images(`./${token.logo}`);
       if (token.name == 'EOS') {
         items.push(
-          <div className="row row-sm stats-container border-bottom m-0" key={token.name}>
+          <div className="row row-sm stats-container shadow-sm pb-1  m-0" key={token.name}>
             <div className="col-8 stat-col p-0">
               <div className="stat-icon">
                 <img src={img_src} className="img-logo" />
@@ -117,7 +120,7 @@ class Wallet extends Component {
       } else {
         if (token.price > 0) {
           items.push(
-            <div className="row row-sm stats-container border-bottom m-0" key={token.name}>
+            <div className="row row-sm stats-container m-0 shadow-sm pb-1" key={token.name}>
               <div className="col-8 stat-col p-0">
                 <div className="stat-icon">
                   <img src={img_src} className="img-logo" />
@@ -135,7 +138,7 @@ class Wallet extends Component {
           );
         } else {
           items.push(
-            <div className="row row-sm stats-container border-bottom m-0" key={token.name}>
+            <div className="row row-sm stats-container shadow-sm pb-1 m-0" key={token.name}>
               <div className="col-8 stat-col p-0">
                 <div className="stat-icon">
                   <img src={img_src} className="img-logo" />
@@ -166,7 +169,7 @@ class Wallet extends Component {
     }
   }
   // get the token pirce
-  gettPairPrice(data, bitfinex_pair, bigone_ticker, blocksence_ticker) {
+  gettPairPrice(data, bitfinex_pair, bigone_ticker, blocksence_ticker, newdex_pair) {
     let tPrice = 0;
     if (data.bitfinex_pairs && bitfinex_pair)
       data.bitfinex_pairs.data.map((pair) => {
@@ -190,11 +193,17 @@ class Wallet extends Component {
         }
       }
     }
+    if (data.newdex_tickers && newdex_pair)
+      data.newdex_tickers.data.map((ticker) => {
+        if (ticker.symbol == newdex_pair) {
+          tPrice = Number(ticker.last);
+        }
+      });
 
     return tPrice;
   }
   //get the token price percent change
-  gettPairPercent(data, bitfinex_pair, bigone_ticker, blocksence_ticker) {
+  gettPairPercent(data, bitfinex_pair, bigone_ticker, blocksence_ticker, newdex_pair) {
     let tPercent = 0;
     if (data.bitfinex_pairs)
       data.bitfinex_pairs.data.map((pair) => {
@@ -217,6 +226,14 @@ class Wallet extends Component {
         }
       }
     }
+
+    if (data.newdex_tickers && newdex_pair)
+      data.newdex_tickers.data.map((ticker) => {
+        if (ticker.symbol == newdex_pair) {
+          tPercent = Number(ticker.change);
+        }
+      });
+
     return tPercent;
   }
 
@@ -228,12 +245,11 @@ class Wallet extends Component {
         variables={{
           account_name: this.props.account_name
         }}
-        pollInterval={60000}
+        pollInterval={5000}
       >
         {({loading, error, data}) => {
           if (loading) return <WalletLoading />;
           if (error) return <WalletLoading />;
-          const {bitfinex_pairs} = data;
 
           if (data) {
             this.setAllTokens(data);
@@ -260,12 +276,12 @@ class Wallet extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="card-block">
-                    <div className="title-block row ">
-                      <div className="col-12 col-sm-12 header-col">
-                        <div className="row border-bottom price-row">
+                  <div className="card-block p-0">
+                    <div className="title-block row m-0 shadow-sm ">
+                      <div className="col-12 col-sm-12 header-col p-0">
+                        <div className="row  price-row">
                           <div className="col float-left price-font pl-2" />
-                          <div className="col text-right price-font pr-1">Price (Token/EOS)</div>
+                          <div className="col text-right ftz-11 pr-1">Price (Token/EOS)</div>
                         </div>
                       </div>
                     </div>

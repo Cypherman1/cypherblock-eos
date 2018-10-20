@@ -7368,7 +7368,7 @@ button.bg-dark:focus {
 }
 
 .shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  box-shadow: 0 0.05rem 0.08rem rgba(0, 0, 0, 0.075) !important;
 }
 
 .shadow {
@@ -9984,7 +9984,7 @@ pre {
   flex-direction: row;
   padding: 0;
   border-radius: 0;
-  min-height: 50px;
+  min-height: 40px;
   border: none;
 }
 .card .card-header::after {
@@ -11815,7 +11815,7 @@ span a {
 .dashboard-page .stats .stat-icon {
   color: #bdbdbd;
   display: inline-block;
-  font-size: 26px;
+  font-size: 24px;
   text-align: center;
   vertical-align: middle;
   width: 40px;
@@ -15911,7 +15911,7 @@ i.material-icons {
   background-color: #fff;
   border: none;
   border-radius: 0.225rem;
-  box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1), 0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12), 0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+  box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1), 0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12), 0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1); 
 }
 
 .card > .list-group:first-child .list-group-item:first-child {

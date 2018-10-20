@@ -127,7 +127,8 @@ export const Tokens = [
     bitfinex_pair: '',
     chaince_pair: '',
     bigone_ticker: '',
-    blocksence_ticker: ''
+    blocksence_ticker: '',
+    newdex_pair: 'trybe_eos'
   },
   {
     code: 'eosiomeetone',
@@ -160,9 +161,246 @@ export const Tokens = [
     blocksence_ticker: 'OCT'
   },
   {
-    code: 'oo1122334455',
+    code: 'eoxeoxeoxeox',
     account: '',
-    symbol: 'IPOS',
+    symbol: 'EOX',
+    logo: 'EOX.png',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: '',
+    newdex_pair: 'eox_eos'
+  },
+  {
+    code: 'esbcointoken',
+    account: '',
+    symbol: 'ESB',
+    logo: 'ESB.png',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: '',
+    newdex_pair: 'esb_eos'
+  },
+  {
+    code: 'eosvrtokenss',
+    account: '',
+    symbol: 'EVR',
+    logo: 'EVR.png',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: '',
+    newdex_pair: 'evr_eos'
+  },
+  {
+    code: 'poormantoken',
+    account: '',
+    symbol: 'POOR',
+    logo: 'POOR.png',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: '',
+    newdex_pair: 'poor_eos'
+  },
+  {
+    code: 'wizznetwork1',
+    account: '',
+    symbol: 'WIZZ',
+    logo: 'WIZZ.png',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: '',
+    newdex_pair: 'wizz_eos'
+  },
+  {
+    code: 'eoscafekorea',
+    account: '',
+    symbol: 'DAB',
+    logo: 'DAB.png',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: '',
+    newdex_pair: 'dab_eos'
+  },
+  {
+    code: 'weosservices',
+    account: '',
+    symbol: 'WECASH',
+    logo: 'WECASH.png',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: '',
+    newdex_pair: 'wecash_eos'
+  },
+  {
+    code: 'epraofficial',
+    account: '',
+    symbol: 'EPRA',
+    logo: 'EPRA.png',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: '',
+    newdex_pair: 'epra_eos'
+  },
+  {
+    code: 'gmaslaunches',
+    account: '',
+    symbol: 'SHAPE',
+    logo: 'SHAPE.png',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: '',
+    newdex_pair: 'shape_eos'
+  },
+  {
+    code: 'eosluckchain',
+    account: '',
+    symbol: 'LUCK',
+    logo: 'LUCK.png',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: '',
+    newdex_pair: 'luck_eos'
+  },
+  {
+    code: 'thedeosgames',
+    account: '',
+    symbol: 'DEOS',
+    logo: 'DEOS.png',
+    bitfinex_pair: '',
+    chaince_pair: '',
+    bigone_ticker: '',
+    blocksence_ticker: '',
+    newdex_pair: 'deos_eos'
+  },
+  {
+    newdex_pair: 'btn_eos',
+    code: 'eosbuttonbtn',
+    logo: 'BTN.png',
+    symbol: 'BTN'
+  },
+  {
+    newdex_pair: 'pgl_eos',
+    code: 'prospectorsg',
+    symbol: 'PGL',
+    logo: 'PGL.png'
+  },
+  {
+    newdex_pair: 'itecoin_eos',
+    code: 'itecointoken',
+    symbol: 'ITECOIN',
+    logo: 'ITECOIN.png'
+  },
+  {
+    newdex_pair: 'tea_eos',
+    code: 'linzongsheng',
+    symbol: 'TEA',
+    logo: 'TEA.png'
+  },
+  {
+    newdex_pair: 'faid_eos',
+    code: 'eosfaidchain',
+    symbol: 'FAID',
+    logo: 'FAID.png'
+  },
+  {
+    newdex_pair: 'lucky_eos',
+    code: 'eoslucktoken',
+    symbol: 'LUCKY',
+    logo: 'LUCKY.png'
+  },
+  {
+    newdex_pair: 'more_eos',
+    code: 'eosiomoreone',
+    symbol: 'MORE',
+    logo: 'MORE.png'
+  },
+  {
+    newdex_pair: 'tpt_eos',
+    code: 'tokendapppub',
+    symbol: 'TPT',
+    logo: 'TPT.png'
+  },
+  {
+    newdex_pair: 'cat_eos',
+    code: 'tokenbyeocat',
+    symbol: 'CAT',
+    logo: 'CAT.png'
+  },
+  {
+    newdex_pair: 'toe_eos',
+    code: 'talkoneos123',
+    symbol: 'TOE',
+    logo: 'TOE.png'
+  },
+  {
+    newdex_pair: 'dice_eos',
+    code: 'betdicetoken',
+    symbol: 'DICE',
+    logo: 'DICE.png'
+  },
+  {
+    newdex_pair: 'roy_eos',
+    code: 'eosroyaleroy',
+    symbol: 'ROY',
+    logo: 'ROY.png'
+  },
+  {
+    newdex_pair: 'seven_eos',
+    code: 'xxxsevensxxx',
+    symbol: 'SEVEN',
+    logo: 'SEVEN.png'
+  },
+  {
+    newdex_pair: 'pso_eos',
+    code: 'cryptopesosc',
+    symbol: 'PSO',
+    logo: 'PSO.png'
+  },
+  {
+    newdex_pair: 'keos_eos',
+    code: 'keoskorea111',
+    symbol: 'KEOS',
+    logo: 'KEOS.png'
+  },
+  {
+    newdex_pair: 'lite_eos',
+    code: 'buildertoken',
+    symbol: 'LITE',
+    logo: 'LITE.png',
+    price_precision: 6,
+    currency_precision: 4
+  },
+  {
+    newdex_pair: 'pxs_eos',
+    code: 'pxstokensapp',
+    symbol: 'PXS',
+    logo: 'PXS.png'
+  },
+  {
+    newdex_pair: 'eosnts_eos',
+    code: 'eosninetiess',
+    symbol: 'EOSNTS',
+    logo: 'EOSNTS.png'
+  },
+  {
+    newdex_pair: 'can_eos',
+    code: 'eoscancancan',
+    symbol: 'CAN',
+    logo: 'CAN.png'
+  },
+  {
+    code: 'ridlridlcoin',
+    account: '',
+    symbol: 'RIDL',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
     chaince_pair: '',
@@ -180,29 +418,9 @@ export const Tokens = [
     blocksence_ticker: ''
   },
   {
-    code: 'eoxeoxeoxeox',
+    code: 'oo1122334455',
     account: '',
-    symbol: 'EOX',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
-    code: 'esbcointoken',
-    account: '',
-    symbol: 'ESB',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
-    code: 'eosvrtokenss',
-    account: '',
-    symbol: 'EVR',
+    symbol: 'IPOS',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
     chaince_pair: '',
@@ -220,66 +438,6 @@ export const Tokens = [
     blocksence_ticker: ''
   },
   {
-    code: 'poormantoken',
-    account: '',
-    symbol: 'POOR',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
-    code: 'wizznetwork1',
-    account: '',
-    symbol: 'WIZZ',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
-    code: 'eoscafekorea',
-    account: '',
-    symbol: 'DAB',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
-    code: 'weosservices',
-    account: '',
-    symbol: 'WECASH',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
-    code: 'epraofficial',
-    account: '',
-    symbol: 'EPRA',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
-    code: 'gmaslaunches',
-    account: '',
-    symbol: 'SHAPE',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
     code: 'eosnewdawn12',
     account: '',
     symbol: 'COA',
@@ -290,49 +448,9 @@ export const Tokens = [
     blocksence_ticker: ''
   },
   {
-    code: 'ridlridlcoin',
-    account: '',
-    symbol: 'RIDL',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
     code: 'betdividends',
     account: '',
     symbol: 'BET',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
-    code: 'eosluckchain',
-    account: '',
-    symbol: 'LUCK',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
-    code: 'thedeosgames',
-    account: '',
-    symbol: 'DEOS',
-    logo: 'AIRDROP.jpeg',
-    bitfinex_pair: '',
-    chaince_pair: '',
-    bigone_ticker: '',
-    blocksence_ticker: ''
-  },
-  {
-    code: 'buildertoken',
-    account: '',
-    symbol: 'LITE',
     logo: 'AIRDROP.jpeg',
     bitfinex_pair: '',
     chaince_pair: '',

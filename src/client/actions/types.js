@@ -25,3 +25,7 @@ export const SET_SIDEBAR_STATUS = 'set_sidebar_status';
 // antispam
 
 export const SET_ANTISPAM_CONFIG = 'set_antispam_config';
+
+// common
+
+export const SET_TOKEN_PRICE_SEARCH = 'set_token_price_search';

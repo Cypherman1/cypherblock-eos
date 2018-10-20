@@ -16,6 +16,11 @@ class Dashboard extends Component {
               <ErrorBoundary>
                 <GeneralInfo />
               </ErrorBoundary>
+              <TokenMarket display="d-xl-none" />
+
+              <Producers limit="30" display="d-xl-none" />
+              {/* <TokenMarket className="d-none" /> */}
+              {/* <Producers limit="30" className="d-xl-none" /> */}
               <ErrorBoundary>
                 <ActionsCard
                   account_name="eosio"
@@ -26,8 +31,9 @@ class Dashboard extends Component {
               </ErrorBoundary>
             </div>
             <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col ">
-              <TokenMarket className="d-none d-lg-block" />
-              <Producers limit="30" />
+              <TokenMarket display="d-none d-sm-block" />
+
+              <Producers limit="30" display="d-none d-sm-block" />
             </div>
           </div>
         </section>

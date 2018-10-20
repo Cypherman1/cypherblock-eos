@@ -30,7 +30,7 @@ var eos_total_supply,
   percent_change_24h,
   eos_volume;
 
-const GeneralInfoLoading = () => {
+const GeneralInfoLoading = ({display}) => {
   return (
     <div className="card sameheight-item stats mbc" data-exclude="xs">
       <div className="card-header shadow-sm bg-white row m-0">
@@ -196,7 +196,7 @@ const GeneralInfoLoading = () => {
               />
             </div>
           </div>
-          <div className="col-6 col-sm-4 stat-col p-1">
+          <div className="col-6 col-sm-4 stat-col p-1 d-none d-sm-block">
             <div className="stat-icon">
               <FontAwesomeIcon icon="cogs" />
             </div>
@@ -214,7 +214,7 @@ const GeneralInfoLoading = () => {
             </div>
           </div>
           {/* market info */}
-          <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
+          {/* <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
             <div className="stat-icon">
               <FontAwesomeIcon icon="coins" />
             </div>
@@ -264,7 +264,7 @@ const GeneralInfoLoading = () => {
                 }}
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -477,7 +477,7 @@ class GeneralInfo extends Component {
                         />
                       </div>
                     </div>
-                    <div className="col-6 col-sm-4 stat-col p-1">
+                    <div className="col-6 col-sm-4 stat-col p-1 d-none d-sm-block">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="cogs" />
                       </div>
@@ -497,7 +497,7 @@ class GeneralInfo extends Component {
                       </div>
                     </div>
                     {/* market info */}
-                    <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
+                    {/* <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
                       <div className="stat-icon">
                         <FontAwesomeIcon icon="coins" />
                       </div>
@@ -550,7 +550,7 @@ class GeneralInfo extends Component {
                           }}
                         />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

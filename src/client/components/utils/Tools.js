@@ -357,7 +357,7 @@ const RoundedIcon = ({icon, color}) => {
 };
 
 // get the token pirce
-const gettPairPrice = (data, bitfinex_pair, bigone_ticker, blocksence_ticker) => {
+const gettPairPrice = (data, bitfinex_pair, bigone_ticker, blocksence_ticker, newdex_pair) => {
   let tPrice = 0;
   if (data.bitfinex_pairs && bitfinex_pair)
     data.bitfinex_pairs.data.map((pair) => {
@@ -381,11 +381,16 @@ const gettPairPrice = (data, bitfinex_pair, bigone_ticker, blocksence_ticker) =>
       }
     }
   }
-
+  if (data.newdex_tickers && newdex_pair)
+    data.newdex_tickers.data.map((ticker) => {
+      if (ticker.symbol == newdex_pair) {
+        tPrice = Number(ticker.last);
+      }
+    });
   return tPrice;
 };
 //get the token price percent change
-const gettPairPercent = (data, bitfinex_pair, bigone_ticker, blocksence_ticker) => {
+const gettPairPercent = (data, bitfinex_pair, bigone_ticker, blocksence_ticker, newdex_pair) => {
   let tPercent = 0;
   if (data.bitfinex_pairs)
     data.bitfinex_pairs.data.map((pair) => {
@@ -408,6 +413,12 @@ const gettPairPercent = (data, bitfinex_pair, bigone_ticker, blocksence_ticker) 
       }
     }
   }
+  if (data.newdex_tickers && newdex_pair)
+    data.newdex_tickers.data.map((ticker) => {
+      if (ticker.symbol == newdex_pair) {
+        tPercent = Number(ticker.change);
+      }
+    });
   return tPercent;
 };
 

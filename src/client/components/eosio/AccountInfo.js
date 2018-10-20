@@ -389,10 +389,10 @@ class AccountInfo extends Component {
         //Bandwidth available
         available_net = formatBandUnits(Number(account.net_limit.available));
         //CPU limit
-        limited_cpu = formatCPUUnits(Number(account.cpu_limit.max));
+        limited_cpu = formatCPUUnits(Number(account.cpu_limit.max) / 1000);
         limited_cpu_num = Number(account.cpu_limit.max);
         //CPU used
-        used_cpu = formatCPUUnits(Number(account.cpu_limit.used));
+        used_cpu = formatCPUUnits(Number(account.cpu_limit.used) / 1000);
         used_cpu_num = Number(account.cpu_limit.used);
         //CPU available
         available_cpu = formatCPUUnits(Number(account.cpu_limit.available));

@@ -171,8 +171,8 @@ class ActionsCardBody extends Component {
               <CSSTransitionGroup
                 component="div"
                 transitionName="example"
-                transitionEnterTimeout={100}
-                transitionLeaveTimeout={0}
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={300}
               >
                 {items}
               </CSSTransitionGroup>

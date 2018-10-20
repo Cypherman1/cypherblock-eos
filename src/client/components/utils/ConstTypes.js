@@ -87,6 +87,18 @@ export const AntiSpams = {
     {
       act_account: 'eospromdress',
       act_name: 'dice'
+    },
+    {
+      act_account: 'message.bank',
+      act_name: 'news'
+    },
+    {
+      act_account: 'experimentms',
+      act_name: 'msg'
+    },
+    {
+      act_account: 'eosplayaloud',
+      act_name: 'yell'
     }
   ]
 };

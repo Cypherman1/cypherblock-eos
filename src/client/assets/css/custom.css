@@ -352,7 +352,7 @@ a {
 
 .example-enter.example-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in;
+  transition: opacity 500ms ease-in-out;
 }
 
 .example-leave {
@@ -361,7 +361,7 @@ a {
 
 .example-leave.example-leave-active {
   opacity: 0.01;
-  transition: opacity 300ms ease-in;
+  transition: opacity 300ms ease-in-out;
 }
 
 .example-appear {
@@ -1093,7 +1093,7 @@ span.CodeMirror-selectedtext {
 }
 
 .pd-mi {
-  padding-top: 85px;
+  padding-top: 75px;
 }
 
 .pd-as {
@@ -1601,4 +1601,17 @@ i.metismenu-state-icon.rotate-minus-90 {
 
 .token_price_weight {
   font-weight: 550;
+}
+
+.market-scroll {
+  height: 394px;
+  overflow-y: scroll;
+}
+
+.card-token-price {
+  background-color: #fff;
+  border: none;
+  /* border-radius: 0.225rem; */
+  box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+    0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12), 0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
 }

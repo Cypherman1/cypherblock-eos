@@ -5,6 +5,7 @@ const AccountType = require('./account_type');
 const CMCType = require('./cmc_type');
 const ChainType = require('./chain_type');
 const keys = require('../../config/keys');
+const tokens = require('../../config/tokens');
 const UserType = require('./user_type');
 const {ActionsType} = require('./actions_type');
 const TableRowsType = require('./table_rows_type');
@@ -21,6 +22,7 @@ const VoterFullInfoType = require('./voter_info_type');
 const ABIType = require('./abi_type');
 const BigOneTickersType = require('./bigone_tickers_type');
 const BlockSenceTickersType = require('./blocksence_tickers_type');
+const NewDexTickersType = require('./newdex_tickers_type');
 
 let VoterInfo = {};
 
@@ -263,6 +265,30 @@ const RootQueryType = new GraphQLObjectType({
         return axios
           .get('https://api.bitfinex.com/v2/tickers?symbols=tIQXEOS')
           .then((res) => res)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    newdex_tickers: {
+      type: NewDexTickersType,
+      resolve() {
+        let mainObject = {data: []};
+        let promises = [];
+
+        tokens.map((token) => {
+          if (token.newdex_pair) {
+            promises.push(axios.get('https://api.newdex.io/v1/ticker?symbol=' + token.newdex_pair));
+          }
+        });
+        return axios
+          .all(promises)
+          .then((results) => {
+            results.map((response) => {
+              if (response.data.code == '200') mainObject.data.push(response.data.data);
+            });
+            return mainObject;
+          })
           .catch((error) => {
             onError(error);
           });

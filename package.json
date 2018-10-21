@@ -24,7 +24,7 @@
     "build:client": "cross-env NODE_ENV=production webpack -p --progress --config=config/webpack.config.prod.js",
     "build:server": "copyfiles -a -u 1 src/server/**/**/**/* build",
     "cpy": "copyfiles -u 1 src/client/bp.json build",
-    "cpyheader": "copyfiles -u 1 src/client/header2.png build",
+    "cpyheader": "copyfiles -u 1 src/client/header_pro.png build",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules -- .",
     "prettier": "prettier --ignore-path .gitignore --write './**/*.js'",
     "test": "exit 1",

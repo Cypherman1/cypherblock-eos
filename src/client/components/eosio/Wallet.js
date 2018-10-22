@@ -156,12 +156,15 @@ class Wallet extends Component {
     });
     return items;
   }
+  renderPrice(price) {
+    return price ? <div>{price} </div> : <FontAwesomeIcon icon="spinner" spin className="text-info" />;
+  }
   renderBitfinexPrice(token) {
     if (token.price > 0) {
       return (
         <div className="col-4 p-0">
           <div className="stat float-right">
-            <div className="value text-right w-100">{token.price}</div>
+            <div className="value text-right w-100">{this.renderPrice(token.price)}</div>
             <div className="name">{renderPPColor((token.percent * 100).toFixed(2))}</div>
           </div>
         </div>

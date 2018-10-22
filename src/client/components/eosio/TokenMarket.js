@@ -54,6 +54,10 @@ class TokenMarket extends Component {
       TokenMarketInfo.push(atoken);
     });
   }
+  renderPrice(price) {
+    return price ? <div>{price} </div> : <FontAwesomeIcon icon="spinner" spin className="text-info" />;
+  }
+
   render() {
     const {display} = this.props;
     return (
@@ -162,7 +166,7 @@ class TokenMarket extends Component {
                               </div>
                             </div>
                             <div className="col-4 text-right token_price_weight d-flex align-items-center flex-row-reverse">
-                              <div> {tokeninfo.price} </div>
+                              <div> {this.renderPrice(tokeninfo.price)} </div>
                             </div>
                             <div className="col-3 d-flex align-items-center flex-row-reverse pr-1">
                               <div className="text-right">{renderPPColor((tokeninfo.percent * 100).toFixed(2))} </div>

@@ -6,9 +6,9 @@ import GetProducers from '../../queries/GetProducers';
 import {renderAccountLink} from '../utils/Tools';
 import {renderProRank} from '../utils/RenderColors';
 
-const ProducersLoading = () => {
+const ProducersLoading = ({display}) => {
   return (
-    <div className="card sameheight-item stats" data-exclude="xs">
+    <div className={`card sameheight-item stats ${display}`} data-exclude="xs">
       <div className="card-header shadow-sm bg-white">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
@@ -57,6 +57,7 @@ class Producers extends Component {
     );
   }
   render() {
+    const {display} = this.props;
     return (
       <Query
         query={GetProducers}
@@ -66,12 +67,12 @@ class Producers extends Component {
         }}
       >
         {({loading, error, data}) => {
-          if (loading) return <ProducersLoading />;
-          if (error) return <ProducersLoading />;
+          if (loading) return <ProducersLoading display={display} />;
+          if (error) return <ProducersLoading display={display} />;
           const {producers} = data;
           if (producers) {
             return (
-              <div className={`card sameheight-item stats mb-1 ${this.props.display}`} data-exclude="xs">
+              <div className={`card sameheight-item stats mb-1 ${display}`} data-exclude="xs">
                 <div className="card-header shadow-sm bg-white">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
@@ -101,7 +102,7 @@ class Producers extends Component {
             );
           } else {
             return (
-              <div className={this.props.display}>
+              <div className={display}>
                 <ProducersLoading />
               </div>
             );

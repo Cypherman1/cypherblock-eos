@@ -18,9 +18,9 @@ let ram_price = 0;
 let eos_price = 0;
 let eos_percent_change_24h = 0;
 
-const TokenMarketLoading = () => {
+const TokenMarketLoading = ({display}) => {
   return (
-    <div className="card-block p-0 market-scroll">
+    <div className={`card-block p-0 market-scroll ${display}`}>
       <div className="text-center align-middle overlay pd-mi">
         <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
       </div>
@@ -55,8 +55,9 @@ class TokenMarket extends Component {
     });
   }
   render() {
+    const {display} = this.props;
     return (
-      <div className={`card sameheight-item stats mb-1 ${this.props.display} pb-2`} data-exclude="xs">
+      <div className={`card sameheight-item stats mb-1 ${display} pb-2`} data-exclude="xs">
         <div className="card-header shadow-sm bg-white row m-0">
           <div className="header-block pl-2 col">
             <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
@@ -90,8 +91,8 @@ class TokenMarket extends Component {
         <div className="card-block bg-light p-0 market-scroll">
           <Query query={GetTokenMarket} pollInterval={5000}>
             {({loading, error, data}) => {
-              if (loading) return <TokenMarketLoading />;
-              if (error) return <TokenMarketLoading />;
+              if (loading) return <TokenMarketLoading display={display} />;
+              if (error) return <TokenMarketLoading display={display} />;
               if (data && data.table_rows && data.cmc) {
                 const {table_rows, cmc} = data;
 
@@ -174,7 +175,7 @@ class TokenMarket extends Component {
                 });
                 return items;
               } else {
-                return <TokenMarketLoading />;
+                return <TokenMarketLoading display={display} />;
               }
             }}
           </Query>

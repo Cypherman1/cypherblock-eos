@@ -1319,6 +1319,10 @@ span.CodeMirror-selectedtext {
   .pd-acttype {
     padding-top: 3px;
   }
+  .market-scroll {
+    height: 394px;
+    overflow-y: scroll;
+  }
 }
 
 .metismenu {
@@ -1601,11 +1605,6 @@ i.metismenu-state-icon.rotate-minus-90 {
 
 .token_price_weight {
   font-weight: 550;
-}
-
-.market-scroll {
-  height: 394px;
-  overflow-y: scroll;
 }
 
 .card-token-price {

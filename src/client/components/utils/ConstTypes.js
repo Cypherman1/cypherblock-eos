@@ -41,8 +41,8 @@ export const AT_OTHERS = 'Other Actions';
 export const AG_OTHERS = 'Others';
 
 export const AntiSpams = {
-  min_eos_ammount: 0.0005,
-  min_token_ammount: 0.0005,
+  min_eos_ammount: 0.0009,
+  min_token_ammount: 0.0009,
   black_list: [
     {
       act_account: 'betdicealert',

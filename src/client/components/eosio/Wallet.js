@@ -202,7 +202,6 @@ class Wallet extends Component {
           tPrice = Number(ticker.last);
         }
       });
-
     return tPrice;
   }
   //get the token price percent change

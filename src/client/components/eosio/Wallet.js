@@ -156,7 +156,7 @@ class Wallet extends Component {
     });
     return items;
   }
-  renderPrice(price) {
+  renderWPrice(price) {
     return price ? <div>{price} </div> : <FontAwesomeIcon icon="spinner" spin className="text-info" />;
   }
   renderBitfinexPrice(token) {
@@ -164,12 +164,12 @@ class Wallet extends Component {
       return (
         <div className="col-4 p-0">
           <div className="stat float-right">
-            <div className="value text-right w-100">{this.renderPrice(token.price)}</div>
+            <div className="value text-right w-100">{this.renderWPrice(token.price)}</div>
             <div className="name">{renderPPColor((token.percent * 100).toFixed(2))}</div>
           </div>
         </div>
       );
-    }
+    } else return null;
   }
   // get the token pirce
   gettPairPrice(data, bitfinex_pair, bigone_ticker, blocksence_ticker, newdex_pair) {

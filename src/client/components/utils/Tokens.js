@@ -14,10 +14,11 @@ export const Tokens = [
     account: 'giztemrug4ge',
     symbol: 'IQ',
     logo: 'IQX.svg',
-    bitfinex_pair: 'tIQXEOS',
+    // bitfinex_pair: 'tIQXEOS',
     chaince_pair: '',
     bigone_ticker: '',
-    blocksence_ticker: ''
+    blocksence_ticker: '',
+    newdex_pair: 'iq_eos'
   },
   {
     code: 'eosdactokens',

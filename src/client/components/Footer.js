@@ -8,7 +8,7 @@ const Footer = (props) => {
       <div className="footer-block buttons col m-0 p-0">
         <div>
           <FontAwesomeIcon icon="heart" className="mr-1 text-success" size="lg" />
-          Vote for <a href="https://eosportal.io/chain/12/producers/cypherblocks"> cypherblocks</a>
+          Vote for <a href="https://github.com/greymass/eos-voter"> cypherblocks</a>
         </div>
       </div>
       <div className="footer-block author col m-0 p-0">

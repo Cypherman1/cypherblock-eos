@@ -18,19 +18,17 @@ let token_usd_value = 0;
 const WalletLoading = () => {
   return (
     <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col">
-      <div className="card sameheight-item stats border " data-exclude="xs">
+      <div className="card sameheight-item stats" data-exclude="xs">
         <div className="card-header shadow-sm m-0 row m-0 bg-white">
           <div className="pl-2 d-flex ">
             <FontAwesomeIcon icon="wallet" className="mr-1 text-info fa-lg" />
             <div className="text-info title">Tokens</div>
           </div>
         </div>
-        <div className="row m-0  pt-1  shadow-sm" style={{backgroundColor: '#ddd'}}>
+        <div className="row m-0 pb-1 pt-1 border-left border-right border-light" style={{backgroundColor: '#ddd'}}>
           <div className=" pl-2 col">
             <div className="text-info ftz-8 font-weight-bold">TOTAL VALUE</div>
-            <div className="value font-weight-bold ft-tvalue" style={{color: '#fc4a1a'}}>
-              {' '}
-            </div>
+            <div className="value font-weight-bold ft-tvalue" style={{color: '#fc4a1a'}} />
           </div>
           <div className="pr-2 col text-right">
             <div className="ftz-8 text-info font-weight-bold">USD VALUE</div>
@@ -40,12 +38,12 @@ const WalletLoading = () => {
           </div>
         </div>
         <div className="card-block p-0">
-          <div className="text-center align-middle overlay " style={{paddingTop: 80}}>
+          <div className="text-center align-middle overlay " style={{paddingTop: 84}}>
             <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
           </div>
           <div className="title-block row m-0 shadow-sm ">
             <div className="col-12 col-sm-12 header-col p-0  bg-white">
-              <div className="row  price-row">
+              <div className="row  m-0">
                 <div className="col float-left price-font pl-2" />
                 <div className="col text-right ftz-10  pr-1">Price (Token/EOS)</div>
               </div>

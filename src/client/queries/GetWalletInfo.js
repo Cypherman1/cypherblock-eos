@@ -32,6 +32,17 @@ const GenCurGql = (Tokens) => {
       change
     }
   }
+  cmc {
+      data {
+        quotes {
+          USD {
+            price
+            volume_24h
+            percent_change_24h
+          }
+        }
+      }
+    }
   bigone_tickers {
     data {
       market_id

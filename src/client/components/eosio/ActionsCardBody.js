@@ -40,7 +40,7 @@ class ActionsCardBody extends Component {
     if (this.props.showRefetch && !this.props.eosActions.islive) {
       if (!this.props.eosActions.ismore) {
         return (
-          <button type="button" className="btn btn-primary text-light w-100" disabled>
+          <button type="button" className="btn btn-outline-info text-light w-100" disabled>
             END!
           </button>
         );
@@ -49,7 +49,7 @@ class ActionsCardBody extends Component {
           return (
             <button
               type="button"
-              className="btn btn-primary w-100"
+              className="btn btn-outline-info w-100"
               onClick={() => {
                 this.props.setIsButtonLoading(true);
 
@@ -98,7 +98,7 @@ class ActionsCardBody extends Component {
       }
     } else
       return (
-        <button type="button" className="btn btn-primary text-light w-100" disabled>
+        <button type="button" className="btn btn-outline-info text-light w-100" disabled>
           Load more
         </button>
       );

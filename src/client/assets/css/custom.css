@@ -1224,6 +1224,9 @@ span.CodeMirror-selectedtext {
   .mr-offset {
     margin-right: 10px;
   }
+  .ft-tvalue {
+    font-size: 13px !important;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -1257,6 +1260,9 @@ span.CodeMirror-selectedtext {
   .mr-offset {
     margin-right: 12px;
   }
+  .ft-tvalue {
+    font-size: 13px !important;
+  }
   /* .stat .value {
     line-height: 40px !important;
   }
@@ -1281,6 +1287,9 @@ span.CodeMirror-selectedtext {
   .mr-offset {
     margin-right: 12px;
   }
+  .ft-tvalue {
+    font-size: 13px !important;
+  }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .mr-offset {
@@ -1299,6 +1308,9 @@ span.CodeMirror-selectedtext {
   }
   .pd-acttype {
     padding-top: 3px;
+  }
+  .ft-tvalue {
+    font-size: 13px !important;
   }
 }
 @media (min-width: 1200px) {
@@ -1322,6 +1334,9 @@ span.CodeMirror-selectedtext {
   .market-scroll {
     height: 394px;
     overflow-y: scroll;
+  }
+  .ft-tvalue {
+    font-size: 11px !important;
   }
 }
 

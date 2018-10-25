@@ -118,7 +118,8 @@ const tokens = [
     bitfinex_pair: '',
     chaince_pair: '',
     bigone_ticker: '',
-    blocksence_ticker: 'PUB'
+    blocksence_ticker: '',
+    newdex_pair: 'pub_eos'
   },
   {
     code: 'trybenetwork',

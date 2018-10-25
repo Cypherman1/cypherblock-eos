@@ -114,11 +114,12 @@ export const Tokens = [
     code: 'publytoken11',
     account: '',
     symbol: 'PUB',
-    logo: 'pub.png',
+    logo: 'pub1.png',
     bitfinex_pair: '',
     chaince_pair: '',
     bigone_ticker: '',
-    blocksence_ticker: 'PUB'
+    blocksence_ticker: '',
+    newdex_pair: 'pub_eos'
   },
   {
     code: 'trybenetwork',

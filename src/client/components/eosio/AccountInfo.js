@@ -415,7 +415,7 @@ class AccountInfo extends Component {
         if (account.total_resources)
           eos_ram_equivalent = ((Number(account.total_resources.ram_bytes) * ram_price) / 1024).toFixed(4);
 
-        if (total_balance && eos_ram_equivalent && cmc) {
+        if (total_balance && cmc) {
           total_balance_ramincluded = total_balance + Number(eos_ram_equivalent);
           if (cmc.data.quotes.USD.price)
             to_fiat = (total_balance_ramincluded * Number(cmc.data.quotes.USD.price)).toFixed(0);

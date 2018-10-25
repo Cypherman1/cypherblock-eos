@@ -371,7 +371,7 @@ export const Tokens = [
     newdex_pair: 'keos_eos',
     code: 'keoskorea111',
     symbol: 'KEOS',
-    logo: 'KEOS.png'
+    logo: 'KEOS1.png'
   },
   {
     newdex_pair: 'lite_eos',

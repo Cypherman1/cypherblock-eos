@@ -11850,7 +11850,7 @@ span a {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 10px;
-    line-height: 12px;
+    /* line-height: 12px; */
   }
 }
 

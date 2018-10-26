@@ -5,10 +5,10 @@ import {Tokens} from '../components/utils/Tokens';
 const GenCurGql = (Tokens) => {
   let gqlstr = '';
   Tokens.map((token) => {
-    gqlstr += `${token.symbol}: currency_balance(
-            code: "${token.code}",
+    gqlstr += `${token.currency}: currency_balance(
+            code: "${token.contract}",
             account: $account_name,
-            symbol: "${token.symbol}"
+            symbol: "${token.currency}"
         ){
             data
         }

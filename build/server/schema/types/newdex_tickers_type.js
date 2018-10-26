@@ -19,6 +19,7 @@ const NewDexTickerType = new GraphQLObjectType({
 const NewDexTickersType = new GraphQLObjectType({
   name: 'NewDexTickersType',
   fields: () => ({
+    code: {type: GraphQLString},
     data: {type: GraphQLList(NewDexTickerType)}
   })
 });

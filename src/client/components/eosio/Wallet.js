@@ -1,19 +1,24 @@
 import React, {Component} from 'react';
 import {CSSTransitionGroup} from 'react-transition-group';
 import {Query} from 'react-apollo';
+import ReactImageFallback from 'react-image-fallback';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Tokens} from '../utils/Tokens';
 import {gettPairPrice, gettPairPercent} from '../utils/Tools';
 import {renderPPColor} from '../utils/RenderColors';
 import GetWalletInfo from '../../queries/GetWalletInfo';
 import {renderEOSNum} from '../utils/RenderColors';
-const images = require.context('../../assets/imgs/symbols');
 
+const images = '../imgs';
+
+let token_logo = null;
+let fallback_logo = `${images}/COMMON.png`;
 let AllTokens = [];
 let total_token_value = 0;
 let atoken = null;
 let eos_price = 0;
 let token_usd_value = 0;
+let tokens_count = 0;
 
 const WalletLoading = () => {
   return (
@@ -28,11 +33,11 @@ const WalletLoading = () => {
         <div className="row m-0 pb-1 pt-1 border-left border-right border-light" style={{backgroundColor: '#ddd'}}>
           <div className=" pl-2 col">
             <div className="text-info ftz-8 font-weight-bold">TOTAL VALUE</div>
-            <div className="value font-weight-bold ft-tvalue" style={{color: '#fc4a1a'}} />
+            <div className="value font-weight-bold ft-tvalue" style={{color: '#ff7d00'}} />
           </div>
           <div className="pr-2 col text-right">
             <div className="ftz-8 text-info font-weight-bold">USD VALUE</div>
-            <div className="value font-weight-bold ft-tvalue" style={{color: '#fc4a1a'}}>
+            <div className="value font-weight-bold ft-tvalue" style={{color: '#ff7d00'}}>
               {' '}
             </div>
           </div>
@@ -79,22 +84,21 @@ class Wallet extends Component {
         atoken = {
           name: data[token].data[0].split(' ')[1], //token name
           ammount: Number(data[token].data[0].split(' ')[0]), // token ammount
-          logo: Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).logo, //token logo
           price: gettPairPrice(
             //get token price
             data,
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bitfinex_pair, //get bitfinex pair name of the token
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_ticker,
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).blocksence_ticker,
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).newdex_pair
+            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).bitfinex_pair, //get bitfinex pair name of the token
+            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).bigone_ticker,
+            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).blocksence_ticker,
+            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).symbol
           ),
           percent: gettPairPercent(
             //get token percent
             data,
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bitfinex_pair,
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_ticker,
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).blocksence_ticker,
-            Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).newdex_pair
+            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).bitfinex_pair,
+            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).bigone_ticker,
+            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).blocksence_ticker,
+            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).symbol
           )
         };
         //console.log(Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_tiker);
@@ -105,13 +109,17 @@ class Wallet extends Component {
   renderTokens() {
     let items = [];
     AllTokens.map((token) => {
-      let img_src = images(`./${token.logo}`);
+      token_logo = `${images}/${token.name}.png`;
+
       if (token.name == 'EOS') {
         items.push(
           <div className="row row-sm stats-container shadow-sm pb-1  m-0" key={token.name}>
             <div className="col-8 stat-col p-0">
               <div className="stat-icon">
-                <img src={img_src} className="img-logo" />
+                {/* <img src={img_src} className="img-logo" /> */}
+                <div>
+                  <ReactImageFallback src={token_logo} fallbackImage={fallback_logo} className="img-logo" />
+                </div>
               </div>
               <div className="stat">
                 <div className="value">{renderEOSNum(token.ammount)}</div>
@@ -128,7 +136,10 @@ class Wallet extends Component {
             <div className="row row-sm stats-container m-0 shadow-sm pb-1" key={token.name}>
               <div className="col-8 stat-col p-0">
                 <div className="stat-icon">
-                  <img src={img_src} className="img-logo" />
+                  {/* <img src={img_src} className="img-logo" /> */}
+                  <div>
+                    <ReactImageFallback src={token_logo} fallbackImage={fallback_logo} className="img-logo" />
+                  </div>
                 </div>
                 <div className="stat">
                   <div className="value">{renderEOSNum(token.ammount)}</div>
@@ -146,7 +157,10 @@ class Wallet extends Component {
             <div className="row row-sm stats-container shadow-sm pb-1 m-0" key={token.name}>
               <div className="col-8 stat-col p-0">
                 <div className="stat-icon">
-                  <img src={img_src} className="img-logo" />
+                  {/* <img src={img_src} className="img-logo" /> */}
+                  <div>
+                    <ReactImageFallback src={token_logo} fallbackImage={fallback_logo} className="img-logo" />
+                  </div>
                 </div>
                 <div className="stat">
                   <div className="value">{renderEOSNum(token.ammount)}</div>
@@ -177,72 +191,6 @@ class Wallet extends Component {
     } else return null;
   }
   // get the token pirce
-  gettPairPrice(data, bitfinex_pair, bigone_ticker, blocksence_ticker, newdex_pair) {
-    let tPrice = 0;
-    if (data.bitfinex_pairs && bitfinex_pair)
-      data.bitfinex_pairs.data.map((pair) => {
-        if (pair[0] == bitfinex_pair) {
-          tPrice = Number(pair[7]);
-        }
-      });
-
-    // console.log(bigone_tiker);
-    if (data.bigone_tickers && bigone_ticker)
-      data.bigone_tickers.data.map((ticker) => {
-        if (ticker.market_id == bigone_ticker) {
-          tPrice = Number(ticker.close);
-        }
-      });
-
-    if (data.blocksence_tickers && data.blocksence_tickers.data && blocksence_ticker) {
-      for (var ticker in data.blocksence_tickers.data) {
-        if (ticker == blocksence_ticker) {
-          tPrice = data.blocksence_tickers.data[ticker].eos_price;
-        }
-      }
-    }
-    if (data.newdex_tickers && newdex_pair)
-      data.newdex_tickers.data.map((ticker) => {
-        if (ticker.symbol == newdex_pair) {
-          tPrice = Number(ticker.last);
-        }
-      });
-    return tPrice;
-  }
-  //get the token price percent change
-  gettPairPercent(data, bitfinex_pair, bigone_ticker, blocksence_ticker, newdex_pair) {
-    let tPercent = 0;
-    if (data.bitfinex_pairs)
-      data.bitfinex_pairs.data.map((pair) => {
-        if (pair[0] == bitfinex_pair) {
-          tPercent = Number(pair[6]);
-        }
-      });
-
-    if (data.bigone_tickers && bigone_ticker)
-      data.bigone_tickers.data.map((ticker) => {
-        if (ticker.market_id == bigone_ticker) {
-          tPercent = Number(ticker.daily_change_perc) / 100;
-        }
-      });
-
-    if (data.blocksence_tickers && data.blocksence_tickers.data && blocksence_ticker) {
-      for (var ticker in data.blocksence_tickers.data) {
-        if (ticker == blocksence_ticker) {
-          tPercent = Number(data.blocksence_tickers.data[ticker].percent_change) / 100;
-        }
-      }
-    }
-
-    if (data.newdex_tickers && newdex_pair)
-      data.newdex_tickers.data.map((ticker) => {
-        if (ticker.symbol == newdex_pair) {
-          tPercent = Number(ticker.change);
-        }
-      });
-
-    return tPercent;
-  }
 
   render() {
     total_token_value = 0;
@@ -272,7 +220,10 @@ class Wallet extends Component {
                   <div className="card-header shadow-sm m-0 row m-0 bg-white">
                     <div className="pl-2 d-flex ">
                       <FontAwesomeIcon icon="wallet" className="mr-1 text-info fa-lg" />
-                      <div className="text-info title">Tokens</div>
+                      <div className="text-info title">
+                        Tokens
+                        <span className="badge badge-primary ml-1 pr-1 pl-1 font-weight-bold">{AllTokens.length}</span>
+                      </div>
                     </div>
                   </div>
                   <div

@@ -5,7 +5,6 @@ const AccountType = require('./account_type');
 const CMCType = require('./cmc_type');
 const ChainType = require('./chain_type');
 const keys = require('../../config/keys');
-const tokens = require('../../config/tokens');
 const UserType = require('./user_type');
 const {ActionsType} = require('./actions_type');
 const TableRowsType = require('./table_rows_type');
@@ -30,20 +29,20 @@ const onError = (error) => {
   if (error.response) {
     // The request was made and the server responded with a status code
     // that falls out of the range of 2xx
-    console.log(error.response.data);
-    console.log(error.response.status);
+    // console.log(error.response.data);
+    // console.log(error.response.status);
     if (error.response.status == '503') return Promise.reject(error);
     //console.log(error.response.headers);
   } else if (error.request) {
     // The request was made but no response was received
     // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
     // http.ClientRequest in node.js
-    console.log(error.request);
+    // console.log(error.request);
   } else {
     // Something happened in setting up the request that triggered an Error
-    console.log('Error', error.message);
+    // console.log('Error', error.message);
   }
-  console.log(error.config);
+  // console.log(error.config);
 };
 
 const RootQueryType = new GraphQLObjectType({
@@ -273,27 +272,41 @@ const RootQueryType = new GraphQLObjectType({
     newdex_tickers: {
       type: NewDexTickersType,
       resolve() {
-        let mainObject = {data: []};
-        let promises = [];
-
-        tokens.map((token) => {
-          if (token.newdex_pair) {
-            promises.push(axios.get('https://api.newdex.io/v1/ticker?symbol=' + token.newdex_pair));
-          }
-        });
         return axios
-          .all(promises)
-          .then((results) => {
-            results.map((response) => {
-              if (response.data.code == '200') mainObject.data.push(response.data.data);
-            });
-            return mainObject;
+          .get('https://api.newdex.io/v1/ticker/all')
+          .then((res) => {
+            if (res.data && res.data.code == '200') return res.data;
+            else return null;
           })
           .catch((error) => {
             onError(error);
           });
       }
     },
+    // newdex_tickers: {
+    //   type: NewDexTickersType,
+    //   resolve() {
+    //     let mainObject = {data: []};
+    //     let promises = [];
+
+    //     tokens.map((token) => {
+    //       if (token.newdex_pair) {
+    //         promises.push(axios.get('https://api.newdex.io/v1/ticker?symbol=' + token.newdex_pair));
+    //       }
+    //     });
+    //     return axios
+    //       .all(promises)
+    //       .then((results) => {
+    //         results.map((response) => {
+    //           if (response.data.code == '200') mainObject.data.push(response.data.data);
+    //         });
+    //         return mainObject;
+    //       })
+    //       .catch((error) => {
+    //         onError(error);
+    //       });
+    //   }
+    // },
     bigone_tickers: {
       type: BigOneTickersType,
       resolve() {
@@ -329,7 +342,6 @@ const RootQueryType = new GraphQLObjectType({
     blocksence_tickers: {
       type: BlockSenceTickersType,
       resolve() {
-        let result = {data: []};
         return axios
           .get('https://blocksense.one/api/token.json')
           .then((res) => res)

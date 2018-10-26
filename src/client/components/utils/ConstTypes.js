@@ -99,6 +99,16 @@ export const AntiSpams = {
     {
       act_account: 'eosplayaloud',
       act_name: 'yell'
+    },
+    {
+      act_account: 'message.bank',
+      act_name: 'i'
+    },
+    {
+      act_account: 'alert.x',
+      act_name: 'broadcast'
     }
   ]
 };
+
+alert.x;

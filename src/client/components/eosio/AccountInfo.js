@@ -449,10 +449,9 @@ class AccountInfo extends Component {
                       <FontAwesomeIcon icon="user" className="mr-2 text-info fa-lg" />
                     </div>
                     <div className="stat">
-                      <div className="value">
+                      <div>
                         <h5 className="title text-info ">{account_name}</h5>
                       </div>
-
                       <div className="name ftz-8 text-success">
                         Created: {convertUTCDateToLocalDate(new Date(account.created)).toLocaleString()}{' '}
                       </div>

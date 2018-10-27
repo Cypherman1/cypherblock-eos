@@ -261,15 +261,29 @@ const antispamCheck = (action_trace, antispam) => {
   return true;
 };
 
+// const convertUTCDateToLocalDate = (date) => {
+//   var newDate = new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
+
+//   var offset = date.getTimezoneOffset() / 60;
+//   var hours = date.getHours();
+
+//   newDate.setHours(hours - offset);
+
+//   return newDate;
+// };
+
 const convertUTCDateToLocalDate = (date) => {
-  var newDate = new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
+  // var newDate = new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
 
-  var offset = date.getTimezoneOffset() / 60;
-  var hours = date.getHours();
+  // var offset = date.getTimezoneOffset() / 60;
+  // var hours = date.getHours();
 
-  newDate.setHours(hours - offset);
+  // newDate.setHours(hours - offset);
 
-  return newDate;
+  var newdate = new Date(date + ' UTC');
+  // date.toString(); // "Wed Jun 29 2011 09:52:48 GMT-0700 (PDT)"
+
+  return newdate.toLocaleString();
 };
 
 const renderAccountLink = (accountName) => {

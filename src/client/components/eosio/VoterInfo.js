@@ -44,19 +44,22 @@ class VoterInfo extends Component {
     const {voteinfo, head_block_time} = this.props;
 
     if (voteinfo && head_block_time) {
+      const head_block_time_utc = new Date(head_block_time);
       stake2vote =
         voteinfo.staked *
         Math.pow(
           2,
           Math.floor(
-            (new Date(head_block_time).getTime() / 1000 - block_timestamp_epoch / 1000) / (seconds_per_day * 7)
+            (new Date(head_block_time_utc + 'UTC').getTime() / 1000 - block_timestamp_epoch / 1000) /
+              (seconds_per_day * 7)
           ) / 52
         );
 
       nextDecayTimestamp =
         block_timestamp_epoch +
         (Math.floor(
-          (new Date(head_block_time).getTime() / 1000 - block_timestamp_epoch / 1000) / (seconds_per_day * 7)
+          (new Date(head_block_time_utc + 'UTC').getTime() / 1000 - block_timestamp_epoch / 1000) /
+            (seconds_per_day * 7)
         ) +
           1) *
           (seconds_per_day * 7 * 1000);

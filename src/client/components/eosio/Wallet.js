@@ -226,10 +226,7 @@ class Wallet extends Component {
                       </div>
                     </div>
                   </div>
-                  <div
-                    className="row m-0 pb-1 pt-1 border-left border-right border-light"
-                    style={{backgroundColor: '#ddd'}}
-                  >
+                  <div className="row m-0 pb-1 pt-1 border-left border-right border-light shadow-sm">
                     <div className=" pl-2 col">
                       <div className="text-info ftz-8 font-weight-bold">TOTAL VALUE</div>
                       <div className="value font-weight-bold ft-tvalue" style={{color: '#fc4a1a'}}>

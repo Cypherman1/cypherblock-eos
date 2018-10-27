@@ -23,7 +23,11 @@ const renderPerms = (permissions, account_name) => {
 
 const AccPermsInfo = ({permissions, account_name}) => {
   return (
-    <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 shadow-sm " data-exclude="xs">
+    <div
+      className="card sameheight-item stats mbc border-0 shadow-sm"
+      style={{marginLeft: 2, marginRight: 2}}
+      data-exclude="xs"
+    >
       <div className="card-header card-header-sm shadow-sm bg-white">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="user-lock" className="mr-2 text-info" />

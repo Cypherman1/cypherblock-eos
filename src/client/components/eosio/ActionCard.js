@@ -17,7 +17,7 @@ const ActionCommon = ({
   children
 }) => {
   return (
-    <div className="card ftz-11 mb-1 shadow-sm" key={action_trace.receipt.global_sequence}>
+    <div className="card ftz-11 shadow-sm" style={{marginBottom: 2}} key={action_trace.receipt.global_sequence}>
       <div className="card-header bg-white  act-head-height pt-1 shadow-sm">
         <div className="row w-100 m-0">
           {children[0]}
@@ -56,7 +56,7 @@ const ActionCommon = ({
           <FontAwesomeIcon icon="code" className="mr-0 text-white" /> json
         </a>
       </div>
-      <div className="card-footer action_fp border-0">
+      <div className="card-footer p-0 border-0">
         <div className="collapse" id={`collapse${action_trace.receipt.global_sequence}`}>
           <JSONPretty id="json-pretty" json={action_trace} className="my-json-pretty" />
         </div>

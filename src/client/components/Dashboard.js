@@ -31,9 +31,9 @@ class Dashboard extends Component {
               </ErrorBoundary>
             </div>
             <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col ">
-              <TokenMarket display="d-none d-sm-block" />
+              <TokenMarket display="d-none d-xl-block" />
 
-              <Producers limit="30" display="d-none d-sm-block" />
+              <Producers limit="30" display="d-none d-xl-block" />
             </div>
           </div>
         </section>

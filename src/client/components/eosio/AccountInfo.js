@@ -108,7 +108,7 @@ const AccountInfoLoading = () => {
           </TransitionGroup>
         </div>
       </div>
-      <div className="card sameheight-item stats mbc m-1 border-0 shadow-sm  pb-1">
+      <div className="card sameheight-item stats mbc border-0 shadow-sm  pb-1" style={{margin: 2}}>
         <div className="text-center align-middle overlay pd-gi">
           <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
         </div>
@@ -281,7 +281,7 @@ const AccountInfoLoading = () => {
           </div>
         </div>
       </div>
-      <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 shadow-sm " data-exclude="xs">
+      <div className="card sameheight-item stats  border-0 shadow-sm " style={{margin: 2}} data-exclude="xs">
         <div className="card-header card-header-sm shadow-sm bg-white">
           <div className="header-block pl-2">
             <FontAwesomeIcon icon="user-lock" className="mr-2 text-info" />
@@ -292,7 +292,11 @@ const AccountInfoLoading = () => {
           </div>
         </div>
       </div>
-      <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 pb-1 shadow-sm " data-exclude="xs">
+      <div
+        className="card sameheight-item stats mbc border-0 pb-1 shadow-sm "
+        style={{marginLeft: 2, marginRight: 2}}
+        data-exclude="xs"
+      >
         <div className="card-header card-header-sm shadow-sm bg-white ">
           <div className="header-block pl-2">
             <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
@@ -303,7 +307,11 @@ const AccountInfoLoading = () => {
           </div>
         </div>
       </div>
-      <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 shadow-sm " data-exclude="xs">
+      <div
+        className="card sameheight-item stats mbc  border-0 shadow-sm "
+        style={{marginLeft: 2, marginRight: 2}}
+        data-exclude="xs"
+      >
         <div className="card-header card-header-sm bg-white">
           <div className="header-block pl-2 pr-2">
             <FontAwesomeIcon icon="cogs" className="mr-2 text-info" />
@@ -466,7 +474,7 @@ class AccountInfo extends Component {
                     </TransitionGroup>
                   </div>
                 </div>
-                <div className="card sameheight-item stats mbc m-1 border-0 shadow-sm  pb-1">
+                <div className="card sameheight-item stats mbc border-0 shadow-sm  pb-1" style={{margin: 2}}>
                   <div className="card-header card-header-sm shadow-sm bg-white mb-1">
                     <div className="header-block pl-2">
                       <FontAwesomeIcon icon="globe" className="mr-2 text-info" />

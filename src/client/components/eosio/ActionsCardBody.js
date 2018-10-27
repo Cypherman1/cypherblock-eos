@@ -167,7 +167,7 @@ class ActionsCardBody extends Component {
       if (items.length > 0) {
         return (
           <div>
-            <div className="card-block bg-actions pt-1 pb-0 pr-1 pl-1 ">
+            <div className="bg-actions pb-0" style={{padding: 2}}>
               <CSSTransitionGroup
                 component="div"
                 transitionName="example"
@@ -183,7 +183,7 @@ class ActionsCardBody extends Component {
       } else {
         return (
           <div>
-            <div className="card-block bg-actions pt-1 pb-0 pr-1 pl-1 ">
+            <div className="bg-actions pt-1 pb-0">
               <div className="ftz-11 text-danger p-2">
                 Oops! No action found! Do you want to "Fetch more" or change actions view settings
                 <button

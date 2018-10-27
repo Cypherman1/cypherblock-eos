@@ -17,10 +17,8 @@ const Account = ({match}) => {
               <ErrorBoundary>
                 <AccountInfo account_name={match.params.account_name} />
               </ErrorBoundary>
-              {/* <ErrorBoundary>
-              <VoterInfo account_name={match.params.account_name} />
-            </ErrorBoundary> */}
             </div>
+            <Wallet account_name={match.params.account_name} display="d-xl-none" />
             <ErrorBoundary>
               <ActionsCard
                 account_name={match.params.account_name}
@@ -30,10 +28,9 @@ const Account = ({match}) => {
               />
             </ErrorBoundary>
           </div>
-
-          <ErrorBoundary className="d-none d-xl-block">
-            <Wallet account_name={match.params.account_name} />
-          </ErrorBoundary>
+          <div className={`col col-12 col-sm-12 col-md-12 col-l-5 col-xl-4 history-col pd-col`}>
+            <Wallet account_name={match.params.account_name} display="d-none d-xl-block" />
+          </div>
 
           {/* <Wallet data={data} /> */}
           {/* <MarketInfo

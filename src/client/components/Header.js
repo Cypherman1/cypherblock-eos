@@ -61,7 +61,7 @@ class Header extends Component {
       history.push(`/block/${this.state.term}`);
     } else if (isHash(this.state.term, 'sha256') && this.state.term.length == 64) {
       history.push(`/transaction/${this.state.term}`);
-    } else if (this.state.term.length <= 12 && isLowercase(this.state.term)) {
+    } else {
       history.push(`/account/${this.state.term}`);
     }
   }

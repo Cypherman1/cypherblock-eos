@@ -100,10 +100,30 @@ const renderDecayedPercent = (stake2vote, last_vote_weight) => {
         {(((Number(stake2vote) - Number(last_vote_weight)) / Number(stake2vote)) * 100).toFixed(2)} %
       </span>
     );
+  } else if (Number(stake2vote).toFixed(0) == Number(last_vote_weight).toFixed(0)) {
+    return <span className="text-success">0.00 %</span>;
   } else {
     return (
       <span className="text-success">
         {(((Number(stake2vote) - Number(last_vote_weight)) / Number(stake2vote)) * 100).toFixed(2)} %
+      </span>
+    );
+  }
+};
+
+const renderDecayedPercentProxy = (stake2vote, last_vote_weight, proxied_vote_weight) => {
+  if (stake2vote > last_vote_weight - proxied_vote_weight) {
+    return (
+      <span className="text-danger">
+        {(((stake2vote - (last_vote_weight - proxied_vote_weight)) / stake2vote) * 100).toFixed(2)} %
+      </span>
+    );
+  } else if (stake2vote == last_vote_weight - proxied_vote_weight) {
+    return <span className="text-success">0.00 %</span>;
+  } else {
+    return (
+      <span className="text-success">
+        {(((stake2vote - (last_vote_weight - proxied_vote_weight)) / stake2vote) * 100).toFixed(2)} %
       </span>
     );
   }
@@ -342,5 +362,6 @@ export {
   renderProRank,
   renderHeadBlockTime,
   renderStake2Vote,
-  renderDecayedPercent
+  renderDecayedPercent,
+  renderDecayedPercentProxy
 };

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderAccountLink} from '../utils/Tools';
-import {renderStake2Vote, renderDecayedPercent} from '../utils/RenderColors';
+import {renderStake2Vote, renderDecayedPercent, renderDecayedPercentProxy} from '../utils/RenderColors';
 
 const block_timestamp_epoch = 946684800000;
 const seconds_per_day = 24 * 60 * 60;
@@ -11,7 +11,11 @@ let nextDecayDate = null;
 
 const NoVote = () => {
   return (
-    <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 pb-1 shadow-sm " data-exclude="xs">
+    <div
+      className="card sameheight-item stats mbc border-0 pb-1 shadow-sm "
+      style={{marginLeft: 2, marginRight: 2}}
+      data-exclude="xs"
+    >
       <div className="card-header card-header-sm shadow-sm bg-white ">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
@@ -70,7 +74,11 @@ class VoterInfo extends Component {
           if (!voteinfo.proxy) {
             //vote normaly
             return (
-              <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 pb-1 shadow-sm" data-exclude="xs">
+              <div
+                className="card sameheight-item stats mbc border-0 pb-1 shadow-sm"
+                style={{marginLeft: 2, marginRight: 2}}
+                data-exclude="xs"
+              >
                 <div className="card-header card-header-sm shadow-sm bg-white ">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
@@ -191,7 +199,11 @@ class VoterInfo extends Component {
           } else {
             // voted by proxy
             return (
-              <div className="card sameheight-item stats mbc mr-1 ml-1 border-0 pb-1 shadow-sm" data-exclude="xs">
+              <div
+                className="card sameheight-item stats mbc border-0 pb-1 shadow-sm"
+                style={{marginLeft: 2, marginRight: 2}}
+                data-exclude="xs"
+              >
                 <div className="card-header card-header-sm bg-white shadow-sm ">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
@@ -336,7 +348,11 @@ class VoterInfo extends Component {
         if (voteinfo.producers.length > 0 || voteinfo.proxy) {
           if (!voteinfo.proxy)
             return (
-              <div className="card sameheight-item stats mbc mr-1 ml-1  border-0 shadow-sm" data-exclude="xs">
+              <div
+                className="card sameheight-item stats mbc border-0 shadow-sm"
+                style={{marginLeft: 2, marginRight: 2}}
+                data-exclude="xs"
+              >
                 <div className="card-header card-header-sm bg-white shadow-sm ">
                   <div className="header-block pl-2 pr-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
@@ -410,13 +426,14 @@ class VoterInfo extends Component {
                           <FontAwesomeIcon icon="arrow-alt-circle-down" />
                         </div>
                         <div className="stat">
-                          <div className="value text-danger">
-                            {(
-                              ((stake2vote - (voteinfo.last_vote_weight - voteinfo.proxied_vote_weight)) / stake2vote) *
-                              100
-                            ).toFixed(2)}{' '}
-                            %
+                          <div className="value">
+                            {renderDecayedPercentProxy(
+                              stake2vote,
+                              voteinfo.last_vote_weight,
+                              voteinfo.proxied_vote_weight
+                            )}
                           </div>
+
                           <div className="name">Vote decayed</div>
                         </div>
                         <div className="progress stat-progress">

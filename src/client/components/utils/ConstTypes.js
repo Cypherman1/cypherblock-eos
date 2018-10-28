@@ -105,10 +105,20 @@ export const AntiSpams = {
       act_name: 'i'
     },
     {
+      act_account: 'message.bank',
+      act_name: 'n'
+    },
+    {
       act_account: 'alert.x',
+      act_name: 'broadcast'
+    },
+    {
+      act_account: 'candy.pra',
+      act_name: 'broadcast'
+    },
+    {
+      act_account: 'eosonthefly1',
       act_name: 'broadcast'
     }
   ]
 };
-
-alert.x;

@@ -97,11 +97,11 @@ class TokenMarket extends Component {
             const {table_rows, cmc} = data;
             ticker_count = 0;
 
-            ram_price =
-              (
-                Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
-                Number(table_rows.rows[0].base.balance.split(' ')[0])
-              ).toFixed(4) * 1024;
+            ram_price = (
+              (Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
+                Number(table_rows.rows[0].base.balance.split(' ')[0])) *
+              1024
+            ).toFixed(4);
 
             eos_price = Number(cmc.data.quotes.USD.price).toFixed(2);
             eos_percent_change_24h = cmc.data.quotes.USD.percent_change_24h;

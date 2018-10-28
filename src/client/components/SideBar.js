@@ -71,7 +71,15 @@ const SideBar = (props) => {
             <MetisMenu content={menu} LinkComponent={RouterLink} activeLinkId={props.sidebar.activeLinkId} />
           </nav>
         </div>
-        <footer className="sidebar-footer" />
+        <footer className="sidebar-footer">
+          {/* <ul className="sidebar-menu metismenu" id="customize-menu">
+            <div style={{height: 50}}>
+              <div>
+                <i className="fa fa-cog" /> Customize{' '}
+              </div>
+            </div>
+          </ul> */}
+        </footer>
       </aside>
       <div
         className="sidebar-overlay"

@@ -93,7 +93,7 @@ class TokenMarket extends Component {
         {({loading, error, data}) => {
           if (loading) return <TokenMarketLoading display={display} />;
           if (error) return <TokenMarketLoading display={display} />;
-          if (data && data.table_rows && data.cmc) {
+          if (data && data.table_rows && data.cmc && data.newdex_tickers) {
             const {table_rows, cmc} = data;
             ticker_count = 0;
 

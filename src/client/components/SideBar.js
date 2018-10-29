@@ -72,13 +72,11 @@ const SideBar = (props) => {
           </nav>
         </div>
         <footer className="sidebar-footer">
-          {/* <ul className="sidebar-menu metismenu" id="customize-menu">
-            <div style={{height: 50}}>
-              <div>
-                <i className="fa fa-cog" /> Customize{' '}
-              </div>
-            </div>
-          </ul> */}
+          {/* <div className="sidebar-menu" id="customize-menu">
+            <button className="btn btn-secondary btn-squared w-100 mb-0" style={{}}>
+              <i className="fa fa-cog mr-2 fa-lg" /> Customize
+            </button>
+          </div> */}
         </footer>
       </aside>
       <div

@@ -22,6 +22,7 @@ export const SET_IS_SETTING_OPEN = 'set_is_setting_open';
 // sidebar
 export const SET_ACTIVE_LINK_ID = 'set_active_link_id';
 export const SET_SIDEBAR_STATUS = 'set_sidebar_status';
+export const SET_IS_DARK_MODE = 'set_is_dark_mode';
 // antispam
 
 export const SET_ANTISPAM_CONFIG = 'set_antispam_config';

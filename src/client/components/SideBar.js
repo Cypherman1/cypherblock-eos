@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 // import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import MetisMenu from 'react-metismenu';
 import RouterLink from 'react-metismenu-router-link';
 import {connect} from 'react-redux';
-import {setActiveLinkID, setSidebarStatus} from '../actions/sidebar';
+import {setActiveLinkID, setSidebarStatus, setIsDarkMode} from '../actions/sidebar';
 
 const menu = [
   {
@@ -48,50 +48,89 @@ const menu = [
   // }
 ];
 
-const SideBar = (props) => {
-  return (
-    <div>
-      <aside className="sidebar">
-        <div className="sidebar-container">
-          <div className="sidebar-header">
-            <div className="brand text-white font-weight-bold ftz-16">
-              <div className="mylogo logo-font">
-                <FontAwesomeIcon icon="cube" />
+class SideBar extends Component {
+  componentWillMount() {
+    this.props.setIsDarkMode(localStorage.getItem('isDarkMode'));
+
+    console.log(localStorage.getItem('isDarkMode'));
+    console.log('aaa' + this.props.sidebar.isDarkMode);
+  }
+  render() {
+    const {setSidebarStatus, sidebar, setIsDarkMode} = this.props;
+
+    return (
+      <div>
+        <aside className="sidebar">
+          <div className="sidebar-container">
+            <div className="sidebar-header">
+              <div className="brand text-white font-weight-bold ftz-16">
+                <div className="mylogo logo-font">
+                  <FontAwesomeIcon icon="cube" />
+                </div>
+                CYPHERBLOCK
               </div>
-              CYPHERBLOCK
             </div>
+            <nav
+              className="menu"
+              onClick={(e) => {
+                e.preventDefault();
+                setSidebarStatus(false);
+              }}
+            >
+              <MetisMenu content={menu} LinkComponent={RouterLink} activeLinkId={sidebar.activeLinkId} />
+            </nav>
           </div>
-          <nav
-            className="menu"
-            onClick={(e) => {
-              e.preventDefault();
-              props.setSidebarStatus(false);
-            }}
-          >
-            <MetisMenu content={menu} LinkComponent={RouterLink} activeLinkId={props.sidebar.activeLinkId} />
-          </nav>
-        </div>
-        <footer className="sidebar-footer">
-          {/* <div className="sidebar-menu" id="customize-menu">
-            <button className="btn btn-secondary btn-squared w-100 mb-0" style={{}}>
-              <i className="fa fa-cog mr-2 fa-lg" /> Customize
-            </button>
-          </div> */}
-        </footer>
-      </aside>
-      <div
-        className="sidebar-overlay"
-        id="sidebar-overlay"
-        onClick={(e) => {
-          e.preventDefault();
-          props.setSidebarStatus(false);
-        }}
-      />
-      <div className="sidebar-mobile-menu-handle" id="sidebar-mobile-menu-handle" />
-      <div className="mobile-menu-handle" />
-    </div>
-  );
-};
+          <footer className="sidebar-footer">
+            {/* <div className="sidebar-menu" id="customize-menu">
+              <div className="collapse" id="collapseConfig">
+                <div className="bg-white" style={{height: 50, paddingTop: 4, paddingLeft: 56, borderRight: 1}}>
+                  <div className="custom-control custom-toggle my-2">
+                    <input
+                      type="checkbox"
+                      id="darkMode"
+                      name="darkMode"
+                      className="custom-control-input"
+                      checked={sidebar.isDarkMode}
+                      onChange={() => {
+                        localStorage.setItem('isDarkMode', !sidebar.isDarkMode);
+                        setIsDarkMode(!sidebar.isDarkMode);
+                      }}
+                    />
+                    <label className="custom-control-label mt-1 font-weight-normal" htmlFor="darkMode">
+                      Dark mode
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <button
+                className="btn btn-secondary btn-squared w-100 mb-0 font-weight-bold ftz-15"
+                style={{height: 50}}
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseConfig"
+                aria-expanded="false"
+                aria-controls="collapseConfig"
+              >
+                <FontAwesomeIcon icon="palette" />
+                <div className="d-inline ml-1 "> Customize </div>
+              </button>
+            </div> */}
+          </footer>
+        </aside>
+        <div
+          className="sidebar-overlay"
+          id="sidebar-overlay"
+          onClick={(e) => {
+            e.preventDefault();
+            setSidebarStatus(false);
+          }}
+        />
+        <div className="sidebar-mobile-menu-handle" id="sidebar-mobile-menu-handle" />
+        <div className="mobile-menu-handle" />
+      </div>
+    );
+  }
+}
 
 function mapStateToProps({sidebar}) {
   return {sidebar};
@@ -99,5 +138,5 @@ function mapStateToProps({sidebar}) {
 
 export default connect(
   mapStateToProps,
-  {setActiveLinkID, setSidebarStatus}
+  {setActiveLinkID, setSidebarStatus, setIsDarkMode}
 )(SideBar);

@@ -20,9 +20,9 @@ let eos_price = 0;
 let token_usd_value = 0;
 let tokens_count = 0;
 
-const WalletLoading = ({display}) => {
+const WalletLoading = ({display, isDarkMode}) => {
   return (
-    <div className={`card sameheight-item stats ${display}`} data-exclude="xs">
+    <div className={`card sameheight-item stats ${display} ${isDarkMode ? 'bg-dark' : ''}`} data-exclude="xs">
       <div className="card-header shadow-sm m-0 row m-0 bg-white">
         <div className="pl-2 d-flex ">
           <FontAwesomeIcon icon="wallet" className="mr-1 text-info fa-lg" />
@@ -46,7 +46,11 @@ const WalletLoading = ({display}) => {
           <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
         </div>
         <div className="title-block row m-0 shadow-sm ">
-          <div className="col-12 col-sm-12 header-col p-0  bg-white">
+          <div
+            className={`col-12 col-sm-12 header-col p-0 ${
+              isDarkMode ? 'bg-dark border-top border-bottom border-secondary' : 'bg-white'
+            } `}
+          >
             <div className="row  m-0">
               <div className="col float-left price-font pl-2" />
               <div className="col text-right ftz-10  pr-1 text-info">Price (Token/EOS)</div>
@@ -192,7 +196,7 @@ class Wallet extends Component {
 
   render() {
     total_token_value = 0;
-    const {display} = this.props;
+    const {display, isDarkMode} = this.props;
     return (
       <Query
         query={GetWalletInfo}
@@ -202,8 +206,8 @@ class Wallet extends Component {
         pollInterval={5000}
       >
         {({loading, error, data}) => {
-          if (loading) return <WalletLoading display={display} />;
-          if (error) return <WalletLoading display={display} />;
+          if (loading) return <WalletLoading display={display} isDarkMode={isDarkMode} />;
+          if (error) return <WalletLoading display={display} isDarkMode={isDarkMode} />;
 
           if (data && data.cmc) {
             this.setAllTokens(data);
@@ -214,7 +218,10 @@ class Wallet extends Component {
             });
             token_usd_value = total_token_value * eos_price;
             return (
-              <div className={`card sameheight-item stats mb-1 ${display}`} data-exclude="xs">
+              <div
+                className={`${isDarkMode ? 'bg-dark' : ''} card sameheight-item stats mb-1 ${display} `}
+                data-exclude="xs"
+              >
                 <div className="card-header shadow-sm m-0 row m-0 bg-white">
                   <div className="pl-2 d-flex ">
                     <FontAwesomeIcon icon="wallet" className="mr-1 text-info fa-lg" />
@@ -240,7 +247,11 @@ class Wallet extends Component {
                 </div>
                 <div className="card-block p-0">
                   <div className="title-block row m-0 shadow-sm ">
-                    <div className="col-12 col-sm-12 header-col p-0  bg-white">
+                    <div
+                      className={`col-12 col-sm-12 header-col  p-0 ${
+                        isDarkMode ? 'bg-dark border-bottom border-top border-secondary' : 'bg-white'
+                      }`}
+                    >
                       <div className="row  m-0">
                         <div className="col float-left price-font pl-2" />
                         <div className="col text-right ftz-10  pr-1 text-info">Price (Token/EOS)</div>
@@ -258,7 +269,7 @@ class Wallet extends Component {
               </div>
             );
           } else {
-            return <WalletLoading display={display} />;
+            return <WalletLoading display={display} isDarkMode={isDarkMode} />;
           }
         }}
       </Query>

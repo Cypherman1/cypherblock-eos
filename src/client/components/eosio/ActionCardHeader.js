@@ -19,13 +19,13 @@ import {
   setIsSettingOpen
 } from '../../actions/eosActions';
 
-const renderRefetchBtn = (refetch, setIsRefetch, setIsMore, islive, isrefetch) => {
+const renderRefetchBtn = (refetch, setIsRefetch, setIsMore, islive, isrefetch, isDarkMode) => {
   if (!islive) {
     if (!isrefetch)
       return (
         <button
           type="button"
-          className="btn btn-white btn-pill p-1"
+          className={`btn ${isDarkMode ? 'bg-dark' : 'btn-white'}  btn-pill p-1`}
           onClick={() => {
             setIsRefetch(true);
             refetch().then(() => {
@@ -57,7 +57,8 @@ const ActionCardHeader = ({
   setFilterSendReceieTokens,
   setFilterSmartContract,
   setMemoTag,
-  setIsSettingOpen
+  setIsSettingOpen,
+  isDarkMode
 }) => {
   const {
     refetch,
@@ -76,7 +77,7 @@ const ActionCardHeader = ({
 
   return (
     <div>
-      <div className="card-header bg-white row m-0">
+      <div className={`card-header row m-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}  `}>
         <div className="header-block pl-1 col stat-col">
           <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
           <h5 className="title text-info">
@@ -84,10 +85,10 @@ const ActionCardHeader = ({
           </h5>
         </div>
         <div className="col-auto pt-atb pr-1">
-          {renderRefetchBtn(refetch, setIsRefetch, setIsMore, islive, isrefetch)}
+          {renderRefetchBtn(refetch, setIsRefetch, setIsMore, islive, isrefetch, isDarkMode)}
           <button
             type="button"
-            className="btn btn-white btn-pill p-1"
+            className={`btn ${isDarkMode ? 'btn-dark' : 'btn-white'}  btn-pill p-1`}
             data-toggle="collapse"
             data-target="#collapseExample"
             aria-expanded="false"
@@ -104,7 +105,7 @@ const ActionCardHeader = ({
           </button>
         </div>
       </div>
-      <div className="collapse card border shadow-sm" id="collapseExample">
+      <div className="collapse border shadow-sm" id="collapseExample">
         <div className="card card-body pt-2 pb-0 pd-action-setting">
           <div className="row  ">
             <div className="col-6 font-weight-normal">

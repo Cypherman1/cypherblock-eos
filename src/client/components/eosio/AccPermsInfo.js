@@ -21,10 +21,10 @@ const renderPerms = (permissions, account_name) => {
   return items;
 };
 
-const AccPermsInfo = ({permissions, account_name}) => {
+const AccPermsInfo = ({permissions, account_name, isDarkMode}) => {
   return (
     <div
-      className="card sameheight-item stats mbc border-0 shadow-sm"
+      className={`card sameheight-item stats mbc border  shadow-sm ${isDarkMode ? 'bg-dark border-secondary' : ''}`}
       style={{marginLeft: 2, marginRight: 2}}
       data-exclude="xs"
     >

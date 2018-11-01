@@ -286,8 +286,12 @@ const convertUTCDateToLocalDate = (date) => {
   return newdate.toLocaleString();
 };
 
-const renderAccountLink = (accountName) => {
-  return <Link to={`/account/${accountName}`}>{accountName}</Link>;
+const renderAccountLink = (accountName, isDarkMode) => {
+  return (
+    <Link className={` ${isDarkMode ? 'linkcolor-dark' : ''} `} to={`/account/${accountName}`}>
+      {accountName}
+    </Link>
+  );
 };
 
 const renderBlockLink = (block_num) => {

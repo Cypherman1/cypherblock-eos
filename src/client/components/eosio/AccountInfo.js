@@ -85,19 +85,18 @@ Date.prototype.addDays = function(days) {
   return date;
 };
 
-const AccountInfoLoading = () => {
+const AccountInfoLoading = ({isDarkMode}) => {
   return (
-    <div className="bg-actions">
-      <div className="card-header bg-white">
-        <div className="header-block pl-2 col stat-col">
-          <div className="head-icon">
+    <div className={`card ${isDarkMode ? 'bg-dark' : 'bg-actions'} mb-1`}>
+      <div className={`card-header row m-0 shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
+        <div className="col p-0 d-flex flex-row">
+          <div className="pt-2 pl-2">
             <FontAwesomeIcon icon="user" className="mr-2 text-info fa-lg" />
           </div>
-          <div className="stat">
-            <div className="value">
+          <div className="">
+            <div>
               <h5 className="title text-info " />
             </div>
-
             <div className="name ftz-8 text-success">Created:</div>
           </div>
         </div>
@@ -108,11 +107,16 @@ const AccountInfoLoading = () => {
           </TransitionGroup>
         </div>
       </div>
-      <div className="card sameheight-item stats mbc border-0 shadow-sm  pb-1" style={{margin: 2}}>
+      <div
+        className={`card sameheight-item stats mbc border  shadow-sm ${
+          isDarkMode ? 'bg-dark border-secondary' : ''
+        }  pb-1`}
+        style={{margin: 2}}
+      >
         <div className="text-center align-middle overlay pd-gi">
           <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
         </div>
-        <div className="card-header card-header-sm shadow-sm bg-white mb-1">
+        <div className={`card-header card-header-sm shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}  mb-1`}>
           <div className="header-block pl-2">
             <FontAwesomeIcon icon="globe" className="mr-2 text-info" />
             <h5 className="title text-info">
@@ -127,7 +131,7 @@ const AccountInfoLoading = () => {
               <img src={eoslogo} />
             </div>
             <div className="stat">
-              <div className="value" />
+              <div className="value"> EOS</div>
               <div className="name">Balance</div>
             </div>
 
@@ -146,7 +150,7 @@ const AccountInfoLoading = () => {
                 <img src={eoslogo} />
               </div>
               <div className="stat">
-                <div className="value" />
+                <div className="value"> EOS</div>
                 <div className="name">Balance(RAM included)</div>
               </div>
             </div>
@@ -164,7 +168,7 @@ const AccountInfoLoading = () => {
               <FontAwesomeIcon icon="dollar-sign" />
             </div>
             <div className="stat">
-              <div className="value" />
+              <div className="value"> USD</div>
               <div className="name">To fiat(RAM included)</div>
             </div>
             <div className="progress stat-progress">
@@ -215,8 +219,10 @@ const AccountInfoLoading = () => {
               <FontAwesomeIcon icon="key" />
             </div>
             <div className="stat">
-              <div className="value" />
-              <div className="name">Refunding</div>
+              <div className="value">EOS</div>
+              <div className="name">
+                Refunding<span className="ftz-8 text-success font-weight-bold"> </span>{' '}
+              </div>
             </div>
             <div className="progress stat-progress">
               <div
@@ -251,7 +257,7 @@ const AccountInfoLoading = () => {
             </div>
             <div className="stat">
               <div className="value" />
-              <div className="name">{`NET`}</div>
+              <div className="name">{`NET `}</div>
             </div>
             <div className="progress stat-progress">
               <div
@@ -281,47 +287,9 @@ const AccountInfoLoading = () => {
           </div>
         </div>
       </div>
-      <div className="card sameheight-item stats  border-0 shadow-sm " style={{margin: 2}} data-exclude="xs">
-        <div className="card-header card-header-sm shadow-sm bg-white">
-          <div className="header-block pl-2">
-            <FontAwesomeIcon icon="user-lock" className="mr-2 text-info" />
-            <h5 className="title text-info">
-              Permissions info
-              {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-            </h5>
-          </div>
-        </div>
-      </div>
-      <div
-        className="card sameheight-item stats mbc border-0 pb-1 shadow-sm "
-        style={{marginLeft: 2, marginRight: 2}}
-        data-exclude="xs"
-      >
-        <div className="card-header card-header-sm shadow-sm bg-white ">
-          <div className="header-block pl-2">
-            <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
-            <h5 className="title text-info">
-              Voter info
-              {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-            </h5>
-          </div>
-        </div>
-      </div>
-      <div
-        className="card sameheight-item stats mbc  border-0 shadow-sm "
-        style={{marginLeft: 2, marginRight: 2}}
-        data-exclude="xs"
-      >
-        <div className="card-header card-header-sm bg-white">
-          <div className="header-block pl-2 pr-2">
-            <FontAwesomeIcon icon="cogs" className="mr-2 text-info" />
-            <h5 className="title text-info">
-              Smart contract
-              {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-            </h5>
-          </div>
-        </div>
-      </div>
+      {/* <AccPermsInfo permissions={[]} isDarkMode={isDarkMode} />
+      <VoterInfo isDarkMode={isDarkMode} />
+      <SmartContract account_name={null} isDarkMode={isDarkMode} /> */}
     </div>
   );
 };
@@ -438,25 +406,26 @@ class AccountInfo extends Component {
       position: toast.POSITION.TOP_RIGHT
     });
   render() {
+    const {isDarkMode} = this.props;
     return (
       <Query query={GetAccountInfo} variables={{account_name: this.props.account_name}} pollInterval={5000}>
         {({loading, error, data}) => {
-          if (loading) return <AccountInfoLoading />;
+          if (loading) return <AccountInfoLoading isDarkMode={isDarkMode} />;
 
-          if (error) return <AccountInfoLoading />;
+          if (error) return <AccountInfoLoading isDarkMode={isDarkMode} />;
 
           const {account, table_rows, cmc, voteinfo} = data;
           this.getAccountInfo(account, table_rows, cmc);
 
           if (account && table_rows && cmc)
             return (
-              <div className="bg-actions">
-                <div className="card-header bg-white">
-                  <div className="header-block pl-2 col stat-col">
-                    <div className="head-icon">
+              <div className={`card ${isDarkMode ? 'bg-dark' : 'bg-actions'} mb-1`}>
+                <div className={`card-header row m-0 shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
+                  <div className="col p-0 d-flex flex-row">
+                    <div className="pt-2 pl-2">
                       <FontAwesomeIcon icon="user" className="mr-2 text-info fa-lg" />
                     </div>
-                    <div className="stat">
+                    <div className="">
                       <div>
                         <h5 className="title text-info ">{account_name}</h5>
                       </div>
@@ -474,8 +443,13 @@ class AccountInfo extends Component {
                     </TransitionGroup>
                   </div>
                 </div>
-                <div className="card sameheight-item stats mbc border-0 shadow-sm  pb-1" style={{margin: 2}}>
-                  <div className="card-header card-header-sm shadow-sm bg-white mb-1">
+                <div
+                  className={`card sameheight-item stats mbc border  shadow-sm ${
+                    isDarkMode ? 'bg-dark border-secondary' : ''
+                  }  pb-1`}
+                  style={{margin: 2}}
+                >
+                  <div className={`card-header card-header-sm shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}  mb-1`}>
                     <div className="header-block pl-2">
                       <FontAwesomeIcon icon="globe" className="mr-2 text-info" />
                       <h5 className="title text-info">
@@ -511,7 +485,9 @@ class AccountInfo extends Component {
                           <img src={eoslogo} />
                         </div>
                         <div className="stat">
-                          <div className="value">{renderTotalBalanceRAMColor(total_balance_ramincluded)} EOS</div>
+                          <div className="value">
+                            {renderTotalBalanceRAMColor(total_balance_ramincluded, isDarkMode)} EOS
+                          </div>
                           <div className="name">Balance(RAM included)</div>
                         </div>
                       </div>
@@ -529,7 +505,7 @@ class AccountInfo extends Component {
                         <FontAwesomeIcon icon="dollar-sign" />
                       </div>
                       <div className="stat">
-                        <div className="value">{renderToFiatColor(to_fiat)} USD</div>
+                        <div className="value">{renderToFiatColor(to_fiat, isDarkMode)} USD</div>
                         <div className="name">To fiat(RAM included)</div>
                       </div>
                       <div className="progress stat-progress">
@@ -652,7 +628,7 @@ class AccountInfo extends Component {
                       </div>
                       <div className="stat">
                         <div className="value">{`${used_ram}/${limited_ram}`}</div>
-                        <div className="name">RAM ({renderRamColor(eos_ram_equivalent)} EOS)</div>
+                        <div className="name">RAM ({renderRamColor(eos_ram_equivalent, isDarkMode)} EOS)</div>
                       </div>
                       <div className="progress stat-progress">
                         <div
@@ -665,9 +641,9 @@ class AccountInfo extends Component {
                     </div>
                   </div>
                 </div>
-                <AccPermsInfo permissions={account.permissions} account_name={account_name} />
-                <VoterInfo voteinfo={voteinfo} head_block_time={account.head_block_time} />
-                <SmartContract account_name={account_name} />
+                <AccPermsInfo permissions={account.permissions} account_name={account_name} isDarkMode={isDarkMode} />
+                <VoterInfo voteinfo={voteinfo} head_block_time={account.head_block_time} isDarkMode={isDarkMode} />
+                <SmartContract account_name={account_name} isDarkMode={isDarkMode} />
               </div>
             );
           else {

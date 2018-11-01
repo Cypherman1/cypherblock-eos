@@ -50,17 +50,14 @@ const menu = [
 
 class SideBar extends Component {
   componentWillMount() {
-    this.props.setIsDarkMode(localStorage.getItem('isDarkMode'));
-
-    console.log(localStorage.getItem('isDarkMode'));
-    console.log('aaa' + this.props.sidebar.isDarkMode);
+    this.props.setIsDarkMode(localStorage.getItem('isDarkMode') == 'true');
   }
   render() {
     const {setSidebarStatus, sidebar, setIsDarkMode} = this.props;
 
     return (
       <div>
-        <aside className="sidebar">
+        <aside className={`sidebar ${sidebar.isDarkMode ? 'bg-dark' : ''}`}>
           <div className="sidebar-container">
             <div className="sidebar-header">
               <div className="brand text-white font-weight-bold ftz-16">
@@ -81,9 +78,12 @@ class SideBar extends Component {
             </nav>
           </div>
           <footer className="sidebar-footer">
-            {/* <div className="sidebar-menu" id="customize-menu">
+            <div className={`sidebar-menu border-top`} id="customize-menu">
               <div className="collapse" id="collapseConfig">
-                <div className="bg-white" style={{height: 50, paddingTop: 4, paddingLeft: 56, borderRight: 1}}>
+                <div
+                  className={`${sidebar.isDarkMode ? 'bg-secondary' : 'bg-white'}`}
+                  style={{height: 50, paddingTop: 4, paddingLeft: 56, borderRight: 1}}
+                >
                   <div className="custom-control custom-toggle my-2">
                     <input
                       type="checkbox"
@@ -91,9 +91,9 @@ class SideBar extends Component {
                       name="darkMode"
                       className="custom-control-input"
                       checked={sidebar.isDarkMode}
-                      onChange={() => {
-                        localStorage.setItem('isDarkMode', !sidebar.isDarkMode);
-                        setIsDarkMode(!sidebar.isDarkMode);
+                      onChange={(event) => {
+                        setIsDarkMode(event.target.checked);
+                        localStorage.setItem('isDarkMode', event.target.checked);
                       }}
                     />
                     <label className="custom-control-label mt-1 font-weight-normal" htmlFor="darkMode">
@@ -103,7 +103,9 @@ class SideBar extends Component {
                 </div>
               </div>
               <button
-                className="btn btn-secondary btn-squared w-100 mb-0 font-weight-bold ftz-15"
+                className={`btn ${
+                  sidebar.isDarkMode ? 'btn-dark' : 'btn-secondary'
+                }  btn-squared w-100 mb-0 font-weight-bold ftz-15`}
                 style={{height: 50}}
                 type="button"
                 data-toggle="collapse"
@@ -114,7 +116,7 @@ class SideBar extends Component {
                 <FontAwesomeIcon icon="palette" />
                 <div className="d-inline ml-1 "> Customize </div>
               </button>
-            </div> */}
+            </div>
           </footer>
         </aside>
         <div

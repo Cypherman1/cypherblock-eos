@@ -351,7 +351,7 @@ export const renderBlockStatus = (block_num, last_irreversible_block, head_block
     return <div />;
   } else {
     if (Number(last_irreversible_block) >= Number(block_num) || Number(head_block_num) - Number(block_num) > 370) {
-      return <span className="badge badge-success p-1 ftz-9">Irreversible</span>;
+      return <span className="badge badge-success pad-3 ftz-9">Irreversible</span>;
       // return <div className="d-inline bg-success text-light rounded irr-mark ">Irreversible</div>;
     }
     return renderConfirmation(block_num, head_block_num);
@@ -361,8 +361,10 @@ export const renderBlockStatus = (block_num, last_irreversible_block, head_block
 export const renderTime = (time) => {
   return <div data-title="Time">{convertUTCDateToLocalDate(new Date(time)).toLocaleString()}</div>;
 };
-const ActType = ({bg, children}) => {
-  return <span className={`bg-white ${bg} font-weight-bold ftz-13`}>{children}</span>;
+const ActType = ({bg, isDarkMode, children}) => {
+  return (
+    <span className={` ${isDarkMode ? 'bg-transparent' : 'bg-white'}  ${bg} font-weight-bold ftz-13`}>{children}</span>
+  );
 };
 const ReceivedAction = ({action_trace}) => {
   return (
@@ -701,7 +703,7 @@ const CancelDelay = ({action_trace}) => {
   );
 };
 
-export const RenderAct = (action_trace, account_name, trx_id) => {
+export const RenderAct = (action_trace, account_name, trx_id, isDarkMode) => {
   let ActionInfo = classifyAction(action_trace, account_name);
 
   const {action_type, action_component, action_style} = ActionInfo;
@@ -712,7 +714,7 @@ export const RenderAct = (action_trace, account_name, trx_id) => {
   let items = [];
   items.push(<ActSign key="0" icon={icon} color={color} trx_id={trx_id} />);
   items.push(
-    <ActType bg={color} key="1">
+    <ActType bg={color} isDarkMode={isDarkMode} key="1">
       {action_type ? action_type : action_trace.act.name}
     </ActType>
   );

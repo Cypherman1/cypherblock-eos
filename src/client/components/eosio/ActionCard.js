@@ -14,18 +14,21 @@ const ActionCommon = ({
   head_block_num,
   get_block_status,
   trx_id,
-  children
+  children,
+  isDarkMode
 }) => {
   return (
-    <div className="card ftz-11 shadow-sm" style={{marginBottom: 2}} key={action_trace.receipt.global_sequence}>
-      <div className="card-header bg-white  act-head-height pt-1 shadow-sm">
+    <div
+      className={`card ftz-11 border shadow-sm ${isDarkMode ? 'bg-dark text-white border-secondary' : ''}`}
+      style={{marginBottom: 2}}
+      key={action_trace.receipt.global_sequence}
+    >
+      <div className={`card-header act-head-height shadow-sm bg-white ${isDarkMode ? 'bg-dark text-white' : ''}`}>
         <div className="row w-100 m-0">
           {children[0]}
           <div className="col pl-1 pr-0">
             <div className="">{children[1]}</div>
-            <div className="pb-1">
-              {renderBlockStatus(block_num, last_irreversible_block, head_block_num, get_block_status)}
-            </div>
+            <div>{renderBlockStatus(block_num, last_irreversible_block, head_block_num, get_block_status)}</div>
           </div>
           <div className="col text-right pr-2 pl-0 pt-1">
             <div className="act-date-fz"> {renderTime(block_time)} </div>
@@ -34,19 +37,23 @@ const ActionCommon = ({
         </div>
       </div>
 
-      <div className="card-body border-0 p-1">
+      <div className={`card-body border-0 p-1 ${isDarkMode ? 'bg-dark text-white' : ''} `}>
         {/* {this.renderActions(action_trace, account_name)} */}
-        <div className="row m-0">
-          <div className="col-12 p-0">
-            <div className="row m-0">
-              <div className="card sameheight-item mb-0 border-0 w-100 " data-exclude="xs">
-                <div className="pr-2 pl-2"> {children[2]} </div>
-              </div>
-            </div>
-          </div>
+
+        <div
+          className={`card sameheight-item mb-0 border-0 w-100 ${isDarkMode ? 'bg-dark text-white' : ''}`}
+          data-exclude="xs"
+        >
+          <div className="pr-2 pl-2"> {children[2]} </div>
         </div>
+      </div>
+      <div
+        className={`card-footer border-0 ${isDarkMode ? 'bg-dark' : 'bg-white'} `}
+        style={{paddingBottom: 2, paddingRight: 3, paddingTop: 0}}
+      >
         <a
-          className="badge badge-warning text-white float-right p-1"
+          className="badge badge-warning text-white float-right"
+          style={{paddingLeft: 2, paddingRight: 6, paddingTop: 2, paddingBottom: 2}}
           data-toggle="collapse"
           href={`#collapse${action_trace.receipt.global_sequence}`}
           role="button"
@@ -55,8 +62,6 @@ const ActionCommon = ({
         >
           <FontAwesomeIcon icon="code" className="mr-0 text-white" /> json
         </a>
-      </div>
-      <div className="card-footer p-0 border-0">
         <div className="collapse" id={`collapse${action_trace.receipt.global_sequence}`}>
           <JSONPretty id="json-pretty" json={action_trace} className="my-json-pretty" />
         </div>
@@ -74,7 +79,8 @@ const ActionCard = ({
   head_block_num,
   get_block_status,
   trx_id,
-  antispam
+  antispam,
+  isDarkMode
 }) => {
   return (
     <ActionCommon
@@ -86,8 +92,9 @@ const ActionCard = ({
       head_block_num={head_block_num}
       get_block_status={get_block_status}
       trx_id={trx_id}
+      isDarkMode={isDarkMode}
     >
-      {RenderAct(action_trace, account_name, trx_id)}
+      {RenderAct(action_trace, account_name, trx_id, isDarkMode)}
     </ActionCommon>
   );
 };

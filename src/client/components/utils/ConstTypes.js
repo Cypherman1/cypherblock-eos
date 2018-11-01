@@ -119,6 +119,14 @@ export const AntiSpams = {
     {
       act_account: 'eosonthefly1',
       act_name: 'broadcast'
+    },
+    {
+      act_account: 'yumgamealert',
+      act_name: 'push'
+    },
+    {
+      act_account: '2g1com.x',
+      act_name: 'broadcast'
     }
   ]
 };

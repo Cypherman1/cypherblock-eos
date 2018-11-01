@@ -6,9 +6,9 @@ import GetProducers from '../../queries/GetProducers';
 import {renderAccountLink} from '../utils/Tools';
 import {renderProRank} from '../utils/RenderColors';
 
-const ProducersLoading = ({display}) => {
+const ProducersLoading = ({display, isDarkMode}) => {
   return (
-    <div className={`card sameheight-item stats ${display}`} data-exclude="xs">
+    <div className={`card sameheight-item stats ${isDarkMode ? 'bg-dark' : ''} ${display}`} data-exclude="xs">
       <div className="card-header shadow-sm bg-white">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
@@ -34,10 +34,16 @@ const ProducersLoading = ({display}) => {
 };
 
 class Producers extends Component {
-  renderProducer(producer, index, total_producer_vote_weight) {
+  renderProducer(producer, index, total_producer_vote_weight, isDarkMode) {
     return (
-      <div className="row row-sm stats-container shadow-sm m-0 pb-1" key={producer.owner}>
-        <div className="col-8 stat-col p-0">
+      <div
+        className={`card-token-price d-flex flex-row justify-content-between shadow-sm pb-1 ${
+          isDarkMode ? 'bg-dark' : ''
+        }`}
+        key={producer.owner}
+        style={{marginBottom: 2, marginTop: 1}}
+      >
+        <div className="p-0">
           <div className="stat-icon">{renderProRank(index)}</div>
           <div className="stat">
             <div className="value">{renderAccountLink(producer.owner)}</div>
@@ -46,7 +52,7 @@ class Producers extends Component {
             </div>
           </div>
         </div>
-        <div className="col-4 p-0">
+        <div className="p-0">
           <div className="stat float-right pt-3 ftz-11 font-weight-bold">
             {((Number(producer.total_votes) / Number(total_producer_vote_weight)) * 100).toLocaleString('en', {
               minimumFractionDigits: 4
@@ -57,7 +63,7 @@ class Producers extends Component {
     );
   }
   render() {
-    const {display} = this.props;
+    const {display, isDarkMode} = this.props;
     return (
       <Query
         query={GetProducers}
@@ -67,24 +73,27 @@ class Producers extends Component {
         }}
       >
         {({loading, error, data}) => {
-          if (loading) return <ProducersLoading display={display} />;
-          if (error) return <ProducersLoading display={display} />;
+          if (loading) return <ProducersLoading display={display} isDarkMode={isDarkMode} />;
+          if (error) return <ProducersLoading display={display} isDarkMode={isDarkMode} />;
           const {producers} = data;
           if (producers) {
             return (
-              <div className={`card sameheight-item stats mb-1 ${display}`} data-exclude="xs">
-                <div className="card-header shadow-sm bg-white">
+              <div
+                className={`card sameheight-item stats mb-1 ${isDarkMode ? 'bg-dark' : ''} ${display}`}
+                data-exclude="xs"
+              >
+                <div className={`card-header shadow-sm mb-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
                     <h5 className="title text-info ">Top producers</h5>
                   </div>
                 </div>
-                <div className="card-block p-0">
-                  <div className="title-block row shadow-sm m-0">
-                    <div className="col-12 col-sm-12 header-col p-0">
-                      <div className="row shadow-sm price-row">
+                <div className={`card-body p-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
+                  <div className="title-block row shadow-sm m-0 border-bottom">
+                    <div className={`col-12 col-sm-12 ${isDarkMode ? 'bg-dark' : 'bg-white'} header-col p-0`}>
+                      <div className="row shadow-sm price-row ">
                         <div className="col float-left price-font pl-2" />
-                        <div className="col text-right price-font pr-1">Vote (%)</div>
+                        <div className="col text-right price-font pr-1 text-info ftz-10">Vote (%)</div>
                       </div>
                     </div>
                   </div>
@@ -94,7 +103,7 @@ class Producers extends Component {
                     transitionLeaveTimeout={300}
                   >
                     {producers.rows.map((producer, index) => {
-                      return this.renderProducer(producer, index + 1, producers.total_producer_vote_weight);
+                      return this.renderProducer(producer, index + 1, producers.total_producer_vote_weight, isDarkMode);
                     })}
                   </CSSTransitionGroup>
                 </div>
@@ -103,7 +112,7 @@ class Producers extends Component {
           } else {
             return (
               <div className={display}>
-                <ProducersLoading />
+                <ProducersLoading display={display} isDarkMode={isDarkMode} />
               </div>
             );
           }

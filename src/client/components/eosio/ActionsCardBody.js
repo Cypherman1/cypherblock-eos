@@ -26,7 +26,7 @@ var action_digests_tmp = '';
 const ActionsCardLoading = () => {
   return (
     <div>
-      <div className="card-block bg-actions pt-1 pb-0 pr-1 pl-1 ">
+      <div className="card-block pt-1 pb-0 pr-1 pl-1 ">
         <div className="text-center align-middle pd-vi">
           <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
         </div>
@@ -114,7 +114,7 @@ class ActionsCardBody extends Component {
   render() {
     //const {loading, error, data, fetchMore, refetch} = this.props.data;
     if (this.props.data.loading) return <ActionsCardLoading />;
-    const {data, eosActions, account_name, setIsSettingOpen} = this.props;
+    const {data, eosActions, account_name, setIsSettingOpen, isDarkMode} = this.props;
     const {fetchMore} = this.props.data;
     const {
       isAntiSpamed,
@@ -160,30 +160,29 @@ class ActionsCardBody extends Component {
                 account_name={account_name}
                 get_block_status={false}
                 trx_id={action.action_trace.trx_id}
+                isDarkMode={isDarkMode}
               />
             );
           }
         });
       if (items.length > 0) {
         return (
-          <div>
-            <div className="bg-actions pb-0" style={{padding: 2}}>
-              <CSSTransitionGroup
-                component="div"
-                transitionName="example"
-                transitionEnterTimeout={500}
-                transitionLeaveTimeout={300}
-              >
-                {items}
-              </CSSTransitionGroup>
-              {this.renderLoadMoreBtn(fetchMore, data.actions.actions.length)}
-            </div>
+          <div className={`pb-0 ${isDarkMode ? 'bg-action-dark' : 'bg-actions'}  `} style={{padding: 2}}>
+            <CSSTransitionGroup
+              component="div"
+              transitionName="example"
+              transitionEnterTimeout={100}
+              transitionLeaveTimeout={50}
+            >
+              {items}
+            </CSSTransitionGroup>
+            {this.renderLoadMoreBtn(fetchMore, data.actions.actions.length)}
           </div>
         );
       } else {
         return (
           <div>
-            <div className="bg-actions pt-1 pb-0">
+            <div className="pt-1 pb-0">
               <div className="ftz-11 text-danger p-2">
                 Oops! No action found! Do you want to "Fetch more" or change actions view settings
                 <button

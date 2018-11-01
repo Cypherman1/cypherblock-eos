@@ -7,7 +7,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderTransLink, renderBlockLink, convertUTCDateToLocalDate, renderAccountLink} from '../utils/Tools';
 import BlockConfirmation from './BlockConfirmation';
 
-const BlockLoading = () => {
+const BlockLoading = ({isDarkMode}) => {
   return (
     <div className="card-block ">
       <div className="text-center align-middle overlay pt-60">
@@ -24,6 +24,7 @@ class Block extends Component {
       position: toast.POSITION.TOP_RIGHT
     });
   render() {
+    const {isDarkMode} = this.props;
     return (
       <Query
         query={GetBlock}
@@ -133,7 +134,10 @@ class Block extends Component {
                     </div>
                     <div className="col-12 col-sm-8  pr-0 pl-1">
                       <div className="col-12 col-sm-12  pr-0 pl-1">
-                        <div className="card sameheight-item mb-0" data-exclude="xs">
+                        <div
+                          className={`card sameheight-item ${isDarkMode ? 'bg-dark border' : ''} mb-0`}
+                          data-exclude="xs"
+                        >
                           <div className="card-header card-header-sm bg-white  row m-0">
                             <div className="header-block pl-2 col">
                               <FontAwesomeIcon icon="list-alt" className="mr-2 text-info" />

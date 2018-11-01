@@ -90,9 +90,10 @@ class Header extends Component {
   // }
 
   render() {
+    const {isDarkMode} = this.props.sidebar;
     return (
       <div>
-        <header className="header bg-white shadow-sm">
+        <header className={`header bg-white shadow-sm ${isDarkMode ? 'bg-dark text-white' : ''}`}>
           <div className="header-block header-block-collapse d-lg-none d-xl-none">
             <button className="collapse-btn" id="sidebar-collapse-btn" onClick={this.submitSidebarStatus}>
               <FontAwesomeIcon icon="bars" />
@@ -105,14 +106,20 @@ class Header extends Component {
                   <input
                     type="text"
                     placeholder="Search by account/pubkey/trx/blockid"
-                    className="w-100 form-control rounded border border-info pl-2 ftz-search"
+                    className={`w-100 form-control rounded border ${
+                      isDarkMode ? 'border-secondary' : 'border-info'
+                    }  pl-2 ftz-search`}
                     onChange={this.changeTerm}
                     name="search"
                     autoCapitalize="off"
                     spellCheck="false"
                   />
                   <div className="input-group-append">
-                    <button type="button" className="btn btn-info mb-0" onClick={this.submit}>
+                    <button
+                      type="button"
+                      className={`btn ${isDarkMode ? 'btn-success' : 'btn-info'}  mb-0`}
+                      onClick={this.submit}
+                    >
                       <i className="fa fa-search text-white" />
                     </button>
                   </div>

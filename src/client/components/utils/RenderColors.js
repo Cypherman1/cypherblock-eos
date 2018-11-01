@@ -18,7 +18,7 @@ var tmp_to_fiat = 0;
 
 var tmp_eos_staked = 0;
 
-const renderEOSStaked = (eos_staked) => {
+const renderEOSStaked = (eos_staked, isDarkMode) => {
   if (eos_staked > tmp_eos_staked && tmp_eos_staked > 0) {
     tmp_eos_staked = eos_staked;
     return (
@@ -29,7 +29,7 @@ const renderEOSStaked = (eos_staked) => {
   } else if (eos_staked == tmp_eos_staked || tmp_eos_staked == 0) {
     tmp_eos_staked = eos_staked;
     return (
-      <span className="text-dark">
+      <span className={`${isDarkMode ? 'text-white' : 'text-dark'}`}>
         <NumberEasing value={eos_staked} ease="backIn" precision={4} speed={500} trail={true} useLocaleString={true} />
       </span>
     );
@@ -43,7 +43,7 @@ const renderEOSStaked = (eos_staked) => {
   }
 };
 
-const renderToFiatColor = (to_fiat) => {
+const renderToFiatColor = (to_fiat, isDarkMode) => {
   if (to_fiat > tmp_to_fiat && tmp_to_fiat > 0) {
     tmp_to_fiat = to_fiat;
     return (
@@ -54,7 +54,7 @@ const renderToFiatColor = (to_fiat) => {
   } else if (to_fiat == tmp_to_fiat || tmp_to_fiat == 0) {
     tmp_to_fiat = to_fiat;
     return (
-      <span className="text-dark">
+      <span className={` ${isDarkMode ? 'text-white' : 'text-dark'}`}>
         <NumberEasing value={to_fiat} ease="backIn" precision={4} speed={500} trail={true} useLocaleString={true} />
       </span>
     );
@@ -77,7 +77,7 @@ const renderBlockNum = (block_num) => {
   return <NumberEasing value={block_num} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />;
 };
 
-const renderStake2Vote = (stake2vote, last_vote_weight) => {
+const renderStake2Vote = (stake2vote, last_vote_weight, isDarkMode) => {
   if (Number(stake2vote) > Number(last_vote_weight)) {
     return (
       <span className="text-success">
@@ -86,7 +86,7 @@ const renderStake2Vote = (stake2vote, last_vote_weight) => {
     );
   } else {
     return (
-      <span className="text-dark">
+      <span className={`${isDarkMode ? 'text-white' : 'text-dark'}`}>
         <NumberEasing value={stake2vote} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />
       </span>
     );
@@ -137,7 +137,7 @@ const renderHeadBlockTime = (head_block_time) => {
   return <Odometer value={head_block_time} />;
 };
 
-const renderTotalBalanceRAMColor = (total_balance_ramincluded) => {
+const renderTotalBalanceRAMColor = (total_balance_ramincluded, isDarkMode) => {
   if (total_balance_ramincluded > tmp_total_balance_ramincluded && tmp_total_balance_ramincluded > 0) {
     tmp_total_balance_ramincluded = total_balance_ramincluded;
     return (
@@ -155,7 +155,7 @@ const renderTotalBalanceRAMColor = (total_balance_ramincluded) => {
   } else if (total_balance_ramincluded == tmp_total_balance_ramincluded || tmp_total_balance_ramincluded == 0) {
     tmp_total_balance_ramincluded = total_balance_ramincluded;
     return (
-      <span className="text-dark">
+      <span className={` ${isDarkMode ? 'text-white' : 'text-dark'}`}>
         <NumberEasing
           value={total_balance_ramincluded}
           ease="backIn"
@@ -183,7 +183,7 @@ const renderTotalBalanceRAMColor = (total_balance_ramincluded) => {
   }
 };
 
-const renderRamColor = (eos_ram_equivalent) => {
+const renderRamColor = (eos_ram_equivalent, isDarkMode) => {
   if (eos_ram_equivalent > tmp_ram && tmp_ram > 0) {
     tmp_ram = eos_ram_equivalent;
     return (
@@ -201,7 +201,7 @@ const renderRamColor = (eos_ram_equivalent) => {
   } else if (eos_ram_equivalent == tmp_ram || tmp_ram == 0) {
     tmp_ram = eos_ram_equivalent;
     return (
-      <span className="text-dark">
+      <span className={` ${isDarkMode ? 'text-white' : 'text-dark'} `}>
         <NumberEasing
           value={eos_ram_equivalent}
           ease="backIn"

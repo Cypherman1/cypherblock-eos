@@ -9,10 +9,10 @@ let stake2vote = 0;
 let nextDecayTimestamp = 0;
 let nextDecayDate = null;
 
-const NoVote = () => {
+const NoVote = ({isDarkMode}) => {
   return (
     <div
-      className="card sameheight-item stats mbc border-0 pb-1 shadow-sm "
+      className={`card sameheight-item stats mbc border pb-1 shadow-sm ${isDarkMode ? 'bg-dark border-secondary' : ''}`}
       style={{marginLeft: 2, marginRight: 2}}
       data-exclude="xs"
     >
@@ -25,7 +25,7 @@ const NoVote = () => {
           </h5>
         </div>
       </div>
-      <div className="card-block text-danger ftz-12">
+      <div className={`card-block text-danger ftz-12 ${isDarkMode ? 'bg-dark' : ''} `}>
         <div> No producer voted</div>
       </div>
     </div>
@@ -45,7 +45,7 @@ class VoterInfo extends Component {
     return items;
   }
   render() {
-    const {voteinfo, head_block_time} = this.props;
+    const {voteinfo, head_block_time, isDarkMode} = this.props;
 
     if (voteinfo && head_block_time) {
       const head_block_time_utc = new Date(head_block_time);
@@ -75,7 +75,9 @@ class VoterInfo extends Component {
             //vote normaly
             return (
               <div
-                className="card sameheight-item stats mbc border-0 pb-1 shadow-sm"
+                className={`card sameheight-item stats mbc border pb-1 shadow-sm ${
+                  isDarkMode ? 'bg-dark border-secondary' : ''
+                }`}
                 style={{marginLeft: 2, marginRight: 2}}
                 data-exclude="xs"
               >
@@ -135,7 +137,11 @@ class VoterInfo extends Component {
                         </div>
                         <div className="stat">
                           <div className="value">
-                            {renderStake2Vote(stake2vote.toFixed(0), Number(voteinfo.last_vote_weight).toFixed(0))}
+                            {renderStake2Vote(
+                              stake2vote.toFixed(0),
+                              Number(voteinfo.last_vote_weight).toFixed(0),
+                              isDarkMode
+                            )}
                           </div>
                           <div className="name">Current Stake2Vote</div>
                         </div>
@@ -189,7 +195,10 @@ class VoterInfo extends Component {
                   </div>
                   <div className="col-12 col-sm-12 col-md-7 pr-0 pl-2">
                     <div className="ftz-10 font-weight-bold border-bottom mr-2 text-info"> Producers</div>
-                    <div className="card sameheight-item mb-1 border-0" data-exclude="xs">
+                    <div
+                      className={`card sameheight-item mb-1 border-0 ${isDarkMode ? 'bg-dark' : ''} `}
+                      data-exclude="xs"
+                    >
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.producers)}</div>
                     </div>
                   </div>
@@ -200,7 +209,9 @@ class VoterInfo extends Component {
             // voted by proxy
             return (
               <div
-                className="card sameheight-item stats mbc border-0 pb-1 shadow-sm"
+                className={`card sameheight-item stats mbc border pb-1 shadow-sm ${
+                  isDarkMode ? 'bg-dark border-secondary' : ''
+                }`}
                 style={{marginLeft: 2, marginRight: 2}}
                 data-exclude="xs"
               >
@@ -262,7 +273,11 @@ class VoterInfo extends Component {
                         </div>
                         <div className="stat">
                           <div className="value">
-                            {renderStake2Vote(stake2vote.toFixed(0), Number(voteinfo.last_vote_weight).toFixed(0))}
+                            {renderStake2Vote(
+                              stake2vote.toFixed(0),
+                              Number(voteinfo.last_vote_weight).toFixed(0),
+                              isDarkMode
+                            )}
                           </div>
                           <div className="name">Current Stake2Vote</div>
                         </div>
@@ -331,7 +346,10 @@ class VoterInfo extends Component {
                   </div>
                   <div className="col-12 col-sm-12 col-md-7  pr-0 pl-2">
                     <div className="ftz-10 font-weight-bold border-bottom mr-2 text-info"> Producers</div>
-                    <div className="card sameheight-item mb-1 border-0" data-exclude="xs">
+                    <div
+                      className={`card sameheight-item mb-1 border-0 ${isDarkMode ? 'bg-dark' : ''} `}
+                      data-exclude="xs"
+                    >
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.proxy_vote_info.producers)}</div>
                     </div>
                   </div>
@@ -341,7 +359,7 @@ class VoterInfo extends Component {
             );
           }
         } else {
-          return <NoVote />;
+          return <NoVote isDarkMode={isDarkMode} />;
         }
       } else {
         /* render proxy */
@@ -349,7 +367,9 @@ class VoterInfo extends Component {
           if (!voteinfo.proxy)
             return (
               <div
-                className="card sameheight-item stats mbc border-0 shadow-sm"
+                className={`card sameheight-item stats mbc border pb-1 shadow-sm ${
+                  isDarkMode ? 'bg-dark border-secondary' : ''
+                }`}
                 style={{marginLeft: 2, marginRight: 2}}
                 data-exclude="xs"
               >
@@ -409,7 +429,7 @@ class VoterInfo extends Component {
                           <FontAwesomeIcon icon="sync-alt" />
                         </div>
                         <div className="stat">
-                          <div className="value">{renderStake2Vote(stake2vote.toFixed(0))}</div>
+                          <div className="value">{renderStake2Vote(stake2vote.toFixed(0), isDarkMode)}</div>
                           <div className="name">Current Stake2Vote</div>
                         </div>
                         <div className="progress stat-progress">
@@ -486,7 +506,10 @@ class VoterInfo extends Component {
                   </div>
                   <div className="col-12 col-sm-12 col-md-7  pr-0 pl-2">
                     <div className="ftz-10 font-weight-bold border-bottom mr-2 text-info"> Producers</div>
-                    <div className="card sameheight-item mb-1 border-0" data-exclude="xs">
+                    <div
+                      className={`card sameheight-item mb-1 border-0 ${isDarkMode ? 'bg-dark' : ''} `}
+                      data-exclude="xs"
+                    >
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.producers)}</div>
                     </div>
                   </div>
@@ -498,11 +521,11 @@ class VoterInfo extends Component {
             return <div />;
           }
         } else {
-          return <NoVote />;
+          return <NoVote isDarkMode={isDarkMode} />;
         }
       }
     } else {
-      return <NoVote />;
+      return <NoVote isDarkMode={isDarkMode} />;
     }
   }
 }

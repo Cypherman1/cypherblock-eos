@@ -21,9 +21,12 @@ let eos_price = 0;
 let eos_percent_change_24h = 0;
 let ticker_count = 0;
 
-const TokenMarketLoading = ({display}) => {
+const TokenMarketLoading = ({display, isDarkMode}) => {
   return (
-    <div className={`card sameheight-item stats mb-1 ${display} pb-2`} data-exclude="xs">
+    <div
+      className={`card sameheight-item stats mb-1 ${display} ${isDarkMode ? 'bg-dark text-white' : ''} pb-2`}
+      data-exclude="xs"
+    >
       <div className="card-header shadow-sm bg-white row m-0">
         <div className="header-block pl-2 col">
           <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
@@ -31,7 +34,7 @@ const TokenMarketLoading = ({display}) => {
         </div>
         <div>
           <div className="input-group input-group-seamless mb-0 pr-1 float-right" style={{width: 100, height: 30}}>
-            <input type="text" className="form-control border-info" aria-label="Text input with checkbox" />
+            <input type="text" className={`form-control ${isDarkMode ? 'border-secondary' : 'border-info'} `} aria-label="Text input with checkbox" />
             <div className="input-group-append">
               <div className="input-group-text">
                 <i className="fa fa-search" />
@@ -87,12 +90,12 @@ class TokenMarket extends Component {
   }
 
   render() {
-    const {display} = this.props;
+    const {display, isDarkMode} = this.props;
     return (
       <Query query={GetTokenMarket} pollInterval={5000}>
         {({loading, error, data}) => {
-          if (loading) return <TokenMarketLoading display={display} />;
-          if (error) return <TokenMarketLoading display={display} />;
+          if (loading) return <TokenMarketLoading display={display} isDarkMode={isDarkMode} />;
+          if (error) return <TokenMarketLoading display={display} isDarkMode={isDarkMode} />;
           if (data && data.table_rows && data.cmc && data.newdex_tickers) {
             const {table_rows, cmc} = data;
             ticker_count = 0;
@@ -111,7 +114,11 @@ class TokenMarket extends Component {
             items = [];
 
             items.push(
-              <div className="card-token-price shadow-sm  p-1" key={2} style={{marginBottom: 1, marginTop: 1}}>
+              <div
+                className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark' : ''} p-1`}
+                key={2}
+                style={{marginBottom: 1, marginTop: 1}}
+              >
                 <div className="row ftz-10 token_price_weight m-0">
                   <div className="col-5 pl-1 pr-0 d-flex flex-row">
                     {/* <img src={images(`./RAM.svg`)} className="token_logo" /> */}
@@ -134,7 +141,11 @@ class TokenMarket extends Component {
               </div>
             );
             items.push(
-              <div className="card-token-price shadow-sm p-1" key={3} style={{marginBottom: 1}}>
+              <div
+                className={`card-token-price shadow-sm p-1 ${isDarkMode ? 'bg-dark' : ''}`}
+                key={3}
+                style={{marginBottom: 1}}
+              >
                 <div className="row ftz-10 token_price_weight m-0">
                   <div className="col-5 pl-1 pr-0 d-flex flex-row">
                     {/* <img src={images(`./eoslogo.svg`)} className="token_logo" /> */}
@@ -167,7 +178,7 @@ class TokenMarket extends Component {
 
                   items.push(
                     <div
-                      className="card-token-price shadow-sm  ml-0 p-1 mt-0"
+                      className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark text-white' : ''} ml-0 p-1 mt-0`}
                       key={tokeninfo.currency}
                       style={{marginBottom: 1}}
                     >
@@ -195,7 +206,10 @@ class TokenMarket extends Component {
               }
             });
             return (
-              <div className={`card sameheight-item stats mb-1 ${display} pb-2`} data-exclude="xs">
+              <div
+                className={`card sameheight-item stats mb-1 ${display} ${isDarkMode ? 'bg-dark text-white' : ''} pb-2`}
+                data-exclude="xs"
+              >
                 <div className="card-header shadow-sm bg-white row m-0">
                   <div className="header-block pl-2 col">
                     <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
@@ -223,7 +237,7 @@ class TokenMarket extends Component {
                   </div>
                 </div>
 
-                <div className="row ftz-10 pb-1 pt-1 m-0 token_price_weight shadow-sm" key={1}>
+                <div className="row ftz-10 pb-1 pt-1 m-0 token_price_weight shadow-sm border-bottom" key={1}>
                   <div className="pl-2 col-5 text-info">
                     Pair <span className="badge badge-primary p-1 font-weight-bold">{ticker_count + 2}</span>
                   </div>
@@ -231,11 +245,11 @@ class TokenMarket extends Component {
                   <div className="col-3 text-right text-info"> 24h % </div>
                 </div>
 
-                <div className="card-block bg-light p-0 market-scroll">{items}</div>
+                <div className={`card-body ${isDarkMode ? 'bg-dark' : 'bg-light'}  p-0 market-scroll `}>{items}</div>
               </div>
             );
           } else {
-            return <TokenMarketLoading display={display} />;
+            return <TokenMarketLoading display={display} isDarkMode={isDarkMode} />;
           }
         }}
       </Query>

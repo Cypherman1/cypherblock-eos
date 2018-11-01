@@ -9974,7 +9974,7 @@ pre {
   background-color: #d7dde4;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
+   align-items: center; 
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12756,12 +12756,12 @@ span a {
   color: #fff;
   text-align: left;
   padding-left: 15px;
-  line-height: 50px;
+  line-height: 48px;
   font-size: 16px;
 }
 @media (max-width: 767.98px) {
   .sidebar-header .brand {
-    line-height: 50px;
+    line-height: 48px;
     font-size: 16px;
   }
 }

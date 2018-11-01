@@ -7,6 +7,9 @@ a {
   color: #2b6dad !important;
   font-weight: 700 !important;
 }
+.linkcolor-dark {
+  color: #5cdb95 !important;
+}
 
 .eos-icon {
   color: #bdbdbd;
@@ -352,7 +355,7 @@ a {
 
 .example-enter.example-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in-out;
+  transition: opacity 0ms ease;
 }
 
 .example-leave {
@@ -361,7 +364,7 @@ a {
 
 .example-leave.example-leave-active {
   opacity: 0.01;
-  transition: opacity 300ms ease-in-out;
+  transition: opacity 0ms ease;
 }
 
 .example-appear {
@@ -1151,7 +1154,7 @@ span.CodeMirror-selectedtext {
   font-weight: 500;
 }
 .act-head-height {
-  min-height: 34px !important;
+  min-height: 40px !important;
 }
 .act-xs-height {
   min-height: 20px !important;
@@ -1163,8 +1166,11 @@ span.CodeMirror-selectedtext {
 .bg-actions {
   background-color: #e9ebee;
 }
+.bg-actions-dark {
+  background-color: #3f3f3f;
+}
 .pd-confirm {
-  padding: 2px;
+  padding: 1px;
   padding-right: 3px;
   padding-left: 3px;
 }
@@ -1647,4 +1653,8 @@ i.metismenu-state-icon.rotate-minus-90 {
 .telegram_logo {
   width: 22px;
   height: 22px;
+}
+
+.pad-3 {
+  padding: 3px;
 }

@@ -56,10 +56,14 @@ const BlockView = (props) => (
 
 class App extends Component {
   render() {
+    const {sidebarStatus, isDarkMode} = this.props.sidebar;
     return (
       <Router history={history}>
         <div id="main-wrapper">
-          <div className={`app ${this.props.sidebar.sidebarStatus ? 'sidebar-open' : ''}`} id="app">
+          <div
+            className={`app ${sidebarStatus ? 'sidebar-open' : ''} ${isDarkMode ? 'bg-secondary text-white' : ''}`}
+            id="app"
+          >
             <Header />
             <LeftSideBar />
             <Switch>

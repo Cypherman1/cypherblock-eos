@@ -1,10 +1,15 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 const images = require.context('../assets/imgs/symbols');
 const telegram_logo = images(`./telegram.png`);
-const Footer = (props) => {
+const Footer = ({sidebar}) => {
   return (
-    <footer className="footer acc-name-font row m-0 pr-3 pl-3">
+    <footer
+      className={`footer acc-name-font row m-0 pr-3 pl-3 ${
+        sidebar.isDarkMode ? 'bg-dark border-left border-secondary' : ''
+      }`}
+    >
       <div className="footer-block buttons col m-0 p-0">
         <div>
           <FontAwesomeIcon icon="heart" className="mr-1 text-success" size="lg" />
@@ -22,4 +27,13 @@ const Footer = (props) => {
   );
 };
 
-export default Footer;
+// export default Footer;
+
+function mapStateToProps({sidebar}) {
+  return {sidebar};
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(Footer);

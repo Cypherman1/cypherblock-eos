@@ -34,7 +34,11 @@ const TokenMarketLoading = ({display, isDarkMode}) => {
         </div>
         <div>
           <div className="input-group input-group-seamless mb-0 pr-1 float-right" style={{width: 100, height: 30}}>
-            <input type="text" className={`form-control ${isDarkMode ? 'border-secondary' : 'border-info'} `} aria-label="Text input with checkbox" />
+            <input
+              type="text"
+              className={`form-control ${isDarkMode ? 'border-secondary' : 'border-info'} `}
+              aria-label="Text input with checkbox"
+            />
             <div className="input-group-append">
               <div className="input-group-text">
                 <i className="fa fa-search" />
@@ -91,6 +95,7 @@ class TokenMarket extends Component {
 
   render() {
     const {display, isDarkMode} = this.props;
+    // fallback_logo = isDarkMode ? `${images}/eos_white.png` : `${images}/COMMON.png`;
     return (
       <Query query={GetTokenMarket} pollInterval={5000}>
         {({loading, error, data}) => {
@@ -122,13 +127,18 @@ class TokenMarket extends Component {
                 <div className="row ftz-10 token_price_weight m-0">
                   <div className="col-5 pl-1 pr-0 d-flex flex-row">
                     {/* <img src={images(`./RAM.svg`)} className="token_logo" /> */}
-                    <div>
+                    {
+                      /* <div>
                       <ReactImageFallback
                         src={`${images}/RAM.png`}
                         fallbackImage={fallback_logo}
                         className="token_logo"
                       />
-                    </div>
+                    </div> */
+                      <div className="token_logo" style={{fontSize: 16}}>
+                        <FontAwesomeIcon icon="memory" />
+                      </div>
+                    }
                     <div className="ml-2 d-flex align-items-center">
                       <div> RAM(EOS/KB) </div>
                     </div>
@@ -185,7 +195,7 @@ class TokenMarket extends Component {
                       <div className="row ftz-10 token_price_weight m-0">
                         <div className="col-5 pl-1 pr-0 d-flex flex-row">
                           {/* <img src={token_logo} className="token_logo" /> */}
-                          <div>
+                          <div className="bg-white" style={{borderRadius: 200}}>
                             <ReactImageFallback src={token_logo} fallbackImage={fallback_logo} className="token_logo" />
                           </div>
 

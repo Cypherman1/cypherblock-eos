@@ -354,7 +354,7 @@ class AccountInfo extends Component {
         if (staked > 0) {
           total_balance = staked + unstaked + refund;
         } else {
-          total_balance = staked_cpu + staked_net + unstaked + refund;
+          total_balance = unstaked + refund;
         }
         //Banwidth limit
         limited_net = formatBandUnits(Number(account.net_limit.max));

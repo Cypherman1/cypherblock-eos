@@ -26,12 +26,6 @@ export default gql`
         }
       }
     }
-    bitfinex_pairs {
-      data
-    }
-    blocksence_tickers {
-      data
-    }
     newdex_tickers {
       data {
         symbol
@@ -39,14 +33,6 @@ export default gql`
         currency
         last
         change
-      }
-    }
-    bigone_tickers {
-      data {
-        market_id
-        volume
-        daily_change_perc
-        close
       }
     }
   }

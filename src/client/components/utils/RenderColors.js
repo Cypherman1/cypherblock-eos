@@ -1,6 +1,6 @@
 import React from 'react';
 import Odometer from 'react-odometerjs';
-import NumberEasing from 'che-react-number-easing';
+import NumberEasing from './NumberEasing';
 
 var tmp_ram = 0;
 

@@ -127,6 +127,10 @@ export const AntiSpams = {
     {
       act_account: '2g1com.x',
       act_name: 'broadcast'
+    },
+    {
+      act_account: 'betdicealert',
+      act_name: 'news'
     }
   ]
 };

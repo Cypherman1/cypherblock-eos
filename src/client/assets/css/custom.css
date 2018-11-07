@@ -1185,6 +1185,9 @@ span.CodeMirror-selectedtext {
 .ftz-8 {
   font-size: 8px !important;
 }
+.ftz-7 {
+  font-size: 7px !important;
+}
 .ftz-16 {
   font-size: 20px !important;
 }
@@ -1657,4 +1660,8 @@ i.metismenu-state-icon.rotate-minus-90 {
 
 .pad-3 {
   padding: 3px;
+}
+
+.pcursor {
+  cursor: pointer;
 }

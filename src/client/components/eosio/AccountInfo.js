@@ -419,7 +419,7 @@ class AccountInfo extends Component {
 
           if (account && table_rows && cmc)
             return (
-              <div className={`card ${isDarkMode ? 'bg-dark' : 'bg-actions'} mb-1`}>
+              <div className={`card ${isDarkMode ? 'bg-dark' : 'bg-actions'} mb-1 border`}>
                 <div className={`card-header row m-0 shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                   <div className="col p-0 d-flex flex-row">
                     <div className="pt-2 pl-2">

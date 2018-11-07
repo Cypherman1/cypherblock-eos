@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
-import {CSSTransitionGroup} from 'react-transition-group';
-import {Query} from 'react-apollo';
-import ReactImageFallback from 'react-image-fallback';
+import {graphql} from 'react-apollo';
 import {connect} from 'react-redux';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import ReactImageFallback from 'react-image-fallback';
+import {CSSTransitionGroup} from 'react-transition-group';
+import NumberEasing from '../utils/NumberEasing';
+import {renderEOSNum, renderPPColor} from '../utils/RenderColors';
 import {Tokens} from '../utils/Tokens';
 import {gettPairPrice, gettPairPercent} from '../utils/Tools';
-import {renderPPColor} from '../utils/RenderColors';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetWalletInfo from '../../queries/GetWalletInfo';
-import {renderEOSNum} from '../utils/RenderColors';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
-import {setTokenBalanceUnitl} from '../../actions/common';
-import WalletHeader from './WalletHeader';
-import WalletBody from './WalletBody';
+import {setRefetchWalletFunc, setTokenBalanceUnitl} from '../../actions/common';
 
 const images = '../imgs';
 
@@ -23,7 +21,9 @@ let total_token_value = 0;
 let atoken = null;
 let eos_price = 0;
 let token_usd_value = 0;
-let tokens_count = 0;
+let total_value = 0;
+let unitsign = null;
+let token_value = 0;
 
 const WalletLoading = ({display, isDarkMode}) => {
   return (
@@ -60,8 +60,11 @@ const WalletLoading = ({display, isDarkMode}) => {
   );
 };
 
-class Wallet extends Component {
-  // Create AllTokens array containing all Token infomation: Token_name, balance, price, percent,...
+class WalletBody extends Component {
+  componentDidMount() {
+    this.props.setRefetchWalletFunc(this.props.data.refetch);
+  }
+
   setAllTokens(data) {
     AllTokens = [];
     for (var token in data) {
@@ -105,9 +108,9 @@ class Wallet extends Component {
       }
     }
   }
-  renderTokens(isEOSUnit, eos_price) {
+  renderTokens(isEOSUnit, eos_price, isDarkMode) {
     let items = [];
-    AllTokens.map((token) => {
+    AllTokens.sort((a, b) => b.ammount * b.price - a.ammount * a.price).map((token) => {
       token_logo = `${images}/${token.name}.png`;
 
       if (token.name == 'EOS') {
@@ -151,8 +154,15 @@ class Wallet extends Component {
           //     {this.renderBitfinexPrice(token)}
           //   </div>
           // );
+          token_value = isEOSUnit
+            ? Number(token.ammount * token.price)
+            : Number((token.ammount * token.price * eos_price).toFixed(2));
+
           items.push(
-            <div className="row m-0 shadow-sm ftz-10" key={token.name}>
+            <div
+              className={`${isDarkMode ? 'border-bottom border-secondary' : ''} row m-0 shadow-sm  ftz-10`}
+              key={token.name}
+            >
               {/* token info */}
               <div className="col-4 p-0 pt-1">
                 <div className="d-inline-block ml-2 bg-white mr-2 " style={{height: 26, width: 26, borderRadius: 200}}>
@@ -165,18 +175,29 @@ class Wallet extends Component {
                 <div className="text-right">
                   <div className="ftz-11 font-weight-bold">
                     {isEOSUnit ? (
-                      <div className="d-inline-block " style={{width: 12}}>
+                      <div className="d-inline-block " style={{width: 13}}>
                         <img src={eoslogo} />
                       </div>
                     ) : (
-                      <div className="d-inline">
-                        <i className="fa fa-dollar" style={{fontSize: 12}} />
+                      <div className="d-inline-block pl-1" style={{width: 13}}>
+                        <i className="fa fa-dollar" style={{fontSize: 11}} />
                       </div>
                     )}
-                    <div className="d-inline">
-                      {isEOSUnit
-                        ? Number((token.ammount * token.price).toFixed(4)).toLocaleString('en')
-                        : Number((token.ammount * token.price * eos_price).toFixed(2)).toLocaleString('en')}
+                    <div
+                      className="d-inline pcursor"
+                      role="button"
+                      onClick={() => {
+                        this.props.setTokenBalanceUnitl(!this.props.common.isEOSUnit);
+                      }}
+                    >
+                      <NumberEasing
+                        value={token_value}
+                        ease="backIn"
+                        precision={4}
+                        speed={500}
+                        trail={true}
+                        useLocaleString={true}
+                      />
                     </div>
                   </div>
                   <div className="ftz-9">{renderEOSNum(token.ammount)}</div>
@@ -235,28 +256,35 @@ class Wallet extends Component {
   }
   // get the token pirce
   renderTotalValue(total_token_value, token_usd_value, isEOSUnit) {
-    return isEOSUnit ? (
-      <div className="">
-        {/* <div className="d-inline">
-                        <i class="fa fa-dollar mr-1" style={{fontSize: 12}} />
-                      </div> */}
-        <div className="d-inline-block" style={{width: 13}}>
-          <img src={eoslogo} />
-        </div>
-        <div className="d-inline-block font-weight-bold ftz-12">
-          {total_token_value.toLocaleString(undefined, {maximumFractionDigits: 4})}
-        </div>
+    total_value = isEOSUnit ? total_token_value : token_usd_value.toFixed(2);
+    unitsign = isEOSUnit ? (
+      <div className="d-inline-block" style={{width: 13}}>
+        <img src={eoslogo} />
       </div>
     ) : (
-      <div className="">
-        <div className="d-inline">
-          <i className="fa fa-dollar" style={{fontSize: 11}} />
-        </div>
-        {/* <div className="mr-1 d-inline-block " style={{width: 14}}>
-          <img src={eoslogo} />
-        </div> */}
-        <div className="d-inline-block font-weight-bold ftz-12">
-          {token_usd_value.toLocaleString(undefined, {maximumFractionDigits: 0})}
+      <div className="pl-1 d-inline-block" style={{width: 13}}>
+        <i className="fa fa-dollar" style={{fontSize: 11}} />
+      </div>
+    );
+
+    return (
+      <div>
+        {unitsign}
+        <div
+          className="d-inline-block font-weight-bold ftz-12 pcursor"
+          role="button"
+          onClick={() => {
+            this.props.setTokenBalanceUnitl(!this.props.common.isEOSUnit);
+          }}
+        >
+          <NumberEasing
+            value={total_value}
+            ease="backIn"
+            precision={4}
+            speed={500}
+            trail={true}
+            useLocaleString={true}
+          />
         </div>
       </div>
     );
@@ -272,20 +300,58 @@ class Wallet extends Component {
       </div>
     );
   }
-
   render() {
     total_token_value = 0;
-    const {display, isDarkMode, common, setTokenBalanceUnitl} = this.props;
-    const {isEOSUnit} = common;
-    return (
-      <div
-        className={`${isDarkMode ? 'bg-dark' : ' bg-actions'} border card sameheight-item stats mb-1 ${display} `}
-        data-exclude="xs"
-      >
-        <WalletHeader isDarkMode={isDarkMode} />
-        <WalletBody account_name={this.props.account_name} isDarkMode={isDarkMode} />
-      </div>
-    );
+
+    const {display, data, isDarkMode, common} = this.props;
+    const {isEOSUnit, isWalletRefetch} = common;
+    if (data.loading) return <WalletLoading display={display} isDarkMode={isDarkMode} />;
+    if (data.error) return <WalletLoading display={display} isDarkMode={isDarkMode} />;
+    if (isWalletRefetch) return <WalletLoading display={display} isDarkMode={isDarkMode} />;
+
+    if (data && data.cmc) {
+      this.setAllTokens(data);
+      total_token_value = 0;
+      eos_price = Number(data.cmc.data.quotes.USD.price);
+      AllTokens.map((token) => {
+        total_token_value += token.ammount * token.price;
+      });
+      token_usd_value = total_token_value * eos_price;
+      return (
+        <div className={`${isDarkMode ? 'bg-dark border-secondary' : ' bg-white '} card border`} style={{margin: 2}}>
+          <div className=" card-header bg-white row m-0 shadow-sm mb-1">
+            <div className="col p-0 pl-2">
+              <div className="text-info ftz-7 ">TOTAL VALUE</div>
+              {this.renderTotalValue(total_token_value, token_usd_value, isEOSUnit)}
+            </div>
+            <div className="pr-2">
+              <div className="text-info text-right ftz-7 mb-1"># ASSETS</div>
+              <div className="text-right font-weight-bold ftz-12"> {AllTokens.length} </div>
+            </div>
+          </div>
+          <div className="card-block p-0">
+            <div className="title-block row m-0 shadow-sm ">
+              <div
+                className={`col-12 col-sm-12 header-col  p-0 ${
+                  isDarkMode ? 'bg-dark border-bottom border-top border-secondary' : 'bg-white'
+                }`}
+              >
+                <div className="row  m-0">
+                  <div className="col-4 float-left ftz-10 text-info  pl-2" />
+                  <div className="col-5 text-right ftz-10  p-0  text-info pl-2">Holding</div>
+                  <div className="col-3 text-right ftz-10  pr-1 text-info">Price(EOS)</div>
+                </div>
+              </div>
+            </div>
+            <CSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+              {this.renderTokens(isEOSUnit, eos_price, isDarkMode)}
+            </CSSTransitionGroup>
+          </div>
+        </div>
+      );
+    } else {
+      return <WalletLoading display={display} isDarkMode={isDarkMode} />;
+    }
   }
 }
 
@@ -295,9 +361,15 @@ function mapStateToProps({common}) {
 
 export default connect(
   mapStateToProps,
-  {
-    setTokenBalanceUnitl
-  }
-)(Wallet);
-
-// export default Wallet;
+  {setRefetchWalletFunc, setTokenBalanceUnitl}
+)(
+  graphql(GetWalletInfo, {
+    options: ({account_name}) => {
+      return {
+        variables: {
+          account_name: account_name
+        }
+      };
+    }
+  })(WalletBody)
+);

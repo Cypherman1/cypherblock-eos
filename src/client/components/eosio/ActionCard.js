@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {renderAccountLink} from '../utils/Tools';
 import {renderBlockStatus, renderTime, RenderAct} from '../utils/ActionsClasify';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -27,7 +28,12 @@ const ActionCommon = ({
         <div className="row w-100 m-0">
           {children[0]}
           <div className="col pl-1 pr-0">
-            <div className="">{children[1]}</div>
+            <div className="">
+              <Link to={`/transaction/${trx_id}`}>
+                {children[1]}
+                <FontAwesomeIcon icon="external-link-alt" className={`ml-1 ${isDarkMode ? 'linkcolor-dark' : ''}`} />
+              </Link>
+            </div>
             <div>{renderBlockStatus(block_num, last_irreversible_block, head_block_num, get_block_status)}</div>
           </div>
           <div className="col text-right pr-2 pl-0 pt-1">

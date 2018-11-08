@@ -30,6 +30,8 @@ import {
   AG_VOTE
 } from './ConstTypes';
 
+let isDarkMode = null;
+
 const toTokenNumber = (tokenNum) => {
   if (tokenNum)
     return `${Number(tokenNum.split(' ')[0]).toLocaleString(undefined, {minimumFractionDigits: 4})} ${
@@ -286,7 +288,8 @@ const convertUTCDateToLocalDate = (date) => {
   return newdate.toLocaleString();
 };
 
-const renderAccountLink = (accountName, isDarkMode) => {
+const renderAccountLink = (accountName) => {
+  isDarkMode = localStorage.getItem('isDarkMode') == 'true';
   return (
     <Link className={` ${isDarkMode ? 'linkcolor-dark' : ''} `} to={`/account/${accountName}`}>
       {accountName}

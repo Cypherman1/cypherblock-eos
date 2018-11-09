@@ -20,6 +20,7 @@ let ram_price = 0;
 let eos_price = 0;
 let eos_percent_change_24h = 0;
 let ticker_count = 0;
+let tokensMarket = [];
 
 const TokenMarketLoading = ({display, isDarkMode}) => {
   return (
@@ -180,7 +181,9 @@ class TokenMarket extends Component {
               </div>
             );
 
-            data.newdex_tickers.data.map((tokeninfo) => {
+            tokensMarket = [...data.newdex_tickers.data].sort((a, b) => b.last - a.last);
+
+            tokensMarket.map((tokeninfo) => {
               if (tokeninfo.last > 0) {
                 ticker_count += 1;
                 if (IsTokenSearched(tokeninfo, this.props.common.symbol)) {

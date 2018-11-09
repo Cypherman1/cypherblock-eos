@@ -275,8 +275,8 @@ class Wallet extends Component {
 
   render() {
     total_token_value = 0;
-    const {display, isDarkMode, common, setTokenBalanceUnitl} = this.props;
-    const {isEOSUnit} = common;
+    const {display, isDarkMode} = this.props;
+
     return (
       <div
         className={`${isDarkMode ? 'bg-dark' : ' bg-actions'} border card sameheight-item stats mb-1 ${display} `}

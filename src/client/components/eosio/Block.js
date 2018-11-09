@@ -10,7 +10,7 @@ import BlockConfirmation from './BlockConfirmation';
 const BlockLoading = ({isDarkMode}) => {
   return (
     <div className="card-block ">
-      <div className="text-center align-middle overlay pt-60">
+      <div className="text-center align-middle overlay pt-50">
         <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
       </div>
       <div className="row row-sm stats-container m-0 plheight" />

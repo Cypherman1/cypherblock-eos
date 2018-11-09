@@ -185,7 +185,10 @@ class Transaction extends Component {
                             <h5 className="title text-info ftz-12">Actions</h5>
                           </div>
                         </div>
-                        <div className={`card-block ${isDarkMode ? 'bg-secondary' : 'bg-actions'} pb-0 pr-1 pl-1`}>
+                        <div
+                          className={`card-block ${isDarkMode ? 'bg-secondary' : 'bg-actions'}`}
+                          style={{paddingTop: 3, paddingLeft: 3, paddingRight: 3, paddingBottom: 2}}
+                        >
                           <CSSTransitionGroup
                             component="div"
                             transitionName="example"

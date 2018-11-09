@@ -9099,7 +9099,7 @@ body {
 }
 @media (min-width: 1200px) {
   .app .content {
-    padding: 58px 4px 50px 4px;
+    padding: 56px 2px 50px 2px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {

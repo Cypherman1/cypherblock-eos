@@ -7,6 +7,9 @@ import Footer from './Footer';
 import history from './history';
 import {connect} from 'react-redux';
 import {setSidebarStatus} from '../actions/sidebar';
+import Account from './eosio/Account';
+import TransactionView from './eosio/TransactionView';
+import BlockView from './eosio/BlockView';
 
 class DynamicImport extends Component {
   state = {
@@ -24,11 +27,11 @@ class DynamicImport extends Component {
   }
 }
 
-const Account = (props) => (
-  <DynamicImport load={() => import('./eosio/Account')}>
-    {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
-  </DynamicImport>
-);
+// const Account = (props) => (
+//   <DynamicImport load={() => import('./eosio/Account')}>
+//     {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
+//   </DynamicImport>
+// );
 
 const CodeView = (props) => (
   <DynamicImport load={() => import('./eosio/CodeView')}>
@@ -42,17 +45,17 @@ const ABIView = (props) => (
   </DynamicImport>
 );
 
-const TransactionView = (props) => (
-  <DynamicImport load={() => import('./eosio/TransactionView')}>
-    {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
-  </DynamicImport>
-);
+// const TransactionView = (props) => (
+//   <DynamicImport load={() => import('./eosio/TransactionView')}>
+//     {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
+//   </DynamicImport>
+// );
 
-const BlockView = (props) => (
-  <DynamicImport load={() => import('./eosio/BlockView')}>
-    {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
-  </DynamicImport>
-);
+// const BlockView = (props) => (
+//   <DynamicImport load={() => import('./eosio/BlockView')}>
+//     {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
+//   </DynamicImport>
+// );
 
 class App extends Component {
   render() {

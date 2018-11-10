@@ -43,7 +43,7 @@ export const AG_OTHERS = 'Others';
 export const AntiSpams = {
   min_eos_ammount: 0.0009,
   min_token_ammount: 0.0009,
-  black_account: ['message.bank'],
+  black_account: ['message.bank', 'contractbase'],
   black_list: [
     {
       act_account: 'betdicealert',

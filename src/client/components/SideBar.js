@@ -51,6 +51,9 @@ const menu = [
 
 class SideBar extends Component {
   componentWillMount() {
+    if (localStorage.getItem('isDarkMode') == null) {
+      localStorage.setItem('isDarkMode', 'true');
+    }
     this.props.setIsDarkMode(localStorage.getItem('isDarkMode') == 'true');
   }
   render() {

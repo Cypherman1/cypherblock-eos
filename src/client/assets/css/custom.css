@@ -1665,3 +1665,12 @@ i.metismenu-state-icon.rotate-minus-90 {
 .pcursor {
   cursor: pointer;
 }
+
+.main-logo {
+  width: 220px;
+}
+.brand-container {
+  height: 52px;
+  padding-top: 10px;
+  padding-left: 10px;
+}

@@ -5,6 +5,7 @@ import MetisMenu from 'react-metismenu';
 import RouterLink from 'react-metismenu-router-link';
 import {connect} from 'react-redux';
 import {setActiveLinkID, setSidebarStatus, setIsDarkMode} from '../actions/sidebar';
+import logo from '../assets/imgs/logo.png';
 
 const menu = [
   {
@@ -60,11 +61,12 @@ class SideBar extends Component {
         <aside className={`sidebar ${sidebar.isDarkMode ? 'bg-dark' : ''}`}>
           <div className="sidebar-container">
             <div className="sidebar-header">
-              <div className="brand text-white font-weight-bold ftz-16">
-                <div className="mylogo logo-font">
+              <div className={`${sidebar.isDarkMode ? 'bg-black' : 'bg-white'} brand-container`}>
+                {/* <div className="mylogo logo-font">
                   <FontAwesomeIcon icon="cube" />
                 </div>
-                CYPHERBLOCK
+                CYPHERBLOCK */}
+                <img src={logo} className="main-logo" />
               </div>
             </div>
             <nav

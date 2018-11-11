@@ -220,7 +220,9 @@ class TokenMarket extends Component {
             });
             return (
               <div
-                className={`card sameheight-item stats mb-1 ${display} ${isDarkMode ? 'bg-dark text-white' : ''} pb-2`}
+                className={`card border sameheight-item stats mb-1 ${display} ${
+                  isDarkMode ? 'bg-dark text-white' : ''
+                } pb-2`}
                 data-exclude="xs"
               >
                 <div className="card-header shadow-sm bg-white row m-0">

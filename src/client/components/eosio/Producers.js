@@ -79,7 +79,7 @@ class Producers extends Component {
           if (producers) {
             return (
               <div
-                className={`card sameheight-item stats mb-1 ${isDarkMode ? 'bg-dark' : ''} ${display}`}
+                className={`card border sameheight-item stats mb-1 ${isDarkMode ? 'bg-dark' : ''} ${display}`}
                 data-exclude="xs"
               >
                 <div className={`card-header shadow-sm mb-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>

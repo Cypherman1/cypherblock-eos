@@ -19,7 +19,7 @@ const Dashboard = ({sidebar, isDesktop}) => {
               account_name="eosio"
               notifyOnNetworkStatusChange={false}
               showRefetch={true}
-              isLive={true}
+              isLive={false}
               isDarkMode={sidebar.isDarkMode}
             />
           </div>

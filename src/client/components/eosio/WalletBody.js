@@ -134,26 +134,6 @@ class WalletBody extends Component {
         );
       } else {
         if (token.price > 0) {
-          // items.push(
-          //   <div className="row row-sm stats-container m-0 shadow-sm pb-1" key={token.name}>
-          //     <div className="col-8 stat-col p-0">
-          //       <div className="stat-icon">
-          //         {/* <img src={img_src} className="img-logo" /> */}
-          //         <div>
-          //           <ReactImageFallback src={token_logo} fallbackImage={fallback_logo} className="img-logo" />
-          //         </div>
-          //       </div>
-          //       <div className="stat">
-          //         <div className="value">{renderEOSNum(token.ammount)}</div>
-
-          //         <div className="name">
-          //           {token.name} ({Number((token.ammount * token.price).toFixed(4)).toLocaleString('en')} EOS)
-          //         </div>
-          //       </div>
-          //     </div>
-          //     {this.renderBitfinexPrice(token)}
-          //   </div>
-          // );
           token_value = isEOSUnit
             ? Number(token.ammount * token.price)
             : Number((token.ammount * token.price * eos_price).toFixed(2));

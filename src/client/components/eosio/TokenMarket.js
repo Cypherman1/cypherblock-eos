@@ -31,7 +31,7 @@ const TokenMarketLoading = ({display, isDarkMode}) => {
       <div className="card-header shadow-sm bg-white row m-0">
         <div className="header-block pl-2 col">
           <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
-          <h5 className="title text-info">Market info</h5>
+          <h1 className="title text-info">EOS Market info</h1>
         </div>
         <div>
           <div className="input-group input-group-seamless mb-0 pr-1 float-right" style={{width: 100, height: 30}}>
@@ -228,7 +228,7 @@ class TokenMarket extends Component {
                 <div className="card-header shadow-sm bg-white row m-0">
                   <div className="header-block pl-2 col">
                     <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
-                    <h5 className="title text-info">Market info</h5>
+                    <h1 className="title text-info">EOS Market info</h1>
                   </div>
                   <div>
                     <div

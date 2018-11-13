@@ -22,7 +22,7 @@ const INNITAL_STATE = {
   ismore: true,
   isbuttonloading: false,
   isAntiSpamed: true,
-  limit: 100,
+  limit: 25,
   refetch: null,
   isChecking: false,
   isFilterOthers: true,

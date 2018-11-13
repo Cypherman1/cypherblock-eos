@@ -12,6 +12,7 @@ import reduxThunk from 'redux-thunk';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import reducers from './reducers';
 
+import './assets/css/all.min.css';
 import './assets/css/bootstrap.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './assets/css/custom.css';

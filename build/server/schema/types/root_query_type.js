@@ -187,7 +187,7 @@ const RootQueryType = new GraphQLObjectType({
       },
       resolve(parentValue, {account_name, pos, offset}) {
         return axios
-          .post(keys.chainURL + '/v1/history/get_actions', {
+          .post('http://api.hkeos.com:80/v1/history/get_actions', {
             account_name,
             pos,
             offset

@@ -1,15 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Query} from 'react-apollo';
 import {TransitionGroup} from 'react-transition-group';
 import {Link} from 'react-router-dom';
-import {
-  renderBlockNum,
-  renderEOSNum,
-  renderEOSStaked,
-  renderRamPriceColor,
-  renderEOSPriceColor,
-  renderPercentColor
-} from '../utils/RenderColors';
+import {renderBlockNum, renderEOSNum, renderEOSStaked} from '../utils/RenderColors';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetGeneralInfo from '../../queries/GetGeneralInfo';
 import {convertUTCDateToLocalDate, renderAccountLink} from '../utils/Tools';
@@ -308,10 +301,10 @@ const GeneralInfo = ({isDarkMode}) => {
               <div className={`card-header shadow-sm row m-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                 <div className="header-block pl-2 col">
                   <FontAwesomeIcon icon="globe" className="mr-2 text-info fa-lg" />
-                  <h5 className="title text-info">
+                  <h1 className="title text-info">
                     General Info
                     {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-                  </h5>
+                  </h1>
                 </div>
 
                 <div className="stat float-right">
@@ -499,61 +492,6 @@ const GeneralInfo = ({isDarkMode}) => {
                       />
                     </div>
                   </div>
-                  {/* market info */}
-                  {/* <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
-                      <div className="stat-icon">
-                        <FontAwesomeIcon icon="coins" />
-                      </div>
-                      <div className="stat">
-                        <div className="value">{eos_volume}</div>
-                        <div className="name"> 24h Volume (USD) </div>
-                      </div>
-                      <div className="progress stat-progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: '0%'
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
-                      <div className="stat-icon">
-                        <FontAwesomeIcon icon="chart-bar" />
-                      </div>
-                      <div className="stat">
-                        <div className="value">{renderRamPriceColor(ram_price)}</div>
-                        <div className="name"> RAM Price (EOS/KB) </div>
-                      </div>
-                      <div className="progress stat-progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: '0%'
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
-                      <div className="stat-icon">
-                        <FontAwesomeIcon icon="dollar-sign" />
-                      </div>
-                      <div className="stat">
-                        <div className="value">
-                          {renderEOSPriceColor(eos_price)}
-                          {renderPercentColor(percent_change_24h)}
-                        </div>
-                        <div className="name"> EOS Price (USD) </div>
-                      </div>
-                      <div className="progress stat-progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: '0%'
-                          }}
-                        />
-                      </div>
-                    </div> */}
                 </div>
               </div>
             </div>

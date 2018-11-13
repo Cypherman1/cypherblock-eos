@@ -3,10 +3,8 @@ import {CSSTransitionGroup} from 'react-transition-group';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetActions from '../../queries/GetActions';
 import {graphql} from 'react-apollo';
-// import ToggleButton from 'react-toggle-button';
 import {connect} from 'react-redux';
 import ActionCard from './ActionCard';
-
 import {IsSpam} from '../utils/IsSpam';
 import {IsFiltered} from '../utils/IsFiltered';
 import {IsSearched} from '../utils/IsSearched';

@@ -12,7 +12,7 @@ const ProducersLoading = ({display, isDarkMode}) => {
       <div className="card-header shadow-sm bg-white">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
-          <h5 className="title text-info ">Top producers</h5>
+          <h1 className="title text-info ">Top block producers</h1>
         </div>
       </div>
       <div className="card-block p-0">
@@ -85,7 +85,7 @@ class Producers extends Component {
                 <div className={`card-header shadow-sm mb-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
-                    <h5 className="title text-info ">Top producers</h5>
+                    <h1 className="title text-info ">Top block producers</h1>
                   </div>
                 </div>
                 <div className={`card-body p-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>

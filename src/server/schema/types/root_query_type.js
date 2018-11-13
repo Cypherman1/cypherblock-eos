@@ -133,7 +133,7 @@ const RootQueryType = new GraphQLObjectType({
       },
       resolve(parentValue, {id}) {
         return axios
-          .post(keys.chainURL + '/v1/history/get_transaction', {
+          .post('http://api.hkeos.com:80/v1/history/get_transaction', {
             id
           })
           .then((res) => res.data)
@@ -149,7 +149,7 @@ const RootQueryType = new GraphQLObjectType({
       },
       resolve(parentValue, {block_num_or_id}) {
         return axios
-          .post(keys.chainURL + '/v1/chain/get_block', {
+          .post('http://api.hkeos.com:80/v1/chain/get_block', {
             block_num_or_id
           })
           .then((res) => res.data)

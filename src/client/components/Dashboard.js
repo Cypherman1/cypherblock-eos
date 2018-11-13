@@ -41,13 +41,13 @@ const Dashboard = ({sidebar, isDesktop}) => {
             <Producers limit="30" display="d-xl-none" isDarkMode={sidebar.isDarkMode} /> */}
             <TokenMarket isDarkMode={sidebar.isDarkMode} />
             <Producers limit="30" isDarkMode={sidebar.isDarkMode} />
-            <ActionsCard
+            {/* <ActionsCard
               account_name="eosio"
               notifyOnNetworkStatusChange={false}
               showRefetch={true}
               isLive={true}
               isDarkMode={sidebar.isDarkMode}
-            />
+            /> */}
           </div>
         </div>
       </section>

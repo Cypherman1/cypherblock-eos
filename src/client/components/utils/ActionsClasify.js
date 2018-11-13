@@ -338,9 +338,9 @@ const renderConfirmation = (block_num, head_block_num) => {
     return (
       <div className="d-inline">
         Confirmations{' '}
-        <span className="text-white bg-info rounded font-weight-bold pd-confirm">
+        <strong className="text-white bg-info rounded font-weight-bold pd-confirm">
           {renderBlockNum(Number(head_block_num) - Number(block_num))}
-        </span>
+        </strong>
       </div>
     );
   return null;
@@ -371,11 +371,12 @@ const ReceivedAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.to)} {' received '}
-        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` from `}
+        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong>{' '}
+        {` from `}
         {renderAccountLink(action_trace.act.data.from)}
       </div>
       <div className="aln-text actinfo-font">
-        <span className="font-weight-bold">{`Memo:`}</span>
+        <strong className="font-weight-bold">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -386,11 +387,11 @@ const SentAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' sent '}
-        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
+        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
-        <span className="font-weight-bold">{`Memo:`}</span>
+        <strong className="font-weight-bold">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -402,11 +403,11 @@ const DefaultTransferAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' transfered '}
-        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
+        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
-        <span className="font-weight-bold">{`Memo:`}</span>
+        <strong className="font-weight-bold">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -418,11 +419,12 @@ const TokenReceivedAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.to)} {' received '}
-        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` from `}
+        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong>{' '}
+        {` from `}
         {renderAccountLink(action_trace.act.data.from)}
       </div>
       <div className="aln-text actinfo-font">
-        <span className="font-weight-bold">{`Memo:`}</span>
+        <strong className="font-weight-bold">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -434,11 +436,11 @@ const TokenSentAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' sent '}
-        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
+        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
-        <span className="font-weight-bold">{`Memo:`}</span>
+        <strong className="font-weight-bold">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -450,11 +452,11 @@ const DefaultTokenTransferAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' transfered '}
-        <span className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</span> {` to `}
+        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
-        <span className="font-weight-bold">{`Memo:`}</span>
+        <strong className="font-weight-bold">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -467,8 +469,14 @@ const Delegatebw = ({action_trace}) => {
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)}
         {` delegated `}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.stake_net_quantity)}</span> {` for NET and `}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.stake_cpu_quantity)}</span> {` for CPU to `}
+        <strong className="text-info font-weight-bold">
+          {toTokenNumber(action_trace.act.data.stake_net_quantity)}
+        </strong>
+        {` for NET and `}
+        <strong className="text-info font-weight-bold">
+          {toTokenNumber(action_trace.act.data.stake_cpu_quantity)}
+        </strong>
+        {` for CPU to `}
         {renderAccountLink(action_trace.act.data.receiver)}
       </div>
     </div>
@@ -481,7 +489,7 @@ const BidName = ({action_trace}) => {
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.bidder)}
         {` bided `}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.bid)}</span> {` on name `}
+        <strong className="text-info">{toTokenNumber(action_trace.act.data.bid)}</strong> {` on name `}
         {renderAccountLink(action_trace.act.data.newname)}
       </div>
     </div>
@@ -494,8 +502,13 @@ const Undelegatebw = ({action_trace}) => {
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)}
         {` undelegated `}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.unstake_net_quantity)}</span> {`  NET and `}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.unstake_cpu_quantity)}</span>{' '}
+        <strong className="text-info font-weight-bold">
+          {toTokenNumber(action_trace.act.data.unstake_net_quantity)}
+        </strong>
+        {`  NET and `}
+        <strong className="text-info font-weight-bold">
+          {toTokenNumber(action_trace.act.data.unstake_cpu_quantity)}
+        </strong>
         {` CPU. Refund to `}
         {renderAccountLink(action_trace.act.data.receiver)}
       </div>
@@ -509,7 +522,7 @@ const Buyram = ({action_trace}) => {
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.payer)}
         {` bought `}
-        <span className="text-info">{toTokenNumber(action_trace.act.data.quant)}</span> {` RAM for `}
+        <strong className="text-info">{toTokenNumber(action_trace.act.data.quant)}</strong> {` RAM for `}
         {renderAccountLink(action_trace.act.data.receiver)}
       </div>
     </div>
@@ -521,7 +534,7 @@ const Buyrambytes = ({action_trace}) => {
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.payer)}
         {` bought `}
-        <span className="text-info">{action_trace.act.data.bytes}</span> {`bytes RAM for `}
+        <strong className="text-info">{action_trace.act.data.bytes}</strong> {`bytes RAM for `}
         {renderAccountLink(action_trace.act.data.receiver)}
       </div>
     </div>
@@ -533,7 +546,7 @@ const Sellram = ({action_trace}) => {
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.account)}
         {` sold `}
-        <span className="text-info">{action_trace.act.data.bytes}</span> {`bytes RAM `}
+        <strong className="text-info">{action_trace.act.data.bytes}</strong> {`bytes RAM `}
         {/* {this.renderAccountLink(action.action_trace.act.data.receiver)} */}
       </div>
     </div>
@@ -564,9 +577,9 @@ const RenderProducers = (producers) => {
   let items = [];
   if (producers.length > 0)
     producers.map((producer) => {
-      items.push(<span key={producer}>{renderAccountLink(producer)} </span>);
+      items.push(<strong key={producer}>{renderAccountLink(producer)} </strong>);
     });
-  else items.push(<span key="1">Noone </span>);
+  else items.push(<strong key="1">Noone </strong>);
   return items;
 };
 

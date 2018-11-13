@@ -7,7 +7,7 @@ import {renderBlockNum} from '../utils/RenderColors';
 class BlockConfirmation extends Component {
   render() {
     return (
-      <Query query={GetConfirmations} pollInterval={5000}>
+      <Query query={GetConfirmations} pollInterval={0}>
         {({loading, error, data}) => {
           if (loading)
             return (

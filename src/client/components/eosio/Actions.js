@@ -169,7 +169,7 @@ class Actions extends Component {
           pos: -1,
           offset: -25
         }}
-        pollInterval={this.props.eosActions.islive ? 3000 : 0}
+        pollInterval={this.props.eosActions.islive ? 5000 : 0}
       >
         {({loading, error, data, fetchMore, refetch}) => {
           if (loading) return <ActionsLoading />;

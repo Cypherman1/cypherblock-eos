@@ -266,7 +266,7 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
 
 const GeneralInfo = ({isDarkMode}) => {
   return (
-    <Query query={GetGeneralInfo} pollInterval={3000}>
+    <Query query={GetGeneralInfo} pollInterval={5000}>
       {({loading, error, data}) => {
         if (loading) return <GeneralInfoLoading isDarkMode={isDarkMode} />;
 

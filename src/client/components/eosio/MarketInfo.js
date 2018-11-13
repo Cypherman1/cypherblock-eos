@@ -98,7 +98,7 @@ const MarketInfoLoading = () => {
 class MarketInfo extends Component {
   render() {
     return (
-      <Query query={GetMarKetInfo} pollInterval={5000}>
+      <Query query={GetMarKetInfo} pollInterval={0}>
         {({loading, error, data}) => {
           if (loading) return <MarketInfoLoading />;
           if (error) return <MarketInfoLoading />;

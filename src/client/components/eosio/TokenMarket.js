@@ -98,7 +98,7 @@ class TokenMarket extends Component {
     const {display, isDarkMode} = this.props;
     // fallback_logo = isDarkMode ? `${images}/eos_white.png` : `${images}/COMMON.png`;
     return (
-      <Query query={GetTokenMarket} pollInterval={5000}>
+      <Query query={GetTokenMarket} pollInterval={0}>
         {({loading, error, data}) => {
           if (loading) return <TokenMarketLoading display={display} isDarkMode={isDarkMode} />;
           if (error) return <TokenMarketLoading display={display} isDarkMode={isDarkMode} />;
@@ -165,6 +165,7 @@ class TokenMarket extends Component {
                         src={`${images}/EOS.png`}
                         fallbackImage={fallback_logo}
                         className="token_logo"
+                        alt="eos"
                       />
                     </div>
                     <div className=" ml-2 d-flex align-items-center">
@@ -199,7 +200,12 @@ class TokenMarket extends Component {
                         <div className="col-5 pl-1 pr-0 d-flex flex-row">
                           {/* <img src={token_logo} className="token_logo" /> */}
                           <div className="bg-white" style={{borderRadius: 200}}>
-                            <ReactImageFallback src={token_logo} fallbackImage={fallback_logo} className="token_logo" />
+                            <ReactImageFallback
+                              src={token_logo}
+                              fallbackImage={fallback_logo}
+                              alt={`${tokeninfo.currency} token airdrop`}
+                              className="token_logo"
+                            />
                           </div>
 
                           <div className="ml-2 d-flex align-items-center">

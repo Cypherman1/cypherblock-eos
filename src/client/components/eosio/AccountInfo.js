@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {TransitionGroup} from 'react-transition-group';
 import {renderRamColor, renderTotalBalanceRAMColor, renderToFiatColor} from '../utils/RenderColors';
-import {convertUTCDateToLocalDate, RoundedIcon} from '../utils/Tools';
+import {convertUTCDateToLocalDate} from '../utils/Tools';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -408,7 +408,7 @@ class AccountInfo extends Component {
   render() {
     const {isDarkMode} = this.props;
     return (
-      <Query query={GetAccountInfo} variables={{account_name: this.props.account_name}} pollInterval={5000}>
+      <Query query={GetAccountInfo} variables={{account_name: this.props.account_name}} pollInterval={0}>
         {({loading, error, data}) => {
           if (loading) return <AccountInfoLoading isDarkMode={isDarkMode} />;
 

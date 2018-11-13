@@ -120,7 +120,12 @@ class WalletBody extends Component {
               <div className="stat-icon">
                 {/* <img src={img_src} className="img-logo" /> */}
                 <div>
-                  <ReactImageFallback src={token_logo} fallbackImage={fallback_logo} className="img-logo" />
+                  <ReactImageFallback
+                    src={token_logo}
+                    fallbackImage={fallback_logo}
+                    alt={`${token.name} token airdrop`}
+                    className="img-logo"
+                  />
                 </div>
               </div>
               <div className="stat">
@@ -146,7 +151,12 @@ class WalletBody extends Component {
               {/* token info */}
               <div className="col-4 p-0 pt-1">
                 <div className="d-inline-block ml-2 bg-white mr-2 " style={{height: 26, width: 26, borderRadius: 200}}>
-                  <ReactImageFallback src={token_logo} fallbackImage={fallback_logo} className="img-logo" />
+                  <ReactImageFallback
+                    src={token_logo}
+                    fallbackImage={fallback_logo}
+                    alt={`${token.name} token airdrop`}
+                    className="img-logo"
+                  />
                 </div>
                 <div className="d-inline">{token.name}</div>
               </div>
@@ -156,7 +166,7 @@ class WalletBody extends Component {
                   <div className="ftz-11 font-weight-bold">
                     {isEOSUnit ? (
                       <div className="d-inline-block " style={{width: 13}}>
-                        <img src={eoslogo} />
+                        <img src={eoslogo} alt="eos" />
                       </div>
                     ) : (
                       <div className="d-inline-block pl-1" style={{width: 13}}>
@@ -193,7 +203,12 @@ class WalletBody extends Component {
                 <div className="stat-icon">
                   {/* <img src={img_src} className="img-logo" /> */}
                   <div>
-                    <ReactImageFallback src={token_logo} fallbackImage={fallback_logo} className="img-logo" />
+                    <ReactImageFallback
+                      src={token_logo}
+                      fallbackImage={fallback_logo}
+                      alt={`${token.name} token airdrop`}
+                      className="img-logo"
+                    />
                   </div>
                 </div>
                 <div className="stat">
@@ -239,7 +254,7 @@ class WalletBody extends Component {
     total_value = isEOSUnit ? total_token_value : token_usd_value.toFixed(2);
     unitsign = isEOSUnit ? (
       <div className="d-inline-block" style={{width: 13}}>
-        <img src={eoslogo} />
+        <img src={eoslogo} alt="eos" />
       </div>
     ) : (
       <div className="pl-1 d-inline-block" style={{width: 13}}>
@@ -272,7 +287,7 @@ class WalletBody extends Component {
   renderHoldingUnit(isEOSUnit) {
     return isEOSUnit ? (
       <div className="d-inline-block " style={{width: 13}}>
-        <img src={eoslogo} />
+        <img src={eoslogo} alt="eos" />
       </div>
     ) : (
       <div className="d-inline">

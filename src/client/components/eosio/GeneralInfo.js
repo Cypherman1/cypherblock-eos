@@ -313,6 +313,7 @@ const GeneralInfo = ({isDarkMode}) => {
                     {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
                   </h5>
                 </div>
+
                 <div className="stat float-right">
                   <TransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
                     <div className="head_block_time_font font-weight-bold">{head_block_time}</div>

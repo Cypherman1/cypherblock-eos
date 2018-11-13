@@ -5,7 +5,7 @@ import MetisMenu from 'react-metismenu';
 import RouterLink from 'react-metismenu-router-link';
 import {connect} from 'react-redux';
 import {setActiveLinkID, setSidebarStatus, setIsDarkMode} from '../actions/sidebar';
-import logo from '../assets/imgs/logo1.png';
+import logo from '../assets/imgs/logo.png';
 
 const menu = [
   {

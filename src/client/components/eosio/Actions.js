@@ -17,7 +17,7 @@ const ActionsLoading = () => {
         <div className="card-header card-header-sm bg-light shadow-sm row m-0">
           <div className="header-block pl-2 col">
             <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
-            <h5 className="title text-info">Recent actions</h5>
+            <h1 className="title text-info">Recent actions</h1>
           </div>
         </div>
         <div className="card-block pt-0">
@@ -181,9 +181,9 @@ class Actions extends Component {
                   <div className="card-header card-header-sm bg-light shadow-sm row m-0">
                     <div className="header-block pl-2 col">
                       <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
-                      <h5 className="title text-info">
+                      <h1 className="title text-info">
                         Recent <span className="ml-1 mr-1">{renderAccountLink(this.props.account_name)}</span> actions
-                      </h5>
+                      </h1>
                     </div>
                     <div className="col-auto pt-atb pr-1">
                       <ToggleButton

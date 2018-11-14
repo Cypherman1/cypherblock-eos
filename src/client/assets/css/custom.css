@@ -1205,13 +1205,11 @@ span.CodeMirror-selectedtext {
 }
 .act-date-fz {
   font-size: 10px;
-  font-weight: 600;
 }
 
 @media (max-width: 575.98px) {
   .act-date-fz {
     font-size: 9px;
-    font-weight: 600;
   }
   .blRAM {
     display: none !important;
@@ -1251,7 +1249,6 @@ span.CodeMirror-selectedtext {
 @media (min-width: 576px) and (max-width: 767.98px) {
   .act-date-fz {
     font-size: 9px;
-    font-weight: 600;
   }
   .blRAM {
     display: none !important;
@@ -1677,4 +1674,8 @@ i.metismenu-state-icon.rotate-minus-90 {
 
 .text-cypher {
   color: darkgray;
+}
+
+.font-weight-acttype {
+  font-weight: 520 !important;
 }

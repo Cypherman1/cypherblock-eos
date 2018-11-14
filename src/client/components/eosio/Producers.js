@@ -43,17 +43,20 @@ class Producers extends Component {
         key={producer.owner}
         style={{marginBottom: 2, marginTop: 1}}
       >
-        <div className="p-0">
+        <div className="p-0 ">
           <div className="stat-icon">{renderProRank(index)}</div>
           <div className="stat">
-            <div className="value">{renderAccountLink(producer.owner)}</div>
+            <div className="value ftz-13">{renderAccountLink(producer.owner)}</div>
             <div className="name">
-              <a href={producer.url}> {producer.url} </a>{' '}
+              <a href={producer.url} className="font-weight-acttype ftz-12">
+                {' '}
+                {producer.url}
+              </a>
             </div>
           </div>
         </div>
         <div className="p-0">
-          <div className="stat float-right pt-3 ftz-11 font-weight-bold">
+          <div className="stat float-right pt-3 ftz-11 ">
             {((Number(producer.total_votes) / Number(total_producer_vote_weight)) * 100).toLocaleString('en', {
               minimumFractionDigits: 4
             })}%

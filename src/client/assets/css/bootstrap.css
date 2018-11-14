@@ -9159,7 +9159,6 @@ body {
   padding: 20px;
   line-height: 30px;
   font-size: 26px;
-  font-weight: 600;
   margin: 0;
 }
 .auth-container .auth-content {
@@ -9302,14 +9301,15 @@ body {
   line-height: 20px; 
   /* overflow: hidden;
   text-overflow: ellipsis; */
-  font-weight: 700;
+  font-weight: 540;
   display: inline-block;
 }
 .stat .name {
   /* overflow: hidden;
   text-overflow: ellipsis; */
   font-size: 11px; 
-  font-weight: 500;
+  /* font-weight: 500; */
+  color: #969696;
   
 }
 .stat.lg .value {
@@ -9374,7 +9374,7 @@ body {
 
 .title {
   font-size: 1.45rem;
-  font-weight: 600;
+  
   margin-bottom: 0;
 }
 .title.l {
@@ -11840,11 +11840,11 @@ span a {
     width: 36px;
   }
   .stat .value {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 13px;
      overflow: hidden;
     text-overflow: ellipsis; 
-    font-weight: 700;
+    font-weight: 540;
     display: inline-block;
   }
   .stat .name {
@@ -11870,7 +11870,7 @@ span a {
 }
 @media (min-width: 1200px) {
   .dashboard-page .stats .stat .value {
-    font-size: .90vw;
+    font-size: 1vw;
   }
 }
 @media (min-width: 1200px) {

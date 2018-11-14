@@ -182,7 +182,7 @@ class Transaction extends Component {
                         <div className="card-header card-header-sm bg-white shadow-sm row m-0">
                           <div className="header-block pl-2 col">
                             <FontAwesomeIcon icon="tasks" className="mr-2 text-info" />
-                            <h5 className="title text-info ftz-12">Actions</h5>
+                            <h1 className="title text-info ftz-12">Actions</h1>
                           </div>
                         </div>
                         <div

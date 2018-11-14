@@ -20,9 +20,9 @@ const TransactionView = ({match, sidebar}) => {
               <div className="card-header  bg-white shadow-sm">
                 <div className="header-block pl-2">
                   <FontAwesomeIcon icon="table" className="mr-2 text-info ftz-24" />
-                  <h5 className="title text-info">
+                  <h1 className="title text-info">
                     <div>Transaction </div>
-                  </h5>
+                  </h1>
                   {/* <button type="button" className="btn btn-primary" onClick={back}>
                     Go Back
                   </button> */}

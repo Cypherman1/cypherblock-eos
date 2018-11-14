@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {convertUTCDateToLocalDate, toTokenNumber, renderAccountLink, renderPerm} from './Tools';
-import {renderBlockNum} from './RenderColors';
+import {renderConfNum} from './RenderColors';
 
 import {
   AT_SEND_EOS,
@@ -305,7 +305,7 @@ const renderData = (data) => {
       )
         items.push(
           <div key={name} className="row">
-            <div className="col-4 col-sm-2 font-weight-bold pr-0">{name}</div>
+            <div className="col-4 col-sm-2  pr-0">{name}</div>
             <div className="col-8 col-sm-10">
               <Link to={`/account/${JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)}`}>
                 {JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)}
@@ -317,7 +317,7 @@ const renderData = (data) => {
       else
         items.push(
           <div key={name} className="row">
-            <div className="col-4 col-sm-2 font-weight-bold pr-0">{name}:</div>
+            <div className="col-4 col-sm-2  pr-0">{name}:</div>
             <div className="col-8 col-sm-10 aln-text">
               <div> {JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)} </div>
             </div>
@@ -338,8 +338,8 @@ const renderConfirmation = (block_num, head_block_num) => {
     return (
       <div className="d-inline">
         Confirmations{' '}
-        <strong className="text-light bg-info rounded font-weight-bold pd-confirm">
-          {renderBlockNum(Number(head_block_num) - Number(block_num))}
+        <strong className="text-light bg-info rounded  pd-confirm">
+          {renderConfNum(Number(head_block_num) - Number(block_num))}
         </strong>
       </div>
     );
@@ -363,7 +363,9 @@ export const renderTime = (time) => {
 };
 const ActType = ({bg, isDarkMode, children}) => {
   return (
-    <span className={` ${isDarkMode ? 'bg-transparent' : 'bg-white'}  ${bg} font-weight-bold ftz-13`}>{children}</span>
+    <span className={` ${isDarkMode ? 'bg-transparent' : 'bg-white'}  ${bg}  ftz-13 font-weight-acttype`}>
+      {children}
+    </span>
   );
 };
 const ReceivedAction = ({action_trace}) => {
@@ -371,12 +373,11 @@ const ReceivedAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.to)} {' received '}
-        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong>{' '}
-        {` from `}
+        <strong className="text-info ">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` from `}
         {renderAccountLink(action_trace.act.data.from)}
       </div>
       <div className="aln-text actinfo-font">
-        <strong className="font-weight-bold">{`Memo:`}</strong>
+        <strong className="">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -387,11 +388,11 @@ const SentAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' sent '}
-        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
+        <strong className="text-info ">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
-        <strong className="font-weight-bold">{`Memo:`}</strong>
+        <strong className="">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -403,11 +404,11 @@ const DefaultTransferAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' transfered '}
-        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
+        <strong className="text-info ">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
-        <strong className="font-weight-bold">{`Memo:`}</strong>
+        <strong className="">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -419,12 +420,11 @@ const TokenReceivedAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.to)} {' received '}
-        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong>{' '}
-        {` from `}
+        <strong className="text-info ">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` from `}
         {renderAccountLink(action_trace.act.data.from)}
       </div>
       <div className="aln-text actinfo-font">
-        <strong className="font-weight-bold">{`Memo:`}</strong>
+        <strong className="">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -436,11 +436,11 @@ const TokenSentAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' sent '}
-        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
+        <strong className="text-info ">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
-        <strong className="font-weight-bold">{`Memo:`}</strong>
+        <strong className="">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -452,11 +452,11 @@ const DefaultTokenTransferAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' transfered '}
-        <strong className="text-info font-weight-bold">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
+        <strong className="text-info ">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>
       <div className="aln-text actinfo-font">
-        <strong className="font-weight-bold">{`Memo:`}</strong>
+        <strong className="">{`Memo:`}</strong>
         {action_trace.act.data.memo}
       </div>
     </div>
@@ -469,13 +469,9 @@ const Delegatebw = ({action_trace}) => {
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)}
         {` delegated `}
-        <strong className="text-info font-weight-bold">
-          {toTokenNumber(action_trace.act.data.stake_net_quantity)}
-        </strong>
+        <strong className="text-info ">{toTokenNumber(action_trace.act.data.stake_net_quantity)}</strong>
         {` for NET and `}
-        <strong className="text-info font-weight-bold">
-          {toTokenNumber(action_trace.act.data.stake_cpu_quantity)}
-        </strong>
+        <strong className="text-info ">{toTokenNumber(action_trace.act.data.stake_cpu_quantity)}</strong>
         {` for CPU to `}
         {renderAccountLink(action_trace.act.data.receiver)}
       </div>
@@ -502,13 +498,9 @@ const Undelegatebw = ({action_trace}) => {
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)}
         {` undelegated `}
-        <strong className="text-info font-weight-bold">
-          {toTokenNumber(action_trace.act.data.unstake_net_quantity)}
-        </strong>
+        <strong className="text-info ">{toTokenNumber(action_trace.act.data.unstake_net_quantity)}</strong>
         {`  NET and `}
-        <strong className="text-info font-weight-bold">
-          {toTokenNumber(action_trace.act.data.unstake_cpu_quantity)}
-        </strong>
+        <strong className="text-info ">{toTokenNumber(action_trace.act.data.unstake_cpu_quantity)}</strong>
         {` CPU. Refund to `}
         {renderAccountLink(action_trace.act.data.receiver)}
       </div>
@@ -634,8 +626,8 @@ const UpdateAuth = ({action_trace}) => {
 //   let items = [];
 //   items.push(
 //     <div className="row m-0" key={1}>
-//       <div className="col-8 font-weight-bold mb-1 mr-1 ml-0 p-0  border-bottom">Accounts/Keys</div>
-//       <div className="col font-weight-bold text-center m-1 p-0 border-bottom">Weight</div>
+//       <div className="col-8  mb-1 mr-1 ml-0 p-0  border-bottom">Accounts/Keys</div>
+//       <div className="col  text-center m-1 p-0 border-bottom">Weight</div>
 //     </div>
 //   );
 //   if (accounts)
@@ -700,15 +692,15 @@ const Claimrewards = ({action_trace}) => {
 const CancelDelay = ({action_trace}) => {
   return (
     <div className="row">
-      <div className="col-4 font-weight-bold">Actor:</div>
+      <div className="col-4 ">Actor:</div>
       <div className="col-8 aln-text">
         <div> {renderAccountLink(action_trace.act.data.canceling_auth.actor)} </div>
       </div>
-      <div className="col-4 font-weight-bold">Permission:</div>
+      <div className="col-4 ">Permission:</div>
       <div className="col-8 aln-text text-info">
         <div> {action_trace.act.data.canceling_auth.permission} </div>
       </div>
-      <div className="col-4 font-weight-bold">Trx:</div>
+      <div className="col-4 ">Trx:</div>
       <div className="col-8 aln-text">
         <div> {action_trace.act.data.trx_id} </div>
       </div>

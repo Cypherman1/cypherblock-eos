@@ -30,11 +30,11 @@ const WalletLoading = ({display, isDarkMode}) => {
     <div className={`${isDarkMode ? 'bg-dark border-secondary' : ' bg-white '} card border`} style={{margin: 2}}>
       <div className=" card-header bg-white row m-0 shadow-sm mb-1">
         <div className="col p-0 pl-2">
-          <div className="text-info ftz-7 ">TOTAL VALUE</div>
+          <div className="text-info ftz-9 ">TOTAL VALUE</div>
         </div>
         <div className="pr-2">
-          <div className="text-info text-right ftz-7 mb-1"># ASSETS</div>
-          <div className="text-right font-weight-bold ftz-12"> </div>
+          <div className="text-info text-right ftz-9 mb-1"># ASSETS</div>
+          <div className="text-right  ftz-12"> </div>
         </div>
       </div>
       <div className="card-block p-0">
@@ -145,7 +145,7 @@ class WalletBody extends Component {
 
           items.push(
             <div
-              className={`${isDarkMode ? 'border-bottom border-secondary' : ''} row m-0 shadow-sm  ftz-10`}
+              className={`${isDarkMode ? 'border-bottom border-secondary' : ''} row m-0 shadow-sm  ftz-12`}
               key={token.name}
             >
               {/* token info */}
@@ -163,7 +163,7 @@ class WalletBody extends Component {
               {/* Balance info */}
               <div className="col-5 p-0 pt-1">
                 <div className="text-right">
-                  <div className="ftz-11 font-weight-bold">
+                  <div className="ftz-12 font-weight-acttype">
                     {isEOSUnit ? (
                       <div className="d-inline-block " style={{width: 13}}>
                         <img src={eoslogo} alt="eos" />
@@ -190,7 +190,7 @@ class WalletBody extends Component {
                       />
                     </div>
                   </div>
-                  <div className="ftz-9">{renderEOSNum(token.ammount)}</div>
+                  <div className="ftz-10">{renderEOSNum(token.ammount)}</div>
                 </div>
               </div>
               <div className="col-3 p-0 pt-1">{this.renderPriceinfo(token)}</div>
@@ -232,7 +232,7 @@ class WalletBody extends Component {
       return (
         <div className="text-right ml-2 mr-1">
           <div className="">{token.price}</div>
-          <div className="">{renderPPColor((token.percent * 100).toFixed(2))}</div>
+          <div className="ftz-10 ">{renderPPColor((token.percent * 100).toFixed(2))}</div>
         </div>
       );
     } else return null;
@@ -266,7 +266,7 @@ class WalletBody extends Component {
       <div>
         {unitsign}
         <div
-          className="d-inline-block font-weight-bold ftz-12 pcursor"
+          className="d-inline-block  ftz-12 pcursor"
           role="button"
           onClick={() => {
             this.props.setTokenBalanceUnitl(!this.props.common.isEOSUnit);
@@ -316,12 +316,12 @@ class WalletBody extends Component {
         <div className={`${isDarkMode ? 'bg-dark border-secondary' : ' bg-white '} card border`} style={{margin: 2}}>
           <div className=" card-header bg-white row m-0 shadow-sm mb-1">
             <div className="col p-0 pl-2">
-              <div className="text-info ftz-7 ">TOTAL VALUE</div>
+              <div className="text-info ftz-9 ">TOTAL VALUE</div>
               {this.renderTotalValue(total_token_value, token_usd_value, isEOSUnit)}
             </div>
             <div className="pr-2">
-              <div className="text-info text-right ftz-7 mb-1"># ASSETS</div>
-              <div className="text-right font-weight-bold ftz-12"> {AllTokens.length} </div>
+              <div className="text-info text-right ftz-9 mb-1"># ASSETS</div>
+              <div className="text-right  ftz-12"> {AllTokens.length} </div>
             </div>
           </div>
           <div className="card-block p-0">
@@ -332,9 +332,9 @@ class WalletBody extends Component {
                 }`}
               >
                 <div className="row  m-0">
-                  <div className="col-4 float-left ftz-10 text-info  pl-2" />
-                  <div className="col-5 text-right ftz-10  p-0  text-info pl-2">Holding</div>
-                  <div className="col-3 text-right ftz-10  pr-1 text-info">Price(EOS)</div>
+                  <div className="col-4 float-left ftz-12 text-info  pl-2" />
+                  <div className="col-5 text-right ftz-12  p-0  text-info pl-2">Holding</div>
+                  <div className="col-3 text-right ftz-12  pr-1 text-info">Price(EOS)</div>
                 </div>
               </div>
             </div>

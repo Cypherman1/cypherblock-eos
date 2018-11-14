@@ -95,14 +95,14 @@ const AccountInfoLoading = ({isDarkMode}) => {
           </div>
           <div className="">
             <div>
-              <h5 className="title text-info " />
+              <h1 className="title text-info " />
             </div>
             <div className="name ftz-8 text-success">Created:</div>
           </div>
         </div>
         <div className="stat float-right mt-1">
           <TransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-            <div className="head_block_time_font font-weight-bold" />
+            <div className="head_block_time_font " />
             <div className="head_block_time_font text-right">Head Block Time</div>
           </TransitionGroup>
         </div>
@@ -119,10 +119,10 @@ const AccountInfoLoading = ({isDarkMode}) => {
         <div className={`card-header card-header-sm shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}  mb-1`}>
           <div className="header-block pl-2">
             <FontAwesomeIcon icon="globe" className="mr-2 text-info" />
-            <h5 className="title text-info">
+            <h1 className="title text-info">
               General info
               {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-            </h5>
+            </h1>
           </div>
         </div>
         <div className=" row row-sm stats-container m-0 ">
@@ -427,7 +427,7 @@ class AccountInfo extends Component {
                     </div>
                     <div className="">
                       <div>
-                        <h5 className="title text-info ">{account_name}</h5>
+                        <h1 className="title text-info ">{account_name}</h1>
                       </div>
                       <div className="name ftz-8 text-success">
                         Created: {convertUTCDateToLocalDate(new Date(account.created)).toLocaleString()}{' '}
@@ -436,7 +436,7 @@ class AccountInfo extends Component {
                   </div>
                   <div className="stat float-right mt-1">
                     <TransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-                      <div className="head_block_time_font font-weight-bold">
+                      <div className="head_block_time_font ">
                         {convertUTCDateToLocalDate(new Date(account.head_block_time)).toLocaleString()}
                       </div>
                       <div className="head_block_time_font text-right">Head Block Time</div>
@@ -452,10 +452,10 @@ class AccountInfo extends Component {
                   <div className={`card-header card-header-sm shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}  mb-1`}>
                     <div className="header-block pl-2">
                       <FontAwesomeIcon icon="globe" className="mr-2 text-info" />
-                      <h5 className="title text-info">
+                      <h1 className="title text-info">
                         General info
                         {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-                      </h5>
+                      </h1>
                     </div>
                   </div>
                   <div className=" row row-sm stats-container m-0 ">

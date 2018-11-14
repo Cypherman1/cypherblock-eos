@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import GetConfirmations from '../../queries/GetConfirmations';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {renderBlockNum} from '../utils/RenderColors';
+import {renderConfNum} from '../utils/RenderColors';
 
 class BlockConfirmation extends Component {
   render() {
@@ -36,8 +36,8 @@ class BlockConfirmation extends Component {
                 return (
                   <div className="d-inline">
                     Confirmations{' '}
-                    <span className="text-light bg-info rounded font-weight-bold p-1">
-                      {renderBlockNum(Number(chain.head_block_num) - Number(block_num))}
+                    <span className="text-light bg-info rounded  p-1">
+                      {renderConfNum(Number(chain.head_block_num) - Number(block_num))}
                     </span>
                   </div>
                 );

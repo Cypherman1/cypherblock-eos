@@ -13,7 +13,7 @@ const MarketInfoLoading = () => {
       <div className="card-header shadow-sm bg-white">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
-          <h5 className="title text-info">Market info</h5>
+          <h1 className="title text-info">Market info</h1>
         </div>
       </div>
       <div className="card-block">
@@ -123,7 +123,7 @@ class MarketInfo extends Component {
                 <div className="card-header shadow-sm bg-white">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
-                    <h5 className="title text-info">Market info</h5>
+                    <h1 className="title text-info">Market info</h1>
                   </div>
                 </div>
                 <div className="card-block">

@@ -18,6 +18,8 @@ var tmp_to_fiat = 0;
 
 var tmp_eos_staked = 0;
 
+let isDarkMode = null;
+
 const renderEOSStaked = (eos_staked, isDarkMode) => {
   if (eos_staked > tmp_eos_staked && tmp_eos_staked > 0) {
     tmp_eos_staked = eos_staked;
@@ -74,7 +76,22 @@ const renderProRank = (index) => {
 };
 
 const renderBlockNum = (block_num) => {
-  return <NumberEasing value={block_num} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />;
+  isDarkMode = localStorage.getItem('isDarkMode') == 'true';
+  return (
+    <NumberEasing
+      value={block_num}
+      ease="backIn"
+      precision={0}
+      speed={500}
+      trail={true}
+      useLocaleString={true}
+      className={`font-weight-acttype  ${isDarkMode ? 'linkcolor-dark' : ''} `}
+    />
+  );
+};
+
+const renderConfNum = (conf_num) => {
+  return <NumberEasing value={conf_num} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />;
 };
 
 const renderStake2Vote = (stake2vote, last_vote_weight, isDarkMode) => {
@@ -363,5 +380,6 @@ export {
   renderHeadBlockTime,
   renderStake2Vote,
   renderDecayedPercent,
-  renderDecayedPercentProxy
+  renderDecayedPercentProxy,
+  renderConfNum
 };

@@ -19,10 +19,10 @@ const NoVote = ({isDarkMode}) => {
       <div className="card-header card-header-sm shadow-sm bg-white ">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
-          <h5 className="title text-info">
+          <h1 className="title text-info">
             Voter info
             {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-          </h5>
+          </h1>
         </div>
       </div>
       <div className={`card-block text-danger ftz-12 ${isDarkMode ? 'bg-dark' : ''} `}>
@@ -84,10 +84,10 @@ class VoterInfo extends Component {
                 <div className="card-header card-header-sm shadow-sm bg-white ">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
-                    <h5 className="title text-info">
+                    <h1 className="title text-info">
                       Voter info
                       {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-                    </h5>
+                    </h1>
                   </div>
                 </div>
                 <div className="card-block row row-sm m-0 pb-0 pr-1 pl-1">
@@ -218,10 +218,10 @@ class VoterInfo extends Component {
                 <div className="card-header card-header-sm bg-white shadow-sm ">
                   <div className="header-block pl-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
-                    <h5 className="title text-info">
+                    <h1 className="title text-info">
                       Voter info
                       {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-                    </h5>
+                    </h1>
                   </div>
                 </div>
                 <div className="card-block row row-sm m-0 pr-1 pl-1">
@@ -376,10 +376,10 @@ class VoterInfo extends Component {
                 <div className="card-header card-header-sm bg-white shadow-sm ">
                   <div className="header-block pl-2 pr-2">
                     <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
-                    <h5 className="title text-info">
+                    <h1 className="title text-info">
                       Voter info
                       {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-                    </h5>
+                    </h1>
                   </div>
                   <span className="badge badge-pill badge-primary mb-2">Proxy</span>
                 </div>

@@ -80,9 +80,9 @@ const ActionCardHeader = ({
       <div className={`card-header row m-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}  `}>
         <div className="header-block pl-1 col stat-col">
           <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
-          <h5 className="title text-info">
+          <h1 className="title text-info">
             Recent <span className="ml-1 mr-1">{renderAccountLink(account_name)}</span> actions
-          </h5>
+          </h1>
         </div>
         <div className="col-auto pt-atb pr-1">
           {renderRefetchBtn(refetch, setIsRefetch, setIsMore, islive, isrefetch, isDarkMode)}

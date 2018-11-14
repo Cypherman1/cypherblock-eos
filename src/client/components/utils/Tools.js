@@ -291,7 +291,10 @@ const convertUTCDateToLocalDate = (date) => {
 const renderAccountLink = (accountName) => {
   isDarkMode = localStorage.getItem('isDarkMode') == 'true';
   return (
-    <Link className={` ${isDarkMode ? 'linkcolor-dark' : ''} `} to={`/account/${accountName}`}>
+    <Link
+      className={`font-weight-acttype ftz-13  ${isDarkMode ? 'linkcolor-dark' : ''} `}
+      to={`/account/${accountName}`}
+    >
       {accountName}
     </Link>
   );
@@ -358,7 +361,7 @@ const renderPerm = (perm_name, threshold, accounts, keys, account_name) => {
       <div className="">
         <div className="pb-permname ftz-12">
           {renderAccountLink(account_name)}
-          <span className="font-weight-bold text-info">@{perm_name}</span>
+          <span className="text-info">@{perm_name}</span>
         </div>
         <div className="name">{RenderAuths(accounts, keys)}</div>
       </div>

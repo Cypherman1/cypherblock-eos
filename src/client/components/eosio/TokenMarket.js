@@ -49,7 +49,7 @@ const TokenMarketLoading = ({display, isDarkMode}) => {
         </div>
       </div>
 
-      <div className="row ftz-10 pb-1 pt-1 m-0 token_price_weight shadow-sm" key={1}>
+      <div className="row ftz-12 pb-1 pt-1 m-0  shadow-sm" key={1}>
         <div className="pl-2 col-5 text-info"> Pair </div>
         <div className="col-4 text-right pr-4 text-info"> Price </div>
         <div className="col-3 text-right text-info"> 24h % </div>
@@ -125,7 +125,7 @@ class TokenMarket extends Component {
                 key={2}
                 style={{marginBottom: 1, marginTop: 1}}
               >
-                <div className="row ftz-10 token_price_weight m-0">
+                <div className="row ftz-12  m-0">
                   <div className="col-5 pl-1 pr-0 d-flex flex-row">
                     {/* <img src={images(`./RAM.svg`)} className="token_logo" /> */}
                     {
@@ -157,7 +157,7 @@ class TokenMarket extends Component {
                 key={3}
                 style={{marginBottom: 1}}
               >
-                <div className="row ftz-10 token_price_weight m-0">
+                <div className="row ftz-12  m-0">
                   <div className="col-5 pl-1 pr-0 d-flex flex-row">
                     {/* <img src={images(`./eoslogo.svg`)} className="token_logo" /> */}
                     <div>
@@ -196,7 +196,7 @@ class TokenMarket extends Component {
                       key={tokeninfo.currency}
                       style={{marginBottom: 1}}
                     >
-                      <div className="row ftz-10 token_price_weight m-0">
+                      <div className="row ftz-12  m-0">
                         <div className="col-5 pl-1 pr-0 d-flex flex-row">
                           {/* <img src={token_logo} className="token_logo" /> */}
                           <div className="bg-light" style={{borderRadius: 200}}>
@@ -212,7 +212,7 @@ class TokenMarket extends Component {
                             <div> {`${tokeninfo.currency}/EOS`}</div>
                           </div>
                         </div>
-                        <div className="col-4 text-right token_price_weight d-flex align-items-center flex-row-reverse">
+                        <div className="col-4 text-right  d-flex align-items-center flex-row-reverse">
                           <div> {this.renderPrice(tokeninfo.last)} </div>
                         </div>
                         <div className="col-3 d-flex align-items-center flex-row-reverse pr-1">
@@ -258,7 +258,7 @@ class TokenMarket extends Component {
                   </div>
                 </div>
 
-                <div className="row ftz-10 pb-1 pt-1 m-0 token_price_weight shadow-sm border-bottom" key={1}>
+                <div className="row ftz-12 pb-1 pt-1 m-0  shadow-sm border-bottom" key={1}>
                   <div className="pl-2 col-5 text-info">
                     Pair <span className="badge badge-primary p-1 font-weight-bold">{ticker_count + 2}</span>
                   </div>

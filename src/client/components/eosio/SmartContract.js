@@ -19,10 +19,10 @@ const SmartContract = ({account_name, isDarkMode}) => {
               <div className="card-header card-header-sm bg-white">
                 <div className="header-block pl-2 pr-2">
                   <FontAwesomeIcon icon="cogs" className="mr-2 text-info" />
-                  <h5 className="title text-info">
+                  <h1 className="title text-info">
                     Smart contract
                     {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-                  </h5>
+                  </h1>
                 </div>
                 <span className="badge badge-pill badge-warning mr-2">
                   <Link to={`/abi/${account_name}`}>

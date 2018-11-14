@@ -445,7 +445,7 @@ class Action extends Component {
         <td data-title="Info" className="pt-1 pb-1" key="2">
           <div className="actinfo-font">
             {this.renderAccountLink(action_trace.act.data.account)} {' set '}
-            <span className="font-weight-bold text-info"> {action_trace.act.data.permission} </span>
+            <span className="text-info"> {action_trace.act.data.permission} </span>
             {' permission: '}
           </div>
           <div>

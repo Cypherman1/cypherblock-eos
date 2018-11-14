@@ -31,10 +31,10 @@ const AccPermsInfo = ({permissions, account_name, isDarkMode}) => {
       <div className="card-header card-header-sm shadow-sm bg-white">
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="user-lock" className="mr-2 text-info" />
-          <h5 className="title text-info">
+          <h1 className="title text-info">
             Permissions info
             {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-          </h5>
+          </h1>
         </div>
       </div>
       <div className="card-block row row-sm ftz-9 m-0 pb-0 pr-0 pl-0">{renderPerms(permissions, account_name)}</div>

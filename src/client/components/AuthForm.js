@@ -21,7 +21,7 @@ class AuthForm extends Component {
           onSubmit={this.onSubmit.bind(this)}
           className="col s12 m7 l6 z-depth-2"
         >
-          <h5 className="light-blue-text text-darken-1 center">Login</h5>
+          <h1 className="light-blue-text text-darken-1 center">Login</h1>
           <div className="input-field">
             <input
               placeholder="Email"

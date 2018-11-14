@@ -29,10 +29,10 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
       <div className={`card-header shadow-sm row m-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
         <div className="header-block pl-2 col">
           <FontAwesomeIcon icon="globe" className="mr-2 text-info fa-lg" />
-          <h5 className="title text-info">
+          <h1 className="title text-info">
             General Info
             {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-          </h5>
+          </h1>
         </div>
         <div className="stat float-right">
           <TransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
@@ -309,7 +309,7 @@ const GeneralInfo = ({isDarkMode}) => {
 
                 <div className="stat float-right">
                   <TransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-                    <div className="head_block_time_font font-weight-bold">{head_block_time}</div>
+                    <div className="head_block_time_font ">{head_block_time}</div>
                     <div className="head_block_time_font text-right">Head Block Time</div>
                   </TransitionGroup>
                 </div>

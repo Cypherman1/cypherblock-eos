@@ -141,7 +141,7 @@ class Block extends Component {
                           <div className="card-header card-header-sm bg-white  row m-0">
                             <div className="header-block pl-2 col">
                               <FontAwesomeIcon icon="list-alt" className="mr-2 text-info" />
-                              <h5 className="title text-info ftz-12">Transactions</h5>
+                              <h1 className="title text-info ftz-12">Transactions</h1>
                             </div>
                           </div>
                           <div className="card-block pt-0">

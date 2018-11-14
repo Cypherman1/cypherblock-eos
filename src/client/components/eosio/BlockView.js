@@ -14,9 +14,9 @@ const BlockView = ({match, sidebar}) => {
               <div className="card-header  bg-white shadow-sm">
                 <div className="header-block pl-2">
                   <FontAwesomeIcon icon="cube" className="mr-2 text-info ftz-24" />
-                  <h5 className="title text-info">
+                  <h1 className="title text-info">
                     <div>Block </div>
-                  </h5>
+                  </h1>
                 </div>
               </div>
               <ErrorBoundary>

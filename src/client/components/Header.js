@@ -93,7 +93,7 @@ class Header extends Component {
     const {isDarkMode} = this.props.sidebar;
     return (
       <div>
-        <header className={`header bg-white shadow-sm ${isDarkMode ? 'bg-dark text-white' : ''}`}>
+        <header className={`header bg-white shadow-sm ${isDarkMode ? 'bg-dark text-cypher' : ''}`}>
           <div className="header-block header-block-collapse d-lg-none d-xl-none">
             <button className="collapse-btn" id="sidebar-collapse-btn" onClick={this.submitSidebarStatus}>
               <FontAwesomeIcon icon="bars" />
@@ -120,7 +120,7 @@ class Header extends Component {
                       className={`btn ${isDarkMode ? 'btn-success' : 'btn-info'}  mb-0`}
                       onClick={this.submit}
                     >
-                      <i className="fa fa-search text-white" />
+                      <i className="fa fa-search text-light" />
                     </button>
                   </div>
                 </div>

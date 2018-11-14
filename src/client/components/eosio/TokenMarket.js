@@ -25,7 +25,7 @@ let tokensMarket = [];
 const TokenMarketLoading = ({display, isDarkMode}) => {
   return (
     <div
-      className={`card sameheight-item stats mb-1 ${display} ${isDarkMode ? 'bg-dark text-white' : ''} pb-2`}
+      className={`card sameheight-item stats mb-1 ${display} ${isDarkMode ? 'bg-secondary text-secondary' : ''} pb-2`}
       data-exclude="xs"
     >
       <div className="card-header shadow-sm bg-white row m-0">
@@ -192,14 +192,14 @@ class TokenMarket extends Component {
 
                   items.push(
                     <div
-                      className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark text-white' : ''} ml-0 p-1 mt-0`}
+                      className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark text-cypher' : ''} ml-0 p-1 mt-0`}
                       key={tokeninfo.currency}
                       style={{marginBottom: 1}}
                     >
                       <div className="row ftz-10 token_price_weight m-0">
                         <div className="col-5 pl-1 pr-0 d-flex flex-row">
                           {/* <img src={token_logo} className="token_logo" /> */}
-                          <div className="bg-white" style={{borderRadius: 200}}>
+                          <div className="bg-light" style={{borderRadius: 200}}>
                             <ReactImageFallback
                               src={token_logo}
                               fallbackImage={fallback_logo}
@@ -227,7 +227,7 @@ class TokenMarket extends Component {
             return (
               <div
                 className={`card border sameheight-item stats mb-1 ${display} ${
-                  isDarkMode ? 'bg-dark text-white' : ''
+                  isDarkMode ? 'bg-dark text-cypher' : ''
                 } pb-2`}
                 data-exclude="xs"
               >

@@ -323,7 +323,7 @@ const RenderAuths = (accounts, keys) => {
     accounts.map((account) => {
       items.push(
         <div key={account.permission.actor} className="d-flex">
-          <div className="weight-w mb-1 mr-auth-weight rounded bg-success font-weight-bold text-white ftz-11">
+          <div className="weight-w mb-1 mr-auth-weight rounded bg-success font-weight-bold text-light ftz-11">
             {account.weight}
           </div>
           <div className="pt-auth-account ftz-11">
@@ -336,7 +336,7 @@ const RenderAuths = (accounts, keys) => {
     keys.map((key) => {
       items.push(
         <div key={key.key} className="d-flex">
-          <div className="weight-w mb-1 mr-auth-weight rounded bg-success font-weight-bold text-white">
+          <div className="weight-w mb-1 mr-auth-weight rounded bg-success font-weight-bold text-light">
             {key.weight}
           </div>
           <div className="pt-auth-key ftz-6">{key.key}</div>
@@ -350,9 +350,9 @@ const renderPerm = (perm_name, threshold, accounts, keys, account_name) => {
   return (
     <div className="d-flex pt-1">
       <div className="mr-1 pt-1">
-        <div className="threshold-icon bg-sent rounded text-white pt-2 ">
+        <div className="threshold-icon bg-sent rounded text-light pt-2 ">
           {threshold}
-          <div className="ftz-threshold text-white font-weight-bold">Threshold</div>
+          <div className="ftz-threshold text-light font-weight-bold">Threshold</div>
         </div>
       </div>
       <div className="">
@@ -371,7 +371,7 @@ const RoundedIcon = ({icon, color}) => {
     <div className="d-inline-block pt-act-icon">
       <span className="fa-stack">
         <i className={`fa fa-circle fa-stack-2x ${color}`} />
-        <i className={`fa ${icon} fa-stack-1x text-white`} />
+        <i className={`fa ${icon} fa-stack-1x text-light`} />
       </span>
     </div>
   );

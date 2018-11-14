@@ -29,7 +29,7 @@ const renderEOSStaked = (eos_staked, isDarkMode) => {
   } else if (eos_staked == tmp_eos_staked || tmp_eos_staked == 0) {
     tmp_eos_staked = eos_staked;
     return (
-      <span className={`${isDarkMode ? 'text-white' : 'text-dark'}`}>
+      <span className={`${isDarkMode ? 'text-cypher' : ''}`}>
         <NumberEasing value={eos_staked} ease="backIn" precision={4} speed={500} trail={true} useLocaleString={true} />
       </span>
     );
@@ -54,7 +54,7 @@ const renderToFiatColor = (to_fiat, isDarkMode) => {
   } else if (to_fiat == tmp_to_fiat || tmp_to_fiat == 0) {
     tmp_to_fiat = to_fiat;
     return (
-      <span className={` ${isDarkMode ? 'text-white' : 'text-dark'}`}>
+      <span className={` ${isDarkMode ? 'text-cypher' : ''}`}>
         <NumberEasing value={to_fiat} ease="backIn" precision={4} speed={500} trail={true} useLocaleString={true} />
       </span>
     );
@@ -86,7 +86,7 @@ const renderStake2Vote = (stake2vote, last_vote_weight, isDarkMode) => {
     );
   } else {
     return (
-      <span className={`${isDarkMode ? 'text-white' : 'text-dark'}`}>
+      <span className={`${isDarkMode ? 'text-cypher' : ''}`}>
         <NumberEasing value={stake2vote} ease="backIn" precision={0} speed={500} trail={true} useLocaleString={true} />
       </span>
     );
@@ -155,7 +155,7 @@ const renderTotalBalanceRAMColor = (total_balance_ramincluded, isDarkMode) => {
   } else if (total_balance_ramincluded == tmp_total_balance_ramincluded || tmp_total_balance_ramincluded == 0) {
     tmp_total_balance_ramincluded = total_balance_ramincluded;
     return (
-      <span className={` ${isDarkMode ? 'text-white' : 'text-dark'}`}>
+      <span className={` ${isDarkMode ? 'text-cypher' : ''}`}>
         <NumberEasing
           value={total_balance_ramincluded}
           ease="backIn"
@@ -201,7 +201,7 @@ const renderRamColor = (eos_ram_equivalent, isDarkMode) => {
   } else if (eos_ram_equivalent == tmp_ram || tmp_ram == 0) {
     tmp_ram = eos_ram_equivalent;
     return (
-      <span className={` ${isDarkMode ? 'text-white' : 'text-dark'} `}>
+      <span className={` ${isDarkMode ? 'text-cypher' : ''} `}>
         <NumberEasing
           value={eos_ram_equivalent}
           ease="backIn"

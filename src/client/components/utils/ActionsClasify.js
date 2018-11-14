@@ -338,7 +338,7 @@ const renderConfirmation = (block_num, head_block_num) => {
     return (
       <div className="d-inline">
         Confirmations{' '}
-        <strong className="text-white bg-info rounded font-weight-bold pd-confirm">
+        <strong className="text-light bg-info rounded font-weight-bold pd-confirm">
           {renderBlockNum(Number(head_block_num) - Number(block_num))}
         </strong>
       </div>
@@ -741,7 +741,7 @@ const ActSign = ({icon, color, trx_id}) => {
       <div className="d-inline-block pt-act-icon">
         <span className="fa-stack fa-lg">
           <i className={`fa fa-circle fa-stack-2x ${color}`} />
-          <i className={`fa  ${icon} fa-stack-1x text-white`} />
+          <i className={`fa  ${icon} fa-stack-1x text-light`} />
         </span>
       </div>
     </Link>

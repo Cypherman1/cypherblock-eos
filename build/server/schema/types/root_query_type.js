@@ -133,7 +133,7 @@ const RootQueryType = new GraphQLObjectType({
       },
       resolve(parentValue, {id}) {
         return axios
-          .post('https://api.eosnewyork.io/v1/history/get_transaction', {
+          .post(keys.historyURL + '/v1/history/get_transaction', {
             id
           })
           .then((res) => res.data)
@@ -149,7 +149,7 @@ const RootQueryType = new GraphQLObjectType({
       },
       resolve(parentValue, {block_num_or_id}) {
         return axios
-          .post('https://api.eosnewyork.io/v1/chain/get_block', {
+          .post(keys.historyURL + '/v1/chain/get_block', {
             block_num_or_id
           })
           .then((res) => res.data)
@@ -187,7 +187,7 @@ const RootQueryType = new GraphQLObjectType({
       },
       resolve(parentValue, {account_name, pos, offset}) {
         return axios
-          .post('https://api.eosnewyork.io/v1/history/get_actions', {
+          .post(keys.historyURL + '/v1/history/get_actions', {
             account_name,
             pos,
             offset

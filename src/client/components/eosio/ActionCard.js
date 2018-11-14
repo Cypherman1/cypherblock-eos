@@ -20,11 +20,11 @@ const ActionCommon = ({
 }) => {
   return (
     <div
-      className={`card ftz-11 border shadow-sm ${isDarkMode ? 'bg-dark text-white border-secondary' : ''}`}
+      className={`card ftz-11 border shadow-sm ${isDarkMode ? 'bg-dark text-cypher border-secondary' : ''}`}
       style={{marginBottom: 2}}
       key={action_trace.receipt.global_sequence}
     >
-      <div className={`card-header act-head-height shadow-sm bg-white ${isDarkMode ? 'bg-dark text-white' : ''}`}>
+      <div className={`card-header act-head-height shadow-sm bg-white ${isDarkMode ? 'bg-dark text-cypher' : ''}`}>
         <div className="row w-100 m-0">
           {children[0]}
           <div className="col pl-1 pr-0">
@@ -43,11 +43,11 @@ const ActionCommon = ({
         </div>
       </div>
 
-      <div className={`card-body border-0 p-1 ${isDarkMode ? 'bg-dark text-white' : ''} `}>
+      <div className={`card-body border-0 p-1 ${isDarkMode ? 'bg-dark text-cypher' : ''} `}>
         {/* {this.renderActions(action_trace, account_name)} */}
 
         <div
-          className={`card sameheight-item mb-0 border-0 w-100 ${isDarkMode ? 'bg-dark text-white' : ''}`}
+          className={`card sameheight-item mb-0 border-0 w-100 ${isDarkMode ? 'bg-dark text-cypher' : ''}`}
           data-exclude="xs"
         >
           <div className="pr-2 pl-2"> {children[2]} </div>
@@ -58,7 +58,7 @@ const ActionCommon = ({
         style={{paddingBottom: 2, paddingRight: 3, paddingTop: 0}}
       >
         <a
-          className="badge badge-info text-white float-right"
+          className="badge badge-info text-light float-right"
           style={{paddingLeft: 2, paddingRight: 6, paddingTop: 2, paddingBottom: 2}}
           data-toggle="collapse"
           href={`#collapse${action_trace.receipt.global_sequence}`}
@@ -66,7 +66,7 @@ const ActionCommon = ({
           aria-expanded="true"
           aria-controls={`collapse${action_trace.receipt.global_sequence}`}
         >
-          <FontAwesomeIcon icon="code" className="mr-0 text-white" /> json
+          <FontAwesomeIcon icon="code" className="mr-0 text-light" /> json
         </a>
         <div className="collapse" id={`collapse${action_trace.receipt.global_sequence}`}>
           <JSONPretty id="json-pretty" json={action_trace} className="my-json-pretty" />

@@ -30,13 +30,13 @@ class BlockConfirmation extends Component {
           const {block_num} = this.props;
           if (chain) {
             if (Number(chain.last_irreversible_block_num) >= Number(block_num))
-              return <div className="d-inline bg-success text-white rounded irr-mark ">Irreversible</div>;
+              return <div className="d-inline bg-success text-light rounded irr-mark ">Irreversible</div>;
             else {
               if (chain.head_block_num && Number(chain.head_block_num) >= Number(block_num)) {
                 return (
                   <div className="d-inline">
                     Confirmations{' '}
-                    <span className="text-white bg-info rounded font-weight-bold p-1">
+                    <span className="text-light bg-info rounded font-weight-bold p-1">
                       {renderBlockNum(Number(chain.head_block_num) - Number(block_num))}
                     </span>
                   </div>

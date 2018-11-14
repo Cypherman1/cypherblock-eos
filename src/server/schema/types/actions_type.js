@@ -81,4 +81,4 @@ const ActionsType = new GraphQLObjectType({
   })
 });
 
-module.exports = {ActionsType, ActionTraceType};
+module.exports = {ActionsType, ActionTraceType, ReceiptType, ActType};

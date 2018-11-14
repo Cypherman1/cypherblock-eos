@@ -26,12 +26,12 @@ const SmartContract = ({account_name, isDarkMode}) => {
                 </div>
                 <span className="badge badge-pill badge-warning mr-2">
                   <Link to={`/abi/${account_name}`}>
-                    <span className="text-white"> View ABI </span>
+                    <span className="text-light"> View ABI </span>
                   </Link>
                 </span>
                 {/* <span className="badge badge-pill badge-warning">
                   <Link to={`/code/${account_name}`}>
-                    <span className="text-white"> View code </span>
+                    <span className="text-light"> View code </span>
                   </Link>
                 </span> */}
               </div>

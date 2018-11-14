@@ -25,7 +25,7 @@ let tokensMarket = [];
 const TokenMarketLoading = ({display, isDarkMode}) => {
   return (
     <div
-      className={`card sameheight-item stats mb-1 ${display} ${isDarkMode ? 'bg-secondary text-secondary' : ''} pb-2`}
+      className={`card sameheight-item stats mb-1 ${display} ${isDarkMode ? 'bg-dark text-secondary' : ''} pb-2`}
       data-exclude="xs"
     >
       <div className="card-header shadow-sm bg-white row m-0">

@@ -1656,7 +1656,7 @@ i.metismenu-state-icon.rotate-minus-90 {
 }
 
 .pad-3 {
-  padding: 3px;
+  padding: 3px !important;
 }
 
 .pcursor {

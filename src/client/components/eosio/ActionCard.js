@@ -58,7 +58,7 @@ const ActionCommon = ({
         style={{paddingBottom: 2, paddingRight: 3, paddingTop: 0}}
       >
         <a
-          className="badge badge-info text-light float-right"
+          className="badge badge-info text-light float-right font-weight-normal"
           style={{paddingLeft: 2, paddingRight: 6, paddingTop: 2, paddingBottom: 2}}
           data-toggle="collapse"
           href={`#collapse${action_trace.receipt.global_sequence}`}

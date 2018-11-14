@@ -351,7 +351,7 @@ export const renderBlockStatus = (block_num, last_irreversible_block, head_block
     return <div />;
   } else {
     if (Number(last_irreversible_block) >= Number(block_num) || Number(head_block_num) - Number(block_num) > 370) {
-      return <span className="badge badge-success pad-3 ftz-9">Irreversible</span>;
+      return <span className="badge badge-success pad-3 ftz-9 font-weight-normal">Irreversible</span>;
       // return <div className="d-inline bg-success text-light rounded irr-mark ">Irreversible</div>;
     }
     return renderConfirmation(block_num, head_block_num);

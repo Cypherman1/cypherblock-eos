@@ -108,9 +108,7 @@ class SideBar extends Component {
                 </div>
               </div>
               <button
-                className={`btn ${
-                  sidebar.isDarkMode ? 'btn-dark' : 'btn-secondary'
-                }  btn-squared w-100 mb-0 font-weight-bold ftz-15`}
+                className={`btn ${sidebar.isDarkMode ? 'btn-dark' : 'btn-secondary'}  btn-squared w-100 mb-0  ftz-15`}
                 style={{height: 50}}
                 type="button"
                 data-toggle="collapse"

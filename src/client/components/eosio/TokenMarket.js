@@ -260,7 +260,7 @@ class TokenMarket extends Component {
 
                 <div className="row ftz-12 pb-1 pt-1 m-0  shadow-sm border-bottom" key={1}>
                   <div className="pl-2 col-5 text-info">
-                    Pair <span className="badge badge-primary p-1 font-weight-bold">{ticker_count + 2}</span>
+                    Pair <span className="badge badge-primary p-1 ">{ticker_count + 2}</span>
                   </div>
                   <div className="col-4 text-right pr-4 text-info"> Price </div>
                   <div className="col-3 text-right text-info"> 24h % </div>

@@ -326,9 +326,7 @@ const RenderAuths = (accounts, keys) => {
     accounts.map((account) => {
       items.push(
         <div key={account.permission.actor} className="d-flex">
-          <div className="weight-w mb-1 mr-auth-weight rounded bg-success font-weight-bold text-light ftz-11">
-            {account.weight}
-          </div>
+          <div className="weight-w mb-1 mr-auth-weight rounded bg-success  text-light ftz-11">{account.weight}</div>
           <div className="pt-auth-account ftz-11">
             {renderAccountLink(account.permission.actor)}@{account.permission.permission}
           </div>
@@ -339,9 +337,7 @@ const RenderAuths = (accounts, keys) => {
     keys.map((key) => {
       items.push(
         <div key={key.key} className="d-flex">
-          <div className="weight-w mb-1 mr-auth-weight rounded bg-success font-weight-bold text-light">
-            {key.weight}
-          </div>
+          <div className="weight-w mb-1 mr-auth-weight rounded bg-success  text-light">{key.weight}</div>
           <div className="pt-auth-key ftz-6">{key.key}</div>
         </div>
       );
@@ -355,7 +351,7 @@ const renderPerm = (perm_name, threshold, accounts, keys, account_name) => {
       <div className="mr-1 pt-1">
         <div className="threshold-icon bg-sent rounded text-light pt-2 ">
           {threshold}
-          <div className="ftz-threshold text-light font-weight-bold">Threshold</div>
+          <div className="ftz-threshold text-light ">Threshold</div>
         </div>
       </div>
       <div className="">

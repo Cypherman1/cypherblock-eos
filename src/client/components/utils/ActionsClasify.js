@@ -31,7 +31,8 @@ import {
   AT_OTHERS,
   AG_OTHERS,
   AG_VOTE,
-  AT_BID_NAME
+  AT_BID_NAME,
+  AT_ISSUE_TOKEN
 } from '../utils/ConstTypes';
 
 const classifyAction = (action_trace, account_name) => {
@@ -132,6 +133,16 @@ const classifyAction = (action_trace, account_name) => {
             // return this.renderDefaultAction(action_trace);
           }
       }
+    case 'issue':
+      ActionInfo = {
+        action_type: AT_ISSUE_TOKEN,
+        action_component: Issue,
+        action_style: {icon: 'fa-paper-plane', color: 'icon-receivetoken'},
+        action_group: AG_RESOURCES
+      };
+
+      return ActionInfo;
+
     case 'delegatebw':
       ActionInfo = {
         action_type: AT_STAKE,
@@ -404,6 +415,22 @@ const DefaultTransferAction = ({action_trace}) => {
     <div className="pt-1 pb-1">
       <div className="actinfo-font">
         {renderAccountLink(action_trace.act.data.from)} {' transfered '}
+        <strong className="text-info ">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
+        {renderAccountLink(action_trace.act.data.to)}
+      </div>
+      <div className="aln-text actinfo-font">
+        <strong className="">{`Memo:`}</strong>
+        {action_trace.act.data.memo}
+      </div>
+    </div>
+  );
+};
+
+const Issue = ({action_trace}) => {
+  return (
+    <div className="pt-1 pb-1">
+      <div className="actinfo-font">
+        {renderAccountLink(action_trace.act.account)} {' issued '}
         <strong className="text-info ">{toTokenNumber(action_trace.act.data.quantity)}</strong> {` to `}
         {renderAccountLink(action_trace.act.data.to)}
       </div>

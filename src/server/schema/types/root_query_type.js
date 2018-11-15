@@ -13,7 +13,7 @@ const CurrencyBalanceType = require('./currency_balance_type');
 const BitfinexPairsType = require('./bitfinex_pairs_type');
 const KeyAccountsType = require('./key_accounts_type');
 const EosStatType = require('./eos_stat_type');
-const TransactionType = require('./transaction_type');
+const {TransactionType} = require('./transaction_type');
 const ProducersType = require('./producers_type');
 const BlockType = require('./block_type');
 const CodeType = require('./code_type');
@@ -22,7 +22,8 @@ const ABIType = require('./abi_type');
 const BigOneTickersType = require('./bigone_tickers_type');
 const BlockSenceTickersType = require('./blocksence_tickers_type');
 const NewDexTickersType = require('./newdex_tickers_type');
-const MongoActionsType = require('./mongo_actions_type');
+const {MongoActionsType} = require('./mongo_actions_type');
+const MongoTransactionType = require('./mongo_transaction_type');
 
 let VoterInfo = {};
 
@@ -209,6 +210,20 @@ const RootQueryType = new GraphQLObjectType({
       resolve(parentValue, {account_name, skip, limit}) {
         return axios
           .get(keys.mongoHistoryURL + `/v1/history/get_actions/${account_name}?skip=${skip}&limit=${limit}`)
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    mongo_transaction: {
+      type: MongoTransactionType,
+      args: {
+        id: {type: new GraphQLNonNull(GraphQLString)}
+      },
+      resolve(parentValue, {id}) {
+        return axios
+          .get(keys.mongoHistoryURL + `/v1/history/get_transaction/${id}`)
           .then((res) => res.data)
           .catch((error) => {
             onError(error);

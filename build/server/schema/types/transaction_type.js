@@ -30,4 +30,4 @@ const TxReceiveType = new GraphQLObjectType({
   })
 });
 
-module.exports = TransactionType;
+module.exports = {TransactionType, TxReceiveType};

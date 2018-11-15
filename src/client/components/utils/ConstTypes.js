@@ -7,6 +7,7 @@ export const AT_TRANSFER_EOS = 'Tranfer EOS';
 export const AT_SEND_TOKEN = 'Send token';
 export const AT_RECEIVE_TOKEN = 'Receive token';
 export const AT_TRANSFER_TOKEN = 'Transfer token';
+export const AT_ISSUE_TOKEN = 'Issue token';
 //// 1.1.2. Groups
 export const AG_TRANSFER_EOS = 'Transfer EOS';
 export const AG_TRANSFER_TOKEN = 'Transfer token';

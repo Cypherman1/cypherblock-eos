@@ -7,7 +7,6 @@ const {ReceiptType, ActType} = require('./actions_type');
 const MongoActionType = new GraphQLObjectType({
   name: 'MongoActionType',
   fields: () => ({
-    _id: {type: GraphQLString},
     receipt: {type: ReceiptType},
     act: {type: ActType},
     context_free: {type: GraphQLString},
@@ -33,4 +32,4 @@ const MongoActionsType = new GraphQLObjectType({
   })
 });
 
-module.exports = MongoActionsType;
+module.exports = {MongoActionsType, MongoActionType};

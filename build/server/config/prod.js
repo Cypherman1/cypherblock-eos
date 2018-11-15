@@ -4,5 +4,6 @@ module.exports = {
   cookieKey: process.env.COOKIE_KEY,
   chainURL: process.env.CHAIN_URL,
   chainURL_ALT1: process.env.CHAIN_URL_ALT1,
-  historyURL: process.env.HISTORY_URL
+  historyURL: process.env.HISTORY_URL,
+  mongoHistoryURL: process.env.MONGO_HISTORY_URL
 };

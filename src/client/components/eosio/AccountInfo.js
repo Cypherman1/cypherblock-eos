@@ -408,7 +408,7 @@ class AccountInfo extends Component {
   render() {
     const {isDarkMode} = this.props;
     return (
-      <Query query={GetAccountInfo} variables={{account_name: this.props.account_name}} pollInterval={0}>
+      <Query query={GetAccountInfo} variables={{account_name: this.props.account_name}} pollInterval={5000}>
         {({loading, error, data}) => {
           if (loading) return <AccountInfoLoading isDarkMode={isDarkMode} />;
 

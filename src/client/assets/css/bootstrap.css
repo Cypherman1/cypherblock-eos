@@ -9307,7 +9307,7 @@ body {
 .stat .name {
   /* overflow: hidden;
   text-overflow: ellipsis; */
-  font-size: 11px; 
+  font-size: 12px; 
   /* font-weight: 500; */
   color: #969696;
   
@@ -11850,7 +11850,7 @@ span a {
   .stat .name {
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 10px;
+    font-size: 12px;
     /* line-height: 12px; */
   }
 }
@@ -11875,7 +11875,7 @@ span a {
 }
 @media (min-width: 1200px) {
   .dashboard-page .stats .stat .name {
-    font-size: 0.8vw;
+    font-size: 0.9vw;
   }
 }
 

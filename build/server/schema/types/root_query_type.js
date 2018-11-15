@@ -22,6 +22,7 @@ const ABIType = require('./abi_type');
 const BigOneTickersType = require('./bigone_tickers_type');
 const BlockSenceTickersType = require('./blocksence_tickers_type');
 const NewDexTickersType = require('./newdex_tickers_type');
+const MongoActionsType = require('./mongo_actions_type');
 
 let VoterInfo = {};
 
@@ -192,6 +193,22 @@ const RootQueryType = new GraphQLObjectType({
             pos,
             offset
           })
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    mongo_actions: {
+      type: MongoActionsType,
+      args: {
+        account_name: {type: new GraphQLNonNull(GraphQLString)},
+        skip: {type: GraphQLInt},
+        limit: {type: GraphQLInt}
+      },
+      resolve(parentValue, {account_name, skip, limit}) {
+        return axios
+          .get(keys.mongoHistoryURL + `/v1/history/get_actions/${account_name}?skip=${skip}?limit=${limit}`)
           .then((res) => res.data)
           .catch((error) => {
             onError(error);

@@ -208,7 +208,7 @@ const RootQueryType = new GraphQLObjectType({
       },
       resolve(parentValue, {account_name, skip, limit}) {
         return axios
-          .get(keys.mongoHistoryURL + `/v1/history/get_actions/${account_name}?skip=${skip}?limit=${limit}`)
+          .get(keys.mongoHistoryURL + `/v1/history/get_actions/${account_name}?skip=${skip}&limit=${limit}`)
           .then((res) => res.data)
           .catch((error) => {
             onError(error);

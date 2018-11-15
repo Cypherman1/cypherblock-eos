@@ -13,7 +13,8 @@ import {
   SET_FILTER_SEND_RECEIVE_TOKEN,
   SET_FILTER_SMART_CONTRACT,
   SET_MEMO_TAG,
-  SET_IS_SETTING_OPEN
+  SET_IS_SETTING_OPEN,
+  SET_ACTIONS_LENGTH
 } from '../actions/types';
 
 const INNITAL_STATE = {
@@ -31,7 +32,8 @@ const INNITAL_STATE = {
   isFilterSendReceiveTokens: true,
   isFilterSendReceiveEOS: true,
   memoTags: [],
-  isSettingOpen: false
+  isSettingOpen: false,
+  actionsLength: 0
 };
 
 export default function(state = INNITAL_STATE, action) {
@@ -49,7 +51,7 @@ export default function(state = INNITAL_STATE, action) {
     case SET_REFETCH_FUNC:
       return {...state, refetch: action.payload};
     case SET_LIMIT_VALUE:
-      return {...state, limit: action.payload};
+      return {...state, limit: action.payload, actionsLength: action.payload};
     case SET_ACTION_CHECKING:
       return {...state, isChecking: action.payload};
     case SET_FILTER_OTHERS:
@@ -66,6 +68,8 @@ export default function(state = INNITAL_STATE, action) {
       return {...state, memoTags: action.payload};
     case SET_IS_SETTING_OPEN:
       return {...state, isSettingOpen: action.payload};
+    case SET_ACTIONS_LENGTH:
+      return {...state, actionsLength: action.payload};
     default:
       return state;
   }

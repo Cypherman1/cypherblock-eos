@@ -13,8 +13,16 @@ import {
   SET_FILTER_SEND_RECEIVE_TOKEN,
   SET_FILTER_SMART_CONTRACT,
   SET_MEMO_TAG,
-  SET_IS_SETTING_OPEN
+  SET_IS_SETTING_OPEN,
+  SET_ACTIONS_LENGTH
 } from './types';
+
+export function setActionsLength(actionsLength) {
+  return {
+    type: SET_ACTIONS_LENGTH,
+    payload: actionsLength
+  };
+}
 
 export function setIsSettingOpen(isSettingOpen) {
   return {

@@ -18,6 +18,7 @@ export const SET_FILTER_SMART_CONTRACT = 'set_filter_SMART_CONTRACT';
 export const SET_FILTER_OTHERS = 'set_filter_others';
 export const SET_MEMO_TAG = 'set_memo_tag';
 export const SET_IS_SETTING_OPEN = 'set_is_setting_open';
+export const SET_ACTIONS_LENGTH = 'set_actions_length';
 
 // sidebar
 export const SET_ACTIVE_LINK_ID = 'set_active_link_id';

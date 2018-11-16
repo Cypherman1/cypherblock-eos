@@ -12,7 +12,7 @@ import BlockConfirmation from './BlockConfirmation';
 
 const TransactionLoading = () => {
   return (
-    <div className="card-block ">
+    <div className="card-block">
       <div className="text-center align-middle overlay pt-50">
         <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
       </div>
@@ -44,7 +44,7 @@ class Transaction extends Component {
             action_digests_tmp = '';
             return (
               <div>
-                <div className="card-block ">
+                <div className="card-block bg-dark ">
                   <div className="row row-sm stats-container m-0">
                     <div className="col-12 col-sm-12 stat-col pr-1 pl-1">
                       <div className="stat">

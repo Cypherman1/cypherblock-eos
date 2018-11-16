@@ -122,7 +122,6 @@ class ActionsCardBodyMongo extends Component {
     //const {loading, error, data, fetchMore, refetch} = this.props.data;
     if (this.props.data.loading) return <ActionsCardLoading />;
     const {data, eosActions, account_name, setIsSettingOpen, isDarkMode} = this.props;
-    console.log(data);
 
     const {fetchMore} = this.props.data;
     const {

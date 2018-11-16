@@ -45,163 +45,185 @@ class TransactionMongo extends Component {
           if (mongo_transaction && chain) {
             action_digests_tmp = '';
             return (
-              <div>
-                <div className="card-block ">
-                  <div className="row row-sm stats-container m-0">
-                    <div className="col-12 col-sm-12 stat-col pr-1 pl-1">
-                      <div className="stat">
-                        <div className="blocktxid">{mongo_transaction.id}</div>
-                        <div className="name">Transaction ID</div>
-                      </div>
-                      <div className="progress stat-progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: `0%`
-                          }}
-                        />
-                      </div>
+              <div className={`${isDarkMode ? 'bg-dark' : 'bg-actions'} p-1 `}>
+                {/* Transaction info */}
+                <div className={`card rounded border mb-1  ${isDarkMode ? 'bg-dark border-secondary' : ''}`}>
+                  <div className={`pl-2 card-header shadow-sm  stat-col p-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
+                    <div className="stat">
+                      <div className="blocktxid">{mongo_transaction.id}</div>
+                      <div className="name">Transaction ID</div>
                     </div>
+                    <div className="progress stat-progress">
+                      <div
+                        className="progress-bar"
+                        style={{
+                          width: `0%`
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className={`card-body stat-col p-1 ${isDarkMode ? 'bg-dark' : ''}`}>
+                    <div className={`row m-0 rounded ${isDarkMode ? 'bg-dark' : ''}`}>
+                      <div className="col-6 col-sm-4 col-md-2 p-1">
+                        <div className="stat">
+                          <div className="value ftz-11">{renderBlockLink(mongo_transaction.block_num)}</div>
+                          <div className="name">Block num</div>
+                        </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-6 col-sm-4 col-md-2 p-1">
+                        <div className="stat">
+                          <div className="value ftz-11">
+                            {convertUTCDateToLocalDate(new Date(mongo_transaction.block_time)).toLocaleString()}
+                          </div>
+                          <div className="name">Block time</div>
+                        </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
+                        </div>
+                      </div>
 
-                    <div className="col-12 col-sm-4 stat-col pr-1 pl-1">
-                      <div className="row m-0">
-                        <div className="col-6 col-sm-12 col-md-6 p-1">
-                          <div className="stat">
-                            <div className="value ftz-11">{renderBlockLink(mongo_transaction.block_num)}</div>
-                            <div className="name">Block num</div>
-                          </div>
-                          <div className="progress stat-progress">
-                            <div
-                              className="progress-bar"
-                              style={{
-                                width: `0%`
-                              }}
-                            />
-                          </div>
+                      {/* Status */}
+
+                      <div className="col-6 col-sm-4 col-md-2 p-1">
+                        {/* <div className="stat-icon">
+                              <FontAwesomeIcon icon="dollar-sign" />
+                            </div> */}
+                        <div className="stat">
+                          <div className="value ftz-11">{mongo_transaction.receipt.status}</div>
+                          <div className="name">Transaction status</div>
                         </div>
-                        <div className="col-6 col-sm-12 col-md-6 p-1">
-                          <div className="stat">
-                            <div className="value ftz-11">
-                              {convertUTCDateToLocalDate(new Date(mongo_transaction.block_time)).toLocaleString()}
-                            </div>
-                            <div className="name">Block time</div>
-                          </div>
-                          <div className="progress stat-progress">
-                            <div
-                              className="progress-bar"
-                              style={{
-                                width: `0%`
-                              }}
-                            />
-                          </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
                         </div>
                       </div>
-                      {/* Status */}
-                      <div className="row m-0">
-                        <div className="col-6 col-sm-12 col-md-6 p-1">
-                          {/* <div className="stat-icon">
+                      {/* Irriversible */}
+                      <div className="col-6 col-sm-4 col-md-2 p-1">
+                        {/* <div className="stat-icon">
                               <FontAwesomeIcon icon="dollar-sign" />
                             </div> */}
-                          <div className="stat">
-                            <div className="value ftz-11">{mongo_transaction.receipt.status}</div>
-                            <div className="name">Transaction status</div>
+                        <div className="stat">
+                          <div className="value ftz-11">
+                            <BlockConfirmation block_num={mongo_transaction.block_num} />
                           </div>
-                          <div className="progress stat-progress">
-                            <div
-                              className="progress-bar"
-                              style={{
-                                width: `0%`
-                              }}
-                            />
-                          </div>
+                          <div className="name">Block status</div>
                         </div>
-                        {/* Irriversible */}
-                        <div className="col-6 col-sm-12 col-md-6 p-1">
-                          {/* <div className="stat-icon">
-                              <FontAwesomeIcon icon="dollar-sign" />
-                            </div> */}
-                          <div className="stat">
-                            <div className="value ftz-11">
-                              <BlockConfirmation block_num={mongo_transaction.block_num} />
-                            </div>
-                            <div className="name">Block status</div>
-                          </div>
-                          <div className="progress stat-progress">
-                            <div
-                              className="progress-bar"
-                              style={{
-                                width: `0%`
-                              }}
-                            />
-                          </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
                         </div>
                       </div>
+
                       {/* Status */}
-                      <div className="row m-0">
-                        <div className="col-6 col-sm-12 col-md-6 p-1">
-                          {/* <div className="stat-icon">
+
+                      <div className="col-6 col-sm-4 col-md-2 p-1">
+                        {/* <div className="stat-icon">
                               <FontAwesomeIcon icon="dollar-sign" />
                             </div> */}
-                          <div className="stat">
-                            <div className="value ftz-11">
-                              {formatCPUUnits(Number(mongo_transaction.receipt.cpu_usage_us))}
-                            </div>
-                            <div className="name">CPU usage</div>
+                        <div className="stat">
+                          <div className="value ftz-11">
+                            {formatCPUUnits(Number(mongo_transaction.receipt.cpu_usage_us))}
                           </div>
-                          <div className="progress stat-progress">
-                            <div
-                              className="progress-bar"
-                              style={{
-                                width: `0%`
-                              }}
-                            />
-                          </div>
+                          <div className="name">CPU usage</div>
                         </div>
-                        {/* Irriversible */}
-                        <div className="col-6 col-sm-12 col-md-6 p-1">
-                          {/* <div className="stat-icon">
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
+                        </div>
+                      </div>
+                      {/* Irriversible */}
+                      <div className="col-6 col-sm-4 col-md-2 p-1">
+                        {/* <div className="stat-icon">
                               <FontAwesomeIcon icon="dollar-sign" />
                             </div> */}
-                          <div className="stat">
-                            <div className="value ftz-11">
-                              {formatBandUnits(Number(mongo_transaction.receipt.net_usage_words))}
-                            </div>
-                            <div className="name">Net usage</div>
+                        <div className="stat">
+                          <div className="value ftz-11">
+                            {formatBandUnits(Number(mongo_transaction.receipt.net_usage_words))}
                           </div>
-                          <div className="progress stat-progress">
-                            <div
-                              className="progress-bar"
-                              style={{
-                                width: `0%`
-                              }}
-                            />
-                          </div>
+                          <div className="name">Net usage</div>
+                        </div>
+                        <div className="progress stat-progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `0%`
+                            }}
+                          />
                         </div>
                       </div>
                     </div>
-                    <div className="col-12 col-sm-8  pr-0 pl-1">
-                      <div className="card sameheight-item mb-0 " data-exclude="xs">
-                        <div className="card-header card-header-sm bg-white shadow-sm row m-0">
-                          <div className="header-block pl-2 col">
-                            <FontAwesomeIcon icon="tasks" className="mr-2 text-info" />
-                            <h1 className="title text-info ftz-12">Actions</h1>
-                          </div>
-                        </div>
-                        <div
-                          className={`card-block ${isDarkMode ? 'bg-secondary' : 'bg-actions'}`}
-                          style={{paddingTop: 3, paddingLeft: 3, paddingRight: 3, paddingBottom: 2}}
-                        >
-                          <CSSTransitionGroup
-                            component="div"
-                            transitionName="example"
-                            transitionEnterTimeout={500}
-                            transitionLeaveTimeout={300}
-                          >
-                            {mongo_transaction.action_traces.map((trace) => {
+                  </div>
+                </div>
+                {/* Actions */}
+                <div
+                  className={`card border sameheight-item mb-0 ${isDarkMode ? ' bg-dark border-secondary' : ''}`}
+                  data-exclude="xs"
+                >
+                  <div className={`card-header shadow-sm row m-0  ${isDarkMode ? '' : 'bg-white'}`}>
+                    <div className="header-block pl-2 col">
+                      <FontAwesomeIcon icon="tasks" className="mr-2 text-info" />
+                      <h1 className="title text-info ftz-12">Actions</h1>
+                    </div>
+                  </div>
+                  <div className={` pb-0 ${isDarkMode ? 'bg-dark' : 'bg-actions'}`} style={{padding: 2}}>
+                    <CSSTransitionGroup
+                      component="div"
+                      transitionName="example"
+                      transitionEnterTimeout={500}
+                      transitionLeaveTimeout={300}
+                    >
+                      {mongo_transaction.action_traces.map((trace) => {
+                        if (trace.receipt.act_digest !== action_digests_tmp) {
+                          action_digests_tmp = trace.receipt.act_digest;
+                          let items = [];
+                          items.push(
+                            <ActionCard
+                              key={trace.receipt.global_sequence}
+                              action_trace={trace}
+                              block_time={mongo_transaction.block_time}
+                              block_num={mongo_transaction.block_num}
+                              last_irreversible_block={chain.last_irreversible_block}
+                              head_block_num={chain.head_block_num}
+                              get_block_status={false}
+                              trx_id={mongo_transaction.id}
+                              isDarkMode={isDarkMode}
+                              /* account_name={this.props.account_name} */
+                            />
+                          );
+
+                          {
+                            /* if (trace.inline_traces.length > 0) {
+                            action_digests_tmp_1 = '';
+                            let items1 = [];
+                            trace.inline_traces.map((trace) => {
                               if (trace.receipt.act_digest !== action_digests_tmp) {
-                                action_digests_tmp = trace.receipt.act_digest;
-                                let items = [];
-                                items.push(
+                                action_digests_tmp_1 = trace.receipt.act_digest;
+                                items1.push(
                                   <ActionCard
                                     key={trace.receipt.global_sequence}
                                     action_trace={trace}
@@ -212,48 +234,23 @@ class TransactionMongo extends Component {
                                     get_block_status={false}
                                     trx_id={mongo_transaction.id}
                                     isDarkMode={isDarkMode}
-                                    /* account_name={this.props.account_name} */
                                   />
                                 );
-
-                                {
-                                  /* if (trace.inline_traces.length > 0) {
-                                  action_digests_tmp_1 = '';
-                                  let items1 = [];
-                                  trace.inline_traces.map((trace) => {
-                                    if (trace.receipt.act_digest !== action_digests_tmp) {
-                                      action_digests_tmp_1 = trace.receipt.act_digest;
-                                      items1.push(
-                                        <ActionCard
-                                          key={trace.receipt.global_sequence}
-                                          action_trace={trace}
-                                          block_time={mongo_transaction.block_time}
-                                          block_num={mongo_transaction.block_num}
-                                          last_irreversible_block={chain.last_irreversible_block}
-                                          head_block_num={chain.head_block_num}
-                                          get_block_status={false}
-                                          trx_id={mongo_transaction.id}
-                                          isDarkMode={isDarkMode}
-                                        />
-                                      );
-                                    }
-                                  });
-                                  items.push(
-                                    <div>
-                                      <div>inline 1</div> <div> {items1} </div>
-                                    </div>
-                                  );
-                                } */
-                                }
-
-                                return items;
                               }
-                              return null;
-                            })}
-                          </CSSTransitionGroup>
-                        </div>
-                      </div>
-                    </div>
+                            });
+                            items.push(
+                              <div className="row">
+                                <div className="col-1">inline 1</div> <div className='col'> {items1} </div>
+                              </div>
+                            );
+                          } */
+                          }
+
+                          return items;
+                        }
+                        return null;
+                      })}
+                    </CSSTransitionGroup>
                   </div>
                 </div>
               </div>

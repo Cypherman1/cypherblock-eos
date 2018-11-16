@@ -301,7 +301,12 @@ const renderAccountLink = (accountName) => {
 };
 
 const renderBlockLink = (block_num) => {
-  return <Link to={`/block/${block_num}`}>{block_num}</Link>;
+  isDarkMode = localStorage.getItem('isDarkMode') == 'true';
+  return (
+    <Link to={`/block/${block_num}`} className={`font-weight-acttype  ${isDarkMode ? 'linkcolor-dark' : ''} `}>
+      {block_num}
+    </Link>
+  );
 };
 
 const renderTransactiontLink = (trx_id, seq) => {

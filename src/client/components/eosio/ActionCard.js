@@ -6,6 +6,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import JSONPretty from 'react-json-pretty';
 
+const deleteKey = require('key-del');
+
 const ActionCommon = ({
   action_trace,
   block_time,
@@ -69,7 +71,11 @@ const ActionCommon = ({
           <FontAwesomeIcon icon="code" className="mr-0 text-light" /> json
         </a>
         <div className="collapse" id={`collapse${action_trace.receipt.global_sequence}`}>
-          <JSONPretty id="json-pretty" json={action_trace} className="my-json-pretty" />
+          <JSONPretty
+            id="json-pretty"
+            json={deleteKey(action_trace, ['__typename'])}
+            className="text-secondary my-json-pretty"
+          />
         </div>
       </div>
     </div>

@@ -1686,11 +1686,9 @@ i.metismenu-state-icon.rotate-minus-90 {
 .bg-main {
   background-color: #cccccc;
 }
-
 .bg-dark-1 {
-  background-color: #161819;
+  background-color: #161819 !important;
 }
-
 .pt-2px {
   padding-top: 4px;
 }

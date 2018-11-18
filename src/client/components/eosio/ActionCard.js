@@ -22,7 +22,7 @@ const ActionCommon = ({
 }) => {
   return (
     <div
-      className={`card ftz-11 border shadow-sm ${isDarkMode ? 'bg-dark text-cypher border-secondary' : ''}`}
+      className={`card ftz-11 shadow-sm ${isDarkMode ? 'bg-dark text-cypher ' : ''}`}
       style={{marginBottom: 2}}
       key={action_trace.receipt.global_sequence}
     >
@@ -45,18 +45,18 @@ const ActionCommon = ({
         </div>
       </div>
 
-      <div className={`card-body border-0 p-1 ${isDarkMode ? 'bg-dark text-cypher' : ''} `}>
+      <div className={`card-body  p-1 ${isDarkMode ? 'bg-dark text-cypher' : ''} `}>
         {/* {this.renderActions(action_trace, account_name)} */}
 
         <div
-          className={`card sameheight-item mb-0 border-0 w-100 ${isDarkMode ? 'bg-dark text-cypher' : ''}`}
+          className={`card sameheight-item mb-0  w-100 ${isDarkMode ? 'bg-dark text-cypher' : ''}`}
           data-exclude="xs"
         >
           <div className="pr-2 pl-2"> {children[2]} </div>
         </div>
       </div>
       <div
-        className={`card-footer border-0 ${isDarkMode ? 'bg-dark' : 'bg-white'} `}
+        className={`card-footer ${isDarkMode ? 'bg-dark' : 'bg-white'} `}
         style={{paddingBottom: 2, paddingRight: 3, paddingTop: 0}}
       >
         <a

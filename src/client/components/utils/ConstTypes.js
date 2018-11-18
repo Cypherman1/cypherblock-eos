@@ -52,7 +52,9 @@ export const AntiSpams = {
     'justgamemora',
     'rockscissors',
     'message.x',
-    'experimentms'
+    'experimentms',
+    'gameboylucky',
+    'eosjackscool'
   ],
   black_list: [
     {

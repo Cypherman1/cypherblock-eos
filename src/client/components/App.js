@@ -65,7 +65,7 @@ class App extends Component {
         <div id="main-wrapper">
           <div
             className={`app ${sidebarStatus ? 'sidebar-open' : ''} ${
-              isDarkMode ? 'bg-secondary text-cypher' : 'bg-light'
+              isDarkMode ? 'bg-secondary text-cypher' : 'bg-main'
             }`}
             id="app"
           >

@@ -1679,3 +1679,24 @@ i.metismenu-state-icon.rotate-minus-90 {
 .font-weight-acttype {
   font-weight: 520 !important;
 }
+.mb-1px {
+  margin-bottom: 4px;
+}
+
+.bg-main {
+  background-color: #cccccc;
+}
+
+.bg-dark-1 {
+  background-color: #161819;
+}
+
+.pt-2px {
+  padding-top: 4px;
+}
+.mbt-1px {
+  margin-bottom: 1px;
+  margin-top: 1px;
+  margin-left: 0px;
+  margin-right: 0px;
+}

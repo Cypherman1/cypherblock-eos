@@ -45,10 +45,12 @@ class TransactionMongo extends Component {
           if (mongo_transaction && chain) {
             action_digests_tmp = '';
             return (
-              <div className={`${isDarkMode ? 'bg-dark' : 'bg-actions'} p-1 `}>
+              <div className={`${isDarkMode ? 'bg-dark' : ''}  `}>
                 {/* Transaction info */}
-                <div className={`card rounded border mb-1  ${isDarkMode ? 'bg-dark border-secondary' : ''}`}>
-                  <div className={`pl-2 card-header shadow-sm  stat-col p-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
+                <div className={`card shadow-sm rounded mb-1  ${isDarkMode ? 'bg-dark' : ''}`}>
+                  <div
+                    className={`pl-2 card-header shadow-sm  stat-col pt-1 pb-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}
+                  >
                     <div className="stat">
                       <div className="blocktxid">{mongo_transaction.id}</div>
                       <div className="name">Transaction ID</div>
@@ -180,10 +182,7 @@ class TransactionMongo extends Component {
                   </div>
                 </div>
                 {/* Actions */}
-                <div
-                  className={`card border sameheight-item mb-0 ${isDarkMode ? ' bg-dark border-secondary' : ''}`}
-                  data-exclude="xs"
-                >
+                <div className={`card  sameheight-item mb-0 ${isDarkMode ? ' bg-dark' : ''}`} data-exclude="xs">
                   <div className={`card-header shadow-sm row m-0  ${isDarkMode ? '' : 'bg-white'}`}>
                     <div className="header-block pl-2 col">
                       <FontAwesomeIcon icon="tasks" className="mr-2 text-info" />

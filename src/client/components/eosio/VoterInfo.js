@@ -12,7 +12,7 @@ let nextDecayDate = null;
 const NoVote = ({isDarkMode}) => {
   return (
     <div
-      className={`card sameheight-item stats mbc border pb-1 shadow-sm ${isDarkMode ? 'bg-dark border-secondary' : ''}`}
+      className={`card sameheight-item stats mbc  pb-1 shadow-sm ${isDarkMode ? 'bg-dark-1 ' : ''}`}
       style={{marginLeft: 2, marginRight: 2}}
       data-exclude="xs"
     >
@@ -25,7 +25,7 @@ const NoVote = ({isDarkMode}) => {
           </h1>
         </div>
       </div>
-      <div className={`card-block text-danger ftz-12 ${isDarkMode ? 'bg-dark' : ''} `}>
+      <div className={`card-block text-danger ftz-12 ${isDarkMode ? 'bg-dark-1' : ''} `}>
         <div> No producer voted</div>
       </div>
     </div>
@@ -75,9 +75,7 @@ class VoterInfo extends Component {
             //vote normaly
             return (
               <div
-                className={`card sameheight-item stats mbc border pb-1 shadow-sm ${
-                  isDarkMode ? 'bg-dark border-secondary' : ''
-                }`}
+                className={`card sameheight-item stats mbc  pb-1 shadow-sm ${isDarkMode ? 'bg-dark-1' : ''}`}
                 style={{marginLeft: 2, marginRight: 2}}
                 data-exclude="xs"
               >
@@ -196,7 +194,7 @@ class VoterInfo extends Component {
                   <div className="col-12 col-sm-12 col-md-7 pr-0 pl-2">
                     <div className="ftz-10 font-weight-bold border-bottom mr-2 text-info"> Producers</div>
                     <div
-                      className={`card sameheight-item mb-1 border-0 ${isDarkMode ? 'bg-dark' : ''} `}
+                      className={`card sameheight-item mb-1 border-0 ${isDarkMode ? 'bg-dark-1' : ''} `}
                       data-exclude="xs"
                     >
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.producers)}</div>
@@ -209,9 +207,7 @@ class VoterInfo extends Component {
             // voted by proxy
             return (
               <div
-                className={`card sameheight-item stats mbc border pb-1 shadow-sm ${
-                  isDarkMode ? 'bg-dark border-secondary' : ''
-                }`}
+                className={`card sameheight-item stats mbc  pb-1 shadow-sm ${isDarkMode ? 'bg-dark-1 ' : ''}`}
                 style={{marginLeft: 2, marginRight: 2}}
                 data-exclude="xs"
               >
@@ -347,7 +343,7 @@ class VoterInfo extends Component {
                   <div className="col-12 col-sm-12 col-md-7  pr-0 pl-2">
                     <div className="ftz-10 font-weight-bold border-bottom mr-2 text-info"> Producers</div>
                     <div
-                      className={`card sameheight-item mb-1 border-0 ${isDarkMode ? 'bg-dark' : ''} `}
+                      className={`card sameheight-item mb-1 border-0 ${isDarkMode ? 'bg-dark-1' : ''} `}
                       data-exclude="xs"
                     >
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.proxy_vote_info.producers)}</div>
@@ -367,9 +363,7 @@ class VoterInfo extends Component {
           if (!voteinfo.proxy)
             return (
               <div
-                className={`card sameheight-item stats mbc border pb-1 shadow-sm ${
-                  isDarkMode ? 'bg-dark border-secondary' : ''
-                }`}
+                className={`card sameheight-item stats mbc  pb-1 shadow-sm ${isDarkMode ? 'bg-dark-1 ' : ''}`}
                 style={{marginLeft: 2, marginRight: 2}}
                 data-exclude="xs"
               >
@@ -507,7 +501,7 @@ class VoterInfo extends Component {
                   <div className="col-12 col-sm-12 col-md-7  pr-0 pl-2">
                     <div className="ftz-10 font-weight-bold border-bottom mr-2 text-info"> Producers</div>
                     <div
-                      className={`card sameheight-item mb-1 border-0 ${isDarkMode ? 'bg-dark' : ''} `}
+                      className={`card sameheight-item mb-1 border-0 ${isDarkMode ? 'bg-dark-1' : ''} `}
                       data-exclude="xs"
                     >
                       <div className="p-0"> {this.renderVotedProducers(voteinfo.producers)}</div>

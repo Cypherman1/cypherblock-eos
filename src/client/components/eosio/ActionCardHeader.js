@@ -105,7 +105,7 @@ const ActionCardHeader = ({
           </button>
         </div>
       </div>
-      <div className="collapse border shadow-sm" id="collapseExample">
+      <div className="collapse shadow-sm" id="collapseExample">
         <div className="card card-body pt-2 pb-0 pd-action-setting">
           <div className="row  ">
             <div className="col-6 font-weight-normal">
@@ -154,6 +154,7 @@ const ActionCardHeader = ({
                     <option value={25} defaultChecked>
                       25
                     </option>
+                    <option value={50}>100</option>
                     <option value={100}>100</option>
                     <option value={500}>500</option>
                   </select>

@@ -27,8 +27,8 @@ let token_value = 0;
 
 const WalletLoading = ({display, isDarkMode}) => {
   return (
-    <div className={`${isDarkMode ? 'bg-dark border-secondary' : ' bg-white '} card border`} style={{margin: 2}}>
-      <div className=" card-header bg-white row m-0 shadow-sm mb-1">
+    <div className={`${isDarkMode ? 'bg-dark-1 ' : ' bg-white '} card`} style={{margin: 2}}>
+      <div className=" card-header bg-white row m-0 shadow-sm">
         <div className="col p-0 pl-2">
           <div className="text-info ftz-9 ">TOTAL VALUE</div>
         </div>
@@ -42,11 +42,7 @@ const WalletLoading = ({display, isDarkMode}) => {
           <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
         </div>
         <div className="title-block row m-0 pb-1 shadow-sm ">
-          <div
-            className={`col-12 col-sm-12 header-col  p-0 ${
-              isDarkMode ? 'bg-dark border-bottom border-top border-secondary' : 'bg-white'
-            }`}
-          >
+          <div className={`col-12 col-sm-12 header-col  p-0 ${isDarkMode ? 'bg-dark-1 ' : 'bg-white'}`}>
             <div className="row  m-0">
               <div className="col-4 float-left ftz-10 text-info  pl-2" />
               <div className="col-5 text-right ftz-10  p-0  text-info pl-2">Holding</div>
@@ -138,6 +134,7 @@ class WalletBody extends Component {
           </div>
         );
       } else {
+        //main render for wallet
         if (token.price > 0) {
           token_value = isEOSUnit
             ? Number(token.ammount * token.price)
@@ -145,7 +142,7 @@ class WalletBody extends Component {
 
           items.push(
             <div
-              className={`${isDarkMode ? 'border-bottom border-secondary' : ''} row m-0 shadow-sm  ftz-12`}
+              className={`${isDarkMode ? 'bg-dark-1' : ''} card-token-price  row shadow-sm mbt-1px ftz-12`}
               key={token.name}
             >
               {/* token info */}
@@ -161,7 +158,7 @@ class WalletBody extends Component {
                 <div className="d-inline">{token.name}</div>
               </div>
               {/* Balance info */}
-              <div className="col-5 p-0 pt-1">
+              <div className="col-5 p-0 pt-2px">
                 <div className="text-right">
                   <div className="ftz-12 font-weight-acttype">
                     {isEOSUnit ? (
@@ -193,7 +190,7 @@ class WalletBody extends Component {
                   <div className="ftz-10">{renderEOSNum(token.ammount)}</div>
                 </div>
               </div>
-              <div className="col-3 p-0 pt-1">{this.renderPriceinfo(token)}</div>
+              <div className="col-3 p-0 pt-2px">{this.renderPriceinfo(token)}</div>
             </div>
           );
         } else {
@@ -313,8 +310,8 @@ class WalletBody extends Component {
       });
       token_usd_value = total_token_value * eos_price;
       return (
-        <div className={`${isDarkMode ? 'bg-dark border-secondary' : ' bg-white '} card border`} style={{margin: 2}}>
-          <div className=" card-header bg-white row m-0 shadow-sm mb-1">
+        <div className={`${isDarkMode ? 'bg-dark-1' : ' bg-white '} card`} style={{margin: 2}}>
+          <div className=" card-header bg-white row m-0 shadow-sm ">
             <div className="col p-0 pl-2">
               <div className="text-info ftz-9 ">TOTAL VALUE</div>
               {this.renderTotalValue(total_token_value, token_usd_value, isEOSUnit)}
@@ -324,11 +321,11 @@ class WalletBody extends Component {
               <div className="text-right  ftz-12"> {AllTokens.length} </div>
             </div>
           </div>
-          <div className="card-block p-0">
+          <div className="card-body p-0">
             <div className="title-block row m-0 shadow-sm ">
               <div
                 className={`col-12 col-sm-12 header-col  p-0 ${
-                  isDarkMode ? 'bg-dark border-bottom border-top border-secondary' : 'bg-white'
+                  isDarkMode ? 'bg-dark-1 border-bottom border-top border-dark' : 'bg-white'
                 }`}
               >
                 <div className="row  m-0">

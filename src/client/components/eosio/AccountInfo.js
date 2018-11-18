@@ -108,9 +108,7 @@ const AccountInfoLoading = ({isDarkMode}) => {
         </div>
       </div>
       <div
-        className={`card sameheight-item stats mbc border  shadow-sm ${
-          isDarkMode ? 'bg-dark border-secondary' : ''
-        }  pb-1`}
+        className={`card sameheight-item stats mbc  shadow-sm ${isDarkMode ? 'bg-dark-1' : ''}  pb-1`}
         style={{margin: 2}}
       >
         <div className="text-center align-middle overlay pd-gi">
@@ -419,7 +417,7 @@ class AccountInfo extends Component {
 
           if (account && table_rows && cmc)
             return (
-              <div className={`card ${isDarkMode ? 'bg-dark' : 'bg-actions'} mb-1 border`}>
+              <div className={`card ${isDarkMode ? 'bg-dark ' : 'bg-actions'} mb-1 `}>
                 <div className={`card-header row m-0 shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                   <div className="col p-0 d-flex flex-row">
                     <div className="pt-2 pl-2">
@@ -444,9 +442,7 @@ class AccountInfo extends Component {
                   </div>
                 </div>
                 <div
-                  className={`card sameheight-item stats mbc border  shadow-sm ${
-                    isDarkMode ? 'bg-dark border-secondary' : ''
-                  }  pb-1`}
+                  className={`card sameheight-item stats mbc  shadow-sm ${isDarkMode ? 'bg-dark-1' : ''}  pb-1`}
                   style={{margin: 2}}
                 >
                   <div className={`card-header card-header-sm shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}  mb-1`}>

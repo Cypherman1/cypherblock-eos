@@ -120,11 +120,7 @@ class TokenMarket extends Component {
             items = [];
 
             items.push(
-              <div
-                className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark' : ''} p-1`}
-                key={2}
-                style={{marginBottom: 1, marginTop: 1}}
-              >
+              <div className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark' : ''} p-1 mbt-1px`} key={2}>
                 <div className="row ftz-12  m-0">
                   <div className="col-5 pl-1 pr-0 d-flex flex-row">
                     {/* <img src={images(`./RAM.svg`)} className="token_logo" /> */}
@@ -226,9 +222,9 @@ class TokenMarket extends Component {
             });
             return (
               <div
-                className={`card border sameheight-item stats mb-1 ${display} ${
-                  isDarkMode ? 'bg-dark text-cypher' : ''
-                } pb-2`}
+                className={`card  sameheight-item stats ${display} ${
+                  isDarkMode ? 'bg-dark text-cypher  ' : ''
+                } pb-2 mb-1px`}
                 data-exclude="xs"
               >
                 <div className="card-header shadow-sm bg-white row m-0">
@@ -243,7 +239,7 @@ class TokenMarket extends Component {
                     >
                       <input
                         type="text"
-                        className="form-control border-info"
+                        className="form-control   -info"
                         aria-label="Text input with checkbox"
                         onChange={(event) => {
                           this.props.setSearchSymbol(event.target.value);
@@ -258,7 +254,7 @@ class TokenMarket extends Component {
                   </div>
                 </div>
 
-                <div className="row ftz-12 pb-1 pt-1 m-0  shadow-sm border-bottom" key={1}>
+                <div className="row ftz-12 pb-1 pt-1 m-0  shadow-sm" key={1}>
                   <div className="pl-2 col-5 text-info">
                     Pair <span className="badge badge-primary p-1 ">{ticker_count + 2}</span>
                   </div>

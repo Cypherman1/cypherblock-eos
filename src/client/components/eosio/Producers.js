@@ -82,7 +82,9 @@ class Producers extends Component {
           if (producers) {
             return (
               <div
-                className={`card border sameheight-item stats mb-1 ${isDarkMode ? 'bg-dark' : ''} ${display}`}
+                className={`card  sameheight-item stats mb-1 ${
+                  isDarkMode ? 'bg-dark' : ''
+                } ${display}`}
                 data-exclude="xs"
               >
                 <div className={`card-header shadow-sm mb-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
@@ -92,7 +94,7 @@ class Producers extends Component {
                   </div>
                 </div>
                 <div className={`card-body p-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
-                  <div className="title-block row shadow-sm m-0 border-bottom">
+                  <div className="title-block row shadow-sm m-0 ">
                     <div className={`col-12 col-sm-12 ${isDarkMode ? 'bg-dark' : 'bg-white'} header-col p-0`}>
                       <div className="row shadow-sm price-row ">
                         <div className="col float-left price-font pl-2" />

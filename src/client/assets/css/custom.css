@@ -1673,28 +1673,28 @@ i.metismenu-state-icon.rotate-minus-90 {
 }
 
 .text-cypher {
-  color: darkgray;
+  color: darkgray !important;
 }
 
 .font-weight-acttype {
   font-weight: 520 !important;
 }
 .mb-1px {
-  margin-bottom: 4px;
+  margin-bottom: 4px !important;
 }
 
 .bg-main {
-  background-color: #cccccc;
+  background-color: #cccccc !important;
 }
 .bg-dark-1 {
   background-color: #161819 !important;
 }
 .pt-2px {
-  padding-top: 4px;
+  padding-top: 4px !important;
 }
 .mbt-1px {
-  margin-bottom: 1px;
-  margin-top: 1px;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-bottom: 1px !important;
+  margin-top: 1px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }

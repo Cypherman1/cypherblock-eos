@@ -17,10 +17,17 @@ import {
   setIsAntiSpam,
   setRefetchFunc,
   setActionChecking,
-  setIsSettingOpen
+  setIsSettingOpen,
+  setLimitValue,
+  setActionsLength
 } from '../../actions/eosActions';
 
 var action_digests_tmp = '';
+let actions_data = null;
+let total_actions = 0;
+let actions_fetched = 0;
+
+let isMore = true;
 const ActionsCardLoading = () => {
   return (
     <div>
@@ -35,11 +42,11 @@ const ActionsCardLoading = () => {
 
 class ActionsCardBody extends Component {
   renderLoadMoreBtn(fetchMore, morelength) {
-    if (this.props.showRefetch && !this.props.eosActions.islive) {
-      if (!this.props.eosActions.ismore) {
+    if (!this.props.eosActions.islive) {
+      if (!isMore) {
         return (
           <button type="button" className="btn btn-outline-info text-light w-100" disabled>
-            END!
+            END(fetched:{total_actions}/{total_actions})
           </button>
         );
       } else {
@@ -53,26 +60,32 @@ class ActionsCardBody extends Component {
 
                 fetchMore({
                   variables: {
-                    offset: this.props.eosActions.islive
-                      ? 0 - morelength - 25
-                      : 0 - morelength - this.props.eosActions.limit
+                    offset: 0 - Number(morelength) - Number(this.props.eosActions.limit)
                   },
                   updateQuery: (prev, {fetchMoreResult}) => {
-                    if (!fetchMoreResult) {
+                    if (!fetchMoreResult && !fetchMoreResult.actions) {
                       this.props.setIsButtonLoading(false);
                       return prev;
                     }
+
+                    actions_fetched = Number(morelength) + Number(this.props.eosActions.limit);
+
                     this.props.setIsButtonLoading(false);
+
                     if (fetchMoreResult.actions.actions[0].account_action_seq == 0) {
-                      this.props.setIsMore(false);
+                      isMore = false;
                     } else {
-                      this.props.setIsMore(true);
+                      isMore = true;
                     }
+
                     return Object.assign(
                       {},
                       {
+                        total: fetchMoreResult.total,
+                        chain: fetchMoreResult.chain,
                         actions: {
                           actions: [...fetchMoreResult.actions.actions],
+                          last_irreversible_block: fetchMoreResult.actions.last_irreversible_block,
                           __typename: 'ActionsType'
                         }
                       }
@@ -84,7 +97,7 @@ class ActionsCardBody extends Component {
                 });
               }}
             >
-              Fetch more
+              Fetch more(fetched:{actions_fetched}/{total_actions})
             </button>
           );
         } else
@@ -96,17 +109,25 @@ class ActionsCardBody extends Component {
       }
     } else
       return (
-        <button type="button" className="btn btn-outline-info text-light w-100" disabled>
-          Load more
+        <button type="button" className="btn btn-outline-info text-light w-100">
+          Fetch more
         </button>
       );
   }
   componentDidMount() {
     this.props.setRefetchFunc(this.props.data.refetch);
+    console.log('component did mount');
   }
   componentWillMount() {
     this.props.setLiveActions(this.props.isLive);
     this.props.setIsSettingOpen(false);
+    //if (this.props.defaultLimit) this.props.setLimitValue(this.props.defaultLimit);
+    actions_fetched = Number(this.props.eosActions.limit);
+    isMore = true;
+    console.log('component will mount');
+  }
+  componentWillUpdate(nextProps, nextState) {
+    console.log('component will update');
   }
 
   render() {
@@ -122,47 +143,56 @@ class ActionsCardBody extends Component {
       isFilterSendReceiveTokens,
       isFilterSendReceiveEOS,
       memoTags,
-      isSettingOpen
+      isSettingOpen,
+      actionsLength
     } = eosActions;
     if (data.error) return <ActionsCardLoading />;
     let items = [];
-    if (data && data.actions && data.chain) {
+    if (data && data.actions && data.chain && data.total) {
       action_digests_tmp = '';
+      actions_data = [...data.actions.actions].sort(
+        (a, b) => Number(b.account_action_seq) - Number(a.account_action_seq)
+      );
+      total_actions = Number(data.total.actions[0].account_action_seq) + 1; // set total number of action
+      actions_fetched = data.actions.actions.length;
+      if (actions_fetched < total_actions) {
+        //set is more action in this page or not
+        isMore = true;
+      } else {
+        isMore = false;
+      }
 
-      data.actions.actions
-        .slice()
-        .reverse()
-        .map((action) => {
-          if (
-            action.action_trace.receipt.act_digest !== action_digests_tmp &&
-            !IsSpam(action.action_trace, isAntiSpamed) &&
-            IsFiltered(
-              action.action_trace,
-              isFilterOthers,
-              isFilterSmartContract,
-              isFilterResources,
-              isFilterSendReceiveTokens,
-              isFilterSendReceiveEOS
-            ) &&
-            IsSearched(action.action_trace, memoTags)
-          ) {
-            action_digests_tmp = action.action_trace.receipt.act_digest;
-            items.push(
-              <ActionCard
-                key={action.global_action_seq}
-                action_trace={action.action_trace}
-                block_time={action.block_time}
-                block_num={action.block_num}
-                last_irreversible_block={data.actions.last_irreversible_block}
-                head_block_num={data.chain.head_block_num}
-                account_name={account_name}
-                get_block_status={false}
-                trx_id={action.action_trace.trx_id}
-                isDarkMode={isDarkMode}
-              />
-            );
-          }
-        });
+      actions_data.map((action) => {
+        if (
+          action.action_trace.receipt.act_digest !== action_digests_tmp &&
+          !IsSpam(action.action_trace, isAntiSpamed) &&
+          IsFiltered(
+            action.action_trace,
+            isFilterOthers,
+            isFilterSmartContract,
+            isFilterResources,
+            isFilterSendReceiveTokens,
+            isFilterSendReceiveEOS
+          ) &&
+          IsSearched(action.action_trace, memoTags)
+        ) {
+          action_digests_tmp = action.action_trace.receipt.act_digest;
+          items.push(
+            <ActionCard
+              key={action.global_action_seq}
+              action_trace={action.action_trace}
+              block_time={action.block_time}
+              block_num={action.block_num}
+              last_irreversible_block={data.actions.last_irreversible_block}
+              head_block_num={data.chain.head_block_num}
+              account_name={account_name}
+              get_block_status={false}
+              trx_id={action.action_trace.trx_id}
+              isDarkMode={isDarkMode}
+            />
+          );
+        }
+      });
       if (items.length > 0) {
         return (
           <div className={`pb-0 ${isDarkMode ? 'bg-action-dark' : 'bg-actions'}  `} style={{padding: 2}}>
@@ -174,7 +204,7 @@ class ActionsCardBody extends Component {
             >
               {items}
             </CSSTransitionGroup>
-            {this.renderLoadMoreBtn(fetchMore, data.actions.actions.length)}
+            {this.renderLoadMoreBtn(fetchMore, actions_fetched)}
           </div>
         );
       } else {
@@ -201,7 +231,7 @@ class ActionsCardBody extends Component {
                   )}
                 </button>
               </div>
-              {this.renderLoadMoreBtn(fetchMore, data.actions.actions.length)}
+              {this.renderLoadMoreBtn(fetchMore, actions_fetched)}
             </div>
           </div>
         );
@@ -222,7 +252,9 @@ export default connect(
     setIsAntiSpam,
     setRefetchFunc,
     setActionChecking,
-    setIsSettingOpen
+    setIsSettingOpen,
+    setLimitValue,
+    setActionsLength
   }
 )(
   graphql(GetActions, {

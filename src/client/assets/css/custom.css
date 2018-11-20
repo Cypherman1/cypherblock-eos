@@ -1164,10 +1164,10 @@ span.CodeMirror-selectedtext {
 }
 
 .bg-actions {
-  background-color: #e9ebee;
+  background-color: #e9ebee !important;
 }
 .bg-actions-dark {
-  background-color: #3f3f3f;
+  background-color: #3f3f3f !important;
 }
 .pd-confirm {
   padding: 1px;

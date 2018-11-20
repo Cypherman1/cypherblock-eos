@@ -134,7 +134,7 @@ class Block extends Component {
                     className={`card sameheight-item ${isDarkMode ? 'bg-dark' : 'bg-actions'} mb-1 mr-1`}
                     data-exclude="xs"
                   >
-                    <div className="card-header card-header-sm  bg-action row m-0">
+                    <div className="card-header card-header-sm row m-0">
                       <div className="header-block pl-2 col">
                         <FontAwesomeIcon icon="list-alt" className="mr-2 text-info" />
                         <h1 className="title text-info">Transactions</h1>

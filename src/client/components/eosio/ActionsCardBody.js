@@ -116,7 +116,6 @@ class ActionsCardBody extends Component {
   }
   componentDidMount() {
     this.props.setRefetchFunc(this.props.data.refetch);
-    console.log('component did mount');
   }
   componentWillMount() {
     this.props.setLiveActions(this.props.isLive);
@@ -124,10 +123,6 @@ class ActionsCardBody extends Component {
     //if (this.props.defaultLimit) this.props.setLimitValue(this.props.defaultLimit);
     actions_fetched = Number(this.props.eosActions.limit);
     isMore = true;
-    console.log('component will mount');
-  }
-  componentWillUpdate(nextProps, nextState) {
-    console.log('component will update');
   }
 
   render() {

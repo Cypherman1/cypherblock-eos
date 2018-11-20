@@ -142,7 +142,7 @@ class Block extends Component {
                     </div>
                     <div className="card-body rounded-bottom ftz-12 pr-1 pl-1 pt-1 pb-0">
                       {block.transactions.map((transaction, num) => {
-                        if (!transaction.trx.id) {
+                        if (typeof transaction.trx == 'string') {
                           return (
                             <div
                               key={transaction.trx}
@@ -152,6 +152,18 @@ class Block extends Component {
                               <div className="col-11">{renderTransLink(transaction.trx)}</div>
                             </div>
                           );
+                        } else if (typeof transaction.trx == 'object' && typeof transaction.trx.id == 'string') {
+                          return (
+                            <div
+                              key={transaction.trx.id}
+                              className={`${isDarkMode ? 'bg-dark' : ''} card-token-price row m-0 mb-1 rounded`}
+                            >
+                              <div className="col-1">{num + 1}</div>
+                              <div className="col-11">{renderTransLink(transaction.trx.id)}</div>
+                            </div>
+                          );
+                        } else {
+                          return null;
                         }
                       })}
                     </div>

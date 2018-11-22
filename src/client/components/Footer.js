@@ -29,8 +29,8 @@ const Footer = ({sidebar}) => {
 
 // export default Footer;
 
-function mapStateToProps({sidebar}) {
-  return {sidebar};
+function mapStateToProps({myStore}) {
+  return {sidebar: myStore.sidebar};
 }
 
 export default connect(

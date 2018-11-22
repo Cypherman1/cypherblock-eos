@@ -128,6 +128,10 @@ export const AntiSpams = {
     {
       act_account: 'betdicealert',
       act_name: 'news'
+    },
+    {
+      act_account: 'wizznetwork1',
+      act_name: 'broadcast'
     }
   ]
 };

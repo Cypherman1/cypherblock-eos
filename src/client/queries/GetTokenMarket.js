@@ -33,7 +33,23 @@ export default gql`
         currency
         last
         change
+        amount
+        volume
       }
+    }
+    bigone_tickers {
+      data {
+        market_id
+        volume
+        daily_change_perc
+        close
+      }
+    }
+    bitfinex_pairs {
+      data
+    }
+    blocksence_tickers {
+      data
     }
   }
 `;

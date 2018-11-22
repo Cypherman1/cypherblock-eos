@@ -24,27 +24,14 @@ const BlockView = ({match, sidebar}) => {
               </ErrorBoundary>
             </div>
           </div>
-
-          {/* <ErrorBoundary className="d-none d-xl-block">
-            <Wallet account_name={match.params.account_name} />
-          </ErrorBoundary> */}
-
-          {/* <Wallet data={data} /> */}
-          {/* <MarketInfo
-              cmc={cmc}
-              eosioramfee={eosioramfee}
-              eosioram={eosioram}
-              global_data={global_data}
-              table_rows={table_rows}
-            /> */}
         </div>
       </section>
     </article>
   );
 };
 
-function mapStateToProps({sidebar}) {
-  return {sidebar};
+function mapStateToProps({myStore}) {
+  return {sidebar: myStore.sidebar};
 }
 
 export default connect(

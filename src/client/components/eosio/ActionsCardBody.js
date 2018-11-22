@@ -234,8 +234,8 @@ class ActionsCardBody extends Component {
     } else return <ActionsCardLoading />;
   }
 }
-function mapStateToProps({eosActions, antispam}) {
-  return {eosActions, antispam};
+function mapStateToProps({myStore}) {
+  return {eosActions: myStore.eosActions, antispam: myStore.antispam};
 }
 export default connect(
   mapStateToProps,

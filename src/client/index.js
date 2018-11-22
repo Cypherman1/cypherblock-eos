@@ -7,12 +7,10 @@ import {createHttpLink} from 'apollo-link-http';
 import {onError} from 'apollo-link-error';
 import {InMemoryCache} from 'apollo-cache-inmemory';
 import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import reduxThunk from 'redux-thunk';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import reducers from './reducers';
 require('typeface-poppins');
 import 'font-awesome/css/font-awesome.css';
+import {mainstore} from './store';
 
 // import './assets/css/all.min.css';
 import './assets/css/bootstrap.css';
@@ -138,12 +136,10 @@ const client = new ApolloClient({
   queryDeduplication: true
 });
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
-
 const Root = () => {
   return (
     <ApolloProvider client={client}>
-      <Provider store={store}>
+      <Provider store={mainstore}>
         <App />
       </Provider>
     </ApolloProvider>

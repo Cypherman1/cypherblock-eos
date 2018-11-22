@@ -141,8 +141,8 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps({sidebar}) {
-  return {sidebar};
+function mapStateToProps({myStore}) {
+  return {sidebar: myStore.sidebar};
 }
 
 export default connect(

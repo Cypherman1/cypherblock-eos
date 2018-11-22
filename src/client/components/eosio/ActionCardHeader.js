@@ -269,8 +269,8 @@ const ActionCardHeader = ({
   );
 };
 
-function mapStateToProps({eosActions}) {
-  return {eosActions};
+function mapStateToProps({myStore}) {
+  return {eosActions: myStore.eosActions};
 }
 
 export default connect(

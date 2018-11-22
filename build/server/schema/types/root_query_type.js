@@ -347,22 +347,7 @@ const RootQueryType = new GraphQLObjectType({
           .get('https://big.one/api/v2/tickers')
           .then((res) => {
             res.data.data.map((item) => {
-              if (
-                [
-                  'BLACK-EOS',
-                  'KARMA-EOS',
-                  'HORUS-EOS',
-                  'ADD-EOS',
-                  'ATD-EOS',
-                  'MEETONE-EOS',
-                  'EDNA-EOS',
-                  'BOID-EOS',
-                  'LUCK-EOS',
-                  'CHL-EOS',
-                  'DEOS-EOS'
-                ].indexOf(item.market_id) >= 0
-              )
-                result.data.push(item);
+              if (item.market_id.match(/-EOS/g)) result.data.push(item);
             });
             return result;
           })

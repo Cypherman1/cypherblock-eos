@@ -10,6 +10,8 @@ import {setSidebarStatus} from '../actions/sidebar';
 import Account from './eosio/Account';
 import TransactionView from './eosio/TransactionView';
 import BlockView from './eosio/BlockView';
+import BlockProducers from './eosio/BlockProducers';
+import EOSMarketCap from './eosio/EOSMarketCap';
 
 class DynamicImport extends Component {
   state = {
@@ -78,6 +80,8 @@ class App extends Component {
               <Route path="/abi/:account_name" component={ABIView} />
               <Route path="/transaction/:id" component={TransactionView} />
               <Route path="/block/:block_num_or_id" component={BlockView} />
+              <Route path="/blockproducers" component={BlockProducers} />
+              <Route path="/eosmarketcap" component={EOSMarketCap} />
             </Switch>
             <Footer />
           </div>
@@ -87,8 +91,8 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({sidebar}) {
-  return {sidebar};
+function mapStateToProps({myStore}) {
+  return myStore;
 }
 
 export default connect(

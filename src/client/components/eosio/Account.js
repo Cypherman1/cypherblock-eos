@@ -62,8 +62,8 @@ class Account extends Component {
 
 // export default Account;
 
-function mapStateToProps({sidebar}) {
-  return {sidebar};
+function mapStateToProps({myStore}) {
+  return {sidebar: myStore.sidebar};
 }
 const mapSizesToProps = ({width}) => ({
   isDesktop: width > 1200

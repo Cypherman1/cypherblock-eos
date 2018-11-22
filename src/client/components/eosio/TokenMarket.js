@@ -274,8 +274,8 @@ class TokenMarket extends Component {
   }
 }
 
-function mapStateToProps({common}) {
-  return {common};
+function mapStateToProps({myStore}) {
+  return {common: myStore.common};
 }
 
 export default connect(

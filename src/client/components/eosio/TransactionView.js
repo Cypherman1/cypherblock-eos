@@ -35,8 +35,8 @@ const TransactionView = ({match, sidebar}) => {
   );
 };
 
-function mapStateToProps({sidebar}) {
-  return {sidebar};
+function mapStateToProps({myStore}) {
+  return {sidebar: myStore.sidebar};
 }
 
 export default connect(

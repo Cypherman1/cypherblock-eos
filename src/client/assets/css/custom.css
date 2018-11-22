@@ -1361,21 +1361,23 @@ span.CodeMirror-selectedtext {
 }
 
 .metismenu {
-  background: #f7f7f7;
   font-family: 'Open Sans', sans-serif;
   font-size: 12pt;
   overflow: hidden;
   position: relative;
 }
+
 .metismenu > .metismenu-container > .metismenu-item > .metismenu-link {
   line-height: 2.5em;
 }
+
 .metismenu > .metismenu-container > .metismenu-item > .metismenu-link .metismenu-state-icon {
   line-height: 2.5em;
 }
+
 .metismenu::after {
-  box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.5) inset;
-  -webkit-box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.5) inset;
+  /* box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.5) inset; */
+  /* -webkit-box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.5) inset; */
   content: ' ';
   pointer-events: none;
   position: absolute;
@@ -1384,17 +1386,20 @@ span.CodeMirror-selectedtext {
   right: 0;
   top: 0;
 }
+
 .metismenu-container,
 .metismenu-item {
-  margin: 0;
+  margin: 1px 0px 1px 0px;
   padding: 0;
+  box-shadow: 0 0.05rem 0.08rem rgba(0, 0, 0, 0.075) !important;
 }
+
 .metismenu-container {
   list-style: none;
 }
 .metismenu-container .metismenu-container {
-  box-shadow: 0 0.3em 0.3em -0.3em #0c0d0e inset, 0 -0.3em 0.3em -0.3em #0c0d0e inset;
-  -webkit-box-shadow: 0 0.3em 0.3em -0.3em #0c0d0e inset, 0 -0.3em 0.3em -0.3em #0c0d0e inset;
+  /* box-shadow: 0 0.3em 0.3em -0.3em #0c0d0e inset, 0 -0.3em 0.3em -0.3em #0c0d0e inset; */
+  /* -webkit-box-shadow: 0 0.3em 0.3em -0.3em #0c0d0e inset, 0 -0.3em 0.3em -0.3em #0c0d0e inset; */
   transition: padding 0.3s;
   -webkit-transition: padding 0.3s;
   background: rgba(255, 255, 255, 0.05);
@@ -1426,13 +1431,23 @@ span.CodeMirror-selectedtext {
   text-decoration: none;
 }
 .metismenu-link:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: #17a2b8;
+  /* background: rgba(255, 255, 255, 0.05); */
+  color: #fc4a1a !important;
+}
+.metismenu-link-dark:hover {
+  /* background: rgba(255, 255, 255, 0.05); */
+  color: #fc4a1a !important;
 }
 .metismenu-link.active {
-  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.25);
-  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background: #ddd;
+  text-shadow: 0 -1px 0 rgba(225, 140, 0, 0.25) !important;
+  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !important;
+  background: lightblue;
+  color: #fc4a1a !important;
+}
+.metismenu-link-dark.active {
+  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.25) !important;
+  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !important;
+  background: #868e96;
   color: #fc4a1a !important;
 }
 .metismenu-link.has-active-child {
@@ -1697,4 +1712,16 @@ i.metismenu-state-icon.rotate-minus-90 {
   margin-top: 1px !important;
   margin-left: 0px !important;
   margin-right: 0px !important;
+}
+
+.mlr-2px {
+  margin-right: 3px !important;
+  margin-left: 2px !important;
+}
+
+#sidebar > div > ul > li {
+  background-color: white !important;
+}
+#sidebar-dark > div > ul > li {
+  background-color: black !important;
 }

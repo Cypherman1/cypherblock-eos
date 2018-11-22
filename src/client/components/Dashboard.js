@@ -63,8 +63,8 @@ class Dashboard extends Component {
   }
 }
 
-function mapStateToProps({sidebar}) {
-  return {sidebar};
+function mapStateToProps({myStore}) {
+  return {sidebar: myStore.sidebar};
 }
 
 const mapSizesToProps = ({width}) => ({

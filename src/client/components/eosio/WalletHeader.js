@@ -51,8 +51,8 @@ const WalletHeader = ({isDarkMode, common, setTokenBalanceUnitl, setIsWalletRefe
   );
 };
 
-function mapStateToProps({common}) {
-  return {common};
+function mapStateToProps({myStore}) {
+  return {common: myStore.common};
 }
 
 export default connect(

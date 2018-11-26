@@ -22,7 +22,7 @@ const CalculateEOSMarkets = (data) => {
   EOSMarkets = [];
   // add newdex's tickers to market
   Add_NewdexTickers(data.newdex_tickers);
-  Add_BigoneTickers(data.bigone_tickers);
+  // Add_BigoneTickers(data.bigone_tickers);
   Add_BlockSenceTicker(data.blocksence_tickers);
   Add_BifinexPairs(data.bitfinex_pairs);
   Aggregate_Markets();
@@ -279,7 +279,6 @@ class EOSMarketCap extends Component {
             dataTM.table_rows &&
             dataTM.cmc &&
             dataTM.newdex_tickers &&
-            dataTM.bigone_tickers &&
             dataTM.bitfinex_pairs &&
             dataTM.blocksence_tickers
           ) {

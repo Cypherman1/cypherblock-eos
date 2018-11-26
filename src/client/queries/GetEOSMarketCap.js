@@ -58,14 +58,6 @@ const GenCurGql = (Tokens) => {
         volume
       }
     }
-    bigone_tickers {
-      data {
-        market_id
-        volume
-        daily_change_perc
-        close
-      }
-    }
     bitfinex_pairs {
       data
     }
@@ -81,3 +73,12 @@ export default gql`
     ${GenCurGql(Tokens)}
   }
 `;
+
+// bigone_tickers {
+//   data {
+//     market_id
+//     volume
+//     daily_change_perc
+//     close
+//   }
+// }

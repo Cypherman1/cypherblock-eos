@@ -146,10 +146,10 @@ class Block extends Component {
                           return (
                             <div
                               key={transaction.trx}
-                              className={`${isDarkMode ? 'bg-dark' : ''} card-token-price row m-0 mb-1 rounded`}
+                              className={`${isDarkMode ? 'bg-dark' : ''} card-token-price row m-0 mb-1 rounded d-flex`}
                             >
-                              <div className="col-1">{num + 1}</div>
-                              <div className="col-11">{renderTransLink(transaction.trx)}</div>
+                              <div className="col-2 col-sm-1 ">{num + 1}</div>
+                              <div className="col-10 col-sm-11 p-0">{renderTransLink(transaction.trx)}</div>
                             </div>
                           );
                         } else if (typeof transaction.trx == 'object' && typeof transaction.trx.id == 'string') {
@@ -158,8 +158,8 @@ class Block extends Component {
                               key={transaction.trx.id}
                               className={`${isDarkMode ? 'bg-dark' : ''} card-token-price row m-0 mb-1 rounded`}
                             >
-                              <div className="col-1">{num + 1}</div>
-                              <div className="col-11">{renderTransLink(transaction.trx.id)}</div>
+                              <div className="col-2 col-sm-1">{num + 1}</div>
+                              <div className="col-10 col-sm-11 p-0">{renderTransLink(transaction.trx.id)}</div>
                             </div>
                           );
                         } else {

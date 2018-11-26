@@ -24,6 +24,7 @@ const BlockSenceTickersType = require('./blocksence_tickers_type');
 const NewDexTickersType = require('./newdex_tickers_type');
 const {MongoActionsType} = require('./mongo_actions_type');
 const MongoTransactionType = require('./mongo_transaction_type');
+const CurrencyStatsType = require('./currency_stats_type');
 
 let VoterInfo = {};
 
@@ -369,6 +370,30 @@ const RootQueryType = new GraphQLObjectType({
     },
     table_rows: {
       type: TableRowsType,
+      args: {
+        json: {type: GraphQLString},
+        code: {type: GraphQLString},
+        scope: {type: GraphQLString},
+        table: {type: GraphQLString},
+        limit: {type: GraphQLString}
+      },
+      resolve(parentValue, {json, code, scope, table, limit}) {
+        return axios
+          .post(keys.chainURL + '/v1/chain/get_table_rows', {
+            json,
+            code,
+            scope,
+            table,
+            limit
+          })
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    currency_stats: {
+      type: CurrencyStatsType,
       args: {
         json: {type: GraphQLString},
         code: {type: GraphQLString},

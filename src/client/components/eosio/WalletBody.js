@@ -142,23 +142,23 @@ class WalletBody extends Component {
 
           items.push(
             <div
-              className={`${isDarkMode ? 'bg-dark-1' : ''} card-token-price  row shadow-sm mbt-1px ftz-12`}
+              className={`${isDarkMode ? 'bg-dark-1' : ''} card-token-price  row shadow-sm mbt-1px ftz-12 `}
               key={token.name}
             >
               {/* token info */}
-              <div className="col-4 p-0 pt-1">
-                <div className="d-inline-block ml-2 bg-white mr-2 " style={{height: 26, width: 26, borderRadius: 200}}>
+              <div className="col-4 p-0 d-flex align-items-center">
+                <div className="ml-2 bg-white mr-2 logo-bgr">
                   <ReactImageFallback
                     src={token_logo}
                     fallbackImage={fallback_logo}
                     alt={`${token.name} token airdrop`}
-                    className="img-logo"
+                    className="token_logo"
                   />
                 </div>
-                <div className="d-inline">{token.name}</div>
+                <div className="">{token.name}</div>
               </div>
               {/* Balance info */}
-              <div className="col-5 p-0 pt-2px">
+              <div className="col-5 p-0 ">
                 <div className="text-right">
                   <div className="ftz-12 font-weight-acttype">
                     {isEOSUnit ? (
@@ -190,30 +190,62 @@ class WalletBody extends Component {
                   <div className="ftz-10">{renderEOSNum(token.ammount)}</div>
                 </div>
               </div>
-              <div className="col-3 p-0 pt-2px">{this.renderPriceinfo(token)}</div>
+              <div className="col-3 p-0">{this.renderPriceinfo(token)}</div>
             </div>
           );
         } else {
+          token_value = 0;
           items.push(
-            <div className="row row-sm stats-container shadow-sm pb-1 m-0" key={token.name}>
-              <div className="col-8 stat-col p-0">
-                <div className="stat-icon">
-                  {/* <img src={img_src} className="img-logo" /> */}
-                  <div>
-                    <ReactImageFallback
-                      src={token_logo}
-                      fallbackImage={fallback_logo}
-                      alt={`${token.name} token airdrop`}
-                      className="img-logo"
-                    />
-                  </div>
+            <div
+              className={`${isDarkMode ? 'bg-dark-1' : ''} card-token-price  row shadow-sm mbt-1px ftz-12 `}
+              key={token.name}
+            >
+              {/* token info */}
+              <div className="col-4 p-0 d-flex align-items-center">
+                <div className="ml-2 bg-white mr-2 logo-bgr">
+                  <ReactImageFallback
+                    src={token_logo}
+                    fallbackImage={fallback_logo}
+                    alt={`${token.name} token airdrop`}
+                    className="token_logo"
+                  />
                 </div>
-                <div className="stat">
-                  <div className="value">{renderEOSNum(token.ammount)}</div>
-
-                  <div className="name">{token.name}</div>
+                <div className="">{token.name}</div>
+              </div>
+              {/* Balance info */}
+              <div className="col-5 p-0 ">
+                <div className="text-right">
+                  <div className="ftz-12 font-weight-acttype">
+                    {isEOSUnit ? (
+                      <div className="d-inline-block " style={{width: 13}}>
+                        <img src={eoslogo} alt="eos" />
+                      </div>
+                    ) : (
+                      <div className="d-inline-block pl-1" style={{width: 13}}>
+                        <i className="fa fa-dollar" style={{fontSize: 11}} />
+                      </div>
+                    )}
+                    <div
+                      className="d-inline pcursor"
+                      role="button"
+                      onClick={() => {
+                        this.props.setTokenBalanceUnitl(!this.props.common.isEOSUnit);
+                      }}
+                    >
+                      <NumberEasing
+                        value={token_value}
+                        ease="backIn"
+                        precision={4}
+                        speed={500}
+                        trail={true}
+                        useLocaleString={true}
+                      />
+                    </div>
+                  </div>
+                  <div className="ftz-10">{renderEOSNum(token.ammount)}</div>
                 </div>
               </div>
+              <div className="col-3 p-0">{this.renderPriceinfo(token)}</div>
             </div>
           );
         }

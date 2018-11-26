@@ -99,7 +99,7 @@ class Header extends Component {
               <FontAwesomeIcon icon="bars" />
             </button>
           </div>
-          <div className="w-100 row m-0 pr-2 pt-2">
+          <div className="w-100 row m-0 pr-1 pt-2">
             <div className="header-block header-block-search col pr-0 pl-search">
               <form role="search" className="float-left w-100" onSubmit={this.submit}>
                 <div className="input-group input-group-seamless">

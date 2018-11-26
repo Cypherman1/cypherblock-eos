@@ -1244,6 +1244,9 @@ span.CodeMirror-selectedtext {
     font-size: 13px !important;
     height: 40px !important;
   }
+  .ftz-marketcap {
+    font-size: 10px !important;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -1283,6 +1286,9 @@ span.CodeMirror-selectedtext {
     font-size: 13px !important;
     height: 40px !important;
   }
+  .ftz-marketcap {
+    font-size: 10px !important;
+  }
   /* .stat .value {
     line-height: 40px !important;
   }
@@ -1310,6 +1316,9 @@ span.CodeMirror-selectedtext {
   .ft-tvalue {
     font-size: 13px !important;
   }
+  .ftz-marketcap {
+    font-size: 12px !important;
+  }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .mr-offset {
@@ -1330,6 +1339,9 @@ span.CodeMirror-selectedtext {
     padding-top: 3px;
   }
   .ft-tvalue {
+    font-size: 13px !important;
+  }
+  .ftz-marketcap {
     font-size: 13px !important;
   }
 }
@@ -1357,6 +1369,9 @@ span.CodeMirror-selectedtext {
   }
   .ft-tvalue {
     font-size: 11px !important;
+  }
+  .ftz-marketcap {
+    font-size: 13px !important;
   }
 }
 
@@ -1558,7 +1573,7 @@ i.metismenu-state-icon.rotate-minus-90 {
   padding-bottom: 0px;
 }
 .pl-search {
-  padding-left: 7px !important;
+  padding-left: 4px !important;
 }
 
 .pt-actgrp {
@@ -1707,11 +1722,23 @@ i.metismenu-state-icon.rotate-minus-90 {
 .pt-2px {
   padding-top: 4px !important;
 }
+
+.ptb-2px {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
 .mbt-1px {
   margin-bottom: 1px !important;
   margin-top: 1px !important;
   margin-left: 0px !important;
   margin-right: 0px !important;
+}
+
+.logo-bgr {
+  /* height: 26px !important;
+  width: 26px !important; */
+  border-radius: 200px !important;
 }
 
 .mlr-2px {

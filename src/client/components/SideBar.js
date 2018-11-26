@@ -14,20 +14,19 @@ const menu = [
     icon: 'dashboard',
     label: 'Dashboard',
     to: '/'
-  }
-  // ,
+  },
   // {
   //   id: 2,
   //   icon: 'cogs',
   //   label: 'Block producers',
   //   to: '/blockproducers'
   // },
-  // {
-  //   id: 3,
-  //   icon: 'bar-chart',
-  //   label: 'Market',
-  //   to: '/eosmarketcap'
-  // }
+  {
+    id: 3,
+    icon: 'bar-chart',
+    label: 'EOS Marketcap (beta)',
+    to: '/eosmarketcap'
+  }
   // ,
   // {
   //   id: 2,

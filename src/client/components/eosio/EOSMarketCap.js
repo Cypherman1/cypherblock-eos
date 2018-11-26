@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Query} from 'react-apollo';
 import ReactImageFallback from 'react-image-fallback';
-import gql from 'graphql-tag';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderPPColor} from '../utils/RenderColors';
 import {setActiveLinkID} from '../../actions/sidebar';

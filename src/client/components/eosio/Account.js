@@ -5,10 +5,13 @@ import AccountInfo from './AccountInfo';
 import Wallet from './Wallet';
 import ActionsCard from './ActionsCard';
 import {setLimitValue} from '../../actions/eosActions';
+import {setActiveLinkID} from '../../actions/sidebar';
 
 class Account extends Component {
   componentWillMount() {
     this.props.setLimitValue(50);
+
+    this.props.setActiveLinkID(1);
   }
   render() {
     const {match, sidebar, isDesktop} = this.props;
@@ -71,5 +74,5 @@ const mapSizesToProps = ({width}) => ({
 
 export default connect(
   mapStateToProps,
-  {setLimitValue}
+  {setLimitValue, setActiveLinkID}
 )(withSizes(mapSizesToProps)(Account));

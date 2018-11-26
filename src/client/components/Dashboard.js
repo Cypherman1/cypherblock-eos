@@ -6,10 +6,12 @@ import Producers from './eosio/Producers';
 import TokenMarket from './eosio/TokenMarket';
 import {connect} from 'react-redux';
 import {setLimitValue} from '../actions/eosActions';
+import {setActiveLinkID} from '../actions/sidebar';
 
 class Dashboard extends Component {
   componentDidMount() {
     this.props.setLimitValue(25);
+    this.props.setActiveLinkID(1);
   }
 
   render() {
@@ -73,7 +75,7 @@ const mapSizesToProps = ({width}) => ({
 
 export default connect(
   mapStateToProps,
-  {setLimitValue}
+  {setLimitValue, setActiveLinkID}
 )(withSizes(mapSizesToProps)(Dashboard));
 
 // export default Dashboard;

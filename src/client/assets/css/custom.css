@@ -1188,6 +1188,11 @@ span.CodeMirror-selectedtext {
 .ftz-7 {
   font-size: 7px !important;
 }
+
+.ftz-5 {
+  font-size: 6px !important;
+}
+
 .ftz-16 {
   font-size: 20px !important;
 }
@@ -1667,6 +1672,11 @@ i.metismenu-state-icon.rotate-minus-90 {
   width: 22px;
   height: 22px;
 }
+.exchange_logo {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 7px;
+}
 
 .token_price_weight {
   font-weight: 550;
@@ -1738,6 +1748,11 @@ i.metismenu-state-icon.rotate-minus-90 {
 .logo-bgr {
   /* height: 26px !important;
   width: 26px !important; */
+  border-radius: 200px !important;
+}
+.logo-exc {
+  height: 15px !important;
+  width: 15px !important;
   border-radius: 200px !important;
 }
 

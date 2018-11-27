@@ -2951,7 +2951,7 @@ input[type="button"].btn-block {
   position: relative;
   height: 0;
   overflow: hidden;
-  transition: height 0.35s ease;
+  transition: height 0.05s ease;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

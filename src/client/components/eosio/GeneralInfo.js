@@ -294,7 +294,10 @@ const GeneralInfo = ({isDarkMode}) => {
           eos_volume = Number(cmc.data.quotes.USD.volume_24h).toLocaleString('en', {maximumFractionDigits: 0});
 
           return (
-            <div className={`card sameheight-item stats mb-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`} data-exclude="xs">
+            <div
+              className={`card sameheight-item stats mb-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`}
+              data-exclude="xs"
+            >
               <div className={`card-header shadow-sm row m-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                 <div className="header-block pl-2 col">
                   <FontAwesomeIcon icon="globe" className="mr-2 text-info fa-lg" />

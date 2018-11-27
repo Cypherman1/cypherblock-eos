@@ -36,6 +36,19 @@ const GenCurGql = (Tokens) => {
         }
       }
     }
+    eos_stat(json: "true", code: "eosio.token", scope: "EOS", table: "stat", limit: "10") {
+      rows {
+        supply
+      }
+    }
+    eosioram: account(account_name: "eosio.ram") {
+      core_liquid_balance
+    }
+    global_data(json: "true", code: "eosio", scope: "eosio", table: "global", limit: "10") {
+      rows {
+        max_ram_size
+      }
+    }
     cmc {
       data {
         quotes {
@@ -56,6 +69,14 @@ const GenCurGql = (Tokens) => {
         change
         amount
         volume
+      }
+    }
+    bigone_tickers {
+      data {
+        market_id
+        volume
+        daily_change_perc
+        close
       }
     }
     bitfinex_pairs {

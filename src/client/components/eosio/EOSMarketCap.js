@@ -578,11 +578,9 @@ class EOSMarketCap extends Component {
     );
   }
 }
-
 function mapStateToProps({myStore}) {
   return {sidebar: myStore.sidebar};
 }
-
 export default connect(
   mapStateToProps,
   {setActiveLinkID}

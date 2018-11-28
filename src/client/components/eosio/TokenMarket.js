@@ -205,7 +205,7 @@ class TokenMarket extends Component {
                           </div>
 
                           <div className="ml-2 d-flex align-items-center">
-                            <div> {`${tokeninfo.currency}/EOS`}</div>
+                            <div> {`${tokeninfo.currency.toUpperCase()}/EOS`}</div>
                           </div>
                         </div>
                         <div className="col-4 text-right  d-flex align-items-center flex-row-reverse">

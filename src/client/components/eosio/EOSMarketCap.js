@@ -69,7 +69,7 @@ const Aggregate_Markets = () => {
 
 const Add_BifinexPairs = (pairs) => {
   pairs.data.map((pair) => {
-    index = EOSMarkets.findIndex((e) => e.symbol == 'iq_eos');
+    index = EOSMarkets.findIndex((e) => e.symbol == 'everipediaiq-iq-eos');
     if (index === -1) {
       //if not existed, add ticker to the list
       // EOSMarkets.push({
@@ -108,7 +108,7 @@ const Add_BifinexPairs = (pairs) => {
 const Add_BlockSenceTicker = (tickers) => {
   for (var ticker in tickers.data) {
     if (['source', 'EOS', 'BTC', 'RAM', 'ETH'].indexOf(ticker) == -1) {
-      index = EOSMarkets.findIndex((e) => e.symbol == ticker.toLowerCase() + '_eos');
+      index = EOSMarkets.findIndex((e) => e.symbol == e.contract + '-' + ticker.toLowerCase() + '-eos');
       if (index === -1) {
         //if not existed, add ticker to the list
         // EOSMarkets.push({
@@ -146,8 +146,8 @@ const Add_BlockSenceTicker = (tickers) => {
 };
 
 // Bigone ticker utils
-const BigonetoNewdex_sybol = (market_id) => {
-  return market_id.substring(0, market_id.indexOf('-')).toLowerCase() + '_eos';
+const BigonetoNewdex_sybol = (market_id, contract) => {
+  return contract + '-' + market_id.substring(0, market_id.indexOf('-')).toLowerCase() + '-eos';
 };
 const BigonetoNewdex_currency = (market_id) => {
   return market_id.substring(0, market_id.indexOf('-')).toUpperCase();
@@ -156,7 +156,7 @@ const BigonetoNewdex_currency = (market_id) => {
 const Add_BigoneTickers = (tickers) => {
   tickers.data.map((ticker) => {
     // find current ticker list, if existed, return the index
-    index = EOSMarkets.findIndex((e) => e.symbol == BigonetoNewdex_sybol(ticker.market_id));
+    index = EOSMarkets.findIndex((e) => e.symbol == BigonetoNewdex_sybol(ticker.market_id, e.contract));
 
     if (index === -1) {
       //if not existed, add ticker to the list
@@ -280,7 +280,7 @@ const GetTokensSupply = (data) => {
       token != 'global_data' &&
       token != 'eos_stat'
     ) {
-      index = EOSMarkets.findIndex((e) => e.currency == token);
+      index = EOSMarkets.findIndex((e) => e.currency.toUpperCase() == token.toUpperCase());
 
       if (index >= 0) {
         EOSMarkets[index].supply.current = data[token].rows[0].supply.split(' ')[0];

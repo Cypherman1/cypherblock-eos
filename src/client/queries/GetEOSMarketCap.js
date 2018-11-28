@@ -5,10 +5,10 @@ import {Tokens} from '../components/utils/Tokens';
 const GenCurGql = (Tokens) => {
   let gqlstr = '';
   Tokens.map((token) => {
-    gqlstr += `${token.currency}: currency_stats(
+    gqlstr += `${token.currency.toUpperCase()}: currency_stats(
             json: "true",
             code: "${token.contract}",
-            scope: "${token.currency}"
+            scope: "${token.currency.toUpperCase()}"
             table: "stat"
             limit: "10"
         ){

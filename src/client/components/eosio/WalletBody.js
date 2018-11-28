@@ -79,24 +79,25 @@ class WalletBody extends Component {
         token != 'bigone_tickers' &&
         token != 'newdex_tickers'
       ) {
+        console.log(data[token]);
         atoken = {
           name: data[token].data[0].split(' ')[1], //token name
           ammount: Number(data[token].data[0].split(' ')[0]), // token ammount
           price: gettPairPrice(
             //get token price
             data,
-            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).bitfinex_pair, //get bitfinex pair name of the token
-            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).bigone_ticker,
-            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).blocksence_ticker,
-            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).symbol
+            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).bitfinex_pair, //get bitfinex pair name of the token
+            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).bigone_ticker,
+            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).blocksence_ticker,
+            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).symbol
           ),
           percent: gettPairPercent(
             //get token percent
             data,
-            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).bitfinex_pair,
-            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).bigone_ticker,
-            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).blocksence_ticker,
-            Tokens.find((o) => o.currency === data[token].data[0].split(' ')[1]).symbol
+            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).bitfinex_pair,
+            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).bigone_ticker,
+            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).blocksence_ticker,
+            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).symbol
           )
         };
         //console.log(Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_tiker);

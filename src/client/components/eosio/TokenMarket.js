@@ -184,7 +184,7 @@ class TokenMarket extends Component {
               if (tokeninfo.last > 0) {
                 ticker_count += 1;
                 if (IsTokenSearched(tokeninfo, this.props.common.symbol)) {
-                  token_logo = `${images}/${tokeninfo.currency}.png`;
+                  token_logo = `${images}/${tokeninfo.currency.toUpperCase()}.png`;
 
                   items.push(
                     <div

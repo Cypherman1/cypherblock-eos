@@ -458,13 +458,13 @@ class EOSMarketCap extends Component {
                     <div className="col-10 p-0 pl-2 d-flex align-items-center">
                       <div className="mr-2 bg-white logo-bgr">
                         <ReactImageFallback
-                          src={`${images}/${token.currency}.png`}
+                          src={`${images}/${token.currency.toUpperCase()}.png`}
                           fallbackImage={`${images}/COMMON.png`}
                           alt={`${token.currency} token airdrop`}
                           className="token_logo"
                         />
                       </div>
-                      <div>{token.currency}</div>
+                      <div>{token.currency.toUpperCase()}</div>
                     </div>
                   </div>
                   <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">

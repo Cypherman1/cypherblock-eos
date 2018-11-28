@@ -199,7 +199,7 @@ export const Tokens = [
   },
   {
     symbol: 'fos_eos',
-    contract: ' ',
+    contract: 'farmeosbankx',
     currency: 'FOS',
     last: 0.0068,
     change: 0.1148,

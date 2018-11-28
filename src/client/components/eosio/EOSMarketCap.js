@@ -245,11 +245,15 @@ const EOSMarketCapLoading = ({isDarkMode}) => {
     <article className="content dashboard-page">
       <section className="section">
         <div className={`card mlr-2px shadow-sm ftz-marketcap mb-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
-          <div className="card-header pl-2 bg-white mb-1 shadow-sm">
+          <div
+            className={`card-header border-bottom pl-2 ${
+              isDarkMode ? 'bg-dark border-secondary' : 'bg-actions border-light'
+            }`}
+          >
             <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
             <h1 className="title text-info">EOS Marketcap</h1>
           </div>
-          <div className="card-body  bg-white p-0">
+          <div className="card-body bg-white p-0">
             <div style={{height: 50}} />
             <div className="text-center align-middle overlay" style={{paddingTop: 55}}>
               <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
@@ -274,8 +278,7 @@ const GetTokensSupply = (data) => {
       token != 'bitfinex_pairs' &&
       token != 'blocksence_tickers' &&
       token != 'global_data' &&
-      token != 'eos_stat' &&
-      token != 'eosioram'
+      token != 'eos_stat'
     ) {
       index = EOSMarkets.findIndex((e) => e.currency == token);
 
@@ -353,11 +356,10 @@ class EOSMarketCap extends Component {
             dataTM.newdex_tickers &&
             dataTM.bigone_tickers &&
             dataTM.bitfinex_pairs &&
-            dataTM.blocksence_tickers &&
-            dataTM.eosioram
+            dataTM.blocksence_tickers
           ) {
             CalculateEOSMarkets(dataTM);
-            const {eosioram, global_data, eos_stat, table_rows, cmc} = dataTM;
+            const {global_data, eos_stat, table_rows, cmc} = dataTM;
 
             ram_price = (
               (Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
@@ -369,9 +371,11 @@ class EOSMarketCap extends Component {
             eos_price = Number(cmc.data.quotes.USD.price).toFixed(2);
             eos_percent_change_24h = cmc.data.quotes.USD.percent_change_24h;
             eos_volume_24h = cmc.data.quotes.USD.volume_24h;
-            eosio_ram = Number(eosioram.core_liquid_balance.split(' ')[0]).toLocaleString('en', {
+            {
+              /* eosio_ram = Number(eosioram.core_liquid_balance.split(' ')[0]).toLocaleString('en', {
               maximumFractionDigits: 0
-            });
+            }); */
+            }
 
             //EOS
             tokens.push(
@@ -431,8 +435,8 @@ class EOSMarketCap extends Component {
                   </div>
                 </div>
                 <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
-                  <div className="col-12 col-sm-6 p-0 text-right">{eosio_ram}</div>
-                  <div className="col-12 col-sm-6 p-0 text-right"> {eosio_ram} </div>
+                  <div className="col-12 col-sm-6 p-0 text-right" />
+                  <div className="col-12 col-sm-6 p-0 text-right"> </div>
                 </div>
                 <div className="col-3 row p-0 m-0 d-flex align-items-center ">
                   <div className="col-12 col-sm-7 p-0 text-right pr-1">{ram_price}</div>
@@ -538,13 +542,13 @@ class EOSMarketCap extends Component {
               <article className="content dashboard-page">
                 <section className="section">
                   <div className={`card mlr-2px shadow-sm ftz-marketcap mb-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
-                    <div className={`card-header pl-2 mb-1 shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
+                    <div className={`card-header pl-2 ${isDarkMode ? 'bg-dark' : 'bg-actions'}`}>
                       <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
                       <h1 className="title text-info">EOS Marketcap</h1>
                     </div>
                     <div className="bg-white p-0 m-0 card-body ">
                       <div
-                        className={`row p-1 shadow-sm mb-1 mbt-1px text-info ${isDarkMode ? 'bg-dark' : 'bg-white'}`}
+                        className={`row p-1 shadow-sm mbt-1px text-info ${isDarkMode ? 'bg-dark' : 'bg-white'}`}
                         key={1}
                       >
                         <div className="col-3 pl-1 row m-0 d-flex align-items-center">

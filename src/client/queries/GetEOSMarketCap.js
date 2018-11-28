@@ -41,9 +41,6 @@ const GenCurGql = (Tokens) => {
         supply
       }
     }
-    eosioram: account(account_name: "eosio.ram") {
-      core_liquid_balance
-    }
     global_data(json: "true", code: "eosio", scope: "eosio", table: "global", limit: "10") {
       rows {
         max_ram_size

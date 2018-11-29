@@ -34,3 +34,4 @@ export const SET_TOKEN_PRICE_SEARCH = 'set_token_price_search';
 export const SET_TOKEN_BALANCE_UNIT = 'set_token_balance_unit';
 export const SET_REFETCH_WALLET_FUNC = 'set_refetch_wallet_func';
 export const SET_IS_WALLET_REFETCH = 'set_is_wallet_refetch';
+export const SET_MARKETCAP_UNIT = 'set_marketcap_unit';

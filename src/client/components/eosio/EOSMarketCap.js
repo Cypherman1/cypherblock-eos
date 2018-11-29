@@ -4,7 +4,10 @@ import {Query} from 'react-apollo';
 import ReactImageFallback from 'react-image-fallback';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderPPColor} from '../utils/RenderColors';
-import {setActiveLinkID} from '../../actions/sidebar';
+import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
+import eoslogo from '../../assets/imgs/eoslogo1.svg';
+import NumberEasing from '../utils/NumberEasing';
+
 import GetEOSMarketcap from '../../queries/GetEOSMarketcap';
 import {formatBandUnits} from '../utils/FormatUnits';
 const images = './imgs';
@@ -25,6 +28,9 @@ let eos_price = 0;
 let eos_percent_change_24h = 0;
 let eos_volume_24h = 0;
 let eosio_ram = 0;
+let total_token_marketcap = 0;
+let total_token_volume = 0;
+let token_num = 0;
 
 const CalculateEOSMarkets = (data) => {
   EOSMarkets = [];
@@ -33,37 +39,48 @@ const CalculateEOSMarkets = (data) => {
   Add_BigoneTickers(data.bigone_tickers);
   Add_BlockSenceTicker(data.blocksence_tickers);
   Add_BifinexPairs(data.bitfinex_pairs);
-  Aggregate_Markets();
   GetTokensSupply(data);
+  Aggregate_Markets();
 };
 
 const Aggregate_Markets = () => {
+  total_token_marketcap = 0;
+  total_token_volume = 0;
+  token_num = 0;
   for (var i = 0; i < EOSMarkets.length; i++) {
     tmp_amount = 0;
     tmp_last = 0;
     tmp_change = 0;
     tmp_volume = 0;
     exs_count = 0;
+    // aggregate volume, price, 24h percent of all exchanges for each token
     EOSMarkets[i].exchanges.map((exchange) => {
       tmp_amount += exchange.amount;
       tmp_volume += exchange.volume;
       tmp_last += exchange.last * exchange.amount;
       tmp_change += exchange.change * exchange.amount;
     });
+    //update ammout and volume of each token
     EOSMarkets[i].amount = tmp_amount;
     EOSMarkets[i].volume = tmp_volume;
     if (tmp_amount > 0) {
+      //calculate volume percentage of each exchange
       EOSMarkets[i].exchanges.map((exchange, index) => {
         EOSMarkets[i].exchanges[index].percent = ((EOSMarkets[i].exchanges[index].amount / tmp_amount) * 100).toFixed(
           2
         );
       });
+      //update price and change percent of each token
       EOSMarkets[i].last = tmp_last / tmp_amount;
       EOSMarkets[i].change = tmp_change / tmp_amount;
     } else {
       EOSMarkets[i].last = tmp_last;
       EOSMarkets[i].change = tmp_change;
     }
+    //calcualate total statistic
+    total_token_volume += tmp_volume;
+    total_token_marketcap += Number(EOSMarkets[i].supply.current) * Number(EOSMarkets[i].last);
+    token_num += 1;
   }
 };
 
@@ -334,14 +351,34 @@ const RenderExchanges = (exchanges, isDarkMode) => {
   return exchanges_info;
 };
 
+const renderMCVal = (mcVal, mcUnit, eos_price) => {
+  return (
+    <div>
+      {mcUnit == 1 ? <img src={eoslogo} alt="eos" className="eos-unit" /> : '$'}
+      <NumberEasing
+        value={mcUnit == 1 ? Number(mcVal.toFixed(0)) : Number(mcVal) * Number(eos_price)}
+        ease="backIn"
+        precision={0}
+        speed={500}
+        trail={true}
+        useLocaleString={true}
+      />
+    </div>
+  );
+};
+
 class EOSMarketCap extends Component {
   componentWillMount() {
     this.props.setActiveLinkID(3);
   }
   render() {
-    const {isDarkMode} = this.props.sidebar;
+    const {isDarkMode, mcUnit} = this.props.sidebar;
+
     tokens = [];
     exchanges_info = [];
+    token_num = 0;
+    total_token_marketcap = 0;
+    total_token_volume = 0;
     return (
       <Query query={GetEOSMarketcap} pollInterval={0}>
         {({loading: loadingTM, error: errorTM, data: dataTM}) => {
@@ -467,14 +504,14 @@ class EOSMarketCap extends Component {
                       <div>{token.currency.toUpperCase()}</div>
                     </div>
                   </div>
-                  <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
-                    <div className="col-12 col-sm-6 p-0 text-right">
-                      {Number(token.supply.current).toLocaleString(undefined, {maximumFractionDigits: 0})}
-                    </div>
+                  <div className="col-3 row p-0 m-0 d-flex align-items-center">
                     <div className="col-12 col-sm-6 p-0 text-right">
                       {(Number(token.supply.current) * Number(token.last)).toLocaleString(undefined, {
                         maximumFractionDigits: 0
                       })}
+                    </div>
+                    <div className="col-12 col-sm-6 p-0 text-right">
+                      {Number(token.supply.current).toLocaleString(undefined, {maximumFractionDigits: 0})}
                     </div>
                   </div>
                   <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
@@ -542,9 +579,99 @@ class EOSMarketCap extends Component {
               <article className="content dashboard-page">
                 <section className="section">
                   <div className={`card mlr-2px shadow-sm ftz-marketcap mb-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
-                    <div className={`card-header pl-2 ${isDarkMode ? 'bg-dark' : 'bg-actions'}`}>
-                      <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
-                      <h1 className="title text-info">EOS Marketcap</h1>
+                    <div className={`card-header row m-0 ${isDarkMode ? 'bg-dark' : 'bg-actions'}`}>
+                      <div className="col-12 p-2 row m-0">
+                        <div className="col p-0 d-flex align-items-center">
+                          <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
+                          <h1 className="title text-info">EOS Marketcap</h1>
+                        </div>
+                        <label className="font-weight-normal float-right mb-0">
+                          <select
+                            id="inputmcUnit"
+                            className="form-control-sm border-0"
+                            value={mcUnit}
+                            onChange={(event) => {
+                              this.props.setMarketcapUnit(event.target.value);
+                            }}
+                            style={{height: 30}}
+                          >
+                            <option value={1}>EOS</option>
+                            <option value={2}>USD</option>
+                          </select>
+                        </label>
+                        <div className="ml-1">
+                          <div
+                            className="input-group input-group-seamless mb-0 pr-1 float-right"
+                            style={{width: 100, height: 30}}
+                          >
+                            <input
+                              type="text"
+                              className="form-control border-0"
+                              aria-label="Text input with checkbox"
+                              onChange={(event) => {
+                                this.props.setSearchSymbol(event.target.value);
+                              }}
+                            />
+                            <div className="input-group-append">
+                              <div className="input-group-text">
+                                <i className="fa fa-search" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className={`col-12 row pt-1 pl-5 m-0 shadow-sm mbt-1px ${
+                          isDarkMode ? 'bg-dark-1' : 'bg-white'
+                        }`}
+                        key={2}
+                      >
+                        <div className="col-4  row pr-0 m-0">
+                          <div className="col-12 col-sm-6 p-0">
+                            <div className="text-info ftz-headermc"> 24H VOLUME </div>
+                            <div className="">{renderMCVal(total_token_volume, mcUnit, eos_price)}</div>
+                          </div>
+                          <div className="col-12 col-sm-6 p-0 ">
+                            <div className="text-info ftz-headermc"> 24H VOLUME(+EOS) </div>
+                            <div className="">
+                              {renderMCVal(total_token_volume + eos_volume_24h / eos_price, mcUnit, eos_price)}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="col-4  row pr-0 m-0">
+                          <div className="col-12 col-sm-6 p-0">
+                            <div className="text-info ftz-headermc"> MARKETCAP </div>
+                            <div className="">{renderMCVal(total_token_marketcap, mcUnit, eos_price)}</div>
+                          </div>
+                          <div className="col-12 col-sm-6 p-0 ">
+                            <div className="text-info ftz-headermc"> MARKETCAP(+EOS) </div>
+                            <div className="">
+                              {renderMCVal(total_token_marketcap + eos_total_supply, mcUnit, eos_price)}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-4  row pr-0 m-0">
+                          <div className="col-12 col-sm-6 p-0 ">
+                            <div className="text-info ftz-headermc"> EOS VOL DOMINANCE </div>
+                            <div className="">
+                              {(
+                                ((eos_volume_24h / eos_price) * 100) /
+                                (eos_volume_24h / eos_price + total_token_volume)
+                              ).toLocaleString(undefined, {maximumFractionDigits: 2})}%
+                            </div>
+                          </div>
+                          <div className="col-12 col-sm-6 p-0">
+                            <div className="text-info ftz-headermc"> EOS MC DOMINANCE </div>
+                            <div className="">
+                              {((eos_total_supply * 100) / (eos_total_supply + total_token_marketcap)).toLocaleString(
+                                undefined,
+                                {maximumFractionDigits: 2}
+                              )}%
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div className="bg-white p-0 m-0 card-body ">
                       <div
@@ -555,9 +682,9 @@ class EOSMarketCap extends Component {
                           <div className="col-2 p-0 d-flex align-items-center">#</div>
                           <div className="col-10 p-0 pl-2 d-flex align-items-center">Name</div>
                         </div>
-                        <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
-                          <div className="col-12 col-sm-6 p-0 text-right">Supply</div>
-                          <div className="col-12 col-sm-6 p-0 text-right">Marketcap(EOS)</div>
+                        <div className="col-3 row p-0 m-0 d-flex align-items-center">
+                          <div className="col-12 col-sm-6 p-0 text-right">Marketcap</div>
+                          <div className="col-12 col-sm-6 p-0 text-right">Circulating Supply</div>
                         </div>
                         <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
                           <div className="col-12 col-sm-6 p-0 text-right">24h Volume</div>
@@ -568,6 +695,7 @@ class EOSMarketCap extends Component {
                           <div className="col-12 col-sm-5 p-0 text-right pr-1">24h Change </div>
                         </div>
                       </div>
+
                       {tokens}
                     </div>
                   </div>
@@ -587,5 +715,5 @@ function mapStateToProps({myStore}) {
 }
 export default connect(
   mapStateToProps,
-  {setActiveLinkID}
+  {setActiveLinkID, setMarketcapUnit}
 )(EOSMarketCap);

@@ -1252,6 +1252,13 @@ span.CodeMirror-selectedtext {
   .ftz-marketcap {
     font-size: 10px !important;
   }
+  .ftz-headermc {
+    font-size: 6px !important;
+  }
+  .eos-unit {
+    height: 14px !important;
+    padding-bottom: 2px !important;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -1294,6 +1301,13 @@ span.CodeMirror-selectedtext {
   .ftz-marketcap {
     font-size: 10px !important;
   }
+  .ftz-headermc {
+    font-size: 7px !important;
+  }
+  .eos-unit {
+    height: 14px !important;
+    padding-bottom: 2px !important;
+  }
   /* .stat .value {
     line-height: 40px !important;
   }
@@ -1324,6 +1338,13 @@ span.CodeMirror-selectedtext {
   .ftz-marketcap {
     font-size: 12px !important;
   }
+  .ftz-headermc {
+    font-size: 8px !important;
+  }
+  .eos-unit {
+    height: 15px !important;
+    padding-bottom: 2px !important;
+  }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .mr-offset {
@@ -1348,6 +1369,13 @@ span.CodeMirror-selectedtext {
   }
   .ftz-marketcap {
     font-size: 13px !important;
+  }
+  .ftz-headermc {
+    font-size: 9px !important;
+  }
+  .eos-unit {
+    height: 15px !important;
+    padding-bottom: 2px !important;
   }
 }
 @media (min-width: 1200px) {
@@ -1377,6 +1405,13 @@ span.CodeMirror-selectedtext {
   }
   .ftz-marketcap {
     font-size: 13px !important;
+  }
+  .ftz-headermc {
+    font-size: 9px !important;
+  }
+  .eos-unit {
+    height: 15px !important;
+    padding-bottom: 2px !important;
   }
 }
 

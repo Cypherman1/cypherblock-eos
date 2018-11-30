@@ -2,14 +2,16 @@ import {
   SET_TOKEN_PRICE_SEARCH,
   SET_TOKEN_BALANCE_UNIT,
   SET_REFETCH_WALLET_FUNC,
-  SET_IS_WALLET_REFETCH
+  SET_IS_WALLET_REFETCH,
+  SET_MC_SEARCH_SYMBOL
 } from '../actions/types';
 
 const INITIAL_STATE = {
   symbol: '',
   isEOSUnit: true,
   refetchWallet: null,
-  isWalletRefetch: false
+  isWalletRefetch: false,
+  mc_symbol: ''
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -22,6 +24,8 @@ export default function(state = INITIAL_STATE, action) {
       return {...state, refetchWallet: action.payload};
     case SET_IS_WALLET_REFETCH:
       return {...state, isWalletRefetch: action.payload};
+    case SET_MC_SEARCH_SYMBOL:
+      return {...state, mc_symbol: action.payload};
     default:
       return state;
   }

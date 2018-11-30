@@ -4,7 +4,7 @@ const INNITAL_STATE = {
   activeLinkId: 1,
   sidebarStatus: false,
   isDarkMode: false,
-  mcUnit: 1
+  mcUnit: 2
 };
 
 export default function(state = INNITAL_STATE, action) {
@@ -16,7 +16,6 @@ export default function(state = INNITAL_STATE, action) {
     case SET_IS_DARK_MODE:
       return {...state, isDarkMode: action.payload};
     case SET_MARKETCAP_UNIT:
-      console.log('aaa');
       return {...state, mcUnit: action.payload};
     default:
       return state;

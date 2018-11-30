@@ -151,8 +151,8 @@ const ActionCardHeader = ({
                       setLimitValue(event.target.value);
                     }}
                   >
-                    <option value={25} defaultChecked>
-                      25
+                    <option value={20} defaultChecked>
+                      20
                     </option>
                     <option value={50}>50</option>
                     <option value={100}>100</option>

@@ -391,7 +391,6 @@ const gettPairPrice = (data, bitfinex_pair, bigone_ticker, blocksence_ticker, sy
       }
     });
 
-  // console.log(bigone_tiker);
   if (data.bigone_tickers && bigone_ticker)
     data.bigone_tickers.data.map((ticker) => {
       if (ticker.market_id == bigone_ticker) {

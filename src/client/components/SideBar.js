@@ -70,7 +70,7 @@ class SideBar extends Component {
     this.props.setIsDarkMode(localStorage.getItem('isDarkMode') == 'true');
   }
   // renderMenu() {
-  //   console.log(this.props.sidebar.isDarkMode);
+
   //   return this.props.sidebar.isDarkMode ? (
   //     <MetisMenu
   //       className="metismenu-dark"

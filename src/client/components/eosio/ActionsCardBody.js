@@ -231,7 +231,10 @@ class ActionsCardBody extends Component {
           </div>
         );
       }
-    } else return <ActionsCardLoading />;
+    } else {
+      console.log(data);
+      return <ActionsCardLoading />;
+    }
   }
 }
 function mapStateToProps({myStore}) {
@@ -258,7 +261,7 @@ export default connect(
         variables: {
           account_name: account_name,
           pos: -1,
-          offset: eosActions.islive ? -25 : 0 - eosActions.limit
+          offset: eosActions.islive ? -20 : 0 - eosActions.limit
         },
         pollInterval: eosActions.islive ? 5000 : 0
       };

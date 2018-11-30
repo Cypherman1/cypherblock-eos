@@ -24,6 +24,8 @@ export const SET_ACTIONS_LENGTH = 'set_actions_length';
 export const SET_ACTIVE_LINK_ID = 'set_active_link_id';
 export const SET_SIDEBAR_STATUS = 'set_sidebar_status';
 export const SET_IS_DARK_MODE = 'set_is_dark_mode';
+export const SET_MARKETCAP_UNIT = 'set_marketcap_unit';
+
 // antispam
 
 export const SET_ANTISPAM_CONFIG = 'set_antispam_config';
@@ -34,4 +36,4 @@ export const SET_TOKEN_PRICE_SEARCH = 'set_token_price_search';
 export const SET_TOKEN_BALANCE_UNIT = 'set_token_balance_unit';
 export const SET_REFETCH_WALLET_FUNC = 'set_refetch_wallet_func';
 export const SET_IS_WALLET_REFETCH = 'set_is_wallet_refetch';
-export const SET_MARKETCAP_UNIT = 'set_marketcap_unit';
+export const SET_MC_SEARCH_SYMBOL = 'set_mc_search_symbol';

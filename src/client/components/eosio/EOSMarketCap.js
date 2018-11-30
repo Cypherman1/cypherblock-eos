@@ -5,8 +5,9 @@ import ReactImageFallback from 'react-image-fallback';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderPPColor} from '../utils/RenderColors';
 import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
+import {setMCSearchSymbol} from '../../actions/common';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
-import NumberEasing from '../utils/NumberEasing';
+import {IsTokenSearched} from '../utils/isTokenSearched';
 
 import GetEOSMarketcap from '../../queries/GetEOSMarketcap';
 import {formatBandUnits} from '../utils/FormatUnits';
@@ -355,14 +356,20 @@ const renderMCVal = (mcVal, mcUnit, eos_price) => {
   return (
     <div>
       {mcUnit == 1 ? <img src={eoslogo} alt="eos" className="eos-unit" /> : '$'}
-      <NumberEasing
-        value={mcUnit == 1 ? Number(mcVal.toFixed(0)) : Number(mcVal) * Number(eos_price)}
-        ease="backIn"
-        precision={0}
-        speed={500}
-        trail={true}
-        useLocaleString={true}
-      />
+      {mcUnit == 1
+        ? Number(mcVal).toLocaleString(undefined, {maximumFractionDigits: 0})
+        : (Number(mcVal) * Number(eos_price)).toLocaleString(undefined, {maximumFractionDigits: 0})}
+    </div>
+  );
+};
+
+const renderMCPrice = (mcVal, mcUnit, eos_price) => {
+  return (
+    <div>
+      {mcUnit == 1 ? <img src={eoslogo} alt="eos" className="eos-unit" /> : '$'}
+      {mcUnit == 1
+        ? Number(mcVal).toLocaleString(undefined, {maximumSignificantDigits: 4})
+        : (Number(mcVal) * Number(eos_price)).toLocaleString(undefined, {maximumSignificantDigits: 4})}
     </div>
   );
 };
@@ -373,6 +380,7 @@ class EOSMarketCap extends Component {
   }
   render() {
     const {isDarkMode, mcUnit} = this.props.sidebar;
+    const {mc_symbol} = this.props.common;
 
     tokens = [];
     exchanges_info = [];
@@ -414,6 +422,37 @@ class EOSMarketCap extends Component {
             }); */
             }
 
+            //RAM
+            tokens.push(
+              <div className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`} key={'EOSTOKEN'}>
+                <div className="col-3 pl-1 row m-0 d-flex align-items-center">
+                  <div className="col-2 p-0 d-flex align-items-center">{0}</div>
+                  <div className="col-10 p-0 pl-2 d-flex align-items-center">
+                    <div className=" mr-2 token_logo" style={{fontSize: 16}}>
+                      <FontAwesomeIcon icon="memory" />
+                    </div>
+                    <div>RAM(KB)</div>
+                  </div>
+                </div>
+                <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
+                  <div className="col-12 col-sm-6 p-0 text-right">{formatBandUnits(max_ram_size)}</div>
+                  <div className="col-12 col-sm-6 p-0 text-right">
+                    {renderMCVal((max_ram_size / 1024) * ram_price, mcUnit, eos_price)}
+                  </div>
+                </div>
+                <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
+                  <div className="col-12 col-sm-6 p-0 text-right" />
+                  <div className="col-12 col-sm-6 p-0 text-right"> </div>
+                </div>
+                <div className="col-3 row p-0 m-0 d-flex align-items-center ">
+                  <div className="col-12 col-sm-7 p-0 text-right pr-1">
+                    {renderMCPrice(ram_price, mcUnit, eos_price)}
+                  </div>
+                  <div className="col-12 col-sm-5 p-0 text-right pr-1" />
+                </div>
+              </div>
+            );
+
             //EOS
             tokens.push(
               <div className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`} key={'RAM'}>
@@ -431,20 +470,20 @@ class EOSMarketCap extends Component {
                     <div>EOS</div>
                   </div>
                 </div>
-                <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
+                <div className="col-3 row p-0 m-0 d-flex align-items-center">
                   <div className="col-12 col-sm-6 p-0 text-right">
-                    {eos_total_supply.toLocaleString(undefined, {maximumFractionDigits: 0})}
+                    {renderMCVal(eos_total_supply, mcUnit, eos_price)}
                   </div>
                   <div className="col-12 col-sm-6 p-0 text-right">
                     {eos_total_supply.toLocaleString(undefined, {maximumFractionDigits: 0})}
                   </div>
                 </div>
-                <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
+                <div className="col-3 row p-0 m-0 d-flex align-items-center ">
                   <div className="col-12 col-sm-6 p-0 text-right">
-                    ${Number(eos_volume_24h).toLocaleString(undefined, {maximumFractionDigits: 0})}
+                    {renderMCVal(eos_volume_24h / eos_price, mcUnit, eos_price)}
                   </div>
                   <div className="col-12 col-sm-6 p-0 text-right">
-                    ${Number(eos_volume_24h).toLocaleString(undefined, {maximumFractionDigits: 0})}
+                    {Number(eos_volume_24h / eos_price).toLocaleString(undefined, {maximumFractionDigits: 0})}
                   </div>
                 </div>
                 <div className="col-3 row p-0 m-0 d-flex align-items-center ">
@@ -453,133 +492,108 @@ class EOSMarketCap extends Component {
                 </div>
               </div>
             );
-            //RAM
-            tokens.push(
-              <div className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`} key={'EOSTOKEN'}>
-                <div className="col-3 pl-1 row m-0 d-flex align-items-center">
-                  <div className="col-2 p-0 d-flex align-items-center">{2}</div>
-                  <div className="col-10 p-0 pl-2 d-flex align-items-center">
-                    <div className=" mr-2 token_logo" style={{fontSize: 16}}>
-                      <FontAwesomeIcon icon="memory" />
-                    </div>
-                    <div>RAM</div>
-                  </div>
-                </div>
-                <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
-                  <div className="col-12 col-sm-6 p-0 text-right">{formatBandUnits(max_ram_size)}</div>
-                  <div className="col-12 col-sm-6 p-0 text-right">
-                    {((max_ram_size / 1024) * ram_price).toLocaleString(undefined, {maximumFractionDigits: 0})}
-                  </div>
-                </div>
-                <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
-                  <div className="col-12 col-sm-6 p-0 text-right" />
-                  <div className="col-12 col-sm-6 p-0 text-right"> </div>
-                </div>
-                <div className="col-3 row p-0 m-0 d-flex align-items-center ">
-                  <div className="col-12 col-sm-7 p-0 text-right pr-1">{ram_price}</div>
-                  <div className="col-12 col-sm-5 p-0 text-right pr-1" />
-                </div>
-              </div>
-            );
+
             //TOKENS
             EOSMarkets.sort(
               (a, b) => Number(b.supply.current) * Number(b.last) - Number(a.supply.current) * Number(a.last)
             ).map((token, index) => {
-              tokens.push(
-                <div
-                  className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`}
-                  key={token.currency}
-                >
-                  <div className="col-3 pl-1 row m-0 d-flex align-items-center">
-                    <div className="col-2 p-0 d-flex align-items-center">{index + 3}</div>
-                    <div className="col-10 p-0 pl-2 d-flex align-items-center">
-                      <div className="mr-2 bg-white logo-bgr">
-                        <ReactImageFallback
-                          src={`${images}/${token.currency.toUpperCase()}.png`}
-                          fallbackImage={`${images}/COMMON.png`}
-                          alt={`${token.currency} token airdrop`}
-                          className="token_logo"
-                        />
-                      </div>
-                      <div>{token.currency.toUpperCase()}</div>
-                    </div>
-                  </div>
-                  <div className="col-3 row p-0 m-0 d-flex align-items-center">
-                    <div className="col-12 col-sm-6 p-0 text-right">
-                      {(Number(token.supply.current) * Number(token.last)).toLocaleString(undefined, {
-                        maximumFractionDigits: 0
-                      })}
-                    </div>
-                    <div className="col-12 col-sm-6 p-0 text-right">
-                      {Number(token.supply.current).toLocaleString(undefined, {maximumFractionDigits: 0})}
-                    </div>
-                  </div>
-                  <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
-                    <div className="col-12 col-sm-6 p-0 text-right">
-                      <a
-                        className="font-weight-normal"
-                        data-toggle="collapse"
-                        href={`#collapse${token.symbol}`}
-                        role="button"
-                        aria-expanded="true"
-                        aria-controls={`collapse${token.symbol}`}
-                      >
-                        {Number(token.amount).toLocaleString(undefined, {maximumFractionDigits: 0})}
-                      </a>
-                    </div>
-                    <div className="col-12 col-sm-6 p-0 text-right">
-                      <a
-                        className="font-weight-normal"
-                        data-toggle="collapse"
-                        href={`#collapse${token.symbol}`}
-                        role="button"
-                        aria-expanded="true"
-                        aria-controls={`collapse${token.symbol}`}
-                      >
-                        {Number(token.volume).toLocaleString(undefined, {maximumFractionDigits: 0})}
-                      </a>
-                    </div>
-                  </div>
-                  <div className="col-3 row p-0 m-0 d-flex align-items-center ">
-                    <div className="col-12 col-sm-7 p-0 text-right pr-1">
-                      <a
-                        className="font-weight-normal"
-                        data-toggle="collapse"
-                        href={`#collapse${token.symbol}`}
-                        role="button"
-                        aria-expanded="true"
-                        aria-controls={`collapse${token.symbol}`}
-                      >
-                        {Number(token.last).toLocaleString(undefined, {maximumSignificantDigits: 4})}
-                      </a>
-                    </div>
-                    <div className="col-12 col-sm-5 p-0 text-right pr-1">
-                      <a
-                        className="font-weight-normal"
-                        data-toggle="collapse"
-                        href={`#collapse${token.symbol}`}
-                        role="button"
-                        aria-expanded="true"
-                        aria-controls={`collapse${token.symbol}`}
-                      >
-                        {renderPPColor(token.change.toFixed(2))}
-                      </a>
-                    </div>
-                  </div>
+              if (IsTokenSearched(token, mc_symbol)) {
+                tokens.push(
                   <div
-                    className={`mt-1 collapse w-100 ${isDarkMode ? 'bg-dark-1' : 'bg-actions'}`}
-                    id={`collapse${token.symbol}`}
+                    className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`}
+                    key={token.currency}
                   >
-                    {RenderExchanges(token.exchanges, isDarkMode)}
+                    <div className="col-3 pl-1 row m-0 d-flex align-items-center">
+                      <div className="col-2 p-0 d-flex align-items-center">{index + 2}</div>
+                      <div className="col-10 p-0 pl-2 d-flex align-items-center">
+                        <div className="mr-2 bg-white logo-bgr">
+                          <ReactImageFallback
+                            src={`${images}/${token.currency.toUpperCase()}.png`}
+                            fallbackImage={`${images}/COMMON.png`}
+                            alt={`${token.currency} token airdrop`}
+                            className="token_logo"
+                          />
+                        </div>
+                        <div>{token.currency.toUpperCase()}</div>
+                      </div>
+                    </div>
+                    <div className="col-3 row p-0 m-0 d-flex align-items-center">
+                      <div className="col-12 col-sm-6 p-0 text-right">
+                        {renderMCVal(Number(token.supply.current) * Number(token.last), mcUnit, eos_price)}
+                      </div>
+                      <div className="col-12 col-sm-6 p-0 text-right">
+                        {Number(token.supply.current).toLocaleString(undefined, {maximumFractionDigits: 0})}
+                      </div>
+                    </div>
+                    <div className="col-3 row p-0 m-0 d-flex align-items-center">
+                      <div className="col-12 col-sm-6 p-0 text-right">
+                        <a
+                          className="font-weight-normal"
+                          data-toggle="collapse"
+                          href={`#collapse${token.symbol}`}
+                          role="button"
+                          aria-expanded="true"
+                          aria-controls={`collapse${token.symbol}`}
+                        >
+                          {renderMCVal(token.volume, mcUnit, eos_price)}
+                        </a>
+                      </div>
+                      <div className="col-12 col-sm-6 p-0 text-right">
+                        <a
+                          className="font-weight-normal"
+                          data-toggle="collapse"
+                          href={`#collapse${token.symbol}`}
+                          role="button"
+                          aria-expanded="true"
+                          aria-controls={`collapse${token.symbol}`}
+                        >
+                          {Number(token.amount).toLocaleString(undefined, {maximumFractionDigits: 0})}
+                        </a>
+                      </div>
+                    </div>
+                    <div className="col-3 row p-0 m-0 d-flex align-items-center ">
+                      <div className="col-12 col-sm-7 p-0 text-right pr-1">
+                        <a
+                          className="font-weight-normal"
+                          data-toggle="collapse"
+                          href={`#collapse${token.symbol}`}
+                          role="button"
+                          aria-expanded="true"
+                          aria-controls={`collapse${token.symbol}`}
+                        >
+                          {renderMCPrice(token.last, mcUnit, eos_price)}
+                          {/* {Number(token.last).toLocaleString(undefined, {maximumSignificantDigits: 4})} */}
+                        </a>
+                      </div>
+                      <div className="col-12 col-sm-5 p-0 text-right pr-1">
+                        <a
+                          className="font-weight-normal"
+                          data-toggle="collapse"
+                          href={`#collapse${token.symbol}`}
+                          role="button"
+                          aria-expanded="true"
+                          aria-controls={`collapse${token.symbol}`}
+                        >
+                          {renderPPColor(token.change.toFixed(2))}
+                        </a>
+                      </div>
+                    </div>
+                    <div
+                      className={`mt-1 collapse w-100 ${isDarkMode ? 'bg-dark-1' : 'bg-actions'}`}
+                      id={`collapse${token.symbol}`}
+                    >
+                      {RenderExchanges(token.exchanges, isDarkMode)}
+                    </div>
                   </div>
-                </div>
-              );
+                );
+              }
             });
             return (
               <article className="content dashboard-page">
                 <section className="section">
                   <div className={`card mlr-2px shadow-sm ftz-marketcap mb-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                     <div className={`card-header row m-0 ${isDarkMode ? 'bg-dark' : 'bg-actions'}`}>
+                      {/* Page header */}
                       <div className="col-12 p-2 row m-0">
                         <div className="col p-0 d-flex align-items-center">
                           <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
@@ -609,7 +623,7 @@ class EOSMarketCap extends Component {
                               className="form-control border-0"
                               aria-label="Text input with checkbox"
                               onChange={(event) => {
-                                this.props.setSearchSymbol(event.target.value);
+                                this.props.setMCSearchSymbol(event.target.value);
                               }}
                             />
                             <div className="input-group-append">
@@ -620,50 +634,50 @@ class EOSMarketCap extends Component {
                           </div>
                         </div>
                       </div>
+                      {/* Sumaries */}
                       <div
-                        className={`col-12 row pt-1 pl-5 m-0 shadow-sm mbt-1px ${
+                        className={`col-12 row pt-2 pb-1 pl-0 pr-4 shadow-sm m-0 ${
                           isDarkMode ? 'bg-dark-1' : 'bg-white'
                         }`}
                         key={2}
                       >
-                        <div className="col-4  row pr-0 m-0">
+                        <div className="col-4  row pl-0 m-0">
                           <div className="col-12 col-sm-6 p-0">
-                            <div className="text-info ftz-headermc"> 24H VOLUME </div>
-                            <div className="">{renderMCVal(total_token_volume, mcUnit, eos_price)}</div>
+                            <div className="text-info ftz-headermc text-right"> 24H VOLUME </div>
+                            <div className="text-right">{renderMCVal(total_token_volume, mcUnit, eos_price)}</div>
                           </div>
                           <div className="col-12 col-sm-6 p-0 ">
-                            <div className="text-info ftz-headermc"> 24H VOLUME(+EOS) </div>
-                            <div className="">
+                            <div className="text-info ftz-headermc text-right"> 24H VOLUME(+EOS) </div>
+                            <div className="text-right">
                               {renderMCVal(total_token_volume + eos_volume_24h / eos_price, mcUnit, eos_price)}
                             </div>
                           </div>
                         </div>
-
-                        <div className="col-4  row pr-0 m-0">
+                        <div className="col-4  row pl-0 m-0">
                           <div className="col-12 col-sm-6 p-0">
-                            <div className="text-info ftz-headermc"> MARKETCAP </div>
-                            <div className="">{renderMCVal(total_token_marketcap, mcUnit, eos_price)}</div>
+                            <div className="text-info ftz-headermc text-right"> MARKETCAP </div>
+                            <div className="text-right">{renderMCVal(total_token_marketcap, mcUnit, eos_price)}</div>
                           </div>
                           <div className="col-12 col-sm-6 p-0 ">
-                            <div className="text-info ftz-headermc"> MARKETCAP(+EOS) </div>
-                            <div className="">
+                            <div className="text-info ftz-headermc text-right"> MARKETCAP(+EOS) </div>
+                            <div className="text-right">
                               {renderMCVal(total_token_marketcap + eos_total_supply, mcUnit, eos_price)}
                             </div>
                           </div>
                         </div>
-                        <div className="col-4  row pr-0 m-0">
+                        <div className="col-4 row pl-0 m-0">
                           <div className="col-12 col-sm-6 p-0 ">
-                            <div className="text-info ftz-headermc"> EOS VOL DOMINANCE </div>
-                            <div className="">
+                            <div className="text-info ftz-headermc text-right"> EOS VOL DOMINANCE </div>
+                            <div className="text-right">
                               {(
                                 ((eos_volume_24h / eos_price) * 100) /
                                 (eos_volume_24h / eos_price + total_token_volume)
                               ).toLocaleString(undefined, {maximumFractionDigits: 2})}%
                             </div>
                           </div>
-                          <div className="col-12 col-sm-6 p-0">
-                            <div className="text-info ftz-headermc"> EOS MC DOMINANCE </div>
-                            <div className="">
+                          <div className="col-12 col-sm-6 p-0 ">
+                            <div className="text-info ftz-headermc text-right"> EOS MC DOMINANCE </div>
+                            <div className="text-right">
                               {((eos_total_supply * 100) / (eos_total_supply + total_token_marketcap)).toLocaleString(
                                 undefined,
                                 {maximumFractionDigits: 2}
@@ -673,9 +687,12 @@ class EOSMarketCap extends Component {
                         </div>
                       </div>
                     </div>
+                    {/* Table header */}
                     <div className="bg-white p-0 m-0 card-body ">
                       <div
-                        className={`row p-1 shadow-sm mbt-1px text-info ${isDarkMode ? 'bg-dark' : 'bg-white'}`}
+                        className={`row p-1 shadow-sm mbt-1px text-info border-top border-bottom ${
+                          isDarkMode ? 'bg-dark border-secondary' : 'bg-white'
+                        }`}
                         key={1}
                       >
                         <div className="col-3 pl-1 row m-0 d-flex align-items-center">
@@ -686,13 +703,13 @@ class EOSMarketCap extends Component {
                           <div className="col-12 col-sm-6 p-0 text-right">Marketcap</div>
                           <div className="col-12 col-sm-6 p-0 text-right">Circulating Supply</div>
                         </div>
-                        <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
+                        <div className="col-3 row p-0 m-0 d-flex align-items-center">
                           <div className="col-12 col-sm-6 p-0 text-right">24h Volume</div>
-                          <div className="col-12 col-sm-6 p-0 text-right">24h Volume(EOS)</div>
+                          <div className="col-12 col-sm-6 p-0 text-right">24h Token Volume</div>
                         </div>
                         <div className="col-3 row p-0 m-0 d-flex align-items-center ">
                           <div className="col-12 col-sm-7 p-0 text-right pr-1">Price</div>
-                          <div className="col-12 col-sm-5 p-0 text-right pr-1">24h Change </div>
+                          <div className="col-12 col-sm-5 p-0 text-right pr-1">24h % </div>
                         </div>
                       </div>
 
@@ -711,9 +728,9 @@ class EOSMarketCap extends Component {
   }
 }
 function mapStateToProps({myStore}) {
-  return {sidebar: myStore.sidebar};
+  return {sidebar: myStore.sidebar, common: myStore.common};
 }
 export default connect(
   mapStateToProps,
-  {setActiveLinkID, setMarketcapUnit}
+  {setActiveLinkID, setMarketcapUnit, setMCSearchSymbol}
 )(EOSMarketCap);

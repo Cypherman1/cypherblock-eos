@@ -1,4 +1,17 @@
-import {SET_TOKEN_PRICE_SEARCH, SET_TOKEN_BALANCE_UNIT, SET_REFETCH_WALLET_FUNC, SET_IS_WALLET_REFETCH} from './types';
+import {
+  SET_TOKEN_PRICE_SEARCH,
+  SET_TOKEN_BALANCE_UNIT,
+  SET_REFETCH_WALLET_FUNC,
+  SET_IS_WALLET_REFETCH,
+  SET_MC_SEARCH_SYMBOL
+} from './types';
+
+export function setMCSearchSymbol(mc_symbol) {
+  return {
+    type: SET_MC_SEARCH_SYMBOL,
+    payload: mc_symbol
+  };
+}
 
 export function setSearchSymbol(symbol) {
   return {

@@ -10,7 +10,7 @@ import {setActiveLinkID} from '../actions/sidebar';
 
 class Dashboard extends Component {
   componentDidMount() {
-    this.props.setLimitValue(25);
+    this.props.setLimitValue(20);
     this.props.setActiveLinkID(1);
   }
 

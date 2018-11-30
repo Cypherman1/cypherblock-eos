@@ -9,7 +9,7 @@ import {setActiveLinkID} from '../../actions/sidebar';
 
 class Account extends Component {
   componentWillMount() {
-    this.props.setLimitValue(50);
+    this.props.setLimitValue(20);
 
     this.props.setActiveLinkID(1);
   }

@@ -79,7 +79,6 @@ class WalletBody extends Component {
         token != 'bigone_tickers' &&
         token != 'newdex_tickers'
       ) {
-        console.log(data[token]);
         atoken = {
           name: data[token].data[0].split(' ')[1], //token name
           ammount: Number(data[token].data[0].split(' ')[0]), // token ammount
@@ -100,7 +99,7 @@ class WalletBody extends Component {
             Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).symbol
           )
         };
-        //console.log(Tokens.find((o) => o.symbol === data[token].data[0].split(' ')[1]).bigone_tiker);
+
         AllTokens.push(atoken);
       }
     }

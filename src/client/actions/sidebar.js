@@ -1,7 +1,6 @@
 import {SET_ACTIVE_LINK_ID, SET_SIDEBAR_STATUS, SET_IS_DARK_MODE, SET_MARKETCAP_UNIT} from './types';
 
 export function setMarketcapUnit(mcUnit) {
-  console.log(mcUnit);
   return {
     type: SET_MARKETCAP_UNIT,
     payload: mcUnit

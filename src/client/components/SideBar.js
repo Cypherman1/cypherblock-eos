@@ -11,8 +11,8 @@ import {mainstore} from '../store';
 const menu = [
   {
     id: 1,
-    icon: 'dashboard',
-    label: 'Dashboard',
+    icon: 'cubes',
+    label: 'Block Explorer',
     to: '/'
   },
   // {
@@ -24,7 +24,7 @@ const menu = [
   {
     id: 3,
     icon: 'bar-chart',
-    label: 'EOS Marketcap (beta)',
+    label: 'EOS Marketcap',
     to: '/eosmarketcap'
   }
   // ,

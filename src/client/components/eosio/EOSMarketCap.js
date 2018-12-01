@@ -215,46 +215,46 @@ const Add_BigoneTickers = (tickers) => {
 const Add_NewdexTickers = (tickers) => {
   //Loop throught all tickers updated from Newdex
   tickers.data.map((ticker) => {
-    // find current ticker list, if existed, return the index
-    index = EOSMarkets.findIndex((e) => e.symbol == ticker.symbol);
-    if (index === -1) {
-      //if not existed, add ticker to the list
-      EOSMarkets.push({
-        symbol: ticker.symbol,
-        contract: ticker.contract,
-        currency: ticker.currency,
-        supply: {
-          current: 0,
-          max: 0
-        },
-        last: 0,
-        change: 0,
-        amount: 0,
-        volume: 0,
-        exchanges: [
-          {
-            name: 'newdex',
-            url: 'https://newdex.io/trade/' + ticker.symbol,
-            percent: 0,
-            last: Number(ticker.last),
-            change: Number(ticker.change) * 100,
-            amount: Number(ticker.amount),
-            volume: Number(ticker.volume)
-          }
-        ]
-      });
-    } else if (index >= 0) {
-      //if existed, update the info
-      EOSMarkets[index].exchanges.push({
-        name: 'newdex',
-        url: 'https://newdex.io/trade/' + ticker.symbol,
-        percent: 0,
-        last: Number(ticker.last),
-        change: Number(ticker.change) * 100,
-        amount: Number(ticker.amount),
-        volume: Number(ticker.volume)
-      });
-    }
+    // // find current ticker list, if existed, return the index
+    // index = EOSMarkets.findIndex((e) => e.symbol == ticker.symbol);
+    // if (index === -1) {
+    //   //if not existed, add ticker to the list
+    EOSMarkets.push({
+      symbol: ticker.symbol,
+      contract: ticker.contract,
+      currency: ticker.currency,
+      supply: {
+        current: 0,
+        max: 0
+      },
+      last: 0,
+      change: 0,
+      amount: 0,
+      volume: 0,
+      exchanges: [
+        {
+          name: 'newdex',
+          url: 'https://newdex.io/trade/' + ticker.symbol,
+          percent: 0,
+          last: Number(ticker.last),
+          change: Number(ticker.change) * 100,
+          amount: Number(ticker.amount),
+          volume: Number(ticker.volume)
+        }
+      ]
+    });
+    // } else if (index >= 0) {
+    //   //if existed, update the info
+    //   EOSMarkets[index].exchanges.push({
+    //     name: 'newdex',
+    //     url: 'https://newdex.io/trade/' + ticker.symbol,
+    //     percent: 0,
+    //     last: Number(ticker.last),
+    //     change: Number(ticker.change) * 100,
+    //     amount: Number(ticker.amount),
+    //     volume: Number(ticker.volume)
+    //   });
+    // }
   });
 };
 
@@ -705,11 +705,11 @@ class EOSMarketCap extends Component {
                         </div>
                         <div className="col-3 row p-0 m-0 d-flex align-items-center">
                           <div className="col-12 col-sm-6 p-0 text-right">24h Volume</div>
-                          <div className="col-12 col-sm-6 p-0 text-right">24h Token Volume</div>
+                          <div className="col-12 col-sm-6 p-0 text-right">24h Ammount</div>
                         </div>
                         <div className="col-3 row p-0 m-0 d-flex align-items-center ">
                           <div className="col-12 col-sm-7 p-0 text-right pr-1">Price</div>
-                          <div className="col-12 col-sm-5 p-0 text-right pr-1">24h % </div>
+                          <div className="col-12 col-sm-5 p-0 text-right pr-1">24h Change</div>
                         </div>
                       </div>
 

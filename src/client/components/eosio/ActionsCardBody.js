@@ -143,7 +143,7 @@ class ActionsCardBody extends Component {
     } = eosActions;
     if (data.error) return <ActionsCardLoading />;
     let items = [];
-    if (data && data.actions && data.chain && data.total) {
+    if (data && data.actions && data.chain && data.total && data.total.actions[0]) {
       action_digests_tmp = '';
       actions_data = [...data.actions.actions].sort(
         (a, b) => Number(b.account_action_seq) - Number(a.account_action_seq)
@@ -232,7 +232,6 @@ class ActionsCardBody extends Component {
         );
       }
     } else {
-      console.log(data);
       return <ActionsCardLoading />;
     }
   }

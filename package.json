@@ -131,6 +131,7 @@
     "material-ui": "^0.20.2",
     "metismenu": "^2.7.9",
     "mongoose": "4.7.8",
+    "nedb": "^1.8.0",
     "passport": "0.3.2",
     "passport-local": "^1.0.0",
     "rc-switch": "^1.7.0",

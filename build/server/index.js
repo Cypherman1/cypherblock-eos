@@ -1,4 +1,4 @@
-const http = require('http');
+// const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 // const setupApiRoutes = require('./middlewares/api');
@@ -14,11 +14,15 @@ const passportConfig = require('./services/auth');
 const schema = require('./schema/schema');
 const keys = require('./config/keys');
 
+// const getTokens = require('./services/getTokens');
+
 //process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 3000;
 
 // process.on('unhandledRejection', onUnhandledError);
 // process.on('uncaughtException', onUnhandledError);
+
+// getTokens();
 
 const setupAppRoutes =
   process.env.NODE_ENV === 'production' ? require('./middlewares/production') : require('./middlewares/development');

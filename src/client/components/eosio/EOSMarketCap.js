@@ -308,7 +308,7 @@ const GetTokensSupply = (data) => {
   }
 };
 
-const RenderExchanges = (exchanges, isDarkMode) => {
+const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
   exchanges_info = [];
   exchanges.sort((a, b) => b.amount - a.amount).map((exchange) => {
     exchanges_info.push(
@@ -334,15 +334,18 @@ const RenderExchanges = (exchanges, isDarkMode) => {
         </div>
         <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
           <div className="col-12 col-sm-6 p-0 text-right">
+            {/* {renderMCVal(exchange.amount, mcUnit, eos_price)} */}
             {Number(exchange.amount).toLocaleString(undefined, {maximumFractionDigits: 0})}
           </div>
           <div className="col-12 col-sm-6 p-0 text-right">
-            {Number(exchange.volume).toLocaleString(undefined, {maximumFractionDigits: 0})}
+            {renderMCVal(exchange.volume, mcUnit, eos_price)}
+            {/* {Number(exchange.volume).toLocaleString(undefined, {maximumFractionDigits: 0})} */}
           </div>
         </div>
         <div className="col-3 row p-0 m-0 d-flex align-items-center ">
           <div className="col-12 col-sm-7 p-0 text-right pr-1">
-            {Number(exchange.last).toLocaleString(undefined, {maximumSignificantDigits: 4})}
+            {renderMCPrice(exchange.last, mcUnit, eos_price)}
+            {/* {Number(exchange.last).toLocaleString(undefined, {maximumSignificantDigits: 4})} */}
           </div>
           <div className="col-12 col-sm-5 p-0 text-right pr-1">{renderPPColor(exchange.change.toFixed(2))} </div>
         </div>
@@ -582,7 +585,7 @@ class EOSMarketCap extends Component {
                       className={`mt-1 collapse w-100 ${isDarkMode ? 'bg-dark-1' : 'bg-actions'}`}
                       id={`collapse${token.symbol}`}
                     >
-                      {RenderExchanges(token.exchanges, isDarkMode)}
+                      {RenderExchanges(token.exchanges, isDarkMode, mcUnit, eos_price)}
                     </div>
                   </div>
                 );

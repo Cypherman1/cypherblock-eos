@@ -24,7 +24,7 @@ function GetTokensSupply() {
   tokens.map((token) => {
     promises.push(
       axios
-        .post(keys.chainURL + '/v1/chain/get_table_rows', {
+        .post('https://eos.greymass.com/v1/chain/get_table_rows', {
           json: 'true',
           code: token.contract,
           scope: token.currency.toUpperCase(),

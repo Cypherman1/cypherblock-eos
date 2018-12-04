@@ -14,7 +14,10 @@ const passportConfig = require('./services/auth');
 const schema = require('./schema/schema');
 const keys = require('./config/keys');
 
-// const getTokens = require('./services/getTokens');
+const {readTokens} = require('./models/tokensModel');
+const getTokens = require('./services/getTokens');
+const GetTokensSupply = require('./services/GetTokensSupply');
+var schedule = require('node-schedule');
 
 //process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 3000;
@@ -23,6 +26,8 @@ const PORT = process.env.PORT || 3000;
 // process.on('uncaughtException', onUnhandledError);
 
 // getTokens();
+
+// console.log(readTokens());
 
 const setupAppRoutes =
   process.env.NODE_ENV === 'production' ? require('./middlewares/production') : require('./middlewares/development');
@@ -97,6 +102,21 @@ logger.info(`Application env: ${process.env.NODE_ENV}`);
 
 app.use(logger.expressMiddleware);
 app.use(bodyParser.json());
+
+var j = schedule.scheduleJob('42 * * * * *', function() {
+  try {
+    getTokens();
+  } catch (err) {
+    logger.info('getTokens Fail!' + err);
+  }
+});
+var j1 = schedule.scheduleJob('52 * * * * *', function() {
+  try {
+    GetTokensSupply();
+  } catch (err) {
+    logger.info('getTokensSupply Fail!' + err);
+  }
+});
 
 // application routes
 //setupApiRoutes(app);

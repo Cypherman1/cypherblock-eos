@@ -10,6 +10,8 @@ import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {IsTokenSearched} from '../utils/isTokenSearched';
 
 import GetEOSMarketcap from '../../queries/GetEOSMarketcap';
+import GetEOSMarketcap1 from '../../queries/GetEOSMarketcap1';
+
 import {formatBandUnits} from '../utils/FormatUnits';
 const images = './imgs';
 
@@ -40,7 +42,8 @@ const CalculateEOSMarkets = (data) => {
   Add_BigoneTickers(data.bigone_tickers);
   Add_BlockSenceTicker(data.blocksence_tickers);
   Add_BifinexPairs(data.bitfinex_pairs);
-  GetTokensSupply(data);
+  GetTokensSupply1(data.tokens_supply);
+  //GetTokensSupply(data);
   Aggregate_Markets();
 };
 
@@ -283,6 +286,16 @@ const EOSMarketCapLoading = ({isDarkMode}) => {
   );
 };
 
+const GetTokensSupply1 = (tokens_supply) => {
+  tokens_supply.data.map((token) => {
+    index = EOSMarkets.findIndex((e) => e.symbol.toUpperCase() == token.symbol.toUpperCase());
+    if (index >= 0) {
+      EOSMarkets[index].supply.current = token.supply;
+      EOSMarkets[index].supply.max = token.max_supply;
+    }
+  });
+};
+
 const GetTokensSupply = (data) => {
   for (var token in data) {
     if (
@@ -391,7 +404,7 @@ class EOSMarketCap extends Component {
     total_token_marketcap = 0;
     total_token_volume = 0;
     return (
-      <Query query={GetEOSMarketcap} pollInterval={0}>
+      <Query query={GetEOSMarketcap1} pollInterval={0}>
         {({loading: loadingTM, error: errorTM, data: dataTM}) => {
           if (loadingTM) return <EOSMarketCapLoading isDarkMode={isDarkMode} />;
           if (errorTM) return <EOSMarketCapLoading isDarkMode={isDarkMode} />;
@@ -404,7 +417,8 @@ class EOSMarketCap extends Component {
             dataTM.newdex_tickers &&
             dataTM.bigone_tickers &&
             dataTM.bitfinex_pairs &&
-            dataTM.blocksence_tickers
+            dataTM.blocksence_tickers &&
+            dataTM.tokens_supply
           ) {
             CalculateEOSMarkets(dataTM);
             const {global_data, eos_stat, table_rows, cmc} = dataTM;

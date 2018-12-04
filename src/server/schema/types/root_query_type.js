@@ -25,6 +25,11 @@ const NewDexTickersType = require('./newdex_tickers_type');
 const {MongoActionsType} = require('./mongo_actions_type');
 const MongoTransactionType = require('./mongo_transaction_type');
 const CurrencyStatsType = require('./currency_stats_type');
+const TokensSupplyType = require('./tokens_supply_type');
+const TOKENS_SUPPLY_PATH = __dirname + '/../../db/tokens_supply.json';
+
+let fs = require('fs');
+const readFileAsync = require('util').promisify(fs.readFile);
 
 let VoterInfo = {};
 
@@ -286,6 +291,16 @@ const RootQueryType = new GraphQLObjectType({
             symbol
           })
           .then((res) => res)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    tokens_supply: {
+      type: TokensSupplyType,
+      resolve() {
+        return readFileAsync(TOKENS_SUPPLY_PATH)
+          .then((data) => JSON.parse(data))
           .catch((error) => {
             onError(error);
           });

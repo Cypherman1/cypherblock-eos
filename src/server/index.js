@@ -15,9 +15,9 @@ const schema = require('./schema/schema');
 const keys = require('./config/keys');
 
 // const {readTokens} = require('./models/tokensModel');
-// const getTokens = require('./services/getTokens');
+const getTokens = require('./services/getTokens');
 // const GetTokensSupply = require('./services/GetTokensSupply');
-// var schedule = require('node-schedule');
+var schedule = require('node-schedule');
 
 //process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 3000;
@@ -103,13 +103,13 @@ logger.info(`Application env: ${process.env.NODE_ENV}`);
 app.use(logger.expressMiddleware);
 app.use(bodyParser.json());
 
-// var j = schedule.scheduleJob('42 * * * * *', function() {
-//   try {
-//     getTokens();
-//   } catch (err) {
-//     logger.info('getTokens Fail!' + err);
-//   }
-// });
+var j = schedule.scheduleJob('42 * * * * *', function() {
+  try {
+    getTokens();
+  } catch (err) {
+    logger.info('getTokens Fail!' + err);
+  }
+});
 // var j1 = schedule.scheduleJob('52 * * * * *', function() {
 //   try {
 //     GetTokensSupply();

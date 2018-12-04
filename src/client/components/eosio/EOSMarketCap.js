@@ -737,6 +737,7 @@ class EOSMarketCap extends Component {
               </article>
             );
           } else {
+            console.log(dataTM);
             return <EOSMarketCapLoading isDarkMode={isDarkMode} />;
           }
         }}

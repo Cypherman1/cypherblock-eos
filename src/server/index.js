@@ -114,7 +114,7 @@ var j1 = schedule.scheduleJob('52 * * * * *', function() {
   try {
     GetTokensSupply();
   } catch (err) {
-    logger.info('getTokensSupply Fail!' + err);
+    process.stdout.write('getTokensSupply Fail!' + err);
   }
 });
 

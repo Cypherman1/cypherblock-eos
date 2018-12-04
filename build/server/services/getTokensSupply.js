@@ -31,7 +31,9 @@ function GetTokensSupply() {
           table: 'stat',
           limit: 10
         })
-        .catch((err) => {})
+        .catch((err) => {
+          process.stdout.write('Promises Fail!' + err);
+        })
     );
   });
 
@@ -57,7 +59,9 @@ function GetTokensSupply() {
       });
       fs.writeFileSync(TOKENS_SUPPLY_PATH, JSON.stringify(mainObject));
     })
-    .catch((error) => {});
+    .catch((error) => {
+      process.stdout.write('axios all error!' + error);
+    });
 }
 
 module.exports = GetTokensSupply;

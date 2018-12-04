@@ -16,7 +16,7 @@ const keys = require('./config/keys');
 
 // const {readTokens} = require('./models/tokensModel');
 const getTokens = require('./services/getTokens');
-// const GetTokensSupply = require('./services/GetTokensSupply');
+const GetTokensSupply = require('./services/GetTokensSupply');
 var schedule = require('node-schedule');
 
 //process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -110,13 +110,13 @@ var j = schedule.scheduleJob('42 * * * * *', function() {
     logger.info('getTokens Fail!' + err);
   }
 });
-// var j1 = schedule.scheduleJob('52 * * * * *', function() {
-//   try {
-//     GetTokensSupply();
-//   } catch (err) {
-//     logger.info('getTokensSupply Fail!' + err);
-//   }
-// });
+var j1 = schedule.scheduleJob('52 * * * * *', function() {
+  try {
+    GetTokensSupply();
+  } catch (err) {
+    logger.info('getTokensSupply Fail!' + err);
+  }
+});
 
 // application routes
 //setupApiRoutes(app);

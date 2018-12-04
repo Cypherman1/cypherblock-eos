@@ -14,10 +14,10 @@ const passportConfig = require('./services/auth');
 const schema = require('./schema/schema');
 const keys = require('./config/keys');
 
-const {readTokens} = require('./models/tokensModel');
-const getTokens = require('./services/getTokens');
-const GetTokensSupply = require('./services/GetTokensSupply');
-var schedule = require('node-schedule');
+// const {readTokens} = require('./models/tokensModel');
+// const getTokens = require('./services/getTokens');
+// const GetTokensSupply = require('./services/GetTokensSupply');
+// var schedule = require('node-schedule');
 
 //process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 3000;

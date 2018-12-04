@@ -103,20 +103,20 @@ logger.info(`Application env: ${process.env.NODE_ENV}`);
 app.use(logger.expressMiddleware);
 app.use(bodyParser.json());
 
-var j = schedule.scheduleJob('42 * * * * *', function() {
-  try {
-    getTokens();
-  } catch (err) {
-    logger.info('getTokens Fail!' + err);
-  }
-});
-var j1 = schedule.scheduleJob('52 * * * * *', function() {
-  try {
-    GetTokensSupply();
-  } catch (err) {
-    logger.info('getTokensSupply Fail!' + err);
-  }
-});
+// var j = schedule.scheduleJob('42 * * * * *', function() {
+//   try {
+//     getTokens();
+//   } catch (err) {
+//     logger.info('getTokens Fail!' + err);
+//   }
+// });
+// var j1 = schedule.scheduleJob('52 * * * * *', function() {
+//   try {
+//     GetTokensSupply();
+//   } catch (err) {
+//     logger.info('getTokensSupply Fail!' + err);
+//   }
+// });
 
 // application routes
 //setupApiRoutes(app);

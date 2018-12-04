@@ -722,7 +722,7 @@ class EOSMarketCap extends Component {
                         </div>
                         <div className="col-3 row p-0 m-0 d-flex align-items-center">
                           <div className="col-12 col-sm-6 p-0 text-right">24h Volume</div>
-                          <div className="col-12 col-sm-6 p-0 text-right">24h Ammount</div>
+                          <div className="col-12 col-sm-6 p-0 text-right">24h Amount</div>
                         </div>
                         <div className="col-3 row p-0 m-0 d-flex align-items-center ">
                           <div className="col-12 col-sm-7 p-0 text-right pr-1">Price</div>

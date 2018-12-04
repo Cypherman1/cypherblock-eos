@@ -41,7 +41,6 @@ function GetTokensSupply() {
       results.map((response) => {
         if (response && response.status == 200) {
           if (response.data && response.data.rows && response.data.rows[0] && JSON.parse(response.config.data)) {
-            
             mainObject.data.push({
               symbol:
                 JSON.parse(response.config.data).code +

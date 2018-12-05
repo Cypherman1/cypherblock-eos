@@ -1,6 +1,8 @@
 import gql from 'graphql-tag';
 
-import {Tokens} from '../components/utils/Tokens';
+// import {Tokens} from '../components/utils/Tokens';
+
+import Tokens from '../../server/db/tokens.json';
 
 const GenCurGql = (Tokens) => {
   let gqlstr = '';

@@ -5,7 +5,7 @@ import ReactImageFallback from 'react-image-fallback';
 import {CSSTransitionGroup} from 'react-transition-group';
 import NumberEasing from '../utils/NumberEasing';
 import {renderEOSNum, renderPPColor} from '../utils/RenderColors';
-import {Tokens} from '../utils/Tokens';
+import Tokens from '../../../server/db/tokens.json';
 import {gettPairPrice, gettPairPercent} from '../utils/Tools';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetWalletInfo from '../../queries/GetWalletInfo';

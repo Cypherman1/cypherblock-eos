@@ -123,5 +123,6 @@ var j1 = schedule.scheduleJob('52 * * * * *', function() {
 setupAppRoutes(app);
 
 app.listen(PORT, () => {
+  process.stdout.write(`HTTP server is now running on http://localhost:${PORT}`);
   logger.info(`HTTP server is now running on http://localhost:${PORT}`);
 });

@@ -54,7 +54,8 @@ export const AntiSpams = {
     'message.x',
     'experimentms',
     'gameboylucky',
-    'eosjackscool'
+    'eosjackscool',
+    'lelego.x'
   ],
   black_list: [
     {

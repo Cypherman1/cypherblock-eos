@@ -10,7 +10,7 @@ let tokens = [];
 let mainObject = {data: []};
 let promises = [];
 
-function GetTokensSupply() {
+const getSupply = () => {
   mainObject = {data: []};
   promises = [];
 
@@ -62,6 +62,6 @@ function GetTokensSupply() {
     .catch((error) => {
       process.stdout.write('axios all error!' + error);
     });
-}
+};
 
-module.exports = GetTokensSupply;
+module.exports = getSupply;

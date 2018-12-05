@@ -16,7 +16,7 @@ const keys = require('./config/keys');
 
 // const {readTokens} = require('./models/tokensModel');
 const getTokens = require('./services/getTokens');
-const GetTokensSupply = require('./services/GetTokensSupply');
+const getSupply = require('./services/getSupply');
 var schedule = require('node-schedule');
 
 //process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -112,7 +112,7 @@ var j = schedule.scheduleJob('42 * * * * *', function() {
 });
 var j1 = schedule.scheduleJob('52 * * * * *', function() {
   try {
-    GetTokensSupply();
+    getSupply();
   } catch (err) {
     process.stdout.write('getTokensSupply Fail!' + err);
   }

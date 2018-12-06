@@ -336,7 +336,7 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
               {exchange.name} (<span className="ftz-10">{exchange.percent}%</span>)
             </a>
           </div>
-          <div className="mr-1 bg-light logo-exc">
+          <div className="mr-1 bg-white logo-exc">
             <ReactImageFallback
               src={`${images}/${exchange.name}.png`}
               fallbackImage={`${images}/COMMON.png`}

@@ -1,6 +1,6 @@
 const axios = require('axios');
 // const keys = require('../config/keys');
-const TOKENS_PATH = __dirname + '/../db/tokens.json';
+const TOKENS_PATH = __dirname + '/../db/newdex_tickers.json';
 
 let fs = require('fs');
 

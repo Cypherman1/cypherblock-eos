@@ -57,7 +57,9 @@ const getSupply = () => {
           }
         }
       });
-      fs.writeFileSync(TOKENS_SUPPLY_PATH, JSON.stringify(mainObject));
+      fs.writeFile(TOKENS_SUPPLY_PATH, JSON.stringify(mainObject), (err) => {
+        if (err) process.stdout.write('Write tokens file fail!' + err);
+      });
     })
     .catch((error) => {
       process.stdout.write('axios all error!' + error);

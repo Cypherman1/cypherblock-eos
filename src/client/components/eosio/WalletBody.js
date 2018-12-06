@@ -14,6 +14,7 @@ import {setRefetchWalletFunc, setTokenBalanceUnitl} from '../../actions/common';
 
 const images = '../imgs';
 
+let tokens1 = null;
 let token_logo = null;
 let fallback_logo = `${images}/COMMON.png`;
 let AllTokens = [];
@@ -325,6 +326,7 @@ class WalletBody extends Component {
     );
   }
   render() {
+    console.log(tokens1);
     total_token_value = 0;
 
     const {display, data, isDarkMode, common} = this.props;

@@ -195,7 +195,7 @@ class TokenMarket extends Component {
                       <div className="row ftz-12  m-0">
                         <div className="col-5 pl-1 pr-0 d-flex flex-row">
                           {/* <img src={token_logo} className="token_logo" /> */}
-                          <div className="bg-light" style={{borderRadius: 200}}>
+                          <div className="bg-white" style={{borderRadius: 200}}>
                             <ReactImageFallback
                               src={token_logo}
                               fallbackImage={fallback_logo}

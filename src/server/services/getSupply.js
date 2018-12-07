@@ -41,7 +41,7 @@ const getSupply = () => {
     .all(promises)
     .then((results) => {
       results.map((response) => {
-        if (response && response.status == 200) {
+        if (response && response.status == '200') {
           if (response.data && response.data.rows && response.data.rows[0] && JSON.parse(response.config.data)) {
             mainObject.data.push({
               symbol:
@@ -57,9 +57,10 @@ const getSupply = () => {
           }
         }
       });
-      fs.writeFile(TOKENS_SUPPLY_PATH, JSON.stringify(mainObject), (err) => {
-        if (err) process.stdout.write('Write tokens file fail!' + err);
-      });
+      if (mainObject.data.length > 0)
+        fs.writeFile(TOKENS_SUPPLY_PATH, JSON.stringify(mainObject), (err) => {
+          if (err) process.stdout.write('Write tokens file fail!' + err);
+        });
     })
     .catch((error) => {
       process.stdout.write('axios all error!' + error);

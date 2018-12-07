@@ -17,6 +17,10 @@ const keys = require('./config/keys');
 // const {readTokens} = require('./models/tokensModel');
 const getTokens = require('./services/getTokens');
 const getSupply = require('./services/getSupply');
+const getBlocksenceTickers = require('./services/getBlocksenceTickers');
+const getBigoneTickers = require('./services/getBigoneTickers');
+const getBitfinexTickers = require('./services/getBitfinexTickers');
+const getNewdexTickers = require('./services/getNewdexTickers');
 var schedule = require('node-schedule');
 
 //process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -103,18 +107,50 @@ logger.info(`Application env: ${process.env.NODE_ENV}`);
 app.use(logger.expressMiddleware);
 app.use(bodyParser.json());
 
-var j = schedule.scheduleJob('42 * * * *', function() {
+var j = schedule.scheduleJob('42 * * * * *', function() {
   try {
     getTokens();
   } catch (err) {
-    logger.info('getTokens Fail!' + err);
+    logger.info('getTokens Fail index!' + err);
   }
 });
-var j1 = schedule.scheduleJob('52 * * * *', function() {
+var j1 = schedule.scheduleJob('52 * * * * *', function() {
   try {
     getSupply();
   } catch (err) {
-    process.stdout.write('getTokensSupply Fail!' + err);
+    process.stdout.write('getTokensSupply Fail! index ' + err);
+  }
+});
+
+var j3 = schedule.scheduleJob('16 * * * * *', function() {
+  try {
+    getBigoneTickers();
+  } catch (err) {
+    process.stdout.write('getBigoneTickers Fail! index ' + err);
+  }
+});
+
+var j4 = schedule.scheduleJob('17 * * * * *', function() {
+  try {
+    getNewdexTickers();
+  } catch (err) {
+    process.stdout.write('getNewdexTickers Fail! index ' + err);
+  }
+});
+
+var j5 = schedule.scheduleJob('18 * * * * *', function() {
+  try {
+    getBlocksenceTickers();
+  } catch (err) {
+    process.stdout.write('getBlocksenceTickers Fail! index ' + err);
+  }
+});
+
+var j6 = schedule.scheduleJob('19 * * * * *', function() {
+  try {
+    getBitfinexTickers();
+  } catch (err) {
+    process.stdout.write('getBigoneTickers Fail! index ' + err);
   }
 });
 

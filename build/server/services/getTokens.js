@@ -8,7 +8,7 @@ const getTokens = () => {
   axios
     .get('https://api.newdex.io/v1/ticker/all')
     .then((res) => {
-      if (res.data && res.data.code == '200') {
+      if (res.status == '200' && res.data && res.data.code == '200') {
         fs.writeFile(TOKENS_PATH, JSON.stringify(res.data.data), (err) => {
           if (err) process.stdout.write('Write tokens file fail!' + err);
         });

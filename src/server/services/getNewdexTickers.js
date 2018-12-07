@@ -1,22 +1,22 @@
 const axios = require('axios');
 // const keys = require('../config/keys');
-const TOKENS_PATH = __dirname + '/../db/newdex_tickers.json';
+const NEWDEX_TICKERS_PATH = __dirname + '/../db/newdex_tickers.json';
 
 let fs = require('fs');
 
-const getTokens = () => {
+const getNewdexTickers = () => {
   axios
     .get('https://api.newdex.io/v1/ticker/all')
     .then((res) => {
-      if (res.data && res.data.code == '200') {
-        fs.writeFile(TOKENS_PATH, JSON.stringify(res.data.data), (err) => {
+      if (res.status == '200' && res.data && res.data.code == '200') {
+        fs.writeFile(NEWDEX_TICKERS_PATH, JSON.stringify(res.data.data), (err) => {
           if (err) process.stdout.write('Write tokens file fail!' + err);
         });
       }
     })
     .catch((error) => {
-      process.stdout.write('Gettokens fail!' + error);
+      process.stdout.write('getNewdexTickers fail!' + error);
     });
 };
 
-module.exports = getTokens;
+module.exports = getNewdexTickers;

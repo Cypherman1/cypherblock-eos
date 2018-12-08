@@ -21,6 +21,7 @@ const getBlocksenceTickers = require('./services/getBlocksenceTickers');
 const getBigoneTickers = require('./services/getBigoneTickers');
 const getBitfinexTickers = require('./services/getBitfinexTickers');
 const getNewdexTickers = require('./services/getNewdexTickers');
+const calEOSMarketcap = require('./services/calEOSMarketcap');
 var schedule = require('node-schedule');
 
 //process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -151,6 +152,14 @@ var j6 = schedule.scheduleJob('19 * * * * *', function() {
     getBitfinexTickers();
   } catch (err) {
     process.stdout.write('getBigoneTickers Fail! index ' + err);
+  }
+});
+
+var j7 = schedule.scheduleJob('21 * * * * *', function() {
+  try {
+    calEOSMarketcap();
+  } catch (err) {
+    process.stdout.write('calEOSMarketcap Fail! index ' + err);
   }
 });
 

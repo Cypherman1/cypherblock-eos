@@ -27,6 +27,8 @@ const MongoTransactionType = require('./mongo_transaction_type');
 const CurrencyStatsType = require('./currency_stats_type');
 const TokensSupplyType = require('./tokens_supply_type');
 const TOKENS_SUPPLY_PATH = __dirname + '/../../db/tokens_supply.json';
+const EOSMARKETCAP_PATH = __dirname + '/../../db/eosmarketcap.json';
+const EOSMarketcapType = require('./eosmarketcap_type');
 
 let fs = require('fs');
 const readFileAsync = require('util').promisify(fs.readFile);
@@ -301,6 +303,20 @@ const RootQueryType = new GraphQLObjectType({
       resolve() {
         return readFileAsync(TOKENS_SUPPLY_PATH)
           .then((data) => JSON.parse(data))
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    eosmarketcap: {
+      type: EOSMarketcapType,
+      resolve() {
+        return readFileAsync(EOSMARKETCAP_PATH)
+          .then((data) => {
+            return {
+              data: JSON.parse(data)
+            };
+          })
           .catch((error) => {
             onError(error);
           });

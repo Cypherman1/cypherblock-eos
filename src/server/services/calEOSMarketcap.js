@@ -241,6 +241,8 @@ const AddNewdexTickers = () => {
 };
 
 const calEOSMarketcap = () => {
+  EOSMarkets = [];
+
   AddNewdexTickers();
 
   AddBigoneTickers();

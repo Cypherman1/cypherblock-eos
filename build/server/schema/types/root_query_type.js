@@ -34,6 +34,7 @@ let fs = require('fs');
 const readFileAsync = require('util').promisify(fs.readFile);
 
 let VoterInfo = {};
+let eosmc = [];
 
 const onError = (error) => {
   if (error.response) {
@@ -310,12 +311,26 @@ const RootQueryType = new GraphQLObjectType({
     },
     eosmarketcap: {
       type: EOSMarketcapType,
-      resolve() {
+      args: {
+        limit: {type: GraphQLString}
+      },
+      resolve(parentValue, {limit}) {
         return readFileAsync(EOSMARKETCAP_PATH)
           .then((data) => {
-            return {
-              data: JSON.parse(data)
-            };
+            // eosmc = JSON.parse(data);
+            if (limit) {
+              return {
+                data: JSON.parse(data)
+                  .sort((a, b) => Number(b.supply.current) * Number(b.last) - Number(a.supply.current) * Number(a.last))
+                  .slice(0, limit)
+              };
+            } else {
+              return {
+                data: JSON.parse(data).sort(
+                  (a, b) => Number(b.supply.current) * Number(b.last) - Number(a.supply.current) * Number(a.last)
+                )
+              };
+            }
           })
           .catch((error) => {
             onError(error);

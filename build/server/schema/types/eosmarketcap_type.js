@@ -27,6 +27,7 @@ const EMTokenType = new GraphQLObjectType({
   fields: () => ({
     symbol: {type: GraphQLString},
     contract: {type: GraphQLString},
+    currency: {type: GraphQLString},
     supply: {type: SupplyType},
     last: {type: GraphQLString},
     change: {type: GraphQLString},

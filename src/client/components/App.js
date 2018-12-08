@@ -11,7 +11,7 @@ import Account from './eosio/Account';
 import TransactionView from './eosio/TransactionView';
 import BlockView from './eosio/BlockView';
 import BlockProducers from './eosio/BlockProducers';
-import EOSMarketCap from './eosio/EOSMarketCap';
+import EOSMarketCap from './eosio/EOSMarketCap2';
 
 class DynamicImport extends Component {
   state = {

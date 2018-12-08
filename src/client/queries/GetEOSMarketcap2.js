@@ -6,6 +6,7 @@ export default gql`
       data {
         symbol
         contract
+        currency
         supply {
           current
           max

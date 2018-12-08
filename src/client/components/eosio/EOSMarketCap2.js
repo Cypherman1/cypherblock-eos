@@ -39,7 +39,7 @@ const calTotal = (eosmarketcap) => {
   total_token_volume = 0;
   eosmarketcap.data.map((token) => {
     total_token_volume += Number(token.volume);
-    total_token_marketcap += Number(token.volume) * Number(token.exchanges.current);
+    total_token_marketcap += Number(token.last) * Number(token.supply.current);
   });
 };
 
@@ -68,8 +68,9 @@ const EOSMarketCapLoading = ({isDarkMode}) => {
   );
 };
 const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
+  let tmp_exchanges = [...exchanges].sort((a, b) => b.percent - a.percent);
   exchanges_info = [];
-  exchanges.sort((a, b) => b.amount - a.amount).map((exchange) => {
+  tmp_exchanges.map((exchange) => {
     exchanges_info.push(
       <div className="row mt-1 shadow-sm mb-1 mbt-1px pt-1 pb-1" key={exchange.name}>
         <div className="col-6 row p-0 m-0 d-flex align-items-center flex-row-reverse">
@@ -106,7 +107,9 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
             {renderMCPrice(exchange.last, mcUnit, eos_price)}
             {/* {Number(exchange.last).toLocaleString(undefined, {maximumSignificantDigits: 4})} */}
           </div>
-          <div className="col-12 col-sm-5 p-0 text-right pr-1">{renderPPColor(exchange.change.toFixed(2))} </div>
+          <div className="col-12 col-sm-5 p-0 text-right pr-1">
+            {renderPPColor(Number(exchange.change).toFixed(2))}{' '}
+          </div>
         </div>
       </div>
     );
@@ -160,7 +163,6 @@ class EOSMarketCap extends Component {
             dataTM.eosmarketcap
           ) {
             const {global_data, eos_stat, table_rows, cmc, eosmarketcap} = dataTM;
-            console.log(eosmarketcap);
 
             calTotal(eosmarketcap);
 
@@ -253,6 +255,7 @@ class EOSMarketCap extends Component {
 
             //TOKENS
             eosmarketcap.data.map((token, index) => {
+              console.log(token);
               if (IsTokenSearched(token, mc_symbol)) {
                 tokens.push(
                   <div
@@ -330,7 +333,7 @@ class EOSMarketCap extends Component {
                           aria-expanded="true"
                           aria-controls={`collapse${token.symbol}`}
                         >
-                          {renderPPColor(token.change.toFixed(2))}
+                          {renderPPColor(Number(token.change).toFixed(2))}
                         </a>
                       </div>
                     </div>

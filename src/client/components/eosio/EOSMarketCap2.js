@@ -72,8 +72,16 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
   exchanges_info = [];
   tmp_exchanges.map((exchange) => {
     exchanges_info.push(
-      <div className="row mt-1 shadow-sm mb-1 mbt-1px pt-1 pb-1" key={exchange.name}>
-        <div className="col-6 row p-0 m-0 d-flex align-items-center flex-row-reverse">
+      <div className="row mt-1 shadow-sm mb-1 mbt-1px pt-1 pb-1 border-bottom border-secondary" key={exchange.name}>
+        <div className="col-6 row pl-2 p-0 m-0 d-flex align-items-center ">
+          <div className="mr-1 bg-white logo-exc">
+            <ReactImageFallback
+              src={`${images}/${exchange.name}.png`}
+              fallbackImage={`${images}/COMMON.png`}
+              alt={`${exchange.name} token airdrop`}
+              className="exchange_logo"
+            />
+          </div>
           <div>
             <a
               href={exchange.url}
@@ -83,23 +91,15 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
               {exchange.name} (<span className="ftz-10">{exchange.percent}%</span>)
             </a>
           </div>
-          <div className="mr-1 bg-white logo-exc">
-            <ReactImageFallback
-              src={`${images}/${exchange.name}.png`}
-              fallbackImage={`${images}/COMMON.png`}
-              alt={`${exchange.name} token airdrop`}
-              className="exchange_logo"
-            />
-          </div>
         </div>
-        <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
-          <div className="col-12 col-sm-6 p-0 text-right">
-            {/* {renderMCVal(exchange.amount, mcUnit, eos_price)} */}
-            {Number(exchange.amount).toLocaleString(undefined, {maximumFractionDigits: 0})}
-          </div>
+        <div className="col-3 row p-0 m-0 d-flex align-items-center ">
           <div className="col-12 col-sm-6 p-0 text-right">
             {renderMCVal(exchange.volume, mcUnit, eos_price)}
             {/* {Number(exchange.volume).toLocaleString(undefined, {maximumFractionDigits: 0})} */}
+          </div>
+          <div className="col-12 col-sm-6 p-0 text-right">
+            {/* {renderMCVal(exchange.amount, mcUnit, eos_price)} */}
+            {Number(exchange.amount).toLocaleString(undefined, {maximumFractionDigits: 0})}
           </div>
         </div>
         <div className="col-3 row p-0 m-0 d-flex align-items-center ">

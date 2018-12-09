@@ -7,7 +7,7 @@ import Tokens from '../../server/db/tokens.json';
 const GenCurGql = (Tokens) => {
   let gqlstr = '';
   Tokens.map((token) => {
-    gqlstr += `${token.currency.toUpperCase()}: currency_balance(
+    gqlstr += `t_${token.currency}${token.contract.replace('.', '_')}: currency_balance(
             code: "${token.contract}",
             account: $account_name,
             symbol: "${token.currency.toUpperCase()}"
@@ -20,15 +20,15 @@ const GenCurGql = (Tokens) => {
   return (
     gqlstr +
     `
-  newdex_tickers {
-    data {
-      symbol
-      contract
-      currency
-      last
-      change
+    eosmarketcap {
+      data {
+        symbol
+        contract
+        currency
+        last
+        change
+      }
     }
-  }
   cmc {
       data {
         quotes {
@@ -43,6 +43,12 @@ const GenCurGql = (Tokens) => {
   `
   );
 };
+
+console.log(`
+  query get_wallet_info($account_name: String!) {
+    ${GenCurGql(Tokens)}
+  }
+`);
 
 export default gql`
   query get_wallet_info($account_name: String!) {

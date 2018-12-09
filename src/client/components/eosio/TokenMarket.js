@@ -95,32 +95,6 @@ const renderMCPrice = (mcVal, mcUnit, eos_price) => {
 };
 
 class TokenMarket extends Component {
-  updateTokenMarket(data) {
-    //update tokens market info
-    TokenMarketInfo = [];
-    Tokens.map((token) => {
-      atoken = {
-        name: token.symbol,
-        logo: token.logo,
-        price: gettPairPrice(
-          data,
-          token.bitfinex_pair,
-          token.bigone_ticker,
-          token.blocksence_ticker,
-          token.newdex_pair
-        ),
-        percent: gettPairPercent(
-          data,
-          token.bitfinex_pair,
-          token.bigone_ticker,
-          token.blocksence_ticker,
-          token.newdex_pair
-        )
-      };
-      TokenMarketInfo.push(atoken);
-    });
-  }
-
   render() {
     const {display, isDarkMode} = this.props;
     const {mcUnit} = this.props.sidebar;
@@ -142,8 +116,6 @@ class TokenMarket extends Component {
 
             eos_price = Number(cmc.data.quotes.USD.price).toFixed(2);
             eos_percent_change_24h = cmc.data.quotes.USD.percent_change_24h;
-
-            //this.updateTokenMarket(data);
 
             items = [];
 
@@ -196,10 +168,6 @@ class TokenMarket extends Component {
                 </div>
               </div>
             );
-
-            {
-              /* tokensMarket = [...data.eosmarketcap.data].sort((a, b) => b.last - a.last); */
-            }
 
             data.eosmarketcap.data.map((tokeninfo, index) => {
               if (tokeninfo.last > 0) {

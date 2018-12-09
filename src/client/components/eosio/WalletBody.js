@@ -3,6 +3,7 @@ import {graphql} from 'react-apollo';
 import {connect} from 'react-redux';
 import ReactImageFallback from 'react-image-fallback';
 import {CSSTransitionGroup} from 'react-transition-group';
+import {Link} from 'react-router-dom';
 import NumberEasing from '../utils/NumberEasing';
 import {renderEOSNum, renderPPColor} from '../utils/RenderColors';
 import Tokens from '../../../server/db/tokens.json';
@@ -25,6 +26,7 @@ let token_usd_value = 0;
 let total_value = 0;
 let unitsign = null;
 let token_value = 0;
+let index = 0;
 
 const WalletLoading = ({display, isDarkMode}) => {
   return (
@@ -65,43 +67,20 @@ class WalletBody extends Component {
   setAllTokens(data) {
     AllTokens = [];
     for (var token in data) {
-      if (
-        data[token] &&
-        data[token].data &&
-        data[token].data.length > 0 &&
-        token != 'bitfinex_pairs' &&
-        token != 'account' &&
-        token != 'eosioram' &&
-        token != 'eosioramfee' &&
-        token != 'cmc' &&
-        token != 'global_data' &&
-        token != 'table_rows' &&
-        token != 'blocksence_tickers' &&
-        token != 'bigone_tickers' &&
-        token != 'newdex_tickers'
-      ) {
-        atoken = {
-          name: data[token].data[0].split(' ')[1], //token name
-          ammount: Number(data[token].data[0].split(' ')[0]), // token ammount
-          price: gettPairPrice(
-            //get token price
-            data,
-            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).bitfinex_pair, //get bitfinex pair name of the token
-            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).bigone_ticker,
-            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).blocksence_ticker,
-            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).symbol
-          ),
-          percent: gettPairPercent(
-            //get token percent
-            data,
-            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).bitfinex_pair,
-            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).bigone_ticker,
-            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).blocksence_ticker,
-            Tokens.find((o) => o.currency.toUpperCase() === data[token].data[0].split(' ')[1]).symbol
-          )
-        };
+      if (data[token] && data[token].data && data[token].data.length > 0 && token != 'cmc' && token != 'eosmarketcap') {
+        index = data.eosmarketcap.data.findIndex(
+          (e) => ('t_' + e.currency + e.contract.replace('.', '_')).toUpperCase() == token.toUpperCase()
+        );
+        if (index >= 0) {
+          atoken = {
+            name: data.eosmarketcap.data[index].currency.toUpperCase(), //token name
+            ammount: Number(data[token].data[0].split(' ')[0]), // token ammount
+            price: Number(data.eosmarketcap.data[index].last).toLocaleString(undefined, {maximumSignificantDigits: 4}),
+            percent: Number(data.eosmarketcap.data[index].change)
+          };
 
-        AllTokens.push(atoken);
+          AllTokens.push(atoken);
+        }
       }
     }
   }
@@ -262,7 +241,7 @@ class WalletBody extends Component {
       return (
         <div className="text-right ml-2 mr-1">
           <div className="">{token.price}</div>
-          <div className="ftz-10 ">{renderPPColor((token.percent * 100).toFixed(2))}</div>
+          <div className="ftz-10 ">{renderPPColor(token.percent.toFixed(2))}</div>
         </div>
       );
     } else return null;
@@ -326,7 +305,6 @@ class WalletBody extends Component {
     );
   }
   render() {
-    console.log(tokens1);
     total_token_value = 0;
 
     const {display, data, isDarkMode, common} = this.props;
@@ -335,7 +313,7 @@ class WalletBody extends Component {
     if (data.error) return <WalletLoading display={display} isDarkMode={isDarkMode} />;
     if (isWalletRefetch) return <WalletLoading display={display} isDarkMode={isDarkMode} />;
 
-    if (data && data.cmc) {
+    if (data && data.cmc && data.eosmarketcap) {
       this.setAllTokens(data);
       total_token_value = 0;
       eos_price = Number(data.cmc.data.quotes.USD.price);
@@ -372,6 +350,9 @@ class WalletBody extends Component {
             <CSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
               {this.renderTokens(isEOSUnit, eos_price, isDarkMode)}
             </CSSTransitionGroup>
+            <div className="text-right ftz-13 pr-2 mt-2 mb-2">
+              <Link to={`/eosmarketcap`}> >> Go to eosmarketcap </Link>
+            </div>
           </div>
         </div>
       );

@@ -48,8 +48,8 @@ const Aggregate_Markets = () => {
       EOSMarkets[i].last = tmp_last / tmp_amount;
       EOSMarkets[i].change = tmp_change / tmp_amount;
     } else {
-      EOSMarkets[i].last = tmp_last;
-      EOSMarkets[i].change = tmp_change;
+      EOSMarkets[i].last = EOSMarkets[i].exchanges[0].last;
+      EOSMarkets[i].change = EOSMarkets[i].exchanges[0].change;
     }
     //calcualate total statistic
   }

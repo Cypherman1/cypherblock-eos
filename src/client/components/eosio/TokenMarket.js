@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {connect} from 'react-redux';
 import ReactImageFallback from 'react-image-fallback';
+import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Tokens} from '../utils/Tokens';
 import GetTokenMarket from '../../queries/GetTokenMarket';
@@ -9,7 +10,9 @@ import {gettPairPrice, gettPairPercent} from '../utils/Tools';
 import {renderPPColor} from '../utils/RenderColors';
 const images = './imgs';
 import {setSearchSymbol} from '../../actions/common';
+import {setMarketcapUnit} from '../../actions/sidebar';
 import {IsTokenSearched} from '../utils/isTokenSearched';
+import eoslogo from '../../assets/imgs/eoslogo1.svg';
 
 let TokenMarketInfo = []; //tokens market info array
 let atoken = null;
@@ -22,10 +25,10 @@ let eos_percent_change_24h = 0;
 let ticker_count = 0;
 let tokensMarket = [];
 
-const TokenMarketLoading = ({display, isDarkMode}) => {
+const TokenMarketLoading = ({isDarkMode}) => {
   return (
     <div
-      className={`card sameheight-item stats mb-1 ${display} ${isDarkMode ? 'bg-dark text-secondary' : ''} pb-2`}
+      className={`card sameheight-item stats mb-1  ${isDarkMode ? 'bg-dark text-secondary' : ''} pb-2`}
       data-exclude="xs"
     >
       <div className="card-header shadow-sm bg-white row m-0">
@@ -33,7 +36,13 @@ const TokenMarketLoading = ({display, isDarkMode}) => {
           <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
           <h1 className="title text-info">EOS Market info</h1>
         </div>
-        <div>
+        <label className="font-weight-normal float-right mb-0 pr-1">
+          <select id="inputmcUnitm" className="form-control-sm border-0" style={{height: 30}}>
+            <option value={1}>EOS</option>
+            <option value={2}>USD</option>
+          </select>
+        </label>
+        {/* <div>
           <div className="input-group input-group-seamless mb-0 pr-1 float-right" style={{width: 100, height: 30}}>
             <input
               type="text"
@@ -46,20 +55,41 @@ const TokenMarketLoading = ({display, isDarkMode}) => {
               </div>
             </div>
           </div>
+        </div> */}
+      </div>
+
+      <div
+        className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark text-cypher' : ''} ml-0 p-1 mt-0`}
+        style={{marginBottom: 1}}
+      >
+        <div className="row ftz-12 text-info  m-0">
+          <div className="col-5 pl-1 pr-0 d-flex flex-row row m-0">
+            {/* <img src={token_logo} className="token_logo" /> */}
+            <div className="d-flex align-items-center flex-row-reverse col-2">#</div>
+            <div className="">Name</div>
+            <div className="ml-2 d-flex align-items-center" />
+          </div>
+          <div className="col-4 text-right  d-flex align-items-center flex-row-reverse pl-0">Price</div>
+          <div className="col-3 d-flex align-items-center flex-row-reverse pr-1">24h %</div>
         </div>
       </div>
-
-      <div className="row ftz-12 pb-1 pt-1 m-0  shadow-sm" key={1}>
-        <div className="pl-2 col-5 text-info"> Pair </div>
-        <div className="col-4 text-right pr-4 text-info"> Price </div>
-        <div className="col-3 text-right text-info"> 24h % </div>
-      </div>
-
-      <div className={`card-block p-0 market-scroll d-none d-xl-block`}>
+      <div className={`card-block p-0 market-scroll`}>
+        <div style={{height: 40}} />
         <div className="text-center align-middle overlay pd-mi">
           <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
         </div>
       </div>
+    </div>
+  );
+};
+
+const renderMCPrice = (mcVal, mcUnit, eos_price) => {
+  return (
+    <div>
+      {mcUnit == 1 ? <img src={eoslogo} alt="eos" className="eos-unit" /> : '$'}
+      {mcUnit == 1
+        ? Number(mcVal).toLocaleString(undefined, {maximumSignificantDigits: 4})
+        : (Number(mcVal) * Number(eos_price)).toLocaleString(undefined, {maximumSignificantDigits: 4})}
     </div>
   );
 };
@@ -90,19 +120,17 @@ class TokenMarket extends Component {
       TokenMarketInfo.push(atoken);
     });
   }
-  renderPrice(price) {
-    return price ? <div>{price} </div> : <FontAwesomeIcon icon="spinner" spin className="text-info" />;
-  }
 
   render() {
     const {display, isDarkMode} = this.props;
+    const {mcUnit} = this.props.sidebar;
     // fallback_logo = isDarkMode ? `${images}/eos_white.png` : `${images}/COMMON.png`;
     return (
       <Query query={GetTokenMarket} pollInterval={0}>
         {({loading, error, data}) => {
-          if (loading) return <TokenMarketLoading display={display} isDarkMode={isDarkMode} />;
-          if (error) return <TokenMarketLoading display={display} isDarkMode={isDarkMode} />;
-          if (data && data.table_rows && data.cmc && data.newdex_tickers) {
+          if (loading) return <TokenMarketLoading isDarkMode={isDarkMode} />;
+          if (error) return <TokenMarketLoading isDarkMode={isDarkMode} />;
+          if (data && data.table_rows && data.cmc && data.eosmarketcap) {
             const {table_rows, cmc} = data;
             ticker_count = 0;
 
@@ -122,26 +150,17 @@ class TokenMarket extends Component {
             items.push(
               <div className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark' : ''} p-1 mbt-1px`} key={2}>
                 <div className="row ftz-12  m-0">
-                  <div className="col-5 pl-1 pr-0 d-flex flex-row">
-                    {/* <img src={images(`./RAM.svg`)} className="token_logo" /> */}
-                    {
-                      /* <div>
-                      <ReactImageFallback
-                        src={`${images}/RAM.png`}
-                        fallbackImage={fallback_logo}
-                        className="token_logo"
-                      />
-                    </div> */
-                      <div className="token_logo" style={{fontSize: 16}}>
-                        <FontAwesomeIcon icon="memory" />
-                      </div>
-                    }
+                  <div className="col-5 pl-1 pr-0 d-flex flex-row row m-0">
+                    <div className="d-flex align-items-center flex-row-reverse col-2">0</div>
+                    <div className="token_logo" style={{fontSize: 16}}>
+                      <FontAwesomeIcon icon="memory" />
+                    </div>
                     <div className="ml-2 d-flex align-items-center">
-                      <div> RAM(EOS/KB) </div>
+                      <div>RAM(KB)</div>
                     </div>
                   </div>
                   <div className="col-4 text-right d-flex align-items-center flex-row-reverse">
-                    <div>{ram_price} </div>
+                    <div>{renderMCPrice(ram_price, mcUnit, eos_price)} </div>
                   </div>
                   <div className="col-3 text-right"> </div>
                 </div>
@@ -154,8 +173,8 @@ class TokenMarket extends Component {
                 style={{marginBottom: 1}}
               >
                 <div className="row ftz-12  m-0">
-                  <div className="col-5 pl-1 pr-0 d-flex flex-row">
-                    {/* <img src={images(`./eoslogo.svg`)} className="token_logo" /> */}
+                  <div className="col-5 pl-1 pr-0 d-flex flex-row row m-0">
+                    <div className="d-flex align-items-center flex-row-reverse col-2">1</div>
                     <div>
                       <ReactImageFallback
                         src={`${images}/EOS.png`}
@@ -165,11 +184,11 @@ class TokenMarket extends Component {
                       />
                     </div>
                     <div className=" ml-2 d-flex align-items-center">
-                      <div> EOS/USD </div>
+                      <div> EOS </div>
                     </div>
                   </div>
                   <div className="col-4 text-right d-flex align-items-center flex-row-reverse">
-                    <div>{eos_price} </div>
+                    <div>${eos_price} </div>
                   </div>
                   <div className="col-3 text-right d-flex align-items-center flex-row-reverse pr-1">
                     <div> {renderPPColor(eos_percent_change_24h)} </div>
@@ -178,9 +197,11 @@ class TokenMarket extends Component {
               </div>
             );
 
-            tokensMarket = [...data.newdex_tickers.data].sort((a, b) => b.last - a.last);
+            {
+              /* tokensMarket = [...data.eosmarketcap.data].sort((a, b) => b.last - a.last); */
+            }
 
-            tokensMarket.map((tokeninfo) => {
+            data.eosmarketcap.data.map((tokeninfo, index) => {
               if (tokeninfo.last > 0) {
                 ticker_count += 1;
                 if (IsTokenSearched(tokeninfo, this.props.common.symbol)) {
@@ -193,8 +214,9 @@ class TokenMarket extends Component {
                       style={{marginBottom: 1}}
                     >
                       <div className="row ftz-12  m-0">
-                        <div className="col-5 pl-1 pr-0 d-flex flex-row">
+                        <div className="col-5 pl-1 pr-0 d-flex flex-row row m-0">
                           {/* <img src={token_logo} className="token_logo" /> */}
+                          <div className="d-flex align-items-center flex-row-reverse col-2">{index + 2}</div>
                           <div className="bg-white" style={{borderRadius: 200}}>
                             <ReactImageFallback
                               src={token_logo}
@@ -205,14 +227,14 @@ class TokenMarket extends Component {
                           </div>
 
                           <div className="ml-2 d-flex align-items-center">
-                            <div> {`${tokeninfo.currency.toUpperCase()}/EOS`}</div>
+                            <div> {`${tokeninfo.currency.toUpperCase()}`}</div>
                           </div>
                         </div>
-                        <div className="col-4 text-right  d-flex align-items-center flex-row-reverse">
-                          <div> {this.renderPrice(tokeninfo.last)} </div>
+                        <div className="col-4 text-right  d-flex align-items-center flex-row-reverse pl-0">
+                          <div> {renderMCPrice(tokeninfo.last, mcUnit, eos_price)} </div>
                         </div>
                         <div className="col-3 d-flex align-items-center flex-row-reverse pr-1">
-                          <div className="text-right">{renderPPColor((tokeninfo.change * 100).toFixed(2))} </div>
+                          <div className="text-right">{renderPPColor(Number(tokeninfo.change).toFixed(2))} </div>
                         </div>
                       </div>
                     </div>
@@ -232,41 +254,53 @@ class TokenMarket extends Component {
                     <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
                     <h1 className="title text-info">EOS Market info</h1>
                   </div>
-                  <div>
-                    <div
-                      className="input-group input-group-seamless mb-0 pr-1 float-right"
-                      style={{width: 100, height: 30}}
+                  <label className="font-weight-normal float-right mb-0 pr-1">
+                    <select
+                      id="inputmcUnitm"
+                      className="form-control-sm border-0"
+                      value={mcUnit}
+                      onChange={(event) => {
+                        this.props.setMarketcapUnit(event.target.value);
+                      }}
+                      style={{height: 30}}
                     >
-                      <input
-                        type="text"
-                        className="form-control   -info"
-                        aria-label="Text input with checkbox"
-                        onChange={(event) => {
-                          this.props.setSearchSymbol(event.target.value);
-                        }}
-                      />
-                      <div className="input-group-append">
-                        <div className="input-group-text">
-                          <i className="fa fa-search" />
-                        </div>
-                      </div>
+                      <option value={1}>EOS</option>
+                      <option value={2}>USD</option>
+                    </select>
+                  </label>
+                </div>
+                <div
+                  className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark text-cypher' : ''} ml-0 p-1 mt-0`}
+                  style={{marginBottom: 1}}
+                >
+                  <div className="row ftz-12 text-info  m-0">
+                    <div className="col-5 pl-1 pr-0 d-flex flex-row row m-0">
+                      {/* <img src={token_logo} className="token_logo" /> */}
+                      <div className="d-flex align-items-center flex-row-reverse col-2">#</div>
+                      <div className="">Name</div>
+                      <div className="ml-2 d-flex align-items-center" />
                     </div>
+                    <div className="col-4 text-right  d-flex align-items-center flex-row-reverse pl-0">Price</div>
+                    <div className="col-3 d-flex align-items-center flex-row-reverse pr-1">24h %</div>
                   </div>
                 </div>
-
-                <div className="row ftz-12 pb-1 pt-1 m-0  shadow-sm" key={1}>
-                  <div className="pl-2 col-5 text-info">
-                    Pair <span className="badge badge-primary p-1 ">{ticker_count + 2}</span>
+                {/* <div className="row ftz-12 pb-1 pt-1 m-0  shadow-sm" key={1}>
+                  <div className="pl-2 col-5 text-info row m-0 ">
+                    <div className="d-flex align-items-center flex-row-reverse col-2">#</div>
+                    Name <span className="badge badge-primary p-1 ">{ticker_count + 2}</span>
                   </div>
                   <div className="col-4 text-right pr-4 text-info"> Price </div>
                   <div className="col-3 text-right text-info"> 24h % </div>
-                </div>
+                </div> */}
 
                 <div className={`card-body ${isDarkMode ? 'bg-dark' : 'bg-light'}  p-0 market-scroll `}>{items}</div>
+                <div className="text-right pr-2 mt-2">
+                  <Link to={`/eosmarketcap`}> >> Show more </Link>
+                </div>
               </div>
             );
           } else {
-            return <TokenMarketLoading display={display} isDarkMode={isDarkMode} />;
+            return <TokenMarketLoading isDarkMode={isDarkMode} />;
           }
         }}
       </Query>
@@ -275,12 +309,13 @@ class TokenMarket extends Component {
 }
 
 function mapStateToProps({myStore}) {
-  return {common: myStore.common};
+  return {common: myStore.common, sidebar: myStore.sidebar};
 }
 
 export default connect(
   mapStateToProps,
   {
-    setSearchSymbol
+    setSearchSymbol,
+    setMarketcapUnit
   }
 )(TokenMarket);

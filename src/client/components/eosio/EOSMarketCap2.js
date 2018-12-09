@@ -255,7 +255,6 @@ class EOSMarketCap extends Component {
 
             //TOKENS
             eosmarketcap.data.map((token, index) => {
-              console.log(token);
               if (IsTokenSearched(token, mc_symbol)) {
                 tokens.push(
                   <div

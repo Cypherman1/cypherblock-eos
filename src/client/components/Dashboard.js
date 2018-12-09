@@ -34,7 +34,7 @@ class Dashboard extends Component {
             </div>
             <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-4 history-col pd-col ">
               <TokenMarket isDarkMode={sidebar.isDarkMode} />
-              <Producers limit="30" isDarkMode={sidebar.isDarkMode} />
+              <Producers limit="21" isDarkMode={sidebar.isDarkMode} />
             </div>
             <div />
           </div>
@@ -49,7 +49,7 @@ class Dashboard extends Component {
               {/* <TokenMarket display="d-xl-none" isDarkMode={sidebar.isDarkMode} />
             <Producers limit="30" display="d-xl-none" isDarkMode={sidebar.isDarkMode} /> */}
               <TokenMarket isDarkMode={sidebar.isDarkMode} />
-              <Producers limit="30" isDarkMode={sidebar.isDarkMode} />
+              <Producers limit="21" isDarkMode={sidebar.isDarkMode} />
               {/* <ActionsCard
               account_name="eosio"
               notifyOnNetworkStatusChange={false}

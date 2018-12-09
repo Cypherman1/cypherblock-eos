@@ -26,7 +26,7 @@ export default gql`
         }
       }
     }
-    newdex_tickers {
+    eosmarketcap(limit: "10") {
       data {
         symbol
         contract
@@ -36,20 +36,6 @@ export default gql`
         amount
         volume
       }
-    }
-    bigone_tickers {
-      data {
-        market_id
-        volume
-        daily_change_perc
-        close
-      }
-    }
-    bitfinex_pairs {
-      data
-    }
-    blocksence_tickers {
-      data
     }
   }
 `;

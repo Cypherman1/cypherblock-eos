@@ -1259,6 +1259,9 @@ span.CodeMirror-selectedtext {
     height: 14px !important;
     padding-bottom: 2px !important;
   }
+  .mb-1px {
+    margin-bottom: 2px !important;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -1308,6 +1311,9 @@ span.CodeMirror-selectedtext {
     height: 14px !important;
     padding-bottom: 2px !important;
   }
+  .mb-1px {
+    margin-bottom: 2px !important;
+  }
   /* .stat .value {
     line-height: 40px !important;
   }
@@ -1345,6 +1351,9 @@ span.CodeMirror-selectedtext {
     height: 15px !important;
     padding-bottom: 2px !important;
   }
+  .mb-1px {
+    margin-bottom: 4px !important;
+  }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .mr-offset {
@@ -1376,6 +1385,9 @@ span.CodeMirror-selectedtext {
   .eos-unit {
     height: 15px !important;
     padding-bottom: 2px !important;
+  }
+  .mb-1px {
+    margin-bottom: 4px !important;
   }
 }
 @media (min-width: 1200px) {
@@ -1411,6 +1423,9 @@ span.CodeMirror-selectedtext {
   .eos-unit {
     height: 15px !important;
     padding-bottom: 2px !important;
+  }
+  .mb-1px {
+    margin-bottom: 4px !important;
   }
 }
 
@@ -1753,10 +1768,6 @@ i.metismenu-state-icon.rotate-minus-90 {
 .font-weight-acttype {
   font-weight: 520 !important;
 }
-.mb-1px {
-  margin-bottom: 4px !important;
-}
-
 .bg-main {
   background-color: #cccccc !important;
 }
@@ -1791,7 +1802,7 @@ i.metismenu-state-icon.rotate-minus-90 {
 }
 
 .mlr-2px {
-  margin-right: 3px !important;
+  margin-right: 2px !important;
   margin-left: 2px !important;
 }
 

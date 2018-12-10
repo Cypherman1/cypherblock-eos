@@ -6,8 +6,7 @@ import {CSSTransitionGroup} from 'react-transition-group';
 import {Link} from 'react-router-dom';
 import NumberEasing from '../utils/NumberEasing';
 import {renderEOSNum, renderPPColor} from '../utils/RenderColors';
-import Tokens from '../../../server/db/tokens.json';
-import {gettPairPrice, gettPairPercent} from '../utils/Tools';
+
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetWalletInfo from '../../queries/GetWalletInfo';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';

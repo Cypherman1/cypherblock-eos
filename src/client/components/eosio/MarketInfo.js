@@ -105,10 +105,12 @@ class MarketInfo extends Component {
           const {cmc, eosioram, global_data, table_rows} = data;
           if (table_rows && global_data && cmc && eosioram) {
             ram_price =
-              (
-                Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
-                Number(table_rows.rows[0].base.balance.split(' ')[0])
-              ).toFixed(8) * 1024;
+              Number(
+                (
+                  Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
+                  Number(table_rows.rows[0].base.balance.split(' ')[0])
+                ).toFixed(8)
+              ) * 1024;
 
             eosio_ram = Number(eosioram.core_liquid_balance.split(' ')[0]).toLocaleString('en', {
               maximumFractionDigits: 0

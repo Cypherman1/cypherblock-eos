@@ -59,10 +59,10 @@ const Aggregate_Markets = () => {
     exs_count = 0;
     // aggregate volume, price, 24h percent of all exchanges for each token
     EOSMarkets[i].exchanges.map((exchange) => {
-      tmp_amount += exchange.amount;
-      tmp_volume += exchange.volume;
-      tmp_last += exchange.last * exchange.amount;
-      tmp_change += exchange.change * exchange.amount;
+      tmp_amount += Number(exchange.amount);
+      tmp_volume += Number(exchange.volume);
+      tmp_last += Number(exchange.last) * Number(exchange.amount);
+      tmp_change += Number(exchange.change) * Number(exchange.amount);
     });
     //update ammout and volume of each token
     EOSMarkets[i].amount = tmp_amount;
@@ -70,9 +70,10 @@ const Aggregate_Markets = () => {
     if (tmp_amount > 0) {
       //calculate volume percentage of each exchange
       EOSMarkets[i].exchanges.map((exchange, index) => {
-        EOSMarkets[i].exchanges[index].percent = ((EOSMarkets[i].exchanges[index].amount / tmp_amount) * 100).toFixed(
-          2
-        );
+        EOSMarkets[i].exchanges[index].percent = (
+          (Number(EOSMarkets[i].exchanges[index].amount) / tmp_amount) *
+          100
+        ).toFixed(2);
       });
       //update price and change percent of each token
       EOSMarkets[i].last = tmp_last / tmp_amount;

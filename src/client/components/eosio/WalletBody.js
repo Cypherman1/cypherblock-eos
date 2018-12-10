@@ -75,7 +75,7 @@ class WalletBody extends Component {
           atoken = {
             name: data.eosmarketcap.data[index].currency.toUpperCase(), //token name
             ammount: Number(data[token].data[0].split(' ')[0]), // token ammount
-            price: Number(data.eosmarketcap.data[index].last).toLocaleString(undefined, {maximumSignificantDigits: 4}),
+            price: Number(data.eosmarketcap.data[index].last),
             percent: Number(data.eosmarketcap.data[index].change)
           };
 
@@ -237,10 +237,10 @@ class WalletBody extends Component {
     return price ? <div>{price} </div> : <FontAwesomeIcon icon="spinner" spin className="text-info" />;
   }
   renderPriceinfo(token) {
-    if (token.price > 0) {
+    if (Number(token.price) > 0) {
       return (
         <div className="text-right ml-2 mr-1">
-          <div className="">{token.price}</div>
+          <div className="">{Number(token.price).toLocaleString(undefined, {maximumSignificantDigits: 4})}</div>
           <div className="ftz-10 ">{renderPPColor(token.percent.toFixed(2))}</div>
         </div>
       );
@@ -252,7 +252,7 @@ class WalletBody extends Component {
         <div className="col-4 p-0">
           <div className="stat float-right">
             <div className="value text-right w-100">{this.renderWPrice(token.price)}</div>
-            <div className="name">{renderPPColor((token.percent * 100).toFixed(2))}</div>
+            <div className="name">{renderPPColor((Number(token.percent) * 100).toFixed(2))}</div>
           </div>
         </div>
       );
@@ -318,9 +318,9 @@ class WalletBody extends Component {
       total_token_value = 0;
       eos_price = Number(data.cmc.data.quotes.USD.price);
       AllTokens.map((token) => {
-        total_token_value += token.ammount * token.price;
+        total_token_value += Number(token.ammount) * Number(token.price);
       });
-      token_usd_value = total_token_value * eos_price;
+      token_usd_value = Number(total_token_value) * Number(eos_price);
       return (
         <div className={`${isDarkMode ? 'bg-dark-1' : ' bg-white '} card`} style={{margin: 2}}>
           <div className=" card-header bg-white row m-0 shadow-sm ">

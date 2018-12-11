@@ -4,6 +4,7 @@ import {Query} from 'react-apollo';
 import ReactImageFallback from 'react-image-fallback';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderPPColor} from '../utils/RenderColors';
+import {renderProjectLink} from '../utils/Tools';
 import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
 import {setMCSearchSymbol} from '../../actions/common';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
@@ -272,7 +273,10 @@ class EOSMarketCap extends Component {
                             className="token_logo"
                           />
                         </div>
-                        <div>{token.currency.toUpperCase()}</div>
+                        <div>
+                          {/* {renderProjectLink(token)} */}
+                          {token.currency.toUpperCase()}
+                        </div>
                       </div>
                     </div>
                     <div className="col-3 row p-0 m-0 d-flex align-items-center">

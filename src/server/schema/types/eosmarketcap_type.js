@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const {GraphQLObjectType, GraphQLList, GraphQLString, GraphQLBoolean} = graphql;
+const {GraphQLObjectType, GraphQLList, GraphQLString} = graphql;
 
 const ExchangeType = new GraphQLObjectType({
   name: 'ExchangesType',
@@ -44,4 +44,4 @@ const EOSMarketcapType = new GraphQLObjectType({
   })
 });
 
-module.exports = EOSMarketcapType;
+module.exports = {EOSMarketcapType, EMTokenType};

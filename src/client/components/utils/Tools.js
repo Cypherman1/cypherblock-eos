@@ -300,6 +300,18 @@ const renderAccountLink = (accountName) => {
   );
 };
 
+const renderProjectLink = (token) => {
+  isDarkMode = localStorage.getItem('isDarkMode') == 'true';
+  return (
+    <Link
+      className={`font-weight-acttype ftz-13  ${isDarkMode ? 'linkcolor-dark' : ''} `}
+      to={`/project/${token.symbol}`}
+    >
+      {token.currency.toUpperCase()}
+    </Link>
+  );
+};
+
 const renderBlockLink = (block_num) => {
   isDarkMode = localStorage.getItem('isDarkMode') == 'true';
   return (
@@ -457,5 +469,6 @@ export {
   antispamCheck,
   RoundedIcon,
   gettPairPrice,
-  gettPairPercent
+  gettPairPercent,
+  renderProjectLink
 };

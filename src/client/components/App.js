@@ -12,6 +12,7 @@ import TransactionView from './eosio/TransactionView';
 import BlockView from './eosio/BlockView';
 import BlockProducers from './eosio/BlockProducers';
 import EOSMarketCap from './eosio/EOSMarketCap2';
+import Project from './eosio/Project';
 
 class DynamicImport extends Component {
   state = {
@@ -82,6 +83,7 @@ class App extends Component {
               <Route path="/block/:block_num_or_id" component={BlockView} />
               <Route path="/blockproducers" component={BlockProducers} />
               <Route path="/eosmarketcap" component={EOSMarketCap} />
+              <Route path="/project/:symbol" component={Project} />
             </Switch>
             <Footer />
           </div>

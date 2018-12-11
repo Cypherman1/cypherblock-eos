@@ -28,7 +28,9 @@ const CurrencyStatsType = require('./currency_stats_type');
 const TokensSupplyType = require('./tokens_supply_type');
 const TOKENS_SUPPLY_PATH = __dirname + '/../../db/tokens_supply.json';
 const EOSMARKETCAP_PATH = __dirname + '/../../db/eosmarketcap.json';
-const EOSMarketcapType = require('./eosmarketcap_type');
+const COMPANY_INFO_PATH = __dirname + '/../../db/companies_info.json';
+const {EOSMarketcapType} = require('./eosmarketcap_type');
+const CompanyType = require('./company_type');
 
 let fs = require('fs');
 const readFileAsync = require('util').promisify(fs.readFile);
@@ -304,6 +306,43 @@ const RootQueryType = new GraphQLObjectType({
       resolve() {
         return readFileAsync(TOKENS_SUPPLY_PATH)
           .then((data) => JSON.parse(data))
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    company: {
+      type: CompanyType,
+      args: {
+        symbol: {type: GraphQLString}
+      },
+      resolve(parentValue, {symbol}) {
+        return readFileAsync(EOSMARKETCAP_PATH)
+          .then((imarket) => {
+            return readFileAsync(COMPANY_INFO_PATH)
+              .then((icompanyinfo) => {
+                return {
+                  marketcap:
+                    JSON.parse(imarket).findIndex((e) => e.symbol == symbol) > -1
+                      ? JSON.parse(imarket)[JSON.parse(imarket).findIndex((e) => e.symbol == symbol)]
+                      : null,
+                  company_info: {
+                    website:
+                      JSON.parse(icompanyinfo).findIndex((e) => e.symbol == symbol) > -1
+                        ? JSON.parse(icompanyinfo)[JSON.parse(icompanyinfo).findIndex((e) => e.symbol == symbol)]
+                            .website
+                        : null,
+                    intro:
+                      JSON.parse(icompanyinfo).findIndex((e) => e.symbol == symbol) > -1
+                        ? JSON.parse(icompanyinfo)[JSON.parse(icompanyinfo).findIndex((e) => e.symbol == symbol)].intro
+                        : null
+                  }
+                };
+              })
+              .catch((error) => {
+                onError(error);
+              });
+          })
           .catch((error) => {
             onError(error);
           });

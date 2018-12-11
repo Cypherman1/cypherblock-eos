@@ -44,12 +44,6 @@ const GenCurGql = (Tokens) => {
   );
 };
 
-console.log(`
-  query get_wallet_info($account_name: String!) {
-    ${GenCurGql(Tokens)}
-  }
-`);
-
 export default gql`
   query get_wallet_info($account_name: String!) {
     ${GenCurGql(Tokens)}

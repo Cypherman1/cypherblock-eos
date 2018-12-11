@@ -337,469 +337,511 @@
     "symbol": "epraofficial-epra-eos",
     "contract": "epraofficial",
     "currency": "EPRA",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://chain.pro",
+    "intro": "Build a transparent digital advertising data ecosystem platform."
   },
   {
     "symbol": "buildertoken-ade-eos",
     "contract": "buildertoken",
     "currency": "ADE",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://cadeos.io",
+    "intro": "CADEOS is a distributed CAD file and project management platform."
   },
   {
     "symbol": "octtothemoon-oct-eos",
     "contract": "octtothemoon",
     "currency": "OCT",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://oraclechain.io",
+    "intro":
+      "As the world’s first application built on an EOS ecosphere, OracleChain needs to meet the demands of the Oracle (oracle machine) ecosystem by efficiently linking blockchain technology services with various real-life scenarios, thereby delving into this immense tens billion dollars valuation market. OracleChain is a decentralized Oracle technology platform for multi-blockchain. It adopts the autonomous PoRD mechanism to introduce real-world data into the blockchain, and use this as infrastructure to provide services for other blockchain applications. The OracleChain will provide Oracle services for real-world data within the blockchain, as well as Oracle services for cross-chain data.Within OracleChain it can accomplish the functions of several prediction market applications, such as Augur and Gnosis, OracleChain can also support smart contract businesses that requires high-frequency access to outside data in certain scenarios.OracleChain will change the development mode of current blockchain application, build a new ecosystem, and serve the blockchain application that can truly change the real world. The mission of OracleChain is connecting the world with blockchain. It aspires to become the infrastructure that connecting the real world with the blockchain world. By introducing the external data into the blockchain to achieve data interflow between the inside and outside of the chain, OracleChian will be the most efficient service platform for acquiring the external data in the blockchain world in the future."
   },
   {
     "symbol": "yumgamescoin-yum-eos",
     "contract": "yumgamescoin",
     "currency": "YUM",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://yum.games",
+    "intro":
+      "Yum.games is an EOS-based decentralized dividend game platform designed to create a free, credible, secure and interesting gaming experience for users. The whole game use EOS smart contract and block data to ensure the fairness and traceability."
   },
   {
     "symbol": "eosiotokener-egt-eos",
     "contract": "eosiotokener",
     "currency": "EGT",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://bj.eosgametoken.com",
+    "intro": "A gambling game based on EOS."
   },
   {
     "symbol": "eosyxtoken11-eosyx-eos",
     "contract": "eosyxtoken11",
     "currency": "EOSYX",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://eosyx.vip",
+    "intro":
+      "Sangong game is simple to play and has a warm atmosphere. With the high popularity in the game tea garden, it is widely spread and has a lot of luck to win. Sangong EOS is a de-centralized chess and card game developed in the EOS public chain, whose rules are automatically executed by intelligent contracts."
   },
   {
     "symbol": "horustokenio-ecash-eos",
     "contract": "horustokenio",
     "currency": "ECASH",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://horuspay.io",
+    "intro": "ECASH can be obtained through pledge HORUS."
   },
   {
     "symbol": "linzongsheng-tea-eos",
     "contract": "linzongsheng",
     "currency": "TEA",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://www.eostea.co",
+    "intro":
+      "TEA is a tea pass card issued on the basis of block chain 3.0 EOS main network. It is committed to building a new tea lover ecosystem. On-line small program Mall can use TEA to pay, off-line plans to share resources with a number of tea chain brands with more than 100 entity stores nationwide, joining the TEA ecological super node, the future purse holders of TEA will enjoy TEA tea cultural ecosphere of rights and interests, enjoy the services of the TEA super node!"
   },
   {
     "symbol": "luckygotoken-lkg-eos",
     "contract": "luckygotoken",
     "currency": "LKG",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.luckygo.one",
+    "intro": "A good platform for centralization of games."
   },
   {
     "symbol": "mugglesspell-mugl-eos",
     "contract": "mugglesspell",
     "currency": "MUGL",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://bancor3d.com",
+    "intro":
+      "Muggles is the developer team of Bancor3D, and Muggles Coin is the credentials of team distributed ownership. Every Muggles player can be a Muggles by holding a player."
   },
   {
     "symbol": "eosroyaleroy-roy-eos",
     "contract": "eosroyaleroy",
     "currency": "ROY",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://roulette.eosroyale.com",
+    "intro": "EOS based competitive guess platform."
   },
   {
     "symbol": "llgonebtotal-llg-eos",
     "contract": "llgonebtotal",
     "currency": "LLG",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://www.lelego.io",
+    "intro":
+      "LLG is the token of EOS LELEGO, the classic chess and card game on EOS, and LLG is released to the user via LELEGO game. Total 1 billion. The hidden value of LLG items includes brands, trademarks, platforms, games, and 100% of the proceeds from all games are proportionally owned by LLG holders."
   },
   {
     "symbol": "eosjusttoken-just-eos",
     "contract": "eosjusttoken",
     "currency": "JUST",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.eosjust.com",
+    "intro": "JUST is a DAPP platform focusing on game and smart contract development."
   },
   {
     "symbol": "eostgctoken1-tgc-eos",
     "contract": "eostgctoken1",
     "currency": "TGC",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://eostiger.io",
+    "intro":
+      "EOSTiger is a classic entertainment platform based on the EOS.IO blockchain.It is a collection of classic games with different senses, such as slot machines, Texas hold 'em, roulette, and blackjack."
   },
   {
     "symbol": "fairkuai3kkk-kkk-eos",
     "contract": "fairkuai3kkk",
     "currency": "KKK",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://kuai3.io",
+    "intro": "The first pre - sale mine, the people sit, the people mining model."
   },
   {
     "symbol": "xpctokencore-xpc-eos",
     "contract": "xpctokencore",
     "currency": "XPC",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://xpet.io",
+    "intro": "Valuable pet strategy battle game."
   },
   {
     "symbol": "etwineos1111-eoswin-eos",
     "contract": "etwineos1111",
     "currency": "EOSWIN",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://etwin.io",
+    "intro":
+      "ETwin is an interesting race prediction mining platform based on EOS. Predictions include all major global soccer events, NBA events and events that can be transparently determined! The user participates in the prediction by using EOSWIN, and the user can initiate the prediction project to increase active interactivity as the project progresses! 70% token locked in eoswin111111 can only be obtained by predicting mining! 30% token applies to airdrop, business promotion and cooperation, project contributor! EOSWIN holdings enjoy all affiliated projects of the platform earnings 100% dividend!"
   },
   {
     "symbol": "eoseventoken-svn-eos",
     "contract": "eoseventoken",
     "currency": "SVN",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.eoseven.com",
+    "intro": "EOSeven is the world's fairest and secure gaming platform based on the EOS blockchain."
   },
   {
     "symbol": "xxxsevensxxx-seven-eos",
     "contract": "xxxsevensxxx",
     "currency": "SEVEN",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.se7ens.io",
+    "intro":
+      "EOS Interactive Dice Game. Play your odds and grow your bank of EOS Se7ens Dice Game tokens (SEVEN). SE7EN Tokens benefits the users in few ways, either by holding the tokens or using them."
   },
   {
     "symbol": "eosenbpocket-enb-eos",
     "contract": "eosenbpocket",
     "currency": "ENB",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://enbk.io",
+    "intro":
+      "The world's first EOS decentralized pledge platform, providing muti-currency services, bringing daily return and instant redemption."
   },
   {
     "symbol": "luckymetoken-roll-eos",
     "contract": "luckymetoken",
     "currency": "ROLL",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://www.eosluckyme.com",
+    "intro":
+      "EOS LuckyMe is a betting game platform run on EOS network, aiming to providing a transparent, fair and extremely amusing environment to global users."
   },
   {
     "symbol": "dacincubator-ctn-eos",
     "contract": "dacincubator",
     "currency": "CTN",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://crazytown.io",
+    "intro":
+      "Crazy Town provides the most multiplayer online chess and card games on EOS, and has won the recognition of the majority of players on the first day of the TP wallet's launch. At present, the game includes more than ten popular games such as Qiangzhuangniuniu,Fight,Zhajinhua,Texas Holdem and Shuiguoji,and more games are opening up in succession."
   },
   {
     "symbol": "eoscafekorea-dab-eos",
     "contract": "eoscafekorea",
     "currency": "DAB",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://dabble.cafe",
+    "intro":
+      "Dabble is a social media platform where creators can get rewards through publishing short articles or emoticons. Posts can be published in future books or paper books, and are recorded on the block chain, contributing to copyright protection. Maximize your ad efficiency by applying AI ad specific to login ad box and user orientation."
   },
   {
     "symbol": "diceeostoken-det-eos",
     "contract": "diceeostoken",
     "currency": "DET",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://mydice.me",
+    "intro": "Gambling game based on EOS."
   },
   {
     "symbol": "ptitokenhome-pti-eos",
     "contract": "ptitokenhome",
     "currency": "PTI",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://paytomat.com",
+    "intro":
+      "Paytomat is a payment system that enables local stores and online merchants to accept payments in crypto without banking systems, cards or centralized electronic payment solutions. Paytomat bridges the blockchain ecosystem with retail, hedging the risks, increasing speed and enabling instant payments in multiple cryptocurrencies."
   },
   {
     "symbol": "gymrewardsio-gym-eos",
     "contract": "gymrewardsio",
     "currency": "GYM",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.gymrewards.io",
+    "intro":
+      "Decentralized EOS Proof of Exercise token with innovative mobile app that allows you to mine GYM cryptocurrency with your body."
   },
   {
     "symbol": "eosbocai1111-bocai-eos",
     "contract": "eosbocai1111",
     "currency": "BOCAI",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://eosdice.vip",
+    "intro": "BOCAI is the token of the EOSDICE game platform which enjoying the following dividend."
   },
   {
     "symbol": "eoscubetoken-cube-eos",
     "contract": "eoscubetoken",
     "currency": "CUBE",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://eoscube.site",
+    "intro": "An EOS-based gambling game."
   },
   {
     "symbol": "challengedac-chl-eos",
     "contract": "challengedac",
     "currency": "CHL",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://challengedapp.io",
+    "intro":
+      "The task of CHALLENGE is to use block chain technology to make DAPP, and to influence people to participate in active behavior through the use of token economy and intelligent contract technology. Their first appearance of DAPP is CHALLENGE DAPP. Its purpose is to motivate and reward players to exercise and keep healthy while using it frequently."
   },
   {
     "symbol": "weosservices-wecash-eos",
     "contract": "weosservices",
     "currency": "WECASH",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://weosapp.io",
+    "intro":
+      "Weos is a sharing platform that makes sharing special, private where needed, and incentivized through blockchain technology. And, Weos covers sharing to all degrees of openness to your world."
   },
   {
     "symbol": "eosadddddddd-add-eos",
     "contract": "eosadddddddd",
     "currency": "ADD",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://eosadd.com",
+    "intro":
+      "EOS ADD provides data center and application platform for transformation from 'Internet plus 'to 'block chain plus'."
   },
   {
     "symbol": "cryptopesosc-pso-eos",
     "contract": "cryptopesosc",
     "currency": "PSO",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://eosvenezuela.io",
+    "intro": "Peso Economy-- a modern economic plan in Venezuela and Latin America."
   },
   {
     "symbol": "eosfuntoken1-fun-eos",
     "contract": "eosfuntoken1",
     "currency": "FUN",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://eosfun.win",
+    "intro":
+      "EOSFUN is a betting game platform run on EOS network, aiming to providing a transparent, fair and extremely amusing environment to global users. Smart Contract: The random number generation and judgement mechanism are both run on blockchain, which is transparent and verifiable, the system is not able to cheat on players. Token Design: We issue 8.8 billion FUN tokens to share the profit of the platform with our players."
   },
   {
     "symbol": "psidicetoken-psi-eos",
     "contract": "psidicetoken",
     "currency": "PSI",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://dice.psipsi.io",
+    "intro": "PSI Gaming is a fair game platform based on block chain"
   },
   {
     "symbol": "poormantoken-poor-eos",
     "contract": "poormantoken",
     "currency": "POOR",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.genereos.io",
+    "intro":
+      "GenerEOS is a social enterprise block producer candidate whose purpose is to promote and support scalable and extremely reliable block production whilst giving back block rewards to charities."
   },
   {
     "symbol": "fcfundadmins-fc-eos",
     "contract": "fcfundadmins",
     "currency": "FC",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://eosall.in",
+    "intro": "Classic dice game."
   },
   {
     "symbol": "buildertoken-lite-eos",
     "contract": "buildertoken",
     "currency": "LITE",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.eoslite.co",
+    "intro": "EOS Lite - Manage EOS assets directly through the browsers ."
   },
   {
     "symbol": "esbcointoken-esb-eos",
     "contract": "esbcointoken",
     "currency": "ESB",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://eossportsbets.io",
+    "intro": "Free peer to peer sports betting community."
   },
   {
     "symbol": "bet24tokens1-chip-eos",
     "contract": "bet24tokens1",
     "currency": "CHIP",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://bet24.one",
+    "intro":
+      "BET24 is a betting game platform run on EOS network, aiming to providing a transparent, fair and extremely amusing environment to global users."
   },
   {
     "symbol": "pxstokensapp-pxs-eos",
     "contract": "pxstokensapp",
     "currency": "PXS",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://cryptopix.app",
+    "intro":
+      "CryptoPIX is a competitive cooperative online multiplayer drawing game. The game features a canvas of 1000x1000 pixels. Every player gets to paint any arbitrary pixel on this canvas. The player gets a new pixel to paint once every predetermined interval. The length of this interval is determined by the amount of game tokens the user has. The more tokens the user holds, the shorter the intervals will be. Users will be able to cooperate with a community (or create their own) to create whatever drawings they wish to make. Every 24 hours an art competition will take place within the game. In this competition the players get to vote on the best drawing made during that day. The winners of this competition receive (PXS) game tokens."
   },
   {
     "symbol": "wizboxairdro-wizbox-eos",
     "contract": "wizboxairdro",
     "currency": "WIZBOX",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://wizards.one",
+    "intro":
+      "This is an EOS-based character fighting game developed by the LetltPlay team and inspired by Crypto Cat on Ethereum."
   },
   {
     "symbol": "eosiomoreone-more-eos",
     "contract": "eosiomoreone",
     "currency": "MORE",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://more.one",
+    "intro":
+      "MORE.ONE is a premium airdrop (candy) distribution platform developed by EOS Genesis block producer MEET.ONE, MORE is the token of MORE.ONE: Users can obtain EOS ecology project airdrops (candy) without holding EOS; DAPPs development team (based on EOS) can have a friendly platform to present their ideas to the community and obtain a high quality initial user base; Active promoters of the EOS community will gain more premium airdrops (candy) and benefits based on their contribution."
   },
   {
     "symbol": "eosindiegame-igc-eos",
     "contract": "eosindiegame",
     "currency": "IGC",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://eosindiegame.com",
+    "intro": "Castle Wars is a multi-player online strategy role playing game based on EOS block chain."
   },
   {
     "symbol": "shadowbanker-esa-eos",
     "contract": "shadowbanker",
     "currency": "ESA",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://eosbao.io",
+    "intro": "A IBO platform for EOS game, everyone can be a shareholder. For a good beginning and a perfect ending."
   },
   {
     "symbol": "buildertoken-eosish-eos",
     "contract": "buildertoken",
     "currency": "EOSISH",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://mywish.io",
+    "intro":
+      "Token for EOS Contract Builder. EOSISH is used as means of payment for contract creation. A user who wants to build a smart contract on the Platform needs to buy EOSISH on an exchange and then transfer it to MyWish. EOSISH is used for Platform functionality. Every developer who launches his or her contract on MyWish receives revenue in EOSISH. Some contracts (like WILL) require external calls from network users and thus receive call bonuses in EOSISH."
   },
   {
     "symbol": "wizznetwork1-wizz-eos",
     "contract": "wizznetwork1",
     "currency": "WIZZ",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://wizz.network",
+    "intro":
+      "WIZZ is a multi-functional distributed ecosystem based on EOS. In the future,it will cover many functions such as multi-underlying protocol wallet, message chatting, local shopping, and incentive centers."
   },
   {
     "symbol": "eosvrtokenss-evr-eos",
     "contract": "eosvrtokenss",
     "currency": "EVR",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "",
+    "intro":
+      "EOSVR is a virtual world based in EOS chain. Like Ready Player One, people are able to access the virtual world, communicate with others, and exchange and build virtual objects together through versatile devices. EOSVR reduces the maintanance cost and enhances user experiences by utilizing the decentralizing technology."
   },
   {
     "symbol": "eosluckchain-luck-eos",
     "contract": "eosluckchain",
     "currency": "LUCK",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://luckchain.one",
+    "intro":
+      "Luck Chain is the world's first decentralized market forecasting platform based on the EOS protocol. You can predict the results of any event (football, World Cup, campaign, etc.) in the LuckChain. We verify the results through blockchain. No one can cheat."
   },
   {
     "symbol": "tokenbyeocat-cat-eos",
     "contract": "tokenbyeocat",
     "currency": "CAT",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://eocat.io",
+    "intro":
+      "EOCAT is a Block Explorer app that makes it easy to manage EOS account. With EOCAT, you can check all the information related to EOS accounts and also receive the airdrop with one touch."
   },
   {
     "symbol": "skillshareio-sst-eos",
     "contract": "skillshareio",
     "currency": "SST",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://shareskill.top",
+    "intro":
+      "SkillShare is a shared incentive platform to link human skills based on block chaining EOS technology. On killShare, users can share their skills that they are good at, help others and get token benefits, which fully reflects the value of personal skills. Open projects can also engage onlookers to give praise, forward positive contributions, and receive Token incentives from SkillShare bonus pool."
   },
   {
     "symbol": "eatscience14-eatcoin-eos",
     "contract": "eatscience14",
     "currency": "EATCOIN",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.eatschools.com",
+    "intro":
+      "EATCOIN = Education And Technology Coin I have created this coin to motivate students around the world to learn and to invest in the same time. Students get this EATCOIN in the ratio 1:1 for thir grades in quizzes, homework and online quizzes on eatschools.com and teachers get EATCOIN for their courses created on eatschools.com according to the feedbacks of the students so we encourge teachers to teach and to invest. EATCOIN will be used to pay for the paid courses which will be available soon on eatschools.com and buy items from marketplace which will be created soon according to the roadmap in the white paper"
   },
   {
     "symbol": "eosninetiess-eosnts-eos",
     "contract": "eosninetiess",
     "currency": "EOSNTS",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.eos90s.io",
+    "intro":
+      "EOSNTS token is the encrypted digital asset of the content media platform released by the EOS 90 community."
   },
   {
     "symbol": "eosfaidchain-faid-eos",
     "contract": "eosfaidchain",
     "currency": "FAID",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://firstaidchain.io",
+    "intro":
+      "FAID is a first aid collaboration platform for reward. Based on the EOS public chain, Dapp aims to create a transparent database and cooperative platform for first aid popularization in China and worldwide through distributed accounting and smart contract technology of block chain."
   },
   {
     "symbol": "eoxeoxeoxeox-eox-eos",
     "contract": "eoxeoxeoxeox",
     "currency": "EOX",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.eoxlab.io",
+    "intro": "EOX is a decentralized e-commerce platform."
   },
   {
     "symbol": "aeronaerozzz-arn-eos",
     "contract": "aeronaerozzz",
     "currency": "ARN",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://aeron.aero",
+    "intro":
+      "Aeron’s solution relies on blockchain technology to track aircraft maintenance and pilot logs. Aeron is constructing a database and an online system that is decentralized, hosting global data on aircraft, flight schools and pilots. This electronic logging system would force pilots to have logs that reflect accurate flight hours, making aviation safer for everyone involved. Aeron (ARN) utility token will be incorporated in Aeron products. It helps to enhance product usage, allow contribution to the ecosystem, product access and ownership. ARN is a bootstrapping engagement. While the token will enable access to valuable features within the Aeron platform, it won’t be limited by the Aeron mobile applications."
   },
   {
     "symbol": "chyyshayysha-lkt-eos",
     "contract": "chyyshayysha",
     "currency": "LKT",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.luckywith.me/luckycoin",
+    "intro":
+      "LuckyPlaza is the largest DAPP game ecosystem on EOS. The platform was launched in August 2018. At present, a number of self-operated and tripartite development games have been launched, and the quality of the game has been well received by players. LKT is a platform token based on LuckyPlaza. Permissions include, for example, game bonuses, game usage tokens, and more. The price of LKT has risen many times since its launch and is still rising rapidly."
   },
   {
     "symbol": "ppppp.e-p-eos",
     "contract": "ppppp.e",
     "currency": "P",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://eosworldmap.com",
+    "intro":
+      "P Token is the first 1-character token contract created on EOS blockchain. The total supply of 7.5 Billion reflects the total population of the world, and will inflate and deflate according to changes in the population. When you buy pixels with EOS, we will aidrop 1000 times the amount in P token to your EOS account instantly. P also represents your account level in all our upcoming games, allowing players to unlock exclusive items and extra features as they level up. P will be used only as currency for in-game purchase, such as 'special pixel art stamps', team power-ups and exclusive flags. After all our games are launched on EOS, we will transition from a centralized to decentralized gaming platform. All P token holders will become shareholders and are entitled to all profit generated from games."
   },
   {
     "symbol": "dacincubator-ydapp-eos",
     "contract": "dacincubator",
     "currency": "YDAPP",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://ydapp.io/",
+    "intro":
+      "YDapp is a game community formed by blockchain gamers, formerly known as YIHONGYUAN, an Ethereum game community. Currently it is the top 1 Guild of Evolution.Land. With its unique insight into blockchain technology and cryptocurrency, the team has invested in some quality EOS game projects and has made quite big profits. After a phase of exploring, based on our optimistic estimates of the EOS and its ecology, many projects are still in their infancy and have plenty room for progress, while an experienced team is still missing for community maintenance. Hence, we decided to set up YDapp.io website and some related communities to provide players with the latest game information and to provide promotions and community operating services for the project parties. The team includes Dapp developers, cryptocurrency measurement practitioners, former Okamoto China Content Operating Chief and community KOL, who are all senior Dapp gamers."
   },
   {
     "symbol": "eosbuttonbtn-btn-eos",
     "contract": "eosbuttonbtn",
     "currency": "BTN",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://eosbutton.io",
+    "intro": "BTN inspired by The Button's block chain games."
   },
   {
     "symbol": "talkoneos123-toe-eos",
     "contract": "talkoneos123",
     "currency": "TOE",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://talkoneos.com",
+    "intro":
+      "The underlying philosophy of the social network of TOE is to combine core social values with the original vision of the creation of the internet. The concepts of freedom, equality, social public governance and diversity are the healthy components of a diversified social networking ecosystem."
   },
   {
     "symbol": "gqydooigenes-lzb-eos",
     "contract": "gqydooigenes",
     "currency": "LZB",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://laozieos.com",
+    "intro": "Laozi EOS is the first block chain technology forum to integrate block chain assets in China."
   },
   {
     "symbol": "eosrandtoken-ran-eos",
     "contract": "eosrandtoken",
     "currency": "RAN",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "http://eosrand.io",
+    "intro":
+      "EOS RAN focuses on block chain gaming based on the eos platform, all game algorithms open, verifiable, blackjack for the platform's first open game, now participate in mining incentives, split 100% of platform near profit. The ran coin from the mining can also be used in the game."
   },
   {
     "symbol": "youbaoyoubao-you-eos",
     "contract": "youbaoyoubao",
     "currency": "YOU",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://youbao.io",
+    "intro":
+      "Based on Bancor, the pomelo game is on sale, holding pomelo pass certificate as a game partner of the pomelo game."
   },
   {
     "symbol": "eosatidiumio-atd-eos",
     "contract": "eosatidiumio",
     "currency": "ATD",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.atidium.io",
+    "intro":
+      "Atidium is a payment and budget management decentralized application for individuals and businesses. The Atrium DApp will allow to use ATD tokens as a way of keeping track of your future expenses. Improving your budget status by sharing daily tips from other users in the network. Sending ATD tokens from wallet to wallet and allowing to set rules on a token by setting its color. The token can be used to pay around the world with the DApp and debit card, the same as the traditional way."
   },
   {
     "symbol": "lovewintoken-love-eos",
     "contract": "lovewintoken",
     "currency": "LOVE",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://lovewin.io",
+    "intro":
+      "LOVE Token is a token created upon Ethereum which follows a ERC 20 Standard. It is a token which represents LOVE in the crypto world. This token have a backing fund which includes top cryptocurrencies. Also, with time, this will be used as a means to raise and fund charity and give donations. Along with those, an important factor which gives it it's value is the promise to give it back to the society by helping budding entrepreneurs so that they can make a change in the world. LOVE Token has also achieved one of the first fully decentralized Raffle System ever created!"
   },
   {
     "symbol": "gmaslaunches-shape-eos",
     "contract": "gmaslaunches",
     "currency": "SHAPE",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.shapecoin.io",
+    "intro": "Shape is a fitness application based on EOS."
   },
   {
     "symbol": "eoswinonewww-wins-eos",
     "contract": "eoswinonewww",
     "currency": "WINS",
-    "website": "https://betdice.one",
-    "intro": ""
+    "website": "https://www.eoswin.one",
+    "intro": "Eoswin.one focuses on mining dividends decentralized gaming platform."
   }
 ]

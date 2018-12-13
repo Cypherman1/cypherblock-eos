@@ -73,6 +73,7 @@ class WalletBody extends Component {
         if (index >= 0) {
           atoken = {
             name: data.eosmarketcap.data[index].currency.toUpperCase(), //token name
+            symbol: data.eosmarketcap.data[index].symbol,
             ammount: Number(data[token].data[0].split(' ')[0]), // token ammount
             price: Number(data.eosmarketcap.data[index].last),
             percent: Number(data.eosmarketcap.data[index].change)
@@ -86,32 +87,31 @@ class WalletBody extends Component {
   renderTokens(isEOSUnit, eos_price, isDarkMode) {
     let items = [];
     AllTokens.sort((a, b) => b.ammount * b.price - a.ammount * a.price).map((token) => {
-      token_logo = `${images}/${token.name}.png`;
+      token_logo = `${images}/${token.symbol}.png`;
 
       if (token.name == 'EOS') {
-        items.push(
-          <div className="row row-sm stats-container shadow-sm pb-1  m-0" key={token.name}>
-            <div className="col-8 stat-col p-0">
-              <div className="stat-icon">
-                {/* <img src={img_src} className="img-logo" /> */}
-                <div>
-                  <ReactImageFallback
-                    src={token_logo}
-                    fallbackImage={fallback_logo}
-                    alt={`${token.name} token airdrop`}
-                    className="img-logo"
-                  />
-                </div>
-              </div>
-              <div className="stat">
-                <div className="value">{renderEOSNum(token.ammount)}</div>
-
-                <div className="name">{token.name}</div>
-              </div>
-            </div>
-            {this.renderBitfinexPrice(token)}
-          </div>
-        );
+        // items.push(
+        //   <div className="row row-sm stats-container shadow-sm pb-1  m-0" key={token.name}>
+        //     <div className="col-8 stat-col p-0">
+        //       <div className="stat-icon">
+        //         {/* <img src={img_src} className="img-logo" /> */}
+        //         <div>
+        //           <ReactImageFallback
+        //             src={token_logo}
+        //             fallbackImage={fallback_logo}
+        //             alt={`${token.name} token airdrop`}
+        //             className="img-logo"
+        //           />
+        //         </div>
+        //       </div>
+        //       <div className="stat">
+        //         <div className="value">{renderEOSNum(token.ammount)}</div>
+        //         <div className="name">{token.name}</div>
+        //       </div>
+        //     </div>
+        //     {this.renderBitfinexPrice(token)}
+        //   </div>
+        // );
       } else {
         //main render for wallet
         if (token.price > 0) {

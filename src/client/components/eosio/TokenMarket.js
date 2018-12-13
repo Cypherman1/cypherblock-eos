@@ -173,12 +173,12 @@ class TokenMarket extends Component {
               if (tokeninfo.last > 0) {
                 ticker_count += 1;
                 if (IsTokenSearched(tokeninfo, this.props.common.symbol)) {
-                  token_logo = `${images}/${tokeninfo.currency.toUpperCase()}.png`;
+                  token_logo = `${images}/${tokeninfo.symbol}.png`;
 
                   items.push(
                     <div
                       className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark text-cypher' : ''} ml-0 p-1 mt-0`}
-                      key={tokeninfo.currency}
+                      key={tokeninfo.symbol}
                       style={{marginBottom: 1}}
                     >
                       <div className="row ftz-12  m-0">

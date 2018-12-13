@@ -257,18 +257,22 @@ class EOSMarketCap extends Component {
 
             //TOKENS
             eosmarketcap.data.map((token, index) => {
-              if (IsTokenSearched(token, mc_symbol) && token.symbol != 'eosio.token-eos-eusd') {
+              if (
+                IsTokenSearched(token, mc_symbol) &&
+                token.symbol != 'eosio.token-eos-eusd' &&
+                token.symbol.substring(token.symbol.length - 4) == '-eos'
+              ) {
                 tokens.push(
                   <div
                     className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`}
-                    key={token.currency}
+                    key={token.symbol}
                   >
                     <div className="col-3 pl-1 row m-0 d-flex align-items-center">
                       <div className="col-2 p-0 d-flex align-items-center">{token_num + 2}</div>
                       <div className="col-10 p-0 pl-2 d-flex align-items-center">
                         <div className="mr-2 bg-white logo-bgr">
                           <ReactImageFallback
-                            src={`${images}/${token.currency.toUpperCase()}.png`}
+                            src={`${images}/${token.symbol}.png`}
                             fallbackImage={`${images}/COMMON.png`}
                             alt={`${token.currency} token airdrop`}
                             className="token_logo"

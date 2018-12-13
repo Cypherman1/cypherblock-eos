@@ -215,6 +215,7 @@ class EOSMarketCap extends Component {
             );
 
             //EOS
+            token_num = 0;
             tokens.push(
               <div className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`} key={'RAM'}>
                 <div className="col-3 pl-1 row m-0 d-flex align-items-center">
@@ -256,14 +257,14 @@ class EOSMarketCap extends Component {
 
             //TOKENS
             eosmarketcap.data.map((token, index) => {
-              if (IsTokenSearched(token, mc_symbol)) {
+              if (IsTokenSearched(token, mc_symbol) && token.symbol != 'eosio.token-eos-eusd') {
                 tokens.push(
                   <div
                     className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`}
                     key={token.currency}
                   >
                     <div className="col-3 pl-1 row m-0 d-flex align-items-center">
-                      <div className="col-2 p-0 d-flex align-items-center">{index + 2}</div>
+                      <div className="col-2 p-0 d-flex align-items-center">{token_num + 2}</div>
                       <div className="col-10 p-0 pl-2 d-flex align-items-center">
                         <div className="mr-2 bg-white logo-bgr">
                           <ReactImageFallback
@@ -348,6 +349,7 @@ class EOSMarketCap extends Component {
                     </div>
                   </div>
                 );
+                token_num++;
               }
             });
             return (

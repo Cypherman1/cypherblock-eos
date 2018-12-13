@@ -7,7 +7,8 @@ import Tokens from '../../server/db/tokens.json';
 const GenCurGql = (Tokens) => {
   let gqlstr = '';
   Tokens.map((token) => {
-    gqlstr += `t_${token.currency}${token.contract.replace('.', '_')}: currency_balance(
+    if (token.symbol != 'eosio.token-eos-eusd')
+      gqlstr += `t_${token.currency}${token.contract.replace('.', '_')}: currency_balance(
             code: "${token.contract}",
             account: $account_name,
             symbol: "${token.currency.toUpperCase()}"

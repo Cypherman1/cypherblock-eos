@@ -7,6 +7,7 @@ const CompanyInfoType = new GraphQLObjectType({
   name: 'CompanyInfoType',
   fields: () => ({
     website: {type: GraphQLString},
+    name: {type: GraphQLString},
     intro: {type: GraphQLString}
   })
 });

@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {connect} from 'react-redux';
+import ReactImageFallback from 'react-image-fallback';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetProject from '../../queries/GetProject';
+const images = '../imgs';
 
 const ProjectLoading = ({isDarkMode}) => {
   return (
@@ -40,21 +42,34 @@ class Project extends Component {
           if (loading) return <ProjectLoading isDarkMode={isDarkMode} />;
           if (error) return <ProjectLoading isDarkMode={isDarkMode} />;
 
-          if (data) console.log(data);
-          return (
-            <article className="content dashboard-page">
-              <section className="section">
-                <div className="card">
-                  <div className="card-header">
-                    abc
-                    <div> {data.company.marketcap.currency} </div>
-                    <div> {data.company.company_info.website} </div>
+          if (data)
+            return (
+              <article className="content dashboard-page">
+                <section className="section">
+                  <div className={`card ${isDarkMode ? 'bg-dark' : ''}`}>
+                    <div className={`d-flex align-items-center card-header ${isDarkMode ? 'bg-dark' : ''}`}>
+                      <div className="ml-2 bg-white cpy-logo-bgr">
+                        <ReactImageFallback
+                          src={`${images}/${data.company.marketcap.symbol}.png`}
+                          fallbackImage={`${images}/COMMON.png`}
+                          alt={`${data.company.marketcap.currency} token airdrop`}
+                          className="cpy-logo"
+                        />
+                      </div>
+                      <div className="ml-2 ftz-14 font-weight-bold ">
+                        {data.company.company_info.name} (
+                        <span className="text-info">{data.company.marketcap.currency}</span>)
+                      </div>
+                    </div>
+                    <div className="card-body p-0">
+                      <div className={`${isDarkMode ? 'bg-dark' : ''}`}>
+                        <a href={data.company.company_info.website}> {data.company.company_info.website} </a>
+                      </div>
+                    </div>
                   </div>
-                  <div className="card-body">abc</div>
-                </div>
-              </section>
-            </article>
-          );
+                </section>
+              </article>
+            );
         }}
       </Query>
     );

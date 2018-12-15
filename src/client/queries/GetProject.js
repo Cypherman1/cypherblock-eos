@@ -27,6 +27,7 @@ export default gql`
       }
       company_info {
         website
+        name
         intro
       }
     }

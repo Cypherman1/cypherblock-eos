@@ -332,6 +332,10 @@ const RootQueryType = new GraphQLObjectType({
                         ? JSON.parse(icompanyinfo)[JSON.parse(icompanyinfo).findIndex((e) => e.symbol == symbol)]
                             .website
                         : null,
+                    name:
+                      JSON.parse(icompanyinfo).findIndex((e) => e.symbol == symbol) > -1
+                        ? JSON.parse(icompanyinfo)[JSON.parse(icompanyinfo).findIndex((e) => e.symbol == symbol)].name
+                        : null,
                     intro:
                       JSON.parse(icompanyinfo).findIndex((e) => e.symbol == symbol) > -1
                         ? JSON.parse(icompanyinfo)[JSON.parse(icompanyinfo).findIndex((e) => e.symbol == symbol)].intro

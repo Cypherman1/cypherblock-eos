@@ -458,7 +458,7 @@ class EOSMarketCap extends Component {
                     {/* Table header */}
                     <div className="bg-white p-0 m-0 card-body ">
                       <div
-                        className={`row p-1 shadow-sm mbt-1px text-info border-top border-bottom ${
+                        className={`row p-1 shadow-sm mc-headfont mbt-1px text-info border-top border-bottom ${
                           isDarkMode ? 'bg-dark border-secondary' : 'bg-white'
                         }`}
                         key={1}

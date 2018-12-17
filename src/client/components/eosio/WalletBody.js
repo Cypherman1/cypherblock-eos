@@ -6,6 +6,7 @@ import {CSSTransitionGroup} from 'react-transition-group';
 import {Link} from 'react-router-dom';
 import NumberEasing from '../utils/NumberEasing';
 import {renderEOSNum, renderPPColor} from '../utils/RenderColors';
+import {renderProjectLink} from '../utils/Tools';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetWalletInfo from '../../queries/GetWalletInfo';
@@ -74,6 +75,7 @@ class WalletBody extends Component {
           atoken = {
             name: data.eosmarketcap.data[index].currency.toUpperCase(), //token name
             symbol: data.eosmarketcap.data[index].symbol,
+            currency: data.eosmarketcap.data[index].currency,
             ammount: Number(data[token].data[0].split(' ')[0]), // token ammount
             price: Number(data.eosmarketcap.data[index].last),
             percent: Number(data.eosmarketcap.data[index].change)
@@ -134,7 +136,7 @@ class WalletBody extends Component {
                     className="token_logo"
                   />
                 </div>
-                <div className="">{token.name}</div>
+                <div className="">{renderProjectLink(token)}</div>
               </div>
               {/* Balance info */}
               <div className="col-5 p-0 ">

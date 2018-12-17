@@ -100,6 +100,9 @@ const ProjectLoading = ({isDarkMode}) => {
 };
 
 class Project extends Component {
+  componentWillMount() {
+    this.props.setActiveLinkID(3);
+  }
   render() {
     const {match} = this.props;
     const {isDarkMode, mcUnit} = this.props.sidebar;

@@ -299,17 +299,13 @@ const renderAccountLink = (accountName) => {
   );
 };
 
-const renderProjectLink = (token, token_num, eos_price) => {
+const renderProjectLink = (token) => {
   isDarkMode = localStorage.getItem('isDarkMode') == 'true';
   return (
     <Link
       className={`font-weight-acttype ftz-13  ${isDarkMode ? 'linkcolor-dark' : ''} `}
       to={{
-        pathname: `/project/${token.symbol}`,
-        state: {
-          rank: token_num,
-          eos_price: eos_price
-        }
+        pathname: `/project/${token.symbol}`
       }}
     >
       {token.currency.toUpperCase()}

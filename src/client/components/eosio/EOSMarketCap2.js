@@ -279,7 +279,7 @@ class EOSMarketCap extends Component {
                           />
                         </div>
                         <div>
-                          {renderProjectLink(token, token_num + 2, eos_price)}
+                          {renderProjectLink(token)}
                           {/* {token.currency.toUpperCase()} */}
                         </div>
                       </div>

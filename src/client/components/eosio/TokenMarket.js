@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Tokens} from '../utils/Tokens';
 import GetTokenMarket from '../../queries/GetTokenMarket';
-import {gettPairPrice, gettPairPercent} from '../utils/Tools';
+import {renderProjectLink} from '../utils/Tools';
 import {renderPPColor} from '../utils/RenderColors';
 const images = './imgs';
 import {setSearchSymbol} from '../../actions/common';
@@ -195,7 +195,8 @@ class TokenMarket extends Component {
                           </div>
 
                           <div className="ml-2 d-flex align-items-center">
-                            <div> {`${tokeninfo.currency.toUpperCase()}`}</div>
+                            {renderProjectLink(tokeninfo)}
+                            {/* <div> {`${tokeninfo.currency.toUpperCase()}`}</div> */}
                           </div>
                         </div>
                         <div className="col-4 text-right  d-flex align-items-center flex-row-reverse pl-0">

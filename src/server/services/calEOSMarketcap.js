@@ -255,9 +255,15 @@ const calEOSMarketcap = () => {
 
   Aggregate_Markets();
 
-  fs.writeFile(EOSMARKETCAP_PATH, JSON.stringify(EOSMarkets), (err) => {
-    if (err) process.stdout.write('Write tokens file fail!' + err);
-  });
+  fs.writeFile(
+    EOSMARKETCAP_PATH,
+    JSON.stringify(
+      EOSMarkets.sort((a, b) => Number(b.supply.current) * Number(b.last) - Number(a.supply.current) * Number(a.last))
+    ),
+    (err) => {
+      if (err) process.stdout.write('Write tokens file fail!' + err);
+    }
+  );
 };
 
 module.exports = calEOSMarketcap;

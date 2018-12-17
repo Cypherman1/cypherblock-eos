@@ -322,6 +322,7 @@ const RootQueryType = new GraphQLObjectType({
             return readFileAsync(COMPANY_INFO_PATH)
               .then((icompanyinfo) => {
                 return {
+                  rank: JSON.parse(imarket).findIndex((e) => e.symbol == symbol),
                   marketcap:
                     JSON.parse(imarket).findIndex((e) => e.symbol == symbol) > -1
                       ? JSON.parse(imarket)[JSON.parse(imarket).findIndex((e) => e.symbol == symbol)]

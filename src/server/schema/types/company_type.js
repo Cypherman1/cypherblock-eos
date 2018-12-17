@@ -15,6 +15,7 @@ const CompanyInfoType = new GraphQLObjectType({
 const CompanyType = new GraphQLObjectType({
   name: 'CompanyType',
   fields: () => ({
+    rank: {type: GraphQLString},
     marketcap: {type: EMTokenType},
     company_info: {type: CompanyInfoType}
   })

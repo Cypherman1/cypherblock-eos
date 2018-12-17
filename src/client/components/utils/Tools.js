@@ -30,6 +30,8 @@ import {
   AG_VOTE
 } from './ConstTypes';
 
+import eoslogo from '../../assets/imgs/eoslogo1.svg';
+
 let isDarkMode = null;
 
 const toTokenNumber = (tokenNum) => {
@@ -291,21 +293,24 @@ const convertUTCDateToLocalDate = (date) => {
 const renderAccountLink = (accountName) => {
   isDarkMode = localStorage.getItem('isDarkMode') == 'true';
   return (
-    <Link
-      className={`font-weight-acttype ftz-13  ${isDarkMode ? 'linkcolor-dark' : ''} `}
-      to={`/account/${accountName}`}
-    >
+    <Link className={`font-weight-acttype  ${isDarkMode ? 'linkcolor-dark' : ''} `} to={`/account/${accountName}`}>
       {accountName}
     </Link>
   );
 };
 
-const renderProjectLink = (token) => {
+const renderProjectLink = (token, token_num, eos_price) => {
   isDarkMode = localStorage.getItem('isDarkMode') == 'true';
   return (
     <Link
       className={`font-weight-acttype ftz-13  ${isDarkMode ? 'linkcolor-dark' : ''} `}
-      to={`/project/${token.symbol}`}
+      to={{
+        pathname: `/project/${token.symbol}`,
+        state: {
+          rank: token_num,
+          eos_price: eos_price
+        }
+      }}
     >
       {token.currency.toUpperCase()}
     </Link>
@@ -458,6 +463,27 @@ const gettPairPercent = (data, bitfinex_pair, bigone_ticker, blocksence_ticker, 
   return tPercent;
 };
 
+const renderMCVal = (mcVal, mcUnit, eos_price) => {
+  return (
+    <div>
+      {mcUnit == 1 ? <img src={eoslogo} alt="eos" className="eos-unit" /> : '$'}
+      {mcUnit == 1
+        ? Number(mcVal).toLocaleString(undefined, {maximumFractionDigits: 0})
+        : (Number(mcVal) * Number(eos_price)).toLocaleString(undefined, {maximumFractionDigits: 0})}
+    </div>
+  );
+};
+const renderMCPrice = (mcVal, mcUnit, eos_price) => {
+  return (
+    <div>
+      {mcUnit == 1 ? <img src={eoslogo} alt="eos" className="eos-unit" /> : '$'}
+      {mcUnit == 1
+        ? Number(mcVal).toLocaleString(undefined, {maximumSignificantDigits: 4})
+        : (Number(mcVal) * Number(eos_price)).toLocaleString(undefined, {maximumSignificantDigits: 4})}
+    </div>
+  );
+};
+
 export {
   convertUTCDateToLocalDate,
   renderAccountLink,
@@ -470,5 +496,7 @@ export {
   RoundedIcon,
   gettPairPrice,
   gettPairPercent,
-  renderProjectLink
+  renderProjectLink,
+  renderMCVal,
+  renderMCPrice
 };

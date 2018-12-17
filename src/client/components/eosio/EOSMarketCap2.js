@@ -174,7 +174,7 @@ class EOSMarketCap extends Component {
             ).toFixed(4);
             max_ram_size = Number(global_data.rows[0].max_ram_size);
             eos_total_supply = Number(eos_stat.rows[0].supply.split(' ')[0]);
-            eos_price = Number(cmc.data.quotes.USD.price).toFixed(2);
+            eos_price = Number(cmc.data.quotes.USD.price);
             eos_percent_change_24h = cmc.data.quotes.USD.percent_change_24h;
             eos_volume_24h = cmc.data.quotes.USD.volume_24h;
             {
@@ -249,7 +249,7 @@ class EOSMarketCap extends Component {
                   </div>
                 </div>
                 <div className="col-3 row p-0 m-0 d-flex align-items-center ">
-                  <div className="col-12 col-sm-7 p-0 text-right pr-1">${eos_price}</div>
+                  <div className="col-12 col-sm-7 p-0 text-right pr-1">${eos_price.toFixed(2)}</div>
                   <div className="col-12 col-sm-5 p-0 text-right pr-1">{renderPPColor(eos_percent_change_24h)}</div>
                 </div>
               </div>
@@ -279,8 +279,8 @@ class EOSMarketCap extends Component {
                           />
                         </div>
                         <div>
-                          {/* {renderProjectLink(token)} */}
-                          {token.currency.toUpperCase()}
+                          {renderProjectLink(token, token_num + 2, eos_price)}
+                          {/* {token.currency.toUpperCase()} */}
                         </div>
                       </div>
                     </div>

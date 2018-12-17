@@ -1043,6 +1043,9 @@ span.CodeMirror-selectedtext {
 .ftz-15 {
   font-size: 15px !important;
 }
+.ftz-18 {
+  font-size: 18px !important;
+}
 .ftz-8 {
   font-size: 8px !important;
 }
@@ -1198,7 +1201,10 @@ span.CodeMirror-selectedtext {
 }
 
 .ftz-18 {
-  font-size: 17px !important;
+  font-size: 18px !important;
+}
+.ftz-20 {
+  font-size: 20px !important;
 }
 
 .ftz-24 {

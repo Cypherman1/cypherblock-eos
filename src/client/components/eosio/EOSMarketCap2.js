@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderPPColor} from '../utils/RenderColors';
 import {renderProjectLink} from '../utils/Tools';
 import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
-import {setMCSearchSymbol} from '../../actions/common';
+import {setMCSearchSymbol, setMcSortBy} from '../../actions/common';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {IsTokenSearched} from '../utils/isTokenSearched';
 
@@ -34,6 +34,8 @@ let eosio_ram = 0;
 let total_token_marketcap = 0;
 let total_token_volume = 0;
 let token_num = 0;
+let Sorted_tokens = [];
+let Org_tokens = [];
 
 const calTotal = (eosmarketcap) => {
   total_token_marketcap = 0;
@@ -117,6 +119,13 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
   });
   return exchanges_info;
 };
+
+const renderSortHeader = (mc_sortby, setMcSortBy, val) => {
+  if (mc_sortby == val + '_DEC') setMcSortBy(val + '_ASC');
+  else if (mc_sortby == val + '_ASC') setMcSortBy(val + '_DEC');
+  else setMcSortBy(val + '_DEC');
+};
+
 const renderMCVal = (mcVal, mcUnit, eos_price) => {
   return (
     <div>
@@ -137,13 +146,21 @@ const renderMCPrice = (mcVal, mcUnit, eos_price) => {
     </div>
   );
 };
+
+const renderSortUD = (mc_sortby, val) => {
+  if (mc_sortby == val + '_DEC') return <i className="fa fa-sort-down text-success" />;
+  else if (mc_sortby == val + '_ASC') return <i className="fa fa-sort-up text-success " />;
+  else return null;
+};
+
 class EOSMarketCap extends Component {
   componentWillMount() {
     this.props.setActiveLinkID(3);
   }
   render() {
     const {isDarkMode, mcUnit} = this.props.sidebar;
-    const {mc_symbol} = this.props.common;
+    const {mc_symbol, mc_sortby} = this.props.common;
+    const {setMcSortBy} = this.props;
 
     tokens = [];
     exchanges_info = [];
@@ -177,11 +194,6 @@ class EOSMarketCap extends Component {
             eos_price = Number(cmc.data.quotes.USD.price);
             eos_percent_change_24h = cmc.data.quotes.USD.percent_change_24h;
             eos_volume_24h = cmc.data.quotes.USD.volume_24h;
-            {
-              /* eosio_ram = Number(eosioram.core_liquid_balance.split(' ')[0]).toLocaleString('en', {
-              maximumFractionDigits: 0
-            }); */
-            }
 
             //RAM
             tokens.push(
@@ -254,9 +266,57 @@ class EOSMarketCap extends Component {
                 </div>
               </div>
             );
+            Sorted_tokens = [];
+            Org_tokens = [];
+            Org_tokens = eosmarketcap.data.map((x, index) => ({...x, rank: index}));
+
+            switch (mc_sortby) {
+              case 'VOL_DEC':
+                Sorted_tokens = [...Org_tokens].sort((a, b) => Number(b.volume) - Number(a.volume));
+                break;
+              case 'VOL_ASC':
+                Sorted_tokens = [...Org_tokens].sort((a, b) => Number(a.volume) - Number(b.volume));
+                break;
+              case 'AMT_DEC':
+                Sorted_tokens = [...Org_tokens].sort((a, b) => Number(b.amount) - Number(a.amount));
+                break;
+              case 'AMT_ASC':
+                Sorted_tokens = [...Org_tokens].sort((a, b) => Number(a.amount) - Number(b.amount));
+                break;
+              case 'LAST_DEC':
+                Sorted_tokens = [...Org_tokens].sort((a, b) => Number(b.last) - Number(a.last));
+                break;
+              case 'LAST_ASC':
+                Sorted_tokens = [...Org_tokens].sort((a, b) => Number(a.last) - Number(b.last));
+                break;
+              case 'CHANGE_DEC':
+                Sorted_tokens = [...Org_tokens].sort((a, b) => Number(b.change) - Number(a.change));
+                break;
+              case 'CHANGE_ASC':
+                Sorted_tokens = [...Org_tokens].sort((a, b) => Number(a.change) - Number(b.change));
+                break;
+              case 'MCAP_DEC':
+                Sorted_tokens = [...Org_tokens].sort(
+                  (a, b) => Number(b.supply.current) * Number(b.last) - Number(a.supply.current) * Number(a.last)
+                );
+                break;
+              case 'MCAP_ASC':
+                Sorted_tokens = [...Org_tokens].sort(
+                  (a, b) => Number(a.supply.current) * Number(a.last) - Number(b.supply.current) * Number(b.last)
+                );
+                break;
+              case 'SUPP_DEC':
+                Sorted_tokens = [...Org_tokens].sort((a, b) => Number(b.supply.current) - Number(a.supply.current));
+                break;
+              case 'SUPP_ASC':
+                Sorted_tokens = [...Org_tokens].sort((a, b) => Number(a.supply.current) - Number(b.supply.current));
+                break;
+              default:
+                Sorted_tokens = [...eosmarketcap.data];
+            }
 
             //TOKENS
-            eosmarketcap.data.map((token, index) => {
+            Sorted_tokens.map((token, index) => {
               if (
                 IsTokenSearched(token, mc_symbol) &&
                 token.symbol != 'eosio.token-eos-eusd' &&
@@ -268,7 +328,7 @@ class EOSMarketCap extends Component {
                     key={token.symbol}
                   >
                     <div className="col-3 pl-1 row m-0 d-flex align-items-center">
-                      <div className="col-2 p-0 d-flex align-items-center">{token_num + 2}</div>
+                      <div className="col-2 p-0 d-flex align-items-center">{token.rank + 2}</div>
                       <div className="col-10 p-0 pl-2 d-flex align-items-center">
                         <div className="mr-2 bg-white logo-bgr">
                           <ReactImageFallback
@@ -468,16 +528,52 @@ class EOSMarketCap extends Component {
                           <div className="col-10 p-0 pl-2 d-flex align-items-center">Name</div>
                         </div>
                         <div className="col-3 row p-0 m-0 d-flex align-items-center">
-                          <div className="col-12 col-sm-6 p-0 text-right">Marketcap</div>
-                          <div className="col-12 col-sm-6 p-0 text-right">Circulating Supply</div>
+                          <a
+                            href="#"
+                            className="col-12 col-sm-6 p-0 text-right font-weight-normal text-info"
+                            onClick={() => renderSortHeader(mc_sortby, setMcSortBy, 'MCAP')}
+                          >
+                            {renderSortUD(mc_sortby, 'MCAP')} Marketcap
+                          </a>
+                          <a
+                            href="#"
+                            className="col-12 col-sm-6 p-0 text-right font-weight-normal text-info"
+                            onClick={() => renderSortHeader(mc_sortby, setMcSortBy, 'SUPP')}
+                          >
+                            {renderSortUD(mc_sortby, 'SUPP')} Circulating Supply
+                          </a>
                         </div>
                         <div className="col-3 row p-0 m-0 d-flex align-items-center">
-                          <div className="col-12 col-sm-6 p-0 text-right">24h Volume</div>
-                          <div className="col-12 col-sm-6 p-0 text-right">24h Amount</div>
+                          <a
+                            href="#"
+                            className="col-12 col-sm-6 p-0 text-right font-weight-normal text-info"
+                            onClick={() => renderSortHeader(mc_sortby, setMcSortBy, 'VOL')}
+                          >
+                            {renderSortUD(mc_sortby, 'VOL')} 24h Volume
+                          </a>
+                          <a
+                            href="#"
+                            className="col-12 col-sm-6 p-0 text-right font-weight-normal text-info"
+                            onClick={() => renderSortHeader(mc_sortby, setMcSortBy, 'AMT')}
+                          >
+                            {renderSortUD(mc_sortby, 'AMT')} 24h Amount
+                          </a>
                         </div>
                         <div className="col-3 row p-0 m-0 d-flex align-items-center ">
-                          <div className="col-12 col-sm-7 p-0 text-right pr-1">Price</div>
-                          <div className="col-12 col-sm-5 p-0 text-right pr-1">24h Change</div>
+                          <a
+                            href="#"
+                            className="col-12 col-sm-7 p-0 text-right pr-1 font-weight-normal text-info"
+                            onClick={() => renderSortHeader(mc_sortby, setMcSortBy, 'LAST')}
+                          >
+                            {renderSortUD(mc_sortby, 'LAST')} Price
+                          </a>
+                          <a
+                            href="#"
+                            className="col-12 col-sm-5 p-0 text-right pr-1 font-weight-normal text-info"
+                            onClick={() => renderSortHeader(mc_sortby, setMcSortBy, 'CHANGE')}
+                          >
+                            {renderSortUD(mc_sortby, 'CHANGE')} 24h Change
+                          </a>
                         </div>
                       </div>
 
@@ -500,5 +596,5 @@ function mapStateToProps({myStore}) {
 }
 export default connect(
   mapStateToProps,
-  {setActiveLinkID, setMarketcapUnit, setMCSearchSymbol}
+  {setActiveLinkID, setMarketcapUnit, setMCSearchSymbol, setMcSortBy}
 )(EOSMarketCap);

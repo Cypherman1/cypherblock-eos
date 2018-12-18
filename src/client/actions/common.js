@@ -3,8 +3,16 @@ import {
   SET_TOKEN_BALANCE_UNIT,
   SET_REFETCH_WALLET_FUNC,
   SET_IS_WALLET_REFETCH,
-  SET_MC_SEARCH_SYMBOL
+  SET_MC_SEARCH_SYMBOL,
+  SET_MC_SORT_BY
 } from './types';
+
+export function setMcSortBy(mc_sortby) {
+  return {
+    type: SET_MC_SORT_BY,
+    payload: mc_sortby
+  };
+}
 
 export function setMCSearchSymbol(mc_symbol) {
   return {

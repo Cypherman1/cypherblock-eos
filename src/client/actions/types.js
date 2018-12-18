@@ -37,3 +37,4 @@ export const SET_TOKEN_BALANCE_UNIT = 'set_token_balance_unit';
 export const SET_REFETCH_WALLET_FUNC = 'set_refetch_wallet_func';
 export const SET_IS_WALLET_REFETCH = 'set_is_wallet_refetch';
 export const SET_MC_SEARCH_SYMBOL = 'set_mc_search_symbol';
+export const SET_MC_SORT_BY = 'set_mc_sort_by';

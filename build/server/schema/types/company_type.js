@@ -6,6 +6,7 @@ const {EMTokenType} = require('./eosmarketcap_type.js');
 const CompanyInfoType = new GraphQLObjectType({
   name: 'CompanyInfoType',
   fields: () => ({
+    symbol: {type: GraphQLString},
     website: {type: GraphQLString},
     name: {type: GraphQLString},
     intro: {type: GraphQLString}
@@ -21,4 +22,4 @@ const CompanyType = new GraphQLObjectType({
   })
 });
 
-module.exports = CompanyType;
+module.exports = {CompanyType, CompanyInfoType};

@@ -30,7 +30,8 @@ const TOKENS_SUPPLY_PATH = __dirname + '/../../db/tokens_supply.json';
 const EOSMARKETCAP_PATH = __dirname + '/../../db/eosmarketcap.json';
 const COMPANY_INFO_PATH = __dirname + '/../../db/companies_info.json';
 const {EOSMarketcapType} = require('./eosmarketcap_type');
-const CompanyType = require('./company_type');
+const {CompanyType} = require('./company_type');
+const CompaniesType = require('./companies_type');
 
 let fs = require('fs');
 const readFileAsync = require('util').promisify(fs.readFile);
@@ -306,6 +307,18 @@ const RootQueryType = new GraphQLObjectType({
       resolve() {
         return readFileAsync(TOKENS_SUPPLY_PATH)
           .then((data) => JSON.parse(data))
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    companies: {
+      type: CompaniesType,
+      resolve() {
+        return readFileAsync(COMPANY_INFO_PATH)
+          .then((data) => {
+            return {data: JSON.parse(data)};
+          })
           .catch((error) => {
             onError(error);
           });

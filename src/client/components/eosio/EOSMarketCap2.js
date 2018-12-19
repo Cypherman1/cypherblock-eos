@@ -4,7 +4,7 @@ import {Query} from 'react-apollo';
 import ReactImageFallback from 'react-image-fallback';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderPPColor} from '../utils/RenderColors';
-import {renderProjectLink} from '../utils/Tools';
+import {renderProjectLink, renderAccountLink} from '../utils/Tools';
 import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
 import {setMCSearchSymbol, setMcSortBy} from '../../actions/common';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
@@ -75,7 +75,10 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
   exchanges_info = [];
   tmp_exchanges.map((exchange) => {
     exchanges_info.push(
-      <div className="row mt-1 shadow-sm mb-1 mbt-1px pt-1 pb-1 border-bottom border-secondary" key={exchange.name}>
+      <div
+        className={`row mt-1 shadow-sm mb-1 mbt-1px pt-1 pb-1 border-bottom ${isDarkMode ? 'border-secondary' : ''} `}
+        key={exchange.name}
+      >
         <div className="col-6 row pl-2 p-0 m-0 d-flex align-items-center ">
           <div className="mr-1 bg-white logo-exc">
             <ReactImageFallback
@@ -178,9 +181,10 @@ class EOSMarketCap extends Component {
             dataTM.eos_stat &&
             dataTM.table_rows &&
             dataTM.cmc &&
-            dataTM.eosmarketcap
+            dataTM.eosmarketcap &&
+            dataTM.companies
           ) {
-            const {global_data, eos_stat, table_rows, cmc, eosmarketcap} = dataTM;
+            const {global_data, eos_stat, table_rows, cmc, eosmarketcap, companies} = dataTM;
 
             calTotal(eosmarketcap);
 
@@ -338,9 +342,18 @@ class EOSMarketCap extends Component {
                             className="token_logo"
                           />
                         </div>
-                        <div>
+                        <div className="d-flex align-items-center">
                           {renderProjectLink(token)}
-                          {/* {token.currency.toUpperCase()} */}
+                          <a
+                            className="font-weight-normal"
+                            data-toggle="collapse"
+                            href={`#collapse${token.symbol}`}
+                            role="button"
+                            aria-expanded="true"
+                            aria-controls={`collapse${token.symbol}`}
+                          >
+                            <i className="fa fa-info-circle ml-1 " />
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -409,7 +422,21 @@ class EOSMarketCap extends Component {
                       className={`mt-1 collapse w-100 ${isDarkMode ? 'bg-dark-1' : 'bg-actions'}`}
                       id={`collapse${token.symbol}`}
                     >
+                      {/* <div className="pl-2 text-info border-bottom p-1">Exchanges:</div> */}
                       {RenderExchanges(token.exchanges, isDarkMode, mcUnit, eos_price)}
+                      <div className="pl-2 text-info p-1">
+                        Contract: {renderAccountLink(token.contract)} website:{' '}
+                        {companies.data.findIndex((e) => e.symbol == token.symbol) >= 0 ? (
+                          <a
+                            href={companies.data[companies.data.findIndex((e) => e.symbol == token.symbol)].website}
+                            target="_blank"
+                          >
+                            {companies.data[companies.data.findIndex((e) => e.symbol == token.symbol)].website}
+                          </a>
+                        ) : (
+                          ''
+                        )}
+                      </div>
                     </div>
                   </div>
                 );

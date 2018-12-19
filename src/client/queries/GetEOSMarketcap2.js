@@ -26,6 +26,12 @@ export default gql`
         }
       }
     }
+    companies {
+      data {
+        symbol
+        website
+      }
+    }
     table_rows(json: "true", code: "eosio", scope: "eosio", table: "rammarket", limit: "10") {
       rows {
         supply

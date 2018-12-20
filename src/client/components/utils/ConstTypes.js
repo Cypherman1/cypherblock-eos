@@ -133,6 +133,10 @@ export const AntiSpams = {
     {
       act_account: 'wizznetwork1',
       act_name: 'broadcast'
+    },
+    {
+      act_account: 'ecafofficiel',
+      act_name: 'arbitration'
     }
   ]
 };

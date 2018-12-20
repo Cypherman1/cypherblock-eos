@@ -1014,5 +1014,31 @@
     "website": "https://treasure.cchaingames.com",
     "intro":
       "UCTT is encryption treasure game bonus currency, game income of 10% will be used for UCTT bonus; In addition, 10% of the game's weekly revenue is repurchased from UCTT and used for mining."
+  },
+  {
+    "symbol": "ridlridlcoin-ridl-eos",
+    "contract": "ridlridlcoin",
+    "currency": "RIDL",
+    "name": "Scatter",
+    "website": "https://get-scatter.com",
+    "intro": "Scatter is an EOS digital asset storage tool."
+  },
+  {
+    "symbol": "nutscontract-nuts-eos",
+    "contract": "nutscontract",
+    "currency": "NUTS",
+    "name": "NUTS",
+    "website": "https://luckynuts.one",
+    "intro":
+      "NUTS Token is designed to work with Luckynuts applications. At the moment, it can only be used in the Gambling project, but in the future it is expected to develop other applications according to the roadmap."
+  },
+  {
+    "symbol": "eoskeep.x-keep-eos",
+    "contract": "eoskeep.x",
+    "currency": "KEEP",
+    "name": "KEEP",
+    "website": "https://eoskeep.vip",
+    "intro":
+      "Keep is an ecological incentive platform based on EOSIO. We hope that through virtual token incentives, people can insist on doing everything well. You stick to sports, or be loyal to the team, love digital, travel, entertainment, even loyal love and so on. In life, KEEP all your interests will be inspired by our token."
   }
 ]

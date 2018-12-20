@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import ReactGA from 'react-ga';
 import {
   AT_SEND_EOS,
   AT_RECEIVE_EOS,
@@ -33,6 +34,12 @@ import {
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
 
 let isDarkMode = null;
+
+const trackPageview = (pathname) => {
+  ReactGA.initialize('UA-125792941-1');
+  ReactGA.set({page: pathname});
+  ReactGA.pageview(pathname);
+};
 
 const toTokenNumber = (tokenNum) => {
   if (tokenNum)
@@ -494,5 +501,6 @@ export {
   gettPairPercent,
   renderProjectLink,
   renderMCVal,
-  renderMCPrice
+  renderMCPrice,
+  trackPageview
 };

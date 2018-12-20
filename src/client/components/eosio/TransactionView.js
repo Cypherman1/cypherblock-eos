@@ -6,10 +6,14 @@ import {connect} from 'react-redux';
 import ErrorBoundary from '../ErrorBoundary';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {setActiveLinkID} from '../../actions/sidebar';
+import {trackPageview} from '../utils/Tools';
 
 class TransactionView extends Component {
   componentWillMount() {
     this.props.setActiveLinkID(1);
+  }
+  componentDidMount() {
+    trackPageview(window.location.pathname);
   }
   render() {
     const {match, sidebar} = this.props;

@@ -29,6 +29,7 @@ const TokensSupplyType = require('./tokens_supply_type');
 const TOKENS_SUPPLY_PATH = __dirname + '/../../db/tokens_supply.json';
 const EOSMARKETCAP_PATH = __dirname + '/../../db/eosmarketcap.json';
 const COMPANY_INFO_PATH = __dirname + '/../../db/companies_info.json';
+const CMC_PATH = __dirname + '/../../db/cmc.json';
 const {EOSMarketcapType} = require('./eosmarketcap_type');
 const {CompanyType} = require('./company_type');
 const CompaniesType = require('./companies_type');
@@ -554,12 +555,22 @@ const RootQueryType = new GraphQLObjectType({
           });
       }
     },
+    // cmc: {
+    //   type: CMCType,
+    //   resolve() {
+    //     return axios
+    //       .get('https://api.coinmarketcap.com/v2/ticker/1765/')
+    //       .then((resp) => resp.data)
+    //       .catch((error) => {
+    //         onError(error);
+    //       });
+    //   }
+    // },
     cmc: {
       type: CMCType,
       resolve() {
-        return axios
-          .get('https://api.coinmarketcap.com/v2/ticker/1765/')
-          .then((resp) => resp.data)
+        return readFileAsync(CMC_PATH)
+          .then((data) => JSON.parse(data))
           .catch((error) => {
             onError(error);
           });

@@ -19,6 +19,7 @@ let tmp_last = 0;
 let tmp_change = 0;
 let tmp_volume = 0;
 let exs_count = 0;
+const other_exs = require('./other_exs.js');
 
 const Aggregate_Markets = () => {
   for (var i = 0; i < EOSMarkets.length; i++) {
@@ -237,6 +238,26 @@ const AddNewdexTickers = () => {
     //     volume: Number(ticker.volume)
     //   });
     // }
+  });
+  other_exs.map((ticker) => {
+    index = EOSMarkets.findIndex((e) => e.symbol == ticker.symbol);
+    console.log('aaaaaaaa' + index);
+    if (index == -1) {
+      EOSMarkets.push({
+        symbol: ticker.symbol,
+        contract: ticker.contract,
+        currency: ticker.currency,
+        supply: {
+          current: 0,
+          max: 0
+        },
+        last: 0,
+        change: 0,
+        amount: 0,
+        volume: 0,
+        exchanges: []
+      });
+    }
   });
 };
 

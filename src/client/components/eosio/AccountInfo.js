@@ -409,9 +409,7 @@ class AccountInfo extends Component {
       <Query query={GetAccountInfo} variables={{account_name: this.props.account_name}} pollInterval={5000}>
         {({loading, error, data}) => {
           if (loading) return <AccountInfoLoading isDarkMode={isDarkMode} />;
-
           if (error) return <AccountInfoLoading isDarkMode={isDarkMode} />;
-
           const {account, table_rows, cmc, voteinfo} = data;
           this.getAccountInfo(account, table_rows, cmc);
 

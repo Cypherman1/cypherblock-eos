@@ -276,7 +276,11 @@ class EOSMarketCap extends Component {
             );
             Sorted_tokens = [];
             Org_tokens = [];
-            Org_tokens = eosmarketcap.data.map((x, index) => ({...x, rank: index}));
+            Org_tokens = eosmarketcap.data
+              .filter((a) => {
+                return a.symbol != 'eosio.token-eos-eusd' && a.symbol.substring(a.symbol.length - 4) == '-eos';
+              })
+              .map((x, index) => ({...x, rank: index}));
 
             switch (mc_sortby) {
               case 'VOL_DEC':
@@ -325,11 +329,7 @@ class EOSMarketCap extends Component {
 
             //TOKENS
             Sorted_tokens.map((token, index) => {
-              if (
-                IsTokenSearched(token, mc_symbol) &&
-                token.symbol != 'eosio.token-eos-eusd' &&
-                token.symbol.substring(token.symbol.length - 4) == '-eos'
-              ) {
+              if (IsTokenSearched(token, mc_symbol)) {
                 tokens.push(
                   <div
                     className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`}

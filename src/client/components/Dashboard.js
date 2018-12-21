@@ -13,7 +13,7 @@ class Dashboard extends Component {
   componentDidMount() {
     this.props.setLimitValue(20);
     this.props.setActiveLinkID(1);
-    trackPageview(window.location.pathname);
+    trackPageview(window.location.pathname + window.location.search);
   }
 
   render() {

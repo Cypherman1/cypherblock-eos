@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 // import {Tokens} from '../components/utils/Tokens';
 
-import Tokens from '../../server/db/tokens.json';
+import Tokens from '../../server/db/eosmarketcap.json';
 
 const GenCurGql = (Tokens) => {
   let gqlstr = '';

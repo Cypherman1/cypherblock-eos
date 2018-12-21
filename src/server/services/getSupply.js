@@ -1,10 +1,13 @@
 const axios = require('axios');
 const TOKENS_PATH = __dirname + '/../db/tokens.json';
 const TOKENS_SUPPLY_PATH = __dirname + '/../db/tokens_supply.json';
+const NEWDEX_TICKERS_PATH = __dirname + '/../db/newdex_tickers.json';
 
 const keys = require('../config/keys');
 
 let fs = require('fs');
+const other_exs = require('./other_exs.js');
+let index = 0;
 
 let tokens = [];
 let mainObject = {data: []};
@@ -20,6 +23,27 @@ const getSupply = () => {
   //   console.log(token);
   //   console.log(index);
   // });
+
+  other_exs.map((ticker) => {
+    index = tokens.findIndex((e) => e.symbol == ticker.symbol);
+
+    if (index == -1) {
+      tokens.push({
+        symbol: ticker.symbol,
+        contract: ticker.contract,
+        currency: ticker.currency,
+        supply: {
+          current: 0,
+          max: 0
+        },
+        last: 0,
+        change: 0,
+        amount: 0,
+        volume: 0,
+        exchanges: []
+      });
+    }
+  });
 
   tokens.map((token) => {
     promises.push(

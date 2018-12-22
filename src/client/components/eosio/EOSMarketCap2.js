@@ -83,7 +83,7 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
         <div className="col-6 row pl-2 p-0 m-0 d-flex align-items-center ">
           <div className="mr-1 bg-white logo-exc d-flex align-items-center">
             <ReactImageFallback
-              src={`${images}/${exchange.name}.png`}
+              src={`${images}/${exchange.name.toLowerCase()}.png`}
               fallbackImage={`${images}/COMMON.png`}
               alt={`${exchange.name} token airdrop`}
               className="exchange_logo"

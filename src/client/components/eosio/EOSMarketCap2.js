@@ -5,7 +5,7 @@ import ReactImageFallback from 'react-image-fallback';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderPPColor} from '../utils/RenderColors';
-import {renderProjectLink, renderAccountLink, trackPageview} from '../utils/Tools';
+import {renderProjectLink, renderAccountLink} from '../utils/Tools';
 import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
 import {setMCSearchSymbol, setMcSortBy} from '../../actions/common';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
@@ -161,9 +161,7 @@ class EOSMarketCap extends Component {
   componentWillMount() {
     this.props.setActiveLinkID(3);
   }
-  componentDidMount() {
-    trackPageview(window.location.pathname);
-  }
+
   render() {
     const {isDarkMode, mcUnit} = this.props.sidebar;
     const {mc_symbol, mc_sortby} = this.props.common;

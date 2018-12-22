@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Router, Route, Switch} from 'react-router-dom';
+import ReactGA from 'react-ga';
 import Dashboard from './Dashboard';
 import LeftSideBar from './LeftSideBar';
 import Header from './Header';
@@ -60,33 +61,42 @@ const ABIView = (props) => (
 //   </DynamicImport>
 // );
 
-const App = ({sidebar}) => (
-  <Router history={history}>
-    <div id="main-wrapper">
-      <div
-        className={`app ${sidebar.sidebarStatus ? 'sidebar-open' : ''} ${
-          sidebar.isDarkMode ? 'bg-secondary text-cypher' : 'bg-main'
-        }`}
-        id="app"
-      >
-        <Header />
-        <LeftSideBar />
-        <Switch>
-          <Route path="/" exact component={Dashboard} />
-          <Route path="/account/:account_name" component={Account} />
-          <Route path="/code/:account_name" component={CodeView} />
-          <Route path="/abi/:account_name" component={ABIView} />
-          <Route path="/transaction/:id" component={TransactionView} />
-          <Route path="/block/:block_num_or_id" component={BlockView} />
-          <Route path="/blockproducers" component={BlockProducers} />
-          <Route path="/eosmarketcap" component={EOSMarketCap} />
-          <Route path="/project/:symbol" component={Project} />
-        </Switch>
-        <Footer />
-      </div>
-    </div>
-  </Router>
-);
+class App extends Component {
+  componentDidMount() {
+    ReactGA.pageview(window.location.pathname);
+  }
+  render() {
+    const {sidebar} = this.props;
+
+    return (
+      <Router history={history}>
+        <div id="main-wrapper">
+          <div
+            className={`app ${sidebar.sidebarStatus ? 'sidebar-open' : ''} ${
+              sidebar.isDarkMode ? 'bg-secondary text-cypher' : 'bg-main'
+            }`}
+            id="app"
+          >
+            <Header />
+            <LeftSideBar />
+            <Switch>
+              <Route path="/" exact component={Dashboard} />
+              <Route path="/account/:account_name" component={Account} />
+              <Route path="/code/:account_name" component={CodeView} />
+              <Route path="/abi/:account_name" component={ABIView} />
+              <Route path="/transaction/:id" component={TransactionView} />
+              <Route path="/block/:block_num_or_id" component={BlockView} />
+              <Route path="/blockproducers" component={BlockProducers} />
+              <Route path="/eosmarketcap" component={EOSMarketCap} />
+              <Route path="/project/:symbol" component={Project} />
+            </Switch>
+            <Footer />
+          </div>
+        </div>
+      </Router>
+    );
+  }
+}
 
 function mapStateToProps({myStore}) {
   return myStore;

@@ -35,12 +35,6 @@ import eoslogo from '../../assets/imgs/eoslogo1.svg';
 
 let isDarkMode = null;
 
-const trackPageview = (pathname) => {
-  ReactGA.initialize('UA-125792941-1');
-  ReactGA.set({page: pathname});
-  ReactGA.pageview(pathname);
-};
-
 const toTokenNumber = (tokenNum) => {
   if (tokenNum)
     return `${Number(tokenNum.split(' ')[0]).toLocaleString(undefined, {minimumFractionDigits: 4})} ${

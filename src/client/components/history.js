@@ -1,2 +1,10 @@
 import createHistory from 'history/createBrowserHistory';
-export default createHistory();
+import ReactGA from 'react-ga';
+
+const history = createHistory();
+history.listen((location) => {
+  ReactGA.set({page: location.pathname});
+  ReactGA.pageview(location.pathname);
+});
+
+export default history;

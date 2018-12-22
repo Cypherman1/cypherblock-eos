@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import ReactDOM from 'react-dom';
 import ApolloClient from 'apollo-client';
 import {ApolloProvider} from 'react-apollo';
@@ -135,6 +136,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
   queryDeduplication: true
 });
+
+ReactGA.initialize('UA-125792941-1');
 
 const Root = () => {
   return (

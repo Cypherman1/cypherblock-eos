@@ -6,7 +6,7 @@ import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetProject from '../../queries/GetProject';
 const images = '../imgs';
-import {renderMCPrice, renderMCVal, renderAccountLink, trackPageview} from '../utils/Tools';
+import {renderMCPrice, renderMCVal, renderAccountLink} from '../utils/Tools';
 import {renderPPColor} from '../utils/RenderColors';
 
 let eos_price = 0;
@@ -94,9 +94,7 @@ class Project extends Component {
   componentWillMount() {
     this.props.setActiveLinkID(3);
   }
-  componentDidMount() {
-    trackPageview(window.location.pathname);
-  }
+
   render() {
     const {match} = this.props;
     const {isDarkMode, mcUnit} = this.props.sidebar;

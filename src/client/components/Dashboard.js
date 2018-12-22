@@ -7,13 +7,11 @@ import TokenMarket from './eosio/TokenMarket';
 import {connect} from 'react-redux';
 import {setLimitValue} from '../actions/eosActions';
 import {setActiveLinkID} from '../actions/sidebar';
-import {trackPageview} from './utils/Tools';
 
 class Dashboard extends Component {
   componentDidMount() {
     this.props.setLimitValue(20);
     this.props.setActiveLinkID(1);
-    trackPageview(window.location.pathname + window.location.search);
   }
 
   render() {

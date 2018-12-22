@@ -6,16 +6,13 @@ import Wallet from './Wallet';
 import ActionsCard from './ActionsCard';
 import {setLimitValue} from '../../actions/eosActions';
 import {setActiveLinkID} from '../../actions/sidebar';
-import {trackPageview} from '../utils/Tools';
 
 class Account extends Component {
   componentWillMount() {
     this.props.setLimitValue(20);
     this.props.setActiveLinkID(1);
   }
-  componentDidMount() {
-    trackPageview(window.location.pathname);
-  }
+
   render() {
     const {match, sidebar, isDesktop} = this.props;
     return isDesktop ? (

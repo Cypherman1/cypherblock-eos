@@ -47,9 +47,9 @@ const WalletLoading = ({display, isDarkMode}) => {
         <div className="title-block row m-0 pb-1 shadow-sm ">
           <div className={`col-12 col-sm-12 header-col  p-0 ${isDarkMode ? 'bg-dark-1 ' : 'bg-white'}`}>
             <div className="row  m-0">
-              <div className="col-4 float-left ftz-10 text-info  pl-2" />
+              <div className="col-3 float-left ftz-10 text-info  pl-2" />
               <div className="col-5 text-right ftz-10  p-0  text-info pl-2">Holding</div>
-              <div className="col-3 text-right ftz-10  pr-1 text-info">Price(EOS)</div>
+              <div className="col-4 text-right ftz-10  pr-1 text-info">Price(EOS)</div>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@ class WalletBody extends Component {
               key={token.name}
             >
               {/* token info */}
-              <div className="col-4 p-0 d-flex align-items-center">
+              <div className="col-3 p-0 d-flex align-items-center">
                 <div className="ml-2 bg-white mr-2 logo-bgr">
                   <ReactImageFallback
                     src={token_logo}
@@ -171,7 +171,7 @@ class WalletBody extends Component {
                   <div className="ftz-10">{renderEOSNum(token.ammount)}</div>
                 </div>
               </div>
-              <div className="col-3 p-0">{this.renderPriceinfo(token)}</div>
+              <div className="col-4 p-0">{this.renderPriceinfo(token)}</div>
             </div>
           );
         } else {
@@ -182,7 +182,7 @@ class WalletBody extends Component {
               key={token.name}
             >
               {/* token info */}
-              <div className="col-4 p-0 d-flex align-items-center">
+              <div className="col-3 p-0 d-flex align-items-center">
                 <div className="ml-2 bg-white mr-2 logo-bgr">
                   <ReactImageFallback
                     src={token_logo}
@@ -226,7 +226,7 @@ class WalletBody extends Component {
                   <div className="ftz-10">{renderEOSNum(token.ammount)}</div>
                 </div>
               </div>
-              <div className="col-3 p-0">{this.renderPriceinfo(token)}</div>
+              <div className="col-4 p-0">{this.renderPriceinfo(token)}</div>
             </div>
           );
         }
@@ -342,9 +342,9 @@ class WalletBody extends Component {
                 }`}
               >
                 <div className="row  m-0">
-                  <div className="col-4 float-left ftz-12 text-info  pl-2" />
+                  <div className="col-3 float-left ftz-12 text-info  pl-2" />
                   <div className="col-5 text-right ftz-12  p-0  text-info pl-2">Holding</div>
-                  <div className="col-3 text-right ftz-12  pr-1 text-info">Price(EOS)</div>
+                  <div className="col-4 text-right ftz-12  pr-1 text-info">Price(EOS)</div>
                 </div>
               </div>
             </div>

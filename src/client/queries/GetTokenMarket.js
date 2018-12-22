@@ -26,11 +26,19 @@ export default gql`
         }
       }
     }
-    eosmarketcap(limit: "10") {
+    eos_stat(json: "true", code: "eosio.token", scope: "EOS", table: "stat", limit: "10") {
+      rows {
+        supply
+      }
+    }
+    eosmarketcap(limit: "8") {
       data {
         symbol
         contract
         currency
+        supply {
+          current
+        }
         last
         change
         amount

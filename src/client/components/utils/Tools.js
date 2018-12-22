@@ -495,6 +495,5 @@ export {
   gettPairPercent,
   renderProjectLink,
   renderMCVal,
-  renderMCPrice,
-  trackPageview
+  renderMCPrice
 };

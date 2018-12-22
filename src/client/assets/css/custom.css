@@ -1740,9 +1740,8 @@ i.metismenu-state-icon.rotate-minus-90 {
   height: 22px;
 }
 .exchange_logo {
-  width: 15px;
-  height: 15px;
-  margin-bottom: 7px;
+  width: 16px;
+  height: 16px;
 }
 
 .token_price_weight {
@@ -1824,8 +1823,6 @@ i.metismenu-state-icon.rotate-minus-90 {
 }
 
 .logo-exc {
-  height: 15px !important;
-  width: 15px !important;
   border-radius: 200px !important;
 }
 

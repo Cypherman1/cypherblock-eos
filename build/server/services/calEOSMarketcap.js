@@ -1,15 +1,18 @@
 const TOKENS_PATH = __dirname + '/../db/tokens.json';
 const TOKENS_SUPPLY_PATH = __dirname + '/../db/tokens_supply.json';
 const BIGONE_TICKERS_PATH = __dirname + '/../db/bigone_tickers.json';
+const BANCOR_TICKERS_PATH = __dirname + '/../db/bancor_tickers.json';
 const BITFINEX_TICKERS_PATH = __dirname + '/../db/bitfinex_tickers.json';
 const BLOCKSENCE_TICKERS_PATH = __dirname + '/../db/blocksence_tickers.json';
 const NEWDEX_TICKERS_PATH = __dirname + '/../db/newdex_tickers.json';
 const EOSMARKETCAP_PATH = __dirname + '/../db/eosmarketcap.json';
+const CMC_PATH = __dirname + '/../db/cmc.json';
 let fs = require('fs');
 
 let EOSMarkets = [];
 let NewdexTickers = [];
 let BigoneTickers = [];
+let BancorTickers = [];
 let BlocksenceTickers = [];
 let BitfinexPairs = [];
 let TokensSupply = [];
@@ -19,6 +22,8 @@ let tmp_last = 0;
 let tmp_change = 0;
 let tmp_volume = 0;
 let exs_count = 0;
+let tmp_change_amount = 0;
+let eos_price = 0;
 const other_exs = require('./other_exs.js');
 
 const Aggregate_Markets = () => {
@@ -28,12 +33,16 @@ const Aggregate_Markets = () => {
     tmp_change = 0;
     tmp_volume = 0;
     exs_count = 0;
+    tmp_change_amount = 0;
     // aggregate volume, price, 24h percent of all exchanges for each token
     EOSMarkets[i].exchanges.map((exchange) => {
       tmp_amount += exchange.amount;
       tmp_volume += exchange.volume;
       tmp_last += exchange.last * exchange.amount;
-      tmp_change += exchange.change * exchange.amount;
+      if (exchange.change) {
+        tmp_change += exchange.change * exchange.amount;
+        tmp_change_amount += exchange.amount;
+      }
     });
     //update ammout and volume of each token
     EOSMarkets[i].amount = tmp_amount;
@@ -47,7 +56,7 @@ const Aggregate_Markets = () => {
       });
       //update price and change percent of each token
       EOSMarkets[i].last = tmp_last / tmp_amount;
-      EOSMarkets[i].change = tmp_change / tmp_amount;
+      EOSMarkets[i].change = tmp_change / tmp_change_amount;
     } else {
       EOSMarkets[i].last = EOSMarkets[i].exchanges[0].last;
       EOSMarkets[i].change = EOSMarkets[i].exchanges[0].change;
@@ -94,7 +103,7 @@ const AddBitfinexPairs = () => {
     } else if (index >= 0) {
       //if existed, update the info
       EOSMarkets[index].exchanges.push({
-        name: 'bitfinex',
+        name: 'Bitfinex',
         url: 'https://www.bitfinex.com/',
         percent: 0,
         last: Number(pair[7]),
@@ -135,7 +144,7 @@ const AddBlocksenceTickers = () => {
       } else if (index >= 0) {
         //if existed, update the info
         EOSMarkets[index].exchanges.push({
-          name: 'chaince',
+          name: 'Chaince',
           url: 'https://chaince.com/trade/' + ticker.toLowerCase() + 'eos',
           percent: 0,
           last: Number(BlocksenceTickers[ticker].eos_price),
@@ -146,6 +155,52 @@ const AddBlocksenceTickers = () => {
       }
     }
   }
+};
+
+const AddBancorTickers = (eos_price) => {
+  BancorTickers = JSON.parse(fs.readFileSync(BANCOR_TICKERS_PATH));
+
+  BancorTickers.rows.map((ticker) => {
+    // find current ticker list, if existed, return the index
+    index = EOSMarkets.findIndex(
+      (e) =>
+        e.currency.toUpperCase() == ticker.from_token_code.toUpperCase() &&
+        e.contract.toUpperCase() == ticker.from_token_account.toUpperCase()
+    );
+
+    if (index === -1) {
+      //if not existed, add ticker to the list
+      // EOSMarkets.push({
+      //   symbol: BigonetoNewdex_sybol(ticker.market_id),
+      //   contract: null,
+      //   currency: BigonetoNewdex_currency(ticker.market_id),
+      //   last: 0,
+      //   change: 0,
+      //   amount: 0,
+      //   volume: 0,
+      //   exchanges: [
+      //     {
+      //       name: 'bigone',
+      //       last: Number(ticker.close),
+      //       change: Number(ticker.daily_change_perc),
+      //       amount: Number(ticker.volume),
+      //       volume: Number(ticker.close) * Number(ticker.volume)
+      //     }
+      //   ]
+      // });
+    } else if (index >= 0) {
+      //if existed, update the info
+      EOSMarkets[index].exchanges.push({
+        name: 'Bancor',
+        url: 'https://eos.bancor.network/',
+        percent: 0,
+        last: Number(ticker.token_value) / Number(eos_price),
+        change: null,
+        amount: Number(ticker.volume24) / Number(ticker.token_value),
+        volume: Number(ticker.volume24) / Number(eos_price)
+      });
+    }
+  });
 };
 
 const BigonetoNewdex_sybol = (market_id, contract) => {
@@ -182,7 +237,7 @@ const AddBigoneTickers = () => {
     } else if (index >= 0) {
       //if existed, update the info
       EOSMarkets[index].exchanges.push({
-        name: 'bigone',
+        name: 'BigONE',
         url: 'https://big.one/trade/' + ticker.market_id,
         percent: 0,
         last: Number(ticker.close),
@@ -216,7 +271,7 @@ const AddNewdexTickers = () => {
       volume: 0,
       exchanges: [
         {
-          name: 'newdex',
+          name: 'Newdex',
           url: 'https://newdex.io/trade/' + ticker.symbol,
           percent: 0,
           last: Number(ticker.last),
@@ -241,7 +296,7 @@ const AddNewdexTickers = () => {
   });
   other_exs.map((ticker) => {
     index = EOSMarkets.findIndex((e) => e.symbol == ticker.symbol);
-    console.log('aaaaaaaa' + index);
+
     if (index == -1) {
       EOSMarkets.push({
         symbol: ticker.symbol,
@@ -262,11 +317,15 @@ const AddNewdexTickers = () => {
 };
 
 const calEOSMarketcap = () => {
+  eos_price = JSON.parse(fs.readFileSync(CMC_PATH)).data.quotes.USD.price;
+
   EOSMarkets = [];
 
   AddNewdexTickers();
 
   AddBigoneTickers();
+
+  AddBancorTickers(eos_price);
 
   AddBlocksenceTickers();
 

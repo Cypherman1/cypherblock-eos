@@ -81,7 +81,7 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
         key={exchange.name}
       >
         <div className="col-6 row pl-2 p-0 m-0 d-flex align-items-center ">
-          <div className="mr-1 bg-white logo-exc">
+          <div className="mr-1 bg-white logo-exc d-flex align-items-center">
             <ReactImageFallback
               src={`${images}/${exchange.name}.png`}
               fallbackImage={`${images}/COMMON.png`}
@@ -115,7 +115,7 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
             {/* {Number(exchange.last).toLocaleString(undefined, {maximumSignificantDigits: 4})} */}
           </div>
           <div className="col-12 col-sm-5 p-0 text-right pr-1">
-            {renderPPColor(Number(exchange.change).toFixed(2))}{' '}
+            {exchange.change ? renderPPColor(Number(exchange.change).toFixed(2)) : ''}{' '}
           </div>
         </div>
       </div>

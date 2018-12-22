@@ -19,6 +19,7 @@ const getTokens = require('./services/getTokens');
 const getSupply = require('./services/getSupply');
 const getBlocksenceTickers = require('./services/getBlocksenceTickers');
 const getBigoneTickers = require('./services/getBigoneTickers');
+const getBancorTickers = require('./services/getBancorTickers');
 const getBitfinexTickers = require('./services/getBitfinexTickers');
 const getNewdexTickers = require('./services/getNewdexTickers');
 const calEOSMarketcap = require('./services/calEOSMarketcap');
@@ -156,7 +157,15 @@ var j6 = schedule.scheduleJob('19 * * * * *', function() {
   }
 });
 
-var j7 = schedule.scheduleJob('21 * * * * *', function() {
+var j9 = schedule.scheduleJob('20 * * * * *', function() {
+  try {
+    getBancorTickers();
+  } catch (err) {
+    process.stdout.write('getBigoneTickers Fail! index ' + err);
+  }
+});
+
+var j7 = schedule.scheduleJob('31 * * * * *', function() {
   try {
     getCMC();
   } catch (err) {
@@ -164,7 +173,7 @@ var j7 = schedule.scheduleJob('21 * * * * *', function() {
   }
 });
 
-var j8 = schedule.scheduleJob('22 * * * * *', function() {
+var j8 = schedule.scheduleJob('33 * * * * *', function() {
   try {
     calEOSMarketcap();
   } catch (err) {

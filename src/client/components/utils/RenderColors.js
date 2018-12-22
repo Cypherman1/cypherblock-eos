@@ -356,11 +356,13 @@ const renderPercentColor = (percent_24) => {
 };
 
 const renderPPColor = (percent_24) => {
-  if (Number(percent_24) >= 0) {
-    return <span className="text-success float-right">{`${percent_24}%`}</span>;
-  } else {
-    return <span className="text-danger float-right">{`${percent_24}%`}</span>;
-  }
+  if (percent_24) {
+    if (Number(percent_24) >= 0) {
+      return <span className="text-success float-right">{`${percent_24}%`}</span>;
+    } else {
+      return <span className="text-danger float-right">{`${percent_24}%`}</span>;
+    }
+  } else return null;
 };
 
 export {

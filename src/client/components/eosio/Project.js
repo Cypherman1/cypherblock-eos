@@ -12,41 +12,32 @@ import {renderPPColor} from '../utils/RenderColors';
 let eos_price = 0;
 let exchanges_info = [];
 
-const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price, currency) => {
+const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
   let tmp_exchanges = [...exchanges].sort((a, b) => b.percent - a.percent);
   exchanges_info = [];
   tmp_exchanges.map((exchange) => {
     exchanges_info.push(
       <div
-        className={`row mt-1 shadow-sm mb-1 mbt-1px pt-1 pb-1 border-bottom ftz-marketcap ${
-          isDarkMode ? 'border-secondary' : ''
-        }`}
+        className={`row mt-1 shadow-sm mb-1 mbt-1px pt-1 pb-1 border-bottom ${isDarkMode ? 'border-secondary' : ''} `}
         key={exchange.name}
       >
-        <div className="col-6 row pl-2 p-0 m-0 ">
-          <div className="col-12 col-sm-6 p-0 d-flex align-items-center">
-            <div className="mr-1 bg-white logo-exc">
-              <ReactImageFallback
-                src={`${images}/${exchange.name}.png`}
-                fallbackImage={`${images}/COMMON.png`}
-                alt={`${exchange.name} token airdrop`}
-                className="exchange_logo"
-              />
-            </div>
-            <div>
-              <a
-                href={exchange.url}
-                target="_blank"
-                className={`${isDarkMode ? 'linkcolor-dark' : ''}  font-weight-normal`}
-              >
-                {exchange.name} (<span className="ftz-10">{exchange.percent}%</span>)
-              </a>
-            </div>
-            {/* {Number(exchange.volume).toLocaleString(undefined, {maximumFractionDigits: 0})} */}
+        <div className="col-6 row pl-2 p-0 m-0 d-flex align-items-center ">
+          <div className="mr-1 bg-white logo-exc d-flex align-items-center">
+            <ReactImageFallback
+              src={`${images}/${exchange.name}.png`}
+              fallbackImage={`${images}/COMMON.png`}
+              alt={`${exchange.name} token airdrop`}
+              className="token_logo"
+            />
           </div>
-          <div className="col-12 col-sm-6 p-0">
-            {/* {renderMCVal(exchange.amount, mcUnit, eos_price)} */}
-            <div className="col-12 col-sm-6 p-0"> {currency + '/EOS'} </div>
+          <div>
+            <a
+              href={exchange.url}
+              target="_blank"
+              className={`${isDarkMode ? 'linkcolor-dark' : ''}  font-weight-normal`}
+            >
+              {exchange.name} (<span className="ftz-10">{exchange.percent}%</span>)
+            </a>
           </div>
         </div>
         <div className="col-3 row p-0 m-0 d-flex align-items-center ">
@@ -65,7 +56,7 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price, currency) => 
             {/* {Number(exchange.last).toLocaleString(undefined, {maximumSignificantDigits: 4})} */}
           </div>
           <div className="col-12 col-sm-5 p-0 text-right pr-1">
-            {renderPPColor(Number(exchange.change).toFixed(2))}{' '}
+            {exchange.change ? renderPPColor(Number(exchange.change).toFixed(2)) : ''}{' '}
           </div>
         </div>
       </div>
@@ -103,9 +94,9 @@ class Project extends Component {
   componentWillMount() {
     this.props.setActiveLinkID(3);
   }
-  // componentDidMount() {
-  //   trackPageview(window.location.pathname);
-  // }
+  componentDidMount() {
+    trackPageview(window.location.pathname);
+  }
   render() {
     const {match} = this.props;
     const {isDarkMode, mcUnit} = this.props.sidebar;

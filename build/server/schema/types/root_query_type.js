@@ -20,6 +20,7 @@ const CodeType = require('./code_type');
 const VoterFullInfoType = require('./voter_info_type');
 const ABIType = require('./abi_type');
 const BigOneTickersType = require('./bigone_tickers_type');
+// const BancorTickersType = require('./bancor_tickers_type');
 const BlockSenceTickersType = require('./blocksence_tickers_type');
 const NewDexTickersType = require('./newdex_tickers_type');
 const {MongoActionsType} = require('./mongo_actions_type');

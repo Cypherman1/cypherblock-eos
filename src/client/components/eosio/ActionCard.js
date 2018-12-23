@@ -22,7 +22,7 @@ const ActionCommon = ({
 }) => {
   return (
     <div
-      className={`card ftz-11 shadow-sm ${isDarkMode ? 'bg-dark text-cypher ' : ''}`}
+      className={`card ftz-12 shadow-sm ${isDarkMode ? 'bg-dark text-cypher ' : ''}`}
       style={{marginBottom: 2}}
       key={action_trace.receipt.global_sequence}
     >

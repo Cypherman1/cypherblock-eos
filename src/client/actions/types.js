@@ -38,3 +38,5 @@ export const SET_REFETCH_WALLET_FUNC = 'set_refetch_wallet_func';
 export const SET_IS_WALLET_REFETCH = 'set_is_wallet_refetch';
 export const SET_MC_SEARCH_SYMBOL = 'set_mc_search_symbol';
 export const SET_MC_SORT_BY = 'set_mc_sort_by';
+export const SET_PERM_INFO_COLLAPSED = 'set_perm_info_collapsed';
+export const SET_VOTER_INFO_COLLAPSED = 'set_voter_info_collapsed';

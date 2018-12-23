@@ -33,6 +33,8 @@ var tmp = 0;
 
 var total_balance = 0;
 
+var total_balance_usd = 0;
+
 var total_balance_ramincluded = 0;
 
 var ram_price = 0;
@@ -148,8 +150,8 @@ const AccountInfoLoading = ({isDarkMode}) => {
                 <img src={eoslogo} />
               </div>
               <div className="stat">
-                <div className="value"> EOS</div>
-                <div className="name">Balance(RAM included)</div>
+                <div className="value"> USD</div>
+                <div className="name">To USD</div>
               </div>
             </div>
             <div className="progress stat-progress">
@@ -167,7 +169,7 @@ const AccountInfoLoading = ({isDarkMode}) => {
             </div>
             <div className="stat">
               <div className="value"> USD</div>
-              <div className="name">To fiat(RAM included)</div>
+              <div className="name">To USD(RAM included)</div>
             </div>
             <div className="progress stat-progress">
               <div
@@ -391,8 +393,10 @@ class AccountInfo extends Component {
 
         if (total_balance && cmc) {
           total_balance_ramincluded = total_balance + Number(eos_ram_equivalent);
-          if (cmc.data.quotes.USD.price)
+          if (cmc.data.quotes.USD.price) {
             to_fiat = (total_balance_ramincluded * Number(cmc.data.quotes.USD.price)).toFixed(0);
+            total_balance_usd = total_balance * Number(cmc.data.quotes.USD.price);
+          }
         }
       }
     } catch (e) {
@@ -406,7 +410,7 @@ class AccountInfo extends Component {
   render() {
     const {isDarkMode} = this.props;
     return (
-      <Query query={GetAccountInfo} variables={{account_name: this.props.account_name}} pollInterval={5000}>
+      <Query query={GetAccountInfo} variables={{account_name: this.props.account_name}} pollInterval={0}>
         {({loading, error, data}) => {
           if (loading) return <AccountInfoLoading isDarkMode={isDarkMode} />;
           if (error) return <AccountInfoLoading isDarkMode={isDarkMode} />;
@@ -475,14 +479,14 @@ class AccountInfo extends Component {
                     </div>
                     <div className="col-6 col-sm-4 stat-col pr-1 pl-1 d-none d-sm-block">
                       <div className="pd-bl">
-                        <div className=" mr-2 eos-icon">
-                          <img src={eoslogo} />
+                        <div className="stat-icon">
+                          <FontAwesomeIcon icon="dollar-sign" />
                         </div>
                         <div className="stat">
                           <div className="value">
-                            {renderTotalBalanceRAMColor(total_balance_ramincluded, isDarkMode)} EOS
+                            {total_balance_usd.toLocaleString(undefined, {maximumFractionDigits: 0})} USD
                           </div>
-                          <div className="name">Balance(RAM included)</div>
+                          <div className="name">To USD</div>
                         </div>
                       </div>
                       <div className="progress stat-progress">
@@ -500,7 +504,7 @@ class AccountInfo extends Component {
                       </div>
                       <div className="stat">
                         <div className="value">{renderToFiatColor(to_fiat, isDarkMode)} USD</div>
-                        <div className="name">To fiat(RAM included)</div>
+                        <div className="name">To USD(RAM included)</div>
                       </div>
                       <div className="progress stat-progress">
                         <div

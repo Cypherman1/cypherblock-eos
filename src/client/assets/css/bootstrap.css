@@ -11870,23 +11870,23 @@ span a {
 }
 @media (min-width: 1200px) {
   .dashboard-page .stats .stat .value {
-    font-size: 1vw;
+    font-size: 1.1vw;
   }
 }
 @media (min-width: 1200px) {
   .dashboard-page .stats .stat .name {
-    font-size: 0.9vw;
+    font-size: 1vw;
   }
 }
 
 .dashboard-page .stats .stat-progress {
-  height: 2px;
+  height: 3px;
   margin: 3px 0;
   color: #52bcd3;
   background-color: #dddddd;
 }
 .dashboard-page .stats .stat-progress .progress-bar {
-  background-color: #52bcd3;
+  background-color: #17c671;
 }
 
 .dashboard-page .tasks {

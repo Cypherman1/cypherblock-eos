@@ -4,8 +4,24 @@ import {
   SET_REFETCH_WALLET_FUNC,
   SET_IS_WALLET_REFETCH,
   SET_MC_SEARCH_SYMBOL,
-  SET_MC_SORT_BY
+  SET_MC_SORT_BY,
+  SET_PERM_INFO_COLLAPSED,
+  SET_VOTER_INFO_COLLAPSED
 } from './types';
+
+export function setPermInfoCollapsed(perm_collapsed) {
+  return {
+    type: SET_PERM_INFO_COLLAPSED,
+    payload: perm_collapsed
+  };
+}
+
+export function setVoterInfoCollapsed(voter_collapsed) {
+  return {
+    type: SET_VOTER_INFO_COLLAPSED,
+    payload: voter_collapsed
+  };
+}
 
 export function setMcSortBy(mc_sortby) {
   return {

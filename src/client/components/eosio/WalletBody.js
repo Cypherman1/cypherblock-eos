@@ -196,7 +196,7 @@ class WalletBody extends Component {
               {/* Balance info */}
               <div className="col-5 p-0 ">
                 <div className="text-right">
-                  <div className="ftz-12 font-weight-acttype">
+                  <div className="ftz-13 font-weight-acttype">
                     {isEOSUnit ? (
                       <div className="d-inline-block " style={{width: 13}}>
                         <img src={eoslogo} alt="eos" />
@@ -223,7 +223,7 @@ class WalletBody extends Component {
                       />
                     </div>
                   </div>
-                  <div className="ftz-10">{renderEOSNum(token.ammount)}</div>
+                  <div className="ftz-11">{renderEOSNum(token.ammount)}</div>
                 </div>
               </div>
               <div className="col-4 p-0">{this.renderPriceinfo(token)}</div>

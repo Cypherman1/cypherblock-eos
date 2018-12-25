@@ -170,7 +170,7 @@ class EOSMarketCap extends Component {
 
   render() {
     const {isDarkMode, mcUnit} = this.props.sidebar;
-    const {mc_symbol, mc_sortby} = this.props.common;
+    const {mc_symbol, mc_sortby, mcpg_offset} = this.props.common;
     const {setMcSortBy} = this.props;
 
     tokens = [];
@@ -334,6 +334,9 @@ class EOSMarketCap extends Component {
             //TOKENS
             Sorted_tokens.map((token, index) => {
               if (IsTokenSearched(token, mc_symbol)) {
+                {
+                  /* if (index >= mcpg_offset && index < mcpg_offset + perPage) */
+                }
                 tokens.push(
                   <div
                     className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`}

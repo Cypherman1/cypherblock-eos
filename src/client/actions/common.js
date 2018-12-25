@@ -6,8 +6,24 @@ import {
   SET_MC_SEARCH_SYMBOL,
   SET_MC_SORT_BY,
   SET_PERM_INFO_COLLAPSED,
-  SET_VOTER_INFO_COLLAPSED
+  SET_VOTER_INFO_COLLAPSED,
+  SET_MC_PG_OFFSET,
+  SET_MC_PG_PAGECOUNT
 } from './types';
+
+export function setMCPGOffset(mcpg_offset) {
+  return {
+    type: SET_MC_PG_OFFSET,
+    payload: mcpg_offset
+  };
+}
+
+export function setMCPGPageCount(mcpg_pagecount) {
+  return {
+    type: SET_MC_PG_PAGECOUNT,
+    payload: mcpg_pagecount
+  };
+}
 
 export function setPermInfoCollapsed(perm_collapsed) {
   return {

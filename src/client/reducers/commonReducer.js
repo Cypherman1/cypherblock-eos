@@ -6,7 +6,8 @@ import {
   SET_MC_SEARCH_SYMBOL,
   SET_MC_SORT_BY,
   SET_PERM_INFO_COLLAPSED,
-  SET_VOTER_INFO_COLLAPSED
+  SET_VOTER_INFO_COLLAPSED,
+  SET_MC_PG_OFFSET
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -17,7 +18,8 @@ const INITIAL_STATE = {
   mc_symbol: '',
   mc_sortby: 'MCAP_DEC',
   perm_collapsed: false,
-  voter_collapsed: false
+  voter_collapsed: false,
+  mcpg_offset: 0
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -38,6 +40,8 @@ export default function(state = INITIAL_STATE, action) {
       return {...state, perm_collapsed: action.payload};
     case SET_VOTER_INFO_COLLAPSED:
       return {...state, voter_collapsed: action.payload};
+    case SET_MC_PG_OFFSET:
+      return {...state, mcpg_offset: action.payload};
     default:
       return state;
   }

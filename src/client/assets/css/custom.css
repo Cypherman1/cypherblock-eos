@@ -1838,4 +1838,12 @@ i.metismenu-state-icon.rotate-minus-90 {
   background-color: black !important;
 }
 
+#react-paginate ul {
+  display: inline-block !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
 
+#react-paginate li {
+  display: inline-block !important;
+}

@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Query} from 'react-apollo';
 import ReactImageFallback from 'react-image-fallback';
+import ReactPaginate from 'react-paginate';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderPPColor} from '../utils/RenderColors';
 import {renderProjectLink, renderAccountLink} from '../utils/Tools';
 import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
-import {setMCSearchSymbol, setMcSortBy} from '../../actions/common';
+import {setMCSearchSymbol, setMcSortBy, setMCPGOffset} from '../../actions/common';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {IsTokenSearched} from '../utils/isTokenSearched';
 
@@ -15,6 +16,7 @@ import GetEOSMarketcap2 from '../../queries/GetEOSMarketcap2';
 
 import {formatBandUnits} from '../utils/FormatUnits';
 const images = './imgs';
+const perPage = 20;
 
 let EOSMarkets = [];
 let tokens = [];
@@ -161,6 +163,10 @@ class EOSMarketCap extends Component {
   componentWillMount() {
     this.props.setActiveLinkID(3);
   }
+  handlePageClick = (data) => {
+    let selected = data.selected;
+    this.props.setMCPGOffset(Math.ceil(selected * perPage));
+  };
 
   render() {
     const {isDarkMode, mcUnit} = this.props.sidebar;
@@ -607,6 +613,19 @@ class EOSMarketCap extends Component {
                       </div>
 
                       {tokens}
+                      {/* <ReactPaginate
+                        previousLabel={'previous'}
+                        nextLabel={'next'}
+                        breakLabel={'...'}
+                        breakClassName={'break-me'}
+                        pageCount={Math.ceil(Sorted_tokens.length / perPage)}
+                        marginPagesDisplayed={1}
+                        pageRangeDisplayed={5}
+                        onPageChange={this.handlePageClick}
+                        containerClassName={'pagination'}
+                        subContainerClassName={'pages pagination'}
+                        activeClassName={'active'}
+                      /> */}
                     </div>
                   </div>
                 </section>
@@ -625,5 +644,5 @@ function mapStateToProps({myStore}) {
 }
 export default connect(
   mapStateToProps,
-  {setActiveLinkID, setMarketcapUnit, setMCSearchSymbol, setMcSortBy}
+  {setActiveLinkID, setMarketcapUnit, setMCSearchSymbol, setMcSortBy, setMCPGOffset}
 )(EOSMarketCap);

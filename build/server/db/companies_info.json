@@ -1040,5 +1040,32 @@
     "website": "https://eoskeep.vip",
     "intro":
       "Keep is an ecological incentive platform based on EOSIO. We hope that through virtual token incentives, people can insist on doing everything well. You stick to sports, or be loyal to the team, love digital, travel, entertainment, even loyal love and so on. In life, KEEP all your interests will be inspired by our token."
+  },
+  {
+    "symbol": "trustbetteam-tbt-eos",
+    "contract": "trustbetteam",
+    "currency": "TBT",
+    "name": "TrustBet",
+    "website": "http://www.trust.bet",
+    "intro":
+      "TrustBet, operated by Dapp Works Limited (BVI COMMANY NUMBER:1999295), is dedicated to integrating memory block chain technology into games to create more fun and improve user experience, fairness and trust. Located in Canada, we adhere to the globalization strategy and apply for a license to operate legally according to the laws and regulations of each country."
+  },
+  {
+    "symbol": "pokereotoken-pke-eos",
+    "contract": "pokereotoken",
+    "currency": "PKE",
+    "name": "PKE",
+    "website": "https://pokereos.io/home/index.html",
+    "intro":
+      "PKE Token is a POKER EOS platform passport with a total amount of 100,000,000 (100 million) and will never be issued. POKER EOS adopts the game is mining method, which can obtain PKE tokens through games and invitations. At the end of each game, households will receive a PKE token reward equal to the amount of chips. Incentive token holders can also participate in POKER EOS games and pledge bonuses."
+  },
+  {
+    "symbol": "taste.x-taste-eos",
+    "contract": "taste.x",
+    "currency": "TASTE",
+    "name": "TASTE",
+    "website": "https://www.eostaste.com",
+    "intro":
+      "TASTE is a food sharing pass based on the EOSIO ecosystem. It is dedicated to creating a community-based de-centered food sharing application community that encourages people to record food moments, actively discover food, improve their quality of life and change their lifestyle."
   }
 ]

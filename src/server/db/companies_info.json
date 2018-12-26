@@ -1067,5 +1067,47 @@
     "website": "https://www.eostaste.com",
     "intro":
       "TASTE is a food sharing pass based on the EOSIO ecosystem. It is dedicated to creating a community-based de-centered food sharing application community that encourages people to record food moments, actively discover food, improve their quality of life and change their lifestyle."
+  },
+  {
+    "symbol": "taketooktook-took-eos",
+    "contract": "taketooktook",
+    "currency": "TOOK",
+    "name": "TOOK",
+    "website": "https://tooktook.io/",
+    "intro": "Everyone’s life becomes a creative work"
+  },
+  {
+    "symbol": "publytoken11-pub-eos",
+    "contract": "publytoken11",
+    "currency": "PUB",
+    "name": "PUB",
+    "website": "",
+    "intro": ""
+  },
+  {
+    "symbol": "obtain.e-obt-eos",
+    "contract": "obtain.e",
+    "currency": "OBT",
+    "name": "OBT",
+    "website": "https://obteos.co",
+    "intro":
+      "The world's first EOSIO-based virtual claims platform is dedicated to exploring a real landing application scenario in the field of block chain + insurance! Pre-development routes combined with real insurance certificates to introduce more user experience block chain virtual insurance fast and convenient services, relying on project advancement, we will launch an independent virtual insurance service! Fast insurance and related claims service can be achieved through intelligent contract."
+  },
+  {
+    "symbol": "luckbettoken-lt-eos",
+    "contract": "luckbettoken",
+    "currency": "LT",
+    "name": "LuckBet",
+    "website": "https://luckbet.io",
+    "intro":
+      "LuckBet is a distributional dividend-sharing online entertainment platform based on EOS mainnet. We have established a secured, fair and verifiable decentralized entertainment system. All dividend finally will belong to holders of LuckBet Token via distribution so as to fairly enable each user to become a shareholder of LuckBet."
+  },
+  {
+    "symbol": "gameskytoken-sky-eos",
+    "contract": "gameskytoken",
+    "currency": "SKY",
+    "name": "GameSky",
+    "website": "https://gamesky.io",
+    "intro": "GameSky Platform Currency."
   }
 ]

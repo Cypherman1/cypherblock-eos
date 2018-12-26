@@ -8,7 +8,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderPPColor} from '../utils/RenderColors';
 import {renderProjectLink, renderAccountLink} from '../utils/Tools';
 import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
-import {setMCSearchSymbol, setMcSortBy, setMCPGOffset} from '../../actions/common';
+import {setMCSearchSymbol, setMcSortBy, setMCPGOffset, setMCPGPageSelected} from '../../actions/common';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {IsTokenSearched} from '../utils/isTokenSearched';
 
@@ -16,7 +16,7 @@ import GetEOSMarketcap2 from '../../queries/GetEOSMarketcap2';
 
 import {formatBandUnits} from '../utils/FormatUnits';
 const images = './imgs';
-const perPage = 20;
+const perPage = 49;
 
 let EOSMarkets = [];
 let tokens = [];
@@ -165,12 +165,13 @@ class EOSMarketCap extends Component {
   }
   handlePageClick = (data) => {
     let selected = data.selected;
+    this.props.setMCPGPageSelected(selected);
     this.props.setMCPGOffset(Math.ceil(selected * perPage));
   };
 
   render() {
     const {isDarkMode, mcUnit} = this.props.sidebar;
-    const {mc_symbol, mc_sortby, mcpg_offset} = this.props.common;
+    const {mc_symbol, mc_sortby, mcpg_offset, mcpg_selected} = this.props.common;
     const {setMcSortBy} = this.props;
 
     tokens = [];
@@ -333,10 +334,123 @@ class EOSMarketCap extends Component {
 
             //TOKENS
             Sorted_tokens.map((token, index) => {
-              if (IsTokenSearched(token, mc_symbol)) {
-                {
-                  /* if (index >= mcpg_offset && index < mcpg_offset + perPage) */
-                }
+              if (mc_symbol && IsTokenSearched(token, mc_symbol)) {
+                tokens.push(
+                  <div
+                    className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`}
+                    key={token.symbol}
+                  >
+                    <div className="col-3 pl-1 row m-0 d-flex align-items-center">
+                      <div className="col-2 p-0 d-flex align-items-center">{token.rank + 2}</div>
+                      <div className="col-10 p-0 pl-2 d-flex align-items-center">
+                        <div className="mr-2 bg-white logo-bgr">
+                          <ReactImageFallback
+                            src={`${images}/${token.symbol}.png`}
+                            fallbackImage={`${images}/COMMON.png`}
+                            alt={`${token.currency} token airdrop`}
+                            className="token_logo"
+                          />
+                        </div>
+                        <div className="d-flex align-items-center">
+                          {renderProjectLink(token)}
+                          <a
+                            className="font-weight-normal"
+                            data-toggle="collapse"
+                            href={`#collapse${token.symbol}`}
+                            role="button"
+                            aria-expanded="true"
+                            aria-controls={`collapse${token.symbol}`}
+                          >
+                            <i className="fa fa-info-circle ml-1 " />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-3 row p-0 m-0 d-flex align-items-center">
+                      <div className="col-12 col-sm-6 p-0 text-right">
+                        {renderMCVal(Number(token.supply.current) * Number(token.last), mcUnit, eos_price)}
+                      </div>
+                      <div className="col-12 col-sm-6 p-0 text-right">
+                        {Number(token.supply.current).toLocaleString(undefined, {maximumFractionDigits: 0})}
+                      </div>
+                    </div>
+                    <div className="col-3 row p-0 m-0 d-flex align-items-center">
+                      <div className="col-12 col-sm-6 p-0 text-right">
+                        <a
+                          className="font-weight-normal"
+                          data-toggle="collapse"
+                          href={`#collapse${token.symbol}`}
+                          role="button"
+                          aria-expanded="true"
+                          aria-controls={`collapse${token.symbol}`}
+                        >
+                          {renderMCVal(token.volume, mcUnit, eos_price)}
+                        </a>
+                      </div>
+                      <div className="col-12 col-sm-6 p-0 text-right">
+                        <a
+                          className="font-weight-normal"
+                          data-toggle="collapse"
+                          href={`#collapse${token.symbol}`}
+                          role="button"
+                          aria-expanded="true"
+                          aria-controls={`collapse${token.symbol}`}
+                        >
+                          {Number(token.amount).toLocaleString(undefined, {maximumFractionDigits: 0})}
+                        </a>
+                      </div>
+                    </div>
+                    <div className="col-3 row p-0 m-0 d-flex align-items-center ">
+                      <div className="col-12 col-sm-7 p-0 text-right pr-1">
+                        <a
+                          className="font-weight-normal"
+                          data-toggle="collapse"
+                          href={`#collapse${token.symbol}`}
+                          role="button"
+                          aria-expanded="true"
+                          aria-controls={`collapse${token.symbol}`}
+                        >
+                          {renderMCPrice(token.last, mcUnit, eos_price)}
+                          {/* {Number(token.last).toLocaleString(undefined, {maximumSignificantDigits: 4})} */}
+                        </a>
+                      </div>
+                      <div className="col-12 col-sm-5 p-0 text-right pr-1">
+                        <a
+                          className="font-weight-normal"
+                          data-toggle="collapse"
+                          href={`#collapse${token.symbol}`}
+                          role="button"
+                          aria-expanded="true"
+                          aria-controls={`collapse${token.symbol}`}
+                        >
+                          {renderPPColor(Number(token.change).toFixed(2))}
+                        </a>
+                      </div>
+                    </div>
+                    <div
+                      className={`mt-1 collapse w-100 ${isDarkMode ? 'bg-dark-1' : 'bg-actions'}`}
+                      id={`collapse${token.symbol}`}
+                    >
+                      {/* <div className="pl-2 text-info border-bottom p-1">Exchanges:</div> */}
+                      {RenderExchanges(token.exchanges, isDarkMode, mcUnit, eos_price)}
+                      <div className="pl-2 text-info p-1">
+                        Contract: {renderAccountLink(token.contract)} website:{' '}
+                        {companies.data.findIndex((e) => e.symbol == token.symbol) >= 0 ? (
+                          <a
+                            href={companies.data[companies.data.findIndex((e) => e.symbol == token.symbol)].website}
+                            target="_blank"
+                          >
+                            {companies.data[companies.data.findIndex((e) => e.symbol == token.symbol)].website}
+                          </a>
+                        ) : (
+                          ''
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+                token_num++;
+              } else if (!mc_symbol && index >= mcpg_offset && index < mcpg_offset + perPage) {
                 tokens.push(
                   <div
                     className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`}
@@ -553,6 +667,25 @@ class EOSMarketCap extends Component {
                         </div>
                       </div>
                     </div>
+                    <div className="pt-2 pr-2 row m-0">
+                      <div className="text-info ml-2 col p-0"> Count: {Sorted_tokens.length + 2} </div>
+                      <div className="col text-right pr-1 ">
+                        <ReactPaginate
+                          previousLabel={'Previous'}
+                          nextLabel={'Next'}
+                          breakLabel={'...'}
+                          pageCount={Math.ceil(Sorted_tokens.length / perPage)}
+                          marginPagesDisplayed={2}
+                          pageRangeDisplayed={5}
+                          onPageChange={this.handlePageClick}
+                          containerClassName={'pagination mb-1 cp ftz-12'}
+                          subContainerClassName={'pages pagination'}
+                          activeClassName={`active ${isDarkMode ? 'bg-white' : 'bg-success'}  rounded`}
+                          pageClassName={'mr-1 ml-1 pr-1 pl-1'}
+                          forcePage={mcpg_selected}
+                        />
+                      </div>
+                    </div>
                     {/* Table header */}
                     <div className="bg-white p-0 m-0 card-body ">
                       <div
@@ -616,19 +749,26 @@ class EOSMarketCap extends Component {
                       </div>
 
                       {tokens}
-                      {/* <ReactPaginate
-                        previousLabel={'previous'}
-                        nextLabel={'next'}
-                        breakLabel={'...'}
-                        breakClassName={'break-me'}
-                        pageCount={Math.ceil(Sorted_tokens.length / perPage)}
-                        marginPagesDisplayed={1}
-                        pageRangeDisplayed={5}
-                        onPageChange={this.handlePageClick}
-                        containerClassName={'pagination'}
-                        subContainerClassName={'pages pagination'}
-                        activeClassName={'active'}
-                      /> */}
+                    </div>
+                    <div className="pt-2 pr-2 row m-0">
+                      {/* <div className="text-info ml-2 col p-0"> Total: {Sorted_tokens.length + 2} </div> */}
+                      <div className="col text-right pr-1">
+                        <ReactPaginate
+                          previousLabel={'Previous'}
+                          nextLabel={'Next'}
+                          breakLabel={'...'}
+                          breakClassName={'p-1'}
+                          pageCount={Math.ceil(Sorted_tokens.length / perPage)}
+                          marginPagesDisplayed={2}
+                          pageRangeDisplayed={5}
+                          onPageChange={this.handlePageClick}
+                          containerClassName={'pagination mb-1 cp ftz-12'}
+                          subContainerClassName={'pages pagination'}
+                          activeClassName={`active ${isDarkMode ? 'bg-white' : 'bg-success'}  rounded`}
+                          pageClassName={'mr-1 ml-1 pr-1 pl-1'}
+                          forcePage={mcpg_selected}
+                        />
+                      </div>
                     </div>
                   </div>
                 </section>
@@ -647,5 +787,5 @@ function mapStateToProps({myStore}) {
 }
 export default connect(
   mapStateToProps,
-  {setActiveLinkID, setMarketcapUnit, setMCSearchSymbol, setMcSortBy, setMCPGOffset}
+  {setActiveLinkID, setMarketcapUnit, setMCSearchSymbol, setMcSortBy, setMCPGOffset, setMCPGPageSelected}
 )(EOSMarketCap);

@@ -1847,3 +1847,16 @@ i.metismenu-state-icon.rotate-minus-90 {
 #react-paginate li {
   display: inline-block !important;
 }
+
+.cp li:hover {
+  cursor: pointer !important;
+}
+
+.cp li > a:hover {
+  color: wheat !important;
+}
+
+.cp li > a {
+  text-decoration: none !important;
+  font-weight: 300 !important;
+}

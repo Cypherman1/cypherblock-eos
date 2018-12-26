@@ -8,7 +8,7 @@ import {
   SET_PERM_INFO_COLLAPSED,
   SET_VOTER_INFO_COLLAPSED,
   SET_MC_PG_OFFSET,
-  SET_MC_PG_PAGECOUNT
+  SET_MC_PG_SELECTED
 } from './types';
 
 export function setMCPGOffset(mcpg_offset) {
@@ -18,10 +18,10 @@ export function setMCPGOffset(mcpg_offset) {
   };
 }
 
-export function setMCPGPageCount(mcpg_pagecount) {
+export function setMCPGPageSelected(mcpg_selected) {
   return {
-    type: SET_MC_PG_PAGECOUNT,
-    payload: mcpg_pagecount
+    type: SET_MC_PG_SELECTED,
+    payload: mcpg_selected
   };
 }
 

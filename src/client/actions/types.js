@@ -41,4 +41,4 @@ export const SET_MC_SORT_BY = 'set_mc_sort_by';
 export const SET_PERM_INFO_COLLAPSED = 'set_perm_info_collapsed';
 export const SET_VOTER_INFO_COLLAPSED = 'set_voter_info_collapsed';
 export const SET_MC_PG_OFFSET = 'set_mc_pg_offset';
-export const SET_MC_PG_PAGECOUNT = 'set_mc_pg_pagecount';
+export const SET_MC_PG_SELECTED = 'set_mc_pg_selected';

@@ -95,11 +95,10 @@ class SideBar extends Component {
       localStorage.setItem('isDarkMode', 'true');
     }
     this.props.setIsDarkMode(localStorage.getItem('isDarkMode') == 'true');
-  }
-  componentDidMount() {
     if (!this.props.isDesktop) menu1 = UpdateName(menu1, true);
     else menu1 = UpdateName(menu1, !this.props.sidebar.isSidebarHide);
   }
+  componentDidMount() {}
 
   // renderMenu() {
 

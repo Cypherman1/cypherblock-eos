@@ -72,7 +72,7 @@ class App extends Component {
       <Router history={history}>
         <div id="main-wrapper">
           <div
-            className={`app ${sidebar.sidebarStatus ? 'sidebar-open' : ''} ${
+            className={`app ${sidebar.isSidebarHide ? 'pl_hide' : ''} ${sidebar.sidebarStatus ? 'sidebar-open' : ''} ${
               sidebar.isDarkMode ? 'bg-secondary text-cypher' : 'bg-main'
             }`}
             id="app"

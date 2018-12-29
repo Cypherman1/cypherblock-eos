@@ -9,4 +9,4 @@ const mainreducers = combineReducers({
   metisMenuStore: metisMenuReducer // Here "metisMenuStore" is default and it can be changed with "reduxStoreName" prop
 });
 
-export const mainstore = createStore(mainreducers, {}, applyMiddleware(reduxThunk));
+export const mainstore = createStore(mainreducers, {myStore: {}, metisMenuStore: {}}, applyMiddleware(reduxThunk));

@@ -90,10 +90,14 @@ class Header extends Component {
   // }
 
   render() {
-    const {isDarkMode} = this.props.sidebar;
+    const {isDarkMode, isSidebarHide} = this.props.sidebar;
     return (
       <div>
-        <header className={`header bg-white shadow-sm ${isDarkMode ? 'bg-dark text-cypher' : ''}`}>
+        <header
+          className={`header ${isSidebarHide ? 'hf_hide' : ''}  bg-white shadow-sm ${
+            isDarkMode ? 'bg-dark text-cypher' : ''
+          }`}
+        >
           <div className="header-block header-block-collapse d-lg-none d-xl-none">
             <button className="collapse-btn" id="sidebar-collapse-btn" onClick={this.submitSidebarStatus}>
               <FontAwesomeIcon icon="bars" />

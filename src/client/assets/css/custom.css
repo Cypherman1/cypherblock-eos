@@ -1405,6 +1405,17 @@ span.CodeMirror-selectedtext {
   .mc-headfont {
     font-size: 11px !important;
   }
+  .whide {
+    width: 50px !important;
+  }
+
+  .pl_hide {
+    padding-left: 50px !important;
+  }
+
+  .hf_hide {
+    left: 50px !important;
+  }
 }
 @media (min-width: 1200px) {
   .mr-offset {
@@ -1446,10 +1457,21 @@ span.CodeMirror-selectedtext {
   .mc-headfont {
     font-size: 12px !important;
   }
+  .whide {
+    width: 50px !important;
+  }
+
+  .pl_hide {
+    padding-left: 50px !important;
+  }
+
+  .hf_hide {
+    left: 50px !important;
+  }
 }
 .metismenu {
   font-family: 'Open Sans', sans-serif;
-  font-size: 12pt;
+  font-size: 11pt;
   overflow: hidden;
   position: relative;
 }
@@ -1516,7 +1538,22 @@ span.CodeMirror-selectedtext {
   display: block;
   line-height: 2.5em;
   text-decoration: none;
+  /* font-size: 8px; */
 }
+
+.metismenu-link-hide {
+  color: #ddd;
+  /* text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5); */
+  transition: height 0.3s, color white, background-color white;
+  -webkit-transition: height 0.3s, color white, background-color white;
+  display: block;
+  line-height: 2.5em;
+  text-decoration: none;
+  font-size: 8px;
+  text-align: center;
+}
+
 .metismenu-link:hover {
   /* background: rgba(255, 255, 255, 0.05); */
   color: #fc4a1a !important;
@@ -1542,7 +1579,8 @@ span.CodeMirror-selectedtext {
 }
 i.metismenu-icon {
   text-align: center;
-  width: 3em;
+  width: 50px;
+  font-size: 18px;
 }
 i.metismenu-state-icon {
   transition: transform 0.3s;
@@ -1770,12 +1808,11 @@ i.metismenu-state-icon.rotate-minus-90 {
 }
 
 .main-logo {
-  width: 220px;
+  width: 175px;
 }
 .brand-container {
   height: 52px;
-  padding-top: 10px;
-  padding-left: 10px;
+  padding-left: 8px;
 }
 
 .text-cypher {

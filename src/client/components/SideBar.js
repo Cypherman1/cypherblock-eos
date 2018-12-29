@@ -2,65 +2,92 @@ import React, {Component} from 'react';
 // import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import MetisMenu from 'react-metismenu';
+import withSizes from 'react-sizes';
 import RouterLink from 'react-metismenu-router-link';
 import {connect} from 'react-redux';
-import {setActiveLinkID, setSidebarStatus, setIsDarkMode} from '../actions/sidebar';
+import {setActiveLinkID, setSidebarStatus, setIsDarkMode, setIsSidebarHide} from '../actions/sidebar';
 import logo from '../assets/imgs/logo.png';
 import {mainstore} from '../store';
 
-const menu = [
+let menu1 = [
   {
     id: 1,
     icon: 'cubes',
-    label: 'Block Explorer',
-    to: '/'
+    label: '',
+    to: '/',
+    tmp1: 'Block Explorer'
   },
-  // {
-  //   id: 2,
-  //   icon: 'cogs',
-  //   label: 'Block producers',
-  //   to: '/blockproducers'
-  // },
   {
     id: 3,
     icon: 'bar-chart',
-    label: 'EOS Marketcap',
-    to: '/eosmarketcap'
+    label: '',
+    to: '/eosmarketcap',
+    tmp1: 'EOS Marketcap'
   }
-  // ,
-  // {
-  //   id: 2,
-  //   icon: 'bolt',
-  //   label: 'Account',
-  //   to: '/account'
-  //   // content: [
-  //   //   {
-  //   //     icon: 'bolt',
-  //   //     label: 'Sub Menu',
-  //   //     to: 'sub-menu'
-  //   //   }
-  //   // ]
-  // },
-  // {
-  //   id: 3,
-  //   icon: 'bolt',
-  //   label: 'Blocks',
-  //   to: '/block'
-  //   // content: [
-  //   //   {
-  //   //     icon: 'bolt',
-  //   //     label: 'Sub Menu',
-  //   //     to: 'sub-menu'
-  //   //   }
-  //   // ]
-  // },
-  // {
-  //   id: 4,
-  //   icon: 'bell',
-  //   label: 'transaction',
-  //   to: '/transaction'
-  // }
 ];
+
+const genMenu = (isSidebarHide) => {
+  return [
+    {
+      id: 1,
+      icon: 'cubes',
+      label: 'Block Explorer',
+      to: '/'
+    },
+    // {
+    //   id: 2,
+    //   icon: 'cogs',
+    //   label: 'Block producers',
+    //   to: '/blockproducers'
+    // },
+    {
+      id: 3,
+      icon: 'bar-chart',
+      label: 'EOS Marketcap',
+      to: '/eosmarketcap'
+    }
+    // ,
+    // {
+    //   id: 2,
+    //   icon: 'bolt',
+    //   label: 'Account',
+    //   to: '/account'
+    //   // content: [
+    //   //   {
+    //   //     icon: 'bolt',
+    //   //     label: 'Sub Menu',
+    //   //     to: 'sub-menu'
+    //   //   }
+    //   // ]
+    // },
+    // {
+    //   id: 3,
+    //   icon: 'bolt',
+    //   label: 'Blocks',
+    //   to: '/block'
+    //   // content: [
+    //   //   {
+    //   //     icon: 'bolt',
+    //   //     label: 'Sub Menu',
+    //   //     to: 'sub-menu'
+    //   //   }
+    //   // ]
+    // },
+    // {
+    //   id: 4,
+    //   icon: 'bell',
+    //   label: 'transaction',
+    //   to: '/transaction'
+    // }
+  ];
+};
+
+const UpdateName = (menu, isShowName) => {
+  return menu.map((menuItem) => ({
+    ...menuItem,
+    label: isShowName ? menuItem.tmp1 : ''
+  }));
+};
 
 class SideBar extends Component {
   componentWillMount() {
@@ -68,7 +95,11 @@ class SideBar extends Component {
       localStorage.setItem('isDarkMode', 'true');
     }
     this.props.setIsDarkMode(localStorage.getItem('isDarkMode') == 'true');
+    if (!this.props.isDesktop) menu1 = UpdateName(menu1, true);
+    else menu1 = UpdateName(menu1, !this.props.sidebar.isSidebarHide);
   }
+  componentDidMount() {}
+
   // renderMenu() {
 
   //   return this.props.sidebar.isDarkMode ? (
@@ -84,21 +115,42 @@ class SideBar extends Component {
   //     <MetisMenu content={menu} LinkComponent={RouterLink} activeLinkId={this.props.sidebar.activeLinkId} />
   //   );
   // }
+  componentWillReceiveProps(nextProps) {
+    if (
+      this.props.isDesktop !== nextProps.isDesktop ||
+      this.props.sidebar.isSidebarHide != nextProps.sidebar.isSidebarHide
+    ) {
+      if (!nextProps.isDesktop) menu1 = UpdateName(menu1, true);
+      else menu1 = UpdateName(menu1, !nextProps.sidebar.isSidebarHide);
+    }
+  }
   render() {
-    const {setSidebarStatus, sidebar, setIsDarkMode} = this.props;
-    const {isDarkMode} = sidebar;
+    const {setSidebarStatus, sidebar, isDesktop, setIsDarkMode, setIsSidebarHide, setActiveLinkID} = this.props;
+    const {isDarkMode, isSidebarHide, menu} = sidebar;
+    // if (!this.props.isDesktop) menu1 = UpdateName(menu1, true);
+    // else menu1 = UpdateName(menu1, !isSidebarHide);
 
     return (
       <div>
-        <aside className={`sidebar ${sidebar.isDarkMode ? 'bg-dark' : 'bg-light'}`}>
+        <aside className={`sidebar ${isSidebarHide ? 'whide' : ''} ${sidebar.isDarkMode ? 'bg-dark' : 'bg-light'}`}>
           <div className="sidebar-container">
             <div className="sidebar-header">
-              <div className={`${isDarkMode ? 'bg-black' : 'bg-white'} brand-container`}>
-                {/* <div className="mylogo logo-font">
-                  <FontAwesomeIcon icon="cube" />
-                </div>
-                CYPHERBLOCK */}
-                <img src={logo} className="main-logo" />
+              <div className={`${isDarkMode ? 'bg-black' : 'bg-white'} brand-container d-flex align-items-center`}>
+                {isDesktop && isSidebarHide ? '' : <img src={logo} className="main-logo" />}
+                {isDesktop ? (
+                  <a
+                    className={`${isSidebarHide ? 'ml-2' : 'ml-3'} text-info  d-flex align-items-center `}
+                    href="#"
+                    onClick={() => {
+                      setIsSidebarHide(!isSidebarHide);
+                      menu1 = UpdateName(menu1, isSidebarHide && isDesktop);
+                    }}
+                  >
+                    <i className="fa fa-bars ftz-20" />
+                  </a>
+                ) : (
+                  ''
+                )}
               </div>
             </div>
             <nav
@@ -114,7 +166,7 @@ class SideBar extends Component {
                 className={`${sidebar.isDarkMode ? 'metismenu-dark' : ''}`}
                 classNameItem={`${isDarkMode ? 'metismenu-item-dark' : ''}`}
                 classNameContainer={`${isDarkMode ? 'metismenu-container-dark' : ''}`}
-                content={menu}
+                content={menu1}
                 LinkComponent={RouterLink}
                 activeLinkId={sidebar.activeLinkId}
                 useExternalReduxStore={mainstore}
@@ -122,41 +174,25 @@ class SideBar extends Component {
             </nav>
           </div>
           <footer className="sidebar-footer">
-            <div className={`sidebar-menu border-top`} id="customize-menu">
-              <div className="collapse" id="collapseConfig">
-                <div
-                  className={`${isDarkMode ? 'bg-secondary' : 'bg-white'}`}
-                  style={{height: 50, paddingTop: 4, paddingLeft: 56, borderRight: 1}}
-                >
-                  <div className="custom-control custom-toggle my-2">
-                    <input
-                      type="checkbox"
-                      id="darkMode"
-                      name="darkMode"
-                      className="custom-control-input"
-                      checked={isDarkMode}
-                      onChange={(event) => {
-                        setIsDarkMode(event.target.checked);
-                        localStorage.setItem('isDarkMode', event.target.checked);
-                      }}
-                    />
-                    <label className="custom-control-label mt-1 font-weight-normal" htmlFor="darkMode">
-                      Dark mode
-                    </label>
-                  </div>
-                </div>
-              </div>
+            <div className={`sidebar-menu ${isSidebarHide ? 'whide' : ''}`} id="customize-menu">
               <button
-                className={`btn ${isDarkMode ? 'btn-dark' : 'btn-secondary'}  btn-squared w-100 mb-0  ftz-15`}
+                className={`btn ${isDarkMode ? 'btn-dark' : 'btn-secondary'}  btn-squared w-100 pl-3 mb-0`}
                 style={{height: 50}}
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseConfig"
-                aria-expanded="false"
-                aria-controls="collapseConfig"
+                onClick={() => {
+                  setIsDarkMode(!isDarkMode);
+                  localStorage.setItem('isDarkMode', isDarkMode);
+                }}
               >
-                <FontAwesomeIcon icon="palette" />
-                <div className="d-inline ml-1 "> Customize </div>
+                {isDarkMode ? (
+                  <i className="fa fa-moon-o ftz-20 text-success" />
+                ) : (
+                  <i className="fa fa-sun-o ftz-20 text-success" />
+                )}
+                {isSidebarHide && isDesktop ? (
+                  ''
+                ) : (
+                  <div className="d-inline ml-1 "> {isDarkMode ? 'Dark Mode' : 'Light Mode'} </div>
+                )}
               </button>
             </div>
           </footer>
@@ -180,7 +216,11 @@ function mapStateToProps({myStore}) {
   return {sidebar: myStore.sidebar};
 }
 
+const mapSizesToProps = ({width}) => ({
+  isDesktop: width > 992
+});
+
 export default connect(
   mapStateToProps,
-  {setActiveLinkID, setSidebarStatus, setIsDarkMode}
-)(SideBar);
+  {setActiveLinkID, setSidebarStatus, setIsDarkMode, setIsSidebarHide}
+)(withSizes(mapSizesToProps)(SideBar));

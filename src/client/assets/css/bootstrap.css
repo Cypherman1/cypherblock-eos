@@ -9082,7 +9082,7 @@ body {
 .app {
   position: relative;
   width: 100%;
-  padding-left: 240px;
+  padding-left: 220px;
   min-height: 100vh;
   margin: 0 auto;
   left: 0;
@@ -11218,7 +11218,7 @@ span a {
 .footer {
   background-color: #fff;
   position: absolute;
-  left: 240px;
+  left: 220px;
   right: 0;
   bottom: 0;
   height: 50px;
@@ -11286,7 +11286,7 @@ span a {
   background-color: #d7dde4;
   height: 52px;
   position: absolute;
-  left: 240px;
+  left: 220px;
   right: 0;
   -webkit-transition: left 0.3s ease;
   transition: left 0.3s ease;
@@ -11336,7 +11336,7 @@ span a {
 
 .sidebar {
   background-color:#17a2b8;
-  width: 240px;
+  width: 220px;
   padding-bottom: 60px;
   position: absolute;
   top: 0;
@@ -12606,7 +12606,7 @@ span a {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 240px;
+  width: 220px;
 }
 @media (max-width: 991.98px) {
   .sidebar-open #customize-menu {

@@ -6,7 +6,7 @@ const telegram_logo = images(`./telegram.png`);
 const Footer = ({sidebar}) => {
   return (
     <footer
-      className={`footer acc-name-font row m-0 pr-3 pl-3 ${
+      className={`footer ${sidebar.isSidebarHide ? 'hf_hide' : ''} acc-name-font row m-0 pr-3 pl-3 ${
         sidebar.isDarkMode ? 'bg-dark border-left border-secondary' : ''
       }`}
     >

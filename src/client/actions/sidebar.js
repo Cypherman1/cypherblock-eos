@@ -1,4 +1,25 @@
-import {SET_ACTIVE_LINK_ID, SET_SIDEBAR_STATUS, SET_IS_DARK_MODE, SET_MARKETCAP_UNIT} from './types';
+import {
+  SET_ACTIVE_LINK_ID,
+  SET_SIDEBAR_STATUS,
+  SET_IS_DARK_MODE,
+  SET_MARKETCAP_UNIT,
+  SET_IS_SIDEBAR_HIDE,
+  SET_SIDEBAR_MENU
+} from './types';
+
+// export function setSidebarMenu(is) {
+//   return {
+//     type: SET_SIDEBAR_MENU,
+//     payload: isSidebarHide
+//   };
+// }
+
+export function setIsSidebarHide(isSidebarHide) {
+  return {
+    type: SET_IS_SIDEBAR_HIDE,
+    payload: isSidebarHide
+  };
+}
 
 export function setMarketcapUnit(mcUnit) {
   return {

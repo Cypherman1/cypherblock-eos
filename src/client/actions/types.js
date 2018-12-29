@@ -25,6 +25,8 @@ export const SET_ACTIVE_LINK_ID = 'set_active_link_id';
 export const SET_SIDEBAR_STATUS = 'set_sidebar_status';
 export const SET_IS_DARK_MODE = 'set_is_dark_mode';
 export const SET_MARKETCAP_UNIT = 'set_marketcap_unit';
+export const SET_IS_SIDEBAR_HIDE = 'set_is_sidebar_hide';
+export const SET_SIDEBAR_MENU = 'set_sidebar_menu';
 
 // antispam
 

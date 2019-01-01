@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import withSizes from 'react-sizes';
+import {Helmet} from 'react-helmet';
 import AccountInfo from './AccountInfo';
 import Wallet from './Wallet';
 import ActionsCard from './ActionsCard';
@@ -17,6 +18,34 @@ class Account extends Component {
     const {match, sidebar, isDesktop} = this.props;
     return isDesktop ? (
       <article className="content dashboard-page">
+        <Helmet>
+          <title>{match.params.account_name} | EOS Block Explorer | Account, Airdrop, Price</title>
+          <meta
+            name="keywords"
+            content="eos, eosio, eos block explorer, account, transaction, block, balance, RAM, voting, block producer, token, airdrop, price, wallet, dapp, project, marketcap, blockchain, mainnet, crypto, currency"
+          />
+          <meta name="title" content={`${match.params.account_name} | EOS Block Explorer | Account, Airdrop, Price`} />
+          <meta
+            name="description"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+          />
+          <meta
+            property="og:title"
+            content={`${match.params.account_name} | EOS Block Explorer | Account, Airdrop, Price`}
+          />
+          <meta
+            property="og:description"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+          />
+          <meta
+            name="twitter:title"
+            content={`${match.params.account_name} | EOS Block Explorer | Account, Airdrop, Price`}
+          />
+          <meta
+            name="twitter:description"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainet"
+          />
+        </Helmet>
         <section className="section">
           <div className="row m-0">
             <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-8 stats-col pd-col ">
@@ -41,6 +70,34 @@ class Account extends Component {
       </article>
     ) : (
       <article className="content dashboard-page">
+        <Helmet>
+          <title>{match.params.account_name} | EOS Block Explorer | Account, Airdrop, Price</title>
+          <meta
+            name="keywords"
+            content="eos, eosio, eos block explorer, account, transaction, block, balance, RAM, voting, block producer, token, airdrop, price, wallet, dapp, project, marketcap, blockchain, mainnet, crypto, currency"
+          />
+          <meta name="title" content={`${match.params.account_name} | EOS Block Explorer | Account, Airdrop, Price`} />
+          <meta
+            name="description"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+          />
+          <meta
+            property="og:title"
+            content={`${match.params.account_name} | EOS Block Explorer | Account, Airdrop, Price`}
+          />
+          <meta
+            property="og:description"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+          />
+          <meta
+            name="twitter:title"
+            content={`${match.params.account_name} | EOS Block Explorer | Account, Airdrop, Price`}
+          />
+          <meta
+            name="twitter:description"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainet"
+          />
+        </Helmet>
         <section className="section">
           <div className="row m-0">
             <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-8 stats-col pd-col ">

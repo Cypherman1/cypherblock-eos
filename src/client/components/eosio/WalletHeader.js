@@ -9,7 +9,7 @@ const WalletHeader = ({isDarkMode, common, setTokenBalanceUnitl, setIsWalletRefe
     <div className="card-header shadow-sm m-0 row m-0 bg-white">
       <div className="col pl-2 d-flex ">
         <FontAwesomeIcon icon="wallet" className="mr-1 text-info fa-lg" />
-        <h1 className="text-info title">Assets/Airdrops</h1>
+        <h1 className="text-info title">Assets | Airdrops</h1>
       </div>
       <div className="row m-0">
         <div className="col p-0" style={{marginTop: 2}}>

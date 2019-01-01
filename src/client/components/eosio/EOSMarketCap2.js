@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Query} from 'react-apollo';
 import ReactImageFallback from 'react-image-fallback';
 import ReactPaginate from 'react-paginate';
+import {Helmet} from 'react-helmet';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderPPColor} from '../utils/RenderColors';
@@ -347,7 +348,7 @@ class EOSMarketCap extends Component {
                           <ReactImageFallback
                             src={`${images}/${token.symbol}.png`}
                             fallbackImage={`${images}/COMMON.png`}
-                            alt={`${token.currency} token airdrop`}
+                            alt={`${token.currency} eos token airdrop`}
                             className="token_logo"
                           />
                         </div>
@@ -463,7 +464,7 @@ class EOSMarketCap extends Component {
                           <ReactImageFallback
                             src={`${images}/${token.symbol}.png`}
                             fallbackImage={`${images}/COMMON.png`}
-                            alt={`${token.currency} token airdrop`}
+                            alt={`${token.currency} eos token airdrop`}
                             className="token_logo"
                           />
                         </div>
@@ -570,6 +571,28 @@ class EOSMarketCap extends Component {
             });
             return (
               <article className="content dashboard-page">
+                <Helmet>
+                  <title>Cypherblock | EOS Marketcap | Token, Project, Price, Ranking</title>
+                  <meta
+                    name="keywords"
+                    content="eos, eosio, eos marketcap, ranking, token, airdrop, price, volume, supply, value, market, exchanges, project, dapp, Blockchain, mainet"
+                  />
+                  <meta name="title" content="Cypherblock | EOS Marketcap | Token, Project, Price, Ranking" />
+                  <meta
+                    name="description"
+                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainet"
+                  />
+                  <meta property="og:title" content="Cypherblock | EOS Marketcap | Token, Project, Price, Ranking" />
+                  <meta
+                    property="og:description"
+                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainet"
+                  />
+                  <meta name="twitter:title" content="Cypherblock | EOS Marketcap | Token, Project, Price, Ranking" />
+                  <meta
+                    name="twitter:description"
+                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainet"
+                  />
+                </Helmet>
                 <section className="section">
                   <div className={`card mlr-2px shadow-sm ftz-marketcap mb-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                     <div className={`card-header row m-0 ${isDarkMode ? 'bg-dark' : 'bg-actions'}`}>
@@ -782,6 +805,7 @@ class EOSMarketCap extends Component {
     );
   }
 }
+
 function mapStateToProps({myStore}) {
   return {sidebar: myStore.sidebar, common: myStore.common};
 }

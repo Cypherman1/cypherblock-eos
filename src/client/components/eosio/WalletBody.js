@@ -132,7 +132,7 @@ class WalletBody extends Component {
                   <ReactImageFallback
                     src={token_logo}
                     fallbackImage={fallback_logo}
-                    alt={`${token.name} token airdrop`}
+                    alt={`${token.name} eos token airdrop`}
                     className="token_logo"
                   />
                 </div>
@@ -187,7 +187,7 @@ class WalletBody extends Component {
                   <ReactImageFallback
                     src={token_logo}
                     fallbackImage={fallback_logo}
-                    alt={`${token.name} token airdrop`}
+                    alt={`${token.name} eos token airdrop`}
                     className="token_logo"
                   />
                 </div>

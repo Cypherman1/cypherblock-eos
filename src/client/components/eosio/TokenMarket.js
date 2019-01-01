@@ -194,7 +194,7 @@ class TokenMarket extends Component {
                             <ReactImageFallback
                               src={token_logo}
                               fallbackImage={fallback_logo}
-                              alt={`${tokeninfo.currency} token airdrop`}
+                              alt={`${tokeninfo.currency} eos token airdrop`}
                               className="token_logo"
                             />
                           </div>

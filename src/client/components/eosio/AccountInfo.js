@@ -465,6 +465,7 @@ class AccountInfo extends Component {
                         <div className="value">{`${total_balance.toLocaleString('en', {
                           maximumSignificantDigits: 14
                         })} EOS`}</div>
+
                         <div className="name">Balance</div>
                       </div>
 
@@ -525,7 +526,7 @@ class AccountInfo extends Component {
                             maximumSignificantDigits: 14
                           })}
                         </div>
-                        <div className="name"> EOS unstaked </div>
+                        <div className="name">EOS unstaked</div>
                       </div>
                       <div className="progress stat-progress">
                         <div

@@ -23,7 +23,7 @@ const NoVote = ({isDarkMode}) => {
         <div className="header-block pl-2">
           <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
           <h1 className="title text-info">
-            Voter info
+            Voting info
             {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
           </h1>
         </div>
@@ -95,7 +95,7 @@ class VoterInfo extends Component {
                       }}
                     >
                       <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
-                      <h1 className="title text-info">Voter info</h1>
+                      <h1 className="title text-info">Voting info</h1>
                     </a>
                   </div>
                   <div className="col pr-1 d-flex align-items-center flex-row-reverse rounded-bottom">
@@ -261,7 +261,7 @@ class VoterInfo extends Component {
                       }}
                     >
                       <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
-                      <h1 className="title text-info">Voter info</h1>
+                      <h1 className="title text-info">Voting info</h1>
                     </a>
                   </div>
                   <div className="col pr-1 d-flex align-items-center flex-row-reverse rounded-bottom">
@@ -451,7 +451,7 @@ class VoterInfo extends Component {
                         }}
                       >
                         <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
-                        <h1 className="title text-info">Voter info</h1>
+                        <h1 className="title text-info">Voting info</h1>
                       </a>
                     </div>
                     <span className="badge badge-pill badge-primary pt-2">Proxy</span>

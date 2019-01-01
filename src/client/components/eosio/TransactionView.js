@@ -25,17 +25,17 @@ class TransactionView extends Component {
           <meta name="title" content="Transaction | Cypherblock | EOS Block Explorer" />
           <meta
             name="description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet"
           />
           <meta property="og:title" content="Transaction | Cypherblock | EOS Block Explorer " />
           <meta
             property="og:description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet"
           />
           <meta name="twitter:title" content="Transaction | Cypherblock | EOS Block Explorer " />
           <meta
             name="twitter:description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainnet"
           />
         </Helmet>
         <section className="section">

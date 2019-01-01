@@ -28,17 +28,17 @@ class Dashboard extends Component {
           <meta name="title" content="Cypherblock | EOS Block Explorer | Account, Token, Airdrop, Dapp" />
           <meta
             name="description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet"
           />
           <meta property="og:title" content="Cypherblock | EOS Block Explorer | Account, Token, Airdrop, Price" />
           <meta
             property="og:description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet"
           />
           <meta name="twitter:title" content="Cypherblock | EOS Block Explorer | Account, Token, Airdrop, Price" />
           <meta
             name="twitter:description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainnet"
           />
         </Helmet>
         <section className="section">
@@ -74,17 +74,17 @@ class Dashboard extends Component {
           <meta name="title" content="Cypherblock | EOS Block Explorer | Account, Token, Airdrop, Dapp" />
           <meta
             name="description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet"
           />
           <meta property="og:title" content="Cypherblock | EOS Block Explorer | Account, Token, Airdrop, Price" />
           <meta
             property="og:description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet"
           />
           <meta name="twitter:title" content="Cypherblock | EOS Block Explorer | Account, Token, Airdrop, Price" />
           <meta
             name="twitter:description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainnet"
           />
         </Helmet>
         <section className="section">

@@ -575,22 +575,22 @@ class EOSMarketCap extends Component {
                   <title>Cypherblock | EOS Marketcap | Token, Project, Price, Ranking</title>
                   <meta
                     name="keywords"
-                    content="eos, eosio, eos marketcap, ranking, token, airdrop, price, volume, supply, value, market, exchanges, project, dapp, Blockchain, mainet"
+                    content="eos, eosio, eos marketcap, ranking, token, airdrop, price, volume, supply, value, market, exchanges, project, dapp, Blockchain, mainnet"
                   />
                   <meta name="title" content="Cypherblock | EOS Marketcap | Token, Project, Price, Ranking" />
                   <meta
                     name="description"
-                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainet"
+                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainnet"
                   />
                   <meta property="og:title" content="Cypherblock | EOS Marketcap | Token, Project, Price, Ranking" />
                   <meta
                     property="og:description"
-                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainet"
+                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainnet"
                   />
                   <meta name="twitter:title" content="Cypherblock | EOS Marketcap | Token, Project, Price, Ranking" />
                   <meta
                     name="twitter:description"
-                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainet"
+                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainnet"
                   />
                 </Helmet>
                 <section className="section">

@@ -27,7 +27,7 @@ class Account extends Component {
           <meta name="title" content={`${match.params.account_name} | EOS Block Explorer | Account, Airdrop, Price`} />
           <meta
             name="description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet"
           />
           <meta
             property="og:title"
@@ -35,7 +35,7 @@ class Account extends Component {
           />
           <meta
             property="og:description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet"
           />
           <meta
             name="twitter:title"
@@ -43,7 +43,7 @@ class Account extends Component {
           />
           <meta
             name="twitter:description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainnet"
           />
         </Helmet>
         <section className="section">
@@ -79,7 +79,7 @@ class Account extends Component {
           <meta name="title" content={`${match.params.account_name} | EOS Block Explorer | Account, Airdrop, Price`} />
           <meta
             name="description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet"
           />
           <meta
             property="og:title"
@@ -87,7 +87,7 @@ class Account extends Component {
           />
           <meta
             property="og:description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet"
           />
           <meta
             name="twitter:title"
@@ -95,7 +95,7 @@ class Account extends Component {
           />
           <meta
             name="twitter:description"
-            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainet"
+            content="Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction,  dapp on EOSIO blockchain mainnet"
           />
         </Helmet>
         <section className="section">

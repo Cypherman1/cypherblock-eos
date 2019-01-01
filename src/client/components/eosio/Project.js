@@ -131,7 +131,7 @@ class Project extends Component {
                   <meta name="title" content={`${currency} price, ranking, project, eos marketcap | Cypherblock`} />
                   <meta
                     name="description"
-                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainet"
+                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainnet"
                   />
                   <meta
                     property="og:title"
@@ -139,7 +139,7 @@ class Project extends Component {
                   />
                   <meta
                     property="og:description"
-                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainet"
+                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainnet"
                   />
                   <meta
                     name="twitter:title"
@@ -147,7 +147,7 @@ class Project extends Component {
                   />
                   <meta
                     name="twitter:description"
-                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainet"
+                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainnet"
                   />
                 </Helmet>
                 <section className="section">

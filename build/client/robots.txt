@@ -1,1 +1,1 @@
-sitemap: <https://cypherblock.io/sitemap.xml>
+sitemap: https://cypherblock.io/sitemap.xml

@@ -20,5 +20,16 @@ module.exports = [
     low: 0,
     amount: 0,
     volume: 0
+  },
+  {
+    symbol: 'thebeantoken-bean-eos',
+    contract: 'thebeantoken',
+    currency: 'BEAN',
+    last: 0,
+    change: 0,
+    high: 0,
+    low: 0,
+    amount: 0,
+    volume: 0
   }
 ];

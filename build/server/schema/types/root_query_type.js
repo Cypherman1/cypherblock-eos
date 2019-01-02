@@ -337,7 +337,9 @@ const RootQueryType = new GraphQLObjectType({
             return readFileAsync(COMPANY_INFO_PATH)
               .then((icompanyinfo) => {
                 return {
-                  rank: JSON.parse(imarket).findIndex((e) => e.symbol == symbol),
+                  rank: JSON.parse(imarket).filter((a) => {
+                return a.symbol != 'eosio.token-eos-eusd' && a.symbol.substring(a.symbol.length - 4) == '-eos';
+              }).findIndex((e) => e.symbol == symbol),
                   marketcap:
                     JSON.parse(imarket).findIndex((e) => e.symbol == symbol) > -1
                       ? JSON.parse(imarket)[JSON.parse(imarket).findIndex((e) => e.symbol == symbol)]

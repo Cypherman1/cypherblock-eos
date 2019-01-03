@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
+import {hydrate, render} from 'react-dom';
 import ApolloClient from 'apollo-client';
 import {ApolloProvider} from 'react-apollo';
 import {ApolloLink} from 'apollo-link';
@@ -149,4 +150,10 @@ const Root = () => {
   );
 };
 
-ReactDOM.render(<Root />, document.querySelector('#root'));
+const rootElement = document.getElementById('root');
+
+if (rootElement.hasChildNodes()) {
+  hydrate(<Root />, rootElement);
+} else {
+  render(<Root />, rootElement);
+}

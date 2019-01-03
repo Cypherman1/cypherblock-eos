@@ -20,7 +20,8 @@
     "start": "node build/server",
     "local": "cross-env NODE_ENV=production node build/server",
     "prebuild": "rimraf build",
-    "build": "npm run build:client && npm run build:server && npm run cpy && npm run cpyheader && npm run cpyrobots && npm run cpysitemap && npm run cpybing",
+    "build":
+      "npm run build:client && npm run build:server && npm run cpy && npm run cpyheader && npm run cpyrobots && npm run cpysitemap && npm run cpybing",
     "build:client": "cross-env NODE_ENV=production webpack -p --progress --config=config/webpack.config.prod.js",
     "build:server": "copyfiles -a -u 1 src/server/**/**/**/* build",
     "cpy": "copyfiles -u 1 src/client/bp.json build",
@@ -33,7 +34,11 @@
     "test": "exit 1",
     "release:patch": "npm run lint && npx standard-version -r patch && git push --follow-tags origin master",
     "release:minor": "npm run lint && npx standard-version -r minor && git push --follow-tags origin master",
-    "release:major": "npm run lint && npx standard-version -r major && git push --follow-tags origin master"
+    "release:major": "npm run lint && npx standard-version -r major && git push --follow-tags origin master",
+    "postbuild": "react-snap"
+  },
+  "reactSnap": {
+    "source": "build/client"
   },
   "postcss": {},
   "devDependencies": {
@@ -82,6 +87,7 @@
     "react-hot-loader": "4.1.3",
     "react-intl": "2.4.0",
     "react-router-redux": "4.0.8",
+    "react-snap": "^1.23.0",
     "redux-actions": "2.3.2",
     "redux-logger": "3.0.6",
     "redux-thunk": "^2.3.0",

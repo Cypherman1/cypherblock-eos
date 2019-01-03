@@ -123,19 +123,19 @@ class Project extends Component {
             return (
               <article className="content dashboard-page">
                 <Helmet>
-                  <title>{currency} price, project, eos marketcap, exchange | Cypherblock </title>
+                  <title>{currency} eos marketcap, price, project, ranking | Cypherblock </title>
                   <meta
                     name="keywords"
                     content="eos, eosio, eos block explorer, account, transaction, block, balance, RAM, voting, block producer, token, airdrop, price, wallet, dapp, project, marketcap, blockchain, mainnet, crypto, currency"
                   />
-                  <meta name="title" content={`${currency} price, ranking, project, eos marketcap | Cypherblock`} />
+                  <meta name="title" content={`${currency} eos marketcap, price, project, ranking | Cypherblock`} />
                   <meta
                     name="description"
                     content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainnet"
                   />
                   <meta
                     property="og:title"
-                    content={`${currency} price, ranking, project, eos marketcap | Cypherblock`}
+                    content={`${currency} eos marketcap, price, project, ranking | Cypherblock`}
                   />
                   <meta
                     property="og:description"
@@ -143,7 +143,7 @@ class Project extends Component {
                   />
                   <meta
                     name="twitter:title"
-                    content={`${currency} price, ranking, project, eos marketcap | Cypherblock`}
+                    content={`${currency} eos marketcap, price, project, ranking | Cypherblock`}
                   />
                   <meta
                     name="twitter:description"

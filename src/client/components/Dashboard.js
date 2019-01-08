@@ -103,11 +103,17 @@ class Dashboard extends Component {
         <section className="section">
           <div className="row m-0">
             <div className="col col-12 col-sm-12 col-md-12 col-l-7 col-xl-8 stats-col pd-col">
-              <GeneralInfo isDarkMode={sidebar.isDarkMode} />
+              <Suspense fallback={<div> Loading... </div>}>
+                <GeneralInfo isDarkMode={sidebar.isDarkMode} />
+              </Suspense>
               {/* <TokenMarket display="d-xl-none" isDarkMode={sidebar.isDarkMode} />
             <Producers limit="30" display="d-xl-none" isDarkMode={sidebar.isDarkMode} /> */}
-              <TokenMarket isDarkMode={sidebar.isDarkMode} />
-              <Producers limit="21" isDarkMode={sidebar.isDarkMode} />
+              <Suspense fallback={<div> Loading... </div>}>
+                <TokenMarket isDarkMode={sidebar.isDarkMode} />
+              </Suspense>
+              <Suspense fallback={<div> Loading... </div>}>
+                <Producers limit="21" isDarkMode={sidebar.isDarkMode} />
+              </Suspense>
               {/* <ActionsCard
               account_name="eosio"
               notifyOnNetworkStatusChange={false}

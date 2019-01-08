@@ -1153,5 +1153,67 @@
     "website": "https://newdex.io",
     "intro":
       "Newdex platform Ecological Token, an ecological Token that was issued based on the EOS main net, which can be applied to many scenarios on Newdex. The total volume of NDX distributions is limited to 10 billion and will never be issued again. The value of Newdex platform ecological Token includes: repurchase and destruction, staking concessions, Token airdrop, advertise bidding, independent listing, etc."
+  },
+  {
+    "symbol": "eosdyeosiody-dy-eos",
+    "contract": "eosdyeosiody",
+    "currency": "DY",
+    "name": "Duanyou",
+    "website": "https://amuseos.io",
+    "intro":
+      "Duanyou connotation community is built on the EOSIO block chain ecosystem, using the decentralization and non-tampering attributes of block chain to start our connotation world anew!"
+  },
+  {
+    "symbol": "fastecoadmin-fast-eos",
+    "contract": "fastecoadmin",
+    "currency": "FAST",
+    "name": "FASTWIN",
+    "website": "https://www.fastwin.io",
+    "intro":
+      "FASTWIN platform is an online guessing platform based on EOS.IO block chain technology. Players do not need to use personal information registration, and make bets through the encrypted currency EOS to ensure privacy."
+  },
+  {
+    "symbol": "gamechaineos-gmc-eos",
+    "contract": "gamechaineos",
+    "currency": "GMC",
+    "name": "Game Magie Chain",
+    "website": "http://picommunity.io",
+    "intro":
+      "GMC (Game Magie Chain) is committed to building a new ecological general economic model of block Chain + Game whole industrial Chain, exploring the application of technology in the block Chain 3.0 era, and the derivative DAPP applications around the Game, involving block Chain games. Cross-game virtual assets trading market; Blockchain-based game distribution platform and community; Peripheral tools and services, so as to achieve ecological closed loop. GMC team believes that the dividend of blockchain + games will start from the infrastructure and developer tools to allow more games to be linked, and finally reach the climax with the emergence of a large number of hot style playable blockchain games. With the increasing of blockchain games and the corresponding Token economic model, cross-game virtual asset trading market and communities based on blockchain game distribution platform will gradually rise up and become the center of traffic collection. With the development of blockchain + game industry, peripheral tools and services have a clear and stable future. GMC will take this standard as the criterion to explore the sustainable business model of blockchain games (or blockchain games). In the chain of blocks game application fall to the ground, at present the first stage, the MC team developed the first game - Magie Cube (dynamic) rubik's Cube, is based on the EOS and chain network base on the product structure, guarantee the game process is safe and reliable, play, the algorithm is transparent (specific rules of the game will be released later versions of detailed analysis, please concern). Later will be put on the shelves guess guess, PK knowledge competition, puzzle games. At the same time, GMC official will provide the third party open access, all major game developers or industry geeks can enter, share the block chain game ecological dividend."
+  },
+  {
+    "symbol": "hotbetstoken-hot-eos",
+    "contract": "hotbetstoken",
+    "currency": "HOT",
+    "name": "HotDice",
+    "website": "https://hotdice.info",
+    "intro": "HotDice Platform Currency."
+  },
+  {
+    "symbol": "buff123token-buff-eos",
+    "contract": "buff123token",
+    "currency": "BUFF",
+    "name": "BUFF",
+    "website": "http://buff.dpseos.io",
+    "intro":
+      "The EOS Platform is mainly used for issuing 200 million tokens: 1. Game Mining Awards, 2. Election for 21 Super Miners, 3. Buffe Mortgage for 2 times CPU resources."
+  },
+  {
+    "symbol": "mangotokenll-mango-eos",
+    "contract": "mangotokenll",
+    "currency": "MANGO",
+    "name": "MANGO",
+    "website": "https://mango.best",
+    "intro":
+      "MANGO is committed to becoming a boutique game and benchmark for global blockchain betting games, helping blockchain players, gaming gamers and other fun and benefits, and EOS Ecology itself to evolve and improve, avoiding the shortcomings of traditional gaming games. Promote the healthy and rapid development of the blockchain-based game industry, based on the EOS.IO blockchain. It provides a trusted, profit-sharing and high-performance gaming experience across the Internet. It solves the problems of traditional online gaming platforms and other online cryptocurrency casinos, including high fees, slow deposit/redemption and lack of trust."
+  },
+  {
+    "symbol": "eosiolotcoin-lotc-eos",
+    "contract": "eosiolotcoin",
+    "currency": "LOTC",
+    "name": "LOTC",
+    "website": "https://luckylot.io",
+    "intro":
+      "LOTC is the game ecology certificate issued by Dapp Goose. As the only platform-level token, the holder will participate in the profit sharing of the whole platform project."
   }
 ]

@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-// import {Link} from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import MetisMenu from 'react-metismenu';
 import withSizes from 'react-sizes';
 import RouterLink from 'react-metismenu-router-link';
@@ -19,7 +17,7 @@ let menu1 = [
   },
   {
     id: 3,
-    icon: 'bar-chart',
+    icon: 'chart-bar',
     label: '',
     to: '/eosmarketcap',
     tmp1: 'EOS Marketcap'
@@ -184,9 +182,9 @@ class SideBar extends Component {
                 }}
               >
                 {isDarkMode ? (
-                  <i className="fa fa-moon-o ftz-20 text-success" />
+                  <i className="fa fa-moon ftz-20 text-success" />
                 ) : (
-                  <i className="fa fa-sun-o ftz-20 text-success" />
+                  <i className="fa fa-sun ftz-20 text-success" />
                 )}
                 {isSidebarHide && isDesktop ? (
                   ''

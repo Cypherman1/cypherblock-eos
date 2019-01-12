@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import ReactImageFallback from 'react-image-fallback';
 import {Helmet} from 'react-helmet';
 import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetProject from '../../queries/GetProject';
 const images = '../imgs';
 import {renderMCPrice, renderMCVal, renderAccountLink} from '../utils/Tools';
@@ -76,13 +75,13 @@ const ProjectLoading = ({isDarkMode}) => {
               isDarkMode ? 'bg-dark border-secondary' : 'bg-actions border-light'
             }`}
           >
-            <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
+            <i className="fa fa-chart-bar text-info fa-lg mr-2" />
             <h1 className="title text-info">EOS Marketcap</h1>
           </div>
           <div className="card-body bg-white p-0">
             <div style={{height: 50}} />
             <div className="text-center align-middle overlay" style={{paddingTop: 55}}>
-              <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+              <i className="fa fa-spinner fa-spin text-info fa-2x" />
             </div>
           </div>
         </div>
@@ -164,7 +163,7 @@ class Project extends Component {
                             className="cpy-logo"
                           />
                         </div>
-                        <div className="ml-2 ftz-14 font-weight-bold ">
+                        <div className="ml-2 ftz-14">
                           {data.company.company_info.name} (
                           <span className="text-info">{currency}</span>)
                         </div>

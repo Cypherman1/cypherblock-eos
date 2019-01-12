@@ -2,7 +2,7 @@ import React from 'react';
 import {Query} from 'react-apollo';
 import JSONPretty from 'react-json-pretty';
 import {Helmet} from 'react-helmet';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
 import GetABI from '../../queries/GetABI';
 
 import 'react-json-pretty/JSONPretty.acai.styl';
@@ -38,7 +38,7 @@ const ABIView = ({match}) => {
               </Helmet>
               <section className="section">
                 <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
+                  <i className="fa fa-spinner fa-spin text-info fa-2x" />
                 </div>
               </section>
             </article>
@@ -50,7 +50,7 @@ const ABIView = ({match}) => {
             <article className="content dashboard-page">
               <section className="section">
                 <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
+                  <i className="fa fa-spinner fa-spin text-info fa-2x" />
                 </div>
               </section>
             </article>

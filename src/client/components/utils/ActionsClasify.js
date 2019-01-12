@@ -54,7 +54,7 @@ const classifyAction = (action_trace, account_name) => {
             ActionInfo = {
               action_type: AT_RECEIVE_EOS,
               action_component: ReceivedAction,
-              action_style: {icon: 'fa-sign-in', color: 'icon-received'},
+              action_style: {icon: 'fa-sign-in-alt', color: 'icon-received'},
               action_group: AG_TRANSFER_EOS
             };
 
@@ -65,7 +65,7 @@ const classifyAction = (action_trace, account_name) => {
             ActionInfo = {
               action_type: AT_SEND_EOS,
               action_component: SentAction,
-              action_style: {icon: 'fa-sign-out', color: 'icon-sent'},
+              action_style: {icon: 'fa-sign-out-alt', color: 'icon-sent'},
               action_group: AG_TRANSFER_EOS
             };
 
@@ -91,7 +91,7 @@ const classifyAction = (action_trace, account_name) => {
               ActionInfo = {
                 action_type: AT_RECEIVE_TOKEN,
                 action_component: TokenReceivedAction,
-                action_style: {icon: 'fa-sign-in', color: 'icon-receivetoken'},
+                action_style: {icon: 'fa-sign-in-alt', color: 'icon-receivetoken'},
                 action_group: AG_TRANSFER_TOKEN
               };
 
@@ -102,7 +102,7 @@ const classifyAction = (action_trace, account_name) => {
               ActionInfo = {
                 action_type: AT_SEND_TOKEN,
                 action_component: TokenSentAction,
-                action_style: {icon: 'fa-sign-out', color: 'icon-senttoken'},
+                action_style: {icon: 'fa-sign-out-alt', color: 'icon-senttoken'},
                 action_group: AG_TRANSFER_TOKEN
               };
 
@@ -166,7 +166,7 @@ const classifyAction = (action_trace, account_name) => {
       ActionInfo = {
         action_type: AT_BUY_RAM,
         action_component: Buyram,
-        action_style: {icon: 'fa-sign-in', color: 'icon-receivetoken'},
+        action_style: {icon: 'fa-sign-in-alt', color: 'icon-receivetoken'},
         action_group: AG_RESOURCES
       };
 
@@ -176,7 +176,7 @@ const classifyAction = (action_trace, account_name) => {
         ActionInfo = {
           action_type: AT_BUY_RAM_BYTES,
           action_component: Buyrambytes,
-          action_style: {icon: 'fa-sign-in', color: 'icon-receivetoken'},
+          action_style: {icon: 'fa-sign-in-alt', color: 'icon-receivetoken'},
           action_group: AG_RESOURCES
         };
 
@@ -195,7 +195,7 @@ const classifyAction = (action_trace, account_name) => {
       ActionInfo = {
         action_type: AT_SELL_RAM,
         action_component: Sellram,
-        action_style: {icon: 'fa-sign-out', color: 'icon-senttoken'},
+        action_style: {icon: 'fa-sign-out-alt', color: 'icon-senttoken'},
         action_group: AG_RESOURCES
       };
 
@@ -258,7 +258,7 @@ const classifyAction = (action_trace, account_name) => {
       ActionInfo = {
         action_type: AT_CLAIMREWARDS,
         action_component: Claimrewards,
-        action_style: {icon: 'fa-dollar', color: 'icon-received'},
+        action_style: {icon: 'fa-dollar-sign', color: 'icon-received'},
         action_group: AG_OTHERS
       };
 
@@ -267,7 +267,7 @@ const classifyAction = (action_trace, account_name) => {
       ActionInfo = {
         action_type: AT_CANCELDELAY,
         action_component: CancelDelay,
-        action_style: {icon: 'fa-hand-stop-o', color: 'icon-default'},
+        action_style: {icon: 'fa-ban', color: 'icon-default'},
         action_group: AG_OTHERS
       };
 
@@ -759,8 +759,8 @@ const ActSign = ({icon, color, trx_id}) => {
     <Link to={`/transaction/${trx_id}`}>
       <div className="d-inline-block pt-act-icon">
         <span className="fa-stack fa-lg">
-          <i className={`fa fa-circle fa-stack-2x ${color}`} />
-          <i className={`fa  ${icon} fa-stack-1x text-light`} />
+          <i className={`fa fas fa-circle fa-stack-2x ${color}`} />
+          <i className={`fa fas  ${icon} fa-stack-1x text-light`} />
         </span>
       </div>
     </Link>

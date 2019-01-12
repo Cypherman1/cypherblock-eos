@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderAccountLink} from '../utils/Tools';
 import {connect} from 'react-redux';
 
@@ -21,7 +20,7 @@ const NoVote = ({isDarkMode}) => {
     >
       <div className="card-header card-header-sm shadow-sm bg-white ">
         <div className="header-block pl-2">
-          <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
+          <i className="fa fa-gavel mr-2 text-info" />
           <h1 className="title text-info">
             Voting info
             {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
@@ -94,7 +93,7 @@ class VoterInfo extends Component {
                         setVoterInfoCollapsed(!voter_collapsed);
                       }}
                     >
-                      <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
+                      <i className="fa fa-gavel text-info mr-2" />
                       <h1 className="title text-info">Voting info</h1>
                     </a>
                   </div>
@@ -129,7 +128,7 @@ class VoterInfo extends Component {
                       <div className="row m-0">
                         <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="heart" />
+                            <i className="fa fa-heart" />
                           </div>
                           <div className="stat">
                             <div className="value">
@@ -150,7 +149,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="col-4 col-sm-4 col-md-4 pl-0 pr-0 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="hand-holding-heart" />
+                            <i className="fa fa-hand-holding-heart" />
                           </div>
                           <div className="stat">
                             <div className="value">{voteinfo.producers.length}</div>
@@ -167,7 +166,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="sync-alt" />
+                            <i className="fa fa-sync-alt" />
                           </div>
                           <div className="stat">
                             <div className="value">
@@ -190,7 +189,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="col-4 col-sm-4 col-md-4 pl-0 pr-0 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="arrow-alt-circle-down" />
+                            <i className="fa fa-arrow-alt-circle-down" />
                           </div>
                           <div className="stat">
                             <div className="value">
@@ -210,7 +209,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="clock" />
+                            <i className="fa fa-lock" />
                           </div>
                           <div className="stat">
                             <div className="value ftz-10">{nextDecayDate}</div>
@@ -260,7 +259,7 @@ class VoterInfo extends Component {
                         setVoterInfoCollapsed(!voter_collapsed);
                       }}
                     >
-                      <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
+                      <i className="fa fa-gavel mr-2 text-info" />
                       <h1 className="title text-info">Voting info</h1>
                     </a>
                   </div>
@@ -295,7 +294,7 @@ class VoterInfo extends Component {
                       <div className="row m-0">
                         <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="heart" />
+                            <i className="fa fa-heart" />
                           </div>
                           <div className="stat">
                             <div className="value">
@@ -317,7 +316,7 @@ class VoterInfo extends Component {
                         {/* render # vote */}
                         <div className="col-4 col-sm-4 col-md-4 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="hand-holding-heart" />
+                            <i className="fa fa-hand-holding-heart" />
                           </div>
                           <div className="stat">
                             <div className="value">{voteinfo.proxy_vote_info.producers.length}</div>
@@ -335,7 +334,7 @@ class VoterInfo extends Component {
                         {/* render decay */}
                         <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="sync-alt" />
+                            <i className="fa fa-sync-alt" />
                           </div>
                           <div className="stat">
                             <div className="value">
@@ -358,7 +357,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="col-4 col-sm-4 col-md-4 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="arrow-alt-circle-down" />
+                            <i className="fa fa-arrow-alt-circle-down" />
                           </div>
                           <div className="stat">
                             <div className="value">{renderDecayedPercent(stake2vote, voteinfo.last_vote_weight)}</div>
@@ -375,7 +374,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="col-7 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="clock" />
+                            <i className="fa fa-lock" />
                           </div>
                           <div className="stat">
                             <div className="value ftz-10">{nextDecayDate}</div>
@@ -393,7 +392,7 @@ class VoterInfo extends Component {
                         {/* render proxy */}
                         <div className="col-5 col-sm-4 col-md-4 pl-1 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="user-cog" />
+                            <i className="fa fa-user-cog" />
                           </div>
                           <div className="stat">
                             <div className="value">{renderAccountLink(voteinfo.proxy)}</div>
@@ -450,11 +449,11 @@ class VoterInfo extends Component {
                           setVoterInfoCollapsed(!voter_collapsed);
                         }}
                       >
-                        <FontAwesomeIcon icon="gavel" className="mr-2 text-info" />
+                        <i className="fa fa-gavel mr-2 text-info" />
                         <h1 className="title text-info">Voting info</h1>
                       </a>
                     </div>
-                    <span className="badge badge-pill badge-primary pt-2">Proxy</span>
+                    <span className="badge badge-pill badge-primary p-1 pt-2">Proxy</span>
                   </div>
                   <div className="col pr-1 d-flex align-items-center flex-row-reverse rounded-bottom">
                     <a
@@ -487,7 +486,7 @@ class VoterInfo extends Component {
                       <div className="row m-0">
                         <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="heart" />
+                            <i className="fa fa-heart" />
                           </div>
                           <div className="stat">
                             <div className="value ">
@@ -508,7 +507,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="col-4 col-sm-4 col-md-4 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="hand-holding-heart" />
+                            <i className="fa fa-hand-holding-heart" />
                           </div>
                           <div className="stat">
                             <div className="value">{voteinfo.producers.length}</div>
@@ -525,7 +524,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="sync-alt" />
+                            <i className="fa fa-sync-alt" />
                           </div>
                           <div className="stat">
                             <div className="value">{renderStake2Vote(stake2vote.toFixed(0), isDarkMode)}</div>
@@ -542,7 +541,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="col-4 col-sm-4 col-md-4 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="arrow-alt-circle-down" />
+                            <i className="fa fa-arrow-alt-circle-down" />
                           </div>
                           <div className="stat">
                             <div className="value">
@@ -566,7 +565,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="clock" />
+                            <i className="fa fa-lock" />
                           </div>
                           <div className="stat">
                             <div className="value ftz-10">{nextDecayDate}</div>
@@ -583,7 +582,7 @@ class VoterInfo extends Component {
                         </div>
                         <div className="col-8 col-sm-8 col-md-8 pl-0 pr-1 m-0 stat-col">
                           <div className="stat-icon d-inline-block d-md-none">
-                            <FontAwesomeIcon icon="heart" />
+                            <i className="fa fa-heart" />
                           </div>
                           <div className="stat">
                             <div className="value">

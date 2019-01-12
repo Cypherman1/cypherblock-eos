@@ -5,7 +5,6 @@ import Transaction from './Transaction';
 import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
 import ErrorBoundary from '../ErrorBoundary';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {setActiveLinkID} from '../../actions/sidebar';
 
 class TransactionView extends Component {
@@ -47,7 +46,7 @@ class TransactionView extends Component {
               >
                 <div className="card-header  bg-white shadow-sm mb-1">
                   <div className="header-block pl-2">
-                    <FontAwesomeIcon icon="table" className="mr-2 text-info ftz-24" />
+                    <i className="fa fa-table text-info fa-lg mr-2" />
                     <h1 className="title text-info">
                       <div>Transaction </div>
                     </h1>

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {CSSTransitionGroup} from 'react-transition-group';
 import {Query} from 'react-apollo';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetProducers from '../../queries/GetProducers';
 import {renderAccountLink} from '../utils/Tools';
 import {renderProRank} from '../utils/RenderColors';
@@ -11,13 +10,13 @@ const ProducersLoading = ({display, isDarkMode}) => {
     <div className={`card sameheight-item stats ${isDarkMode ? 'bg-dark' : ''} ${display}`} data-exclude="xs">
       <div className="card-header shadow-sm bg-white">
         <div className="header-block pl-2">
-          <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
+          <i className="fa fa-user-cog mr-2 text-info fa-lg" />
           <h1 className="title text-info ">Top block producers</h1>
         </div>
       </div>
       <div className="card-block p-0">
         <div className="text-center align-middle overlay" style={{paddingTop: 68}}>
-          <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x " />
+          <i className="fa fa-spinner fa-spin text-info fa-2x" />
         </div>
         <div className="title-block row shadow-sm m-0">
           <div className="col-12 col-sm-12 header-col p-0">
@@ -86,7 +85,7 @@ class Producers extends Component {
               >
                 <div className={`card-header shadow-sm mb-1 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                   <div className="header-block pl-2">
-                    <FontAwesomeIcon icon="user-cog" className="mr-2 text-info fa-lg" />
+                    <i className="fa fa-user-cog text-info fa-lg mr-2" />
                     <h1 className="title text-info ">Top block producers</h1>
                   </div>
                 </div>

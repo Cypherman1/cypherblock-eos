@@ -3,8 +3,6 @@ import {Query} from 'react-apollo';
 import {connect} from 'react-redux';
 import ReactImageFallback from 'react-image-fallback';
 import {Link} from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {Tokens} from '../utils/Tokens';
 import GetTokenMarket from '../../queries/GetTokenMarket';
 import {renderProjectLink, renderMCVal, renderMCPrice} from '../utils/Tools';
 import {renderPPColor} from '../utils/RenderColors';
@@ -12,10 +10,7 @@ const images = './imgs';
 import {setSearchSymbol} from '../../actions/common';
 import {setMarketcapUnit} from '../../actions/sidebar';
 import {IsTokenSearched} from '../utils/isTokenSearched';
-import eoslogo from '../../assets/imgs/eoslogo1.svg';
 
-let TokenMarketInfo = []; //tokens market info array
-let atoken = null;
 let items = [];
 let token_logo = null;
 let fallback_logo = `${images}/COMMON.png`;
@@ -25,7 +20,6 @@ let eos_percent_change_24h = 0;
 let eos_volume_24h = 0;
 let eos_total_supply = 0;
 let ticker_count = 0;
-let tokensMarket = [];
 
 const TokenMarketLoading = ({isDarkMode}) => {
   return (
@@ -35,7 +29,7 @@ const TokenMarketLoading = ({isDarkMode}) => {
     >
       <div className="card-header shadow-sm bg-white row m-0">
         <div className="header-block pl-2 col">
-          <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
+          <i className="fa fa-chart-bar text-info fa-lg mr-2" />
           <h1 className="title text-info">EOSMarketcap</h1>
         </div>
         <label className="font-weight-normal float-right mb-0 pr-1">
@@ -85,7 +79,7 @@ const TokenMarketLoading = ({isDarkMode}) => {
       <div className={`card-block p-0 market-scroll`}>
         <div style={{height: 40}} />
         <div className="text-center align-middle overlay" style={{paddingTop: 100}}>
-          <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+          <i className="fa fa-spinner fa-spin text-info fa-2x" />
         </div>
       </div>
     </div>
@@ -125,7 +119,7 @@ class TokenMarket extends Component {
                   <div className="col-6 pl-1 pr-0 d-flex align-items-center">
                     <div className="d-flex align-items-center mr-3">0</div>
                     <div className="token_logo" style={{fontSize: 16}}>
-                      <FontAwesomeIcon icon="memory" />
+                      <i className="fa fa-memory" />
                     </div>
                     <div className="ml-2 d-flex align-items-center">
                       <div>RAM(KB)</div>
@@ -230,11 +224,11 @@ class TokenMarket extends Component {
                 <div className="card-header shadow-sm bg-white row m-0">
                   <div className="header-block pl-2 col">
                     <Link className="font-weight-normal text-info" to={`/eosmarketcap`}>
-                      <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
+                      <i className="fa fa-chart-bar text-info fa-lg mr-2" />
                     </Link>
                     <h1 className="title text-info">
                       <Link className="font-weight-normal text-info" to={`/eosmarketcap`}>
-                        EOSMarketcap
+                        EOS Marketcap
                       </Link>
                     </h1>
                   </div>

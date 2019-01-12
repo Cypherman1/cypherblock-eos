@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {CSSTransitionGroup} from 'react-transition-group';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetActions from '../../queries/GetActions';
 import {graphql} from 'react-apollo';
 import {connect} from 'react-redux';
@@ -33,7 +32,7 @@ const ActionsCardLoading = () => {
     <div>
       <div className="card-block pt-1 pb-0 pr-1 pl-1 ">
         <div className="text-center align-middle pd-vi">
-          <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+          <i className="fa fa-spinner fa-spin text-info fa-2x" />
         </div>
       </div>
     </div>
@@ -103,7 +102,7 @@ class ActionsCardBody extends Component {
         } else
           return (
             <div className="w-100 text-center">
-              <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+              <i className="fa fa-spinner fa-spin text-info fa-2x" />
             </div>
           );
       }
@@ -210,7 +209,7 @@ class ActionsCardBody extends Component {
                 Oops! No action found! Do you want to "Fetch more" or change actions view settings
                 <button
                   type="button"
-                  className="btn btn-light btn-pill p-1"
+                  className="btn btn-light btn-pill p-0"
                   data-toggle="collapse"
                   data-target="#collapseExample"
                   aria-expanded="false"
@@ -220,7 +219,7 @@ class ActionsCardBody extends Component {
                   }}
                 >
                   {!isSettingOpen ? (
-                    <FontAwesomeIcon icon="cog" className="text-info" size="lg" />
+                    <i className="fa fa-cog fa-lg text-info" />
                   ) : (
                     <i className="fa fa-chevron-circle-up fa-lg text-success" />
                   )}

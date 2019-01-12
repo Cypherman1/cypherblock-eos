@@ -2,11 +2,18 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {renderAccountLink} from '../utils/Tools';
 import {renderBlockStatus, renderTime, RenderAct} from '../utils/ActionsClasify';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import JSONPretty from 'react-json-pretty';
 
-const deleteKey = require('key-del');
+// const deleteKey = require('key-del');
+
+function format(json_string, key_to_skip) {
+  return JSON.parse(json_string, function(key, value) {
+    if (key !== key_to_skip) {
+      return value;
+    }
+  });
+}
 
 const ActionCommon = ({
   action_trace,
@@ -33,7 +40,8 @@ const ActionCommon = ({
             <div className="">
               <Link to={`/transaction/${trx_id}`}>
                 {children[1]}
-                <FontAwesomeIcon icon="external-link-alt" className={`ml-1 ${isDarkMode ? 'linkcolor-dark' : ''}`} />
+
+                <i className={`fa fa-external-link-alt ml-1 ${isDarkMode ? 'linkcolor-dark' : ''}`} />
               </Link>
             </div>
             <div>{renderBlockStatus(block_num, last_irreversible_block, head_block_num, get_block_status)}</div>
@@ -68,12 +76,14 @@ const ActionCommon = ({
           aria-expanded="true"
           aria-controls={`collapse${action_trace.receipt.global_sequence}`}
         >
-          <FontAwesomeIcon icon="code" className="mr-0 text-light" /> json
+          {/* <FontAwesomeIcon icon="code" className="mr-0 text-light" /> */}
+          <i className="fa fa-code mr-0 text-lighht" />
+          json
         </a>
         <div className="collapse" id={`collapse${action_trace.receipt.global_sequence}`}>
           <JSONPretty
             id="json-pretty"
-            json={deleteKey(action_trace, ['__typename'])}
+            json={format(JSON.stringify(action_trace), '__typename')}
             className="text-secondary my-json-pretty"
           />
         </div>

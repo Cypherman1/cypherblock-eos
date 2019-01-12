@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
 import Block from './Block';
 import ErrorBoundary from '../ErrorBoundary';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const BlockView = ({match, sidebar}) => {
   return (
@@ -36,7 +35,7 @@ const BlockView = ({match, sidebar}) => {
             <div className={`card sameheight-item stats ${sidebar.isDarkMode ? 'bg-dark' : ''} mbc`} data-exclude="xs">
               <div className="card-header  bg-white shadow-sm">
                 <div className="header-block pl-2">
-                  <FontAwesomeIcon icon="cube" className="mr-2 text-info ftz-24" />
+                  <i className="fa fa-cube text-info fa-lg mr-2" />
                   <h1 className="title text-info">Block</h1>
                 </div>
               </div>

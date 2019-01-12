@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {ToastContainer, toast} from 'react-toastify';
 import GetBlock from '../../queries/GetBlock';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderTransLink, renderBlockLink, convertUTCDateToLocalDate, renderAccountLink} from '../utils/Tools';
 import BlockConfirmation from './BlockConfirmation';
 
@@ -10,7 +9,7 @@ const BlockLoading = ({isDarkMode}) => {
   return (
     <div className="card-block ">
       <div className="text-center align-middle overlay pt-50">
-        <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+        <i className="fa fa-spinner fa-spin text-info fa-2x" />
       </div>
       <div className="row row-sm stats-container m-0 plheight" />
     </div>
@@ -136,7 +135,7 @@ class Block extends Component {
                   >
                     <div className="card-header card-header-sm row m-0">
                       <div className="header-block pl-2 col">
-                        <FontAwesomeIcon icon="list-alt" className="mr-2 text-info" />
+                        <i className="fa fa-list-alt text-info mr-2" />
                         <h1 className="title text-info">Transactions</h1>
                       </div>
                     </div>

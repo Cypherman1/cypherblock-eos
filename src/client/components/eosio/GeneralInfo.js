@@ -3,7 +3,7 @@ import {Query} from 'react-apollo';
 import {TransitionGroup} from 'react-transition-group';
 import {Link} from 'react-router-dom';
 import {renderBlockNum, renderEOSNum, renderEOSStaked} from '../utils/RenderColors';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetGeneralInfo from '../../queries/GetGeneralInfo';
 import {convertUTCDateToLocalDate, renderAccountLink} from '../utils/Tools';
 import {formatBandUnits} from '../utils/FormatUnits';
@@ -28,7 +28,7 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
     <div className={`card sameheight-item stats mb-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`} data-exclude="xs">
       <div className={`card-header shadow-sm row m-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
         <div className="header-block pl-2 col">
-          <FontAwesomeIcon icon="globe" className="mr-2 text-info fa-lg" />
+          <i className="fa fa-globe text-info fa-lg mr-2" />
           <h1 className="title text-info">
             General Info
             {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
@@ -42,12 +42,12 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
       </div>
       <div className="card-block">
         <div className="text-center align-middle overlay pd-gi">
-          <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+          <i className="fa fa-spinner fa-spin text-info fa-2x" />
         </div>
         <div className="row row-sm stats-container m-0">
           <div className="col-6 col-sm-4 stat-col p-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="cube" />
+              <i className="fa fa-cube" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -64,7 +64,7 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4  stat-col p-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="user-cog" />
+              <i className="fa fa-user-cog" />
             </div>
             <div className="stat">
               <TransitionGroup
@@ -89,7 +89,7 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4  stat-col p-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="cube" />
+              <i className="fa fa-cube" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -106,7 +106,7 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4  stat-col p-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="coins" />
+              <i className="fa fa-coins" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -123,7 +123,7 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4 stat-col p-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="lock" />
+              <i className="fa fa-lock" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -140,7 +140,7 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4 stat-col p-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="gavel" />
+              <i className="fa fa-gavel" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -157,7 +157,7 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4  stat-col p-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="memory" />
+              <i className="fa fa-memory" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -174,7 +174,7 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4 stat-col p-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="shopping-bag" />
+              <i className="fa fa-shopping-bag" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -191,7 +191,7 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4 stat-col p-1 d-none d-sm-block">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="cogs" />
+              <i className="fa fa-cogs" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -300,7 +300,7 @@ const GeneralInfo = ({isDarkMode}) => {
             >
               <div className={`card-header shadow-sm row m-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                 <div className="header-block pl-2 col">
-                  <FontAwesomeIcon icon="globe" className="mr-2 text-info fa-lg" />
+                  <i className="fa fa-globe text-info fa-lg mr-2" />
                   <h1 className="title text-info">
                     General Info
                     {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
@@ -318,7 +318,7 @@ const GeneralInfo = ({isDarkMode}) => {
                 <div className="row row-sm stats-container m-0">
                   <div className="col-6 col-sm-4 stat-col p-1">
                     <div className="stat-icon">
-                      <FontAwesomeIcon icon="cube" />
+                      <i className="fa fa-cube" />
                     </div>
                     <div className="stat">
                       <div className="value">
@@ -337,7 +337,7 @@ const GeneralInfo = ({isDarkMode}) => {
                   </div>
                   <div className="col-6 col-sm-4  stat-col p-1">
                     <div className="stat-icon">
-                      <FontAwesomeIcon icon="user-cog" />
+                      <i className="fa fa-user-cog" />
                     </div>
                     <div className="stat">
                       <TransitionGroup
@@ -362,7 +362,7 @@ const GeneralInfo = ({isDarkMode}) => {
                   </div>
                   <div className="col-6 col-sm-4  stat-col p-1">
                     <div className="stat-icon">
-                      <FontAwesomeIcon icon="cube" />
+                      <i className="fa fa-cube" />
                     </div>
                     <div className="stat">
                       <div className="value">
@@ -383,7 +383,7 @@ const GeneralInfo = ({isDarkMode}) => {
                   </div>
                   <div className="col-6 col-sm-4  stat-col p-1">
                     <div className="stat-icon">
-                      <FontAwesomeIcon icon="coins" />
+                      <i className="fa fa-coins" />
                     </div>
                     <div className="stat">
                       <div className="value">{renderEOSNum(eos_total_supply)}</div>
@@ -400,7 +400,7 @@ const GeneralInfo = ({isDarkMode}) => {
                   </div>
                   <div className="col-6 col-sm-4 stat-col p-1">
                     <div className="stat-icon">
-                      <FontAwesomeIcon icon="lock" />
+                      <i className="fa fa-lock" />
                     </div>
                     <div className="stat">
                       <div className="value">{renderEOSStaked(total_staked, isDarkMode)}</div>
@@ -419,7 +419,7 @@ const GeneralInfo = ({isDarkMode}) => {
                   </div>
                   <div className="col-6 col-sm-4 stat-col p-1">
                     <div className="stat-icon">
-                      <FontAwesomeIcon icon="gavel" />
+                      <i className="fa fa-gavel" />
                     </div>
                     <div className="stat">
                       <div className="value">{renderEOSNum(total_activated_stake / 10000)}</div>
@@ -439,7 +439,7 @@ const GeneralInfo = ({isDarkMode}) => {
                   </div>
                   <div className="col-6 col-sm-4  stat-col p-1">
                     <div className="stat-icon">
-                      <FontAwesomeIcon icon="memory" />
+                      <i className="fa fa-memory" />
                     </div>
                     <div className="stat">
                       <div className="value">{formatBandUnits(max_ram_size)}</div>
@@ -456,7 +456,7 @@ const GeneralInfo = ({isDarkMode}) => {
                   </div>
                   <div className="col-6 col-sm-4 stat-col p-1">
                     <div className="stat-icon">
-                      <FontAwesomeIcon icon="shopping-bag" />
+                      <i className="fa fa-shopping-bag" />
                     </div>
                     <div className="stat">
                       <div className="value">{formatBandUnits(total_ram_bytes_reserved)}</div>
@@ -475,7 +475,7 @@ const GeneralInfo = ({isDarkMode}) => {
                   </div>
                   <div className="col-6 col-sm-4 stat-col p-1 d-none d-sm-block">
                     <div className="stat-icon">
-                      <FontAwesomeIcon icon="cogs" />
+                      <i className="fa fa-cogs" />
                     </div>
                     <div className="stat">
                       <div className="value">{formatBandUnits(total_ram_stake)}</div>

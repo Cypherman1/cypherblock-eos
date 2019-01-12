@@ -68,10 +68,10 @@ const EOSMarketCap = Loadable({
 //   </DynamicImport>
 // );
 
-const CodeView = Loadable({
-  loader: () => import('./eosio/CodeView'),
-  loading: AppLoader
-});
+// const CodeView = Loadable({
+//   loader: () => import('./eosio/CodeView'),
+//   loading: AppLoader
+// });
 
 const ABIView = Loadable({
   loader: () => import('./eosio/ABIView'),
@@ -123,7 +123,7 @@ class App extends Component {
             <Switch>
               <Route path="/" exact component={Dashboard} />
               <Route path="/account/:account_name" component={Account} />
-              <Route path="/code/:account_name" component={CodeView} />
+              {/* <Route path="/code/:account_name" component={CodeView} /> */}
               <Route path="/abi/:account_name" component={ABIView} />
               <Route path="/transaction/:id" component={TransactionView} />
               <Route path="/block/:block_num_or_id" component={BlockView} />

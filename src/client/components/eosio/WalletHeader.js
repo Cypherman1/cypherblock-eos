@@ -1,5 +1,4 @@
 import React from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {connect} from 'react-redux';
 import {setTokenBalanceUnitl, setIsWalletRefetch} from '../../actions/common';
 
@@ -8,7 +7,7 @@ const WalletHeader = ({isDarkMode, common, setTokenBalanceUnitl, setIsWalletRefe
   return (
     <div className="card-header shadow-sm m-0 row m-0 bg-white">
       <div className="col pl-2 d-flex ">
-        <FontAwesomeIcon icon="wallet" className="mr-1 text-info fa-lg" />
+        <i className="fa fa-wallet text-info fa-lg mr-2" />
         <h1 className="text-info title">Assets | Airdrops</h1>
       </div>
       <div className="row m-0">
@@ -43,7 +42,7 @@ const WalletHeader = ({isDarkMode, common, setTokenBalanceUnitl, setIsWalletRefe
               });
             }}
           >
-            <FontAwesomeIcon icon="sync-alt" className="text-info" size="lg" />
+            <i className="fa fa-sync-alt text-info fa-lg" />
           </button>
         </div>
       </div>

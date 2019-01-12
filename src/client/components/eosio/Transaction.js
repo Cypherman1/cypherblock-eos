@@ -3,7 +3,6 @@ import {Query} from 'react-apollo';
 import {CSSTransitionGroup} from 'react-transition-group';
 import {ToastContainer, toast} from 'react-toastify';
 import GetTransaction from '../../queries/GetTransaction';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import ActionCard from './ActionCard';
 import {convertUTCDateToLocalDate, renderBlockLink} from '../utils/Tools';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
@@ -14,7 +13,7 @@ const TransactionLoading = () => {
   return (
     <div className="card-block">
       <div className="text-center align-middle overlay pt-50">
-        <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+        <i className="fa fa-spinner fa-spin text-info fa-2x" />
       </div>
       <div className="row row-sm stats-container m-0 plheight" />
     </div>
@@ -175,7 +174,7 @@ class Transaction extends Component {
                       <div className="card sameheight-item mb-0 " data-exclude="xs">
                         <div className="card-header card-header-sm bg-actions shadow-sm row m-0">
                           <div className="header-block pl-2 col">
-                            <FontAwesomeIcon icon="tasks" className="mr-2 text-info" />
+                            <i className="fa fa-tasks text-info mr-2" />
                             <h1 className="title text-info ftz-12">Actions</h1>
                           </div>
                         </div>

@@ -5,7 +5,6 @@ import ReactImageFallback from 'react-image-fallback';
 import ReactPaginate from 'react-paginate';
 import {Helmet} from 'react-helmet';
 
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderPPColor} from '../utils/RenderColors';
 import {renderProjectLink, renderAccountLink} from '../utils/Tools';
 import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
@@ -60,13 +59,15 @@ const EOSMarketCapLoading = ({isDarkMode}) => {
               isDarkMode ? 'bg-dark border-secondary' : 'bg-actions border-light'
             }`}
           >
-            <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
+            {/* <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" /> */}
+            <i className="fa fa-chart-bar text-info fa-lg mr-2" />
+
             <h1 className="title text-info">EOS Marketcap</h1>
           </div>
           <div className="card-body bg-white p-0">
             <div style={{height: 50}} />
             <div className="text-center align-middle overlay" style={{paddingTop: 55}}>
-              <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+              <i className="fa fa-spinner fa-spin text-info fa-2x" />
             </div>
           </div>
         </div>
@@ -216,7 +217,7 @@ class EOSMarketCap extends Component {
                   <div className="col-2 p-0 d-flex align-items-center">{0}</div>
                   <div className="col-10 p-0 pl-2 d-flex align-items-center">
                     <div className=" mr-2 token_logo" style={{fontSize: 16}}>
-                      <FontAwesomeIcon icon="memory" />
+                      <i className="fa fa-memory" />
                     </div>
                     <div>RAM(KB)</div>
                   </div>
@@ -599,7 +600,7 @@ class EOSMarketCap extends Component {
                       {/* Page header */}
                       <div className="col-12 p-2 row m-0">
                         <div className="col p-0 d-flex align-items-center">
-                          <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" />
+                          <i className="fa fa-chart-bar text-info fa-lg mr-2" />
                           <h1 className="title text-info">EOS Marketcap</h1>
                         </div>
                         <label className="font-weight-normal float-right mb-0">

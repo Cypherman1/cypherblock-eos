@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {TransitionGroup} from 'react-transition-group';
-import {renderRamColor, renderTotalBalanceRAMColor, renderToFiatColor} from '../utils/RenderColors';
+import {renderRamColor, renderToFiatColor} from '../utils/RenderColors';
 import {convertUTCDateToLocalDate} from '../utils/Tools';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
 import {ToastContainer, toast} from 'react-toastify';
 import VoterInfo from './VoterInfo';
 import AccPermsInfo from './AccPermsInfo';
@@ -93,7 +93,8 @@ const AccountInfoLoading = ({isDarkMode}) => {
       <div className={`card-header row m-0 shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
         <div className="col p-0 d-flex flex-row">
           <div className="pt-2 pl-2">
-            <FontAwesomeIcon icon="user" className="mr-2 text-info fa-lg" />
+            {/* <FontAwesomeIcon icon="user" className="mr-2 text-info fa-lg" /> */}
+            <i className="fa fa-user mr-2 text-info fa-lg" />
           </div>
           <div className="">
             <div>
@@ -114,11 +115,12 @@ const AccountInfoLoading = ({isDarkMode}) => {
         style={{margin: 2}}
       >
         <div className="text-center align-middle overlay pd-gi">
-          <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+          <i className="fa fa-spinner fa-spin text-info fa-2x" />
         </div>
         <div className={`card-header card-header-sm shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}  mb-1`}>
           <div className="header-block pl-2">
-            <FontAwesomeIcon icon="globe" className="mr-2 text-info" />
+            <i className="fa fa-globe text-info mr-2" />
+            {/* <FontAwesomeIcon icon="globe" className="mr-2 text-info" /> */}
             <h1 className="title text-info">
               General info
               {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
@@ -164,9 +166,7 @@ const AccountInfoLoading = ({isDarkMode}) => {
             </div>
           </div>
           <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
-            <div className="stat-icon">
-              <FontAwesomeIcon icon="dollar-sign" />
-            </div>
+            <div className="stat-icon">{/* <i className="fa fa-dollar-sign" /> */}</div>
             <div className="stat">
               <div className="value"> USD</div>
               <div className="name">To USD(RAM included)</div>
@@ -182,7 +182,7 @@ const AccountInfoLoading = ({isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="lock-open" />
+              <i className="fa fa-lock-open" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -199,7 +199,7 @@ const AccountInfoLoading = ({isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="lock" />
+              <i className="fa fa-lock" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -216,12 +216,12 @@ const AccountInfoLoading = ({isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="key" />
+              <i className="fa fa-key" />
             </div>
             <div className="stat">
               <div className="value">EOS</div>
               <div className="name">
-                Refunding<span className="ftz-8 text-success font-weight-bold"> </span>{' '}
+                Refunding<span className="ftz-8 text-success"> </span>{' '}
               </div>
             </div>
             <div className="progress stat-progress">
@@ -236,7 +236,7 @@ const AccountInfoLoading = ({isDarkMode}) => {
 
           <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="microchip" />
+              <i className="fa fa-microchip" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -253,7 +253,7 @@ const AccountInfoLoading = ({isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="bolt" />
+              <i className="fa fa-bolt" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -270,7 +270,7 @@ const AccountInfoLoading = ({isDarkMode}) => {
           </div>
           <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
             <div className="stat-icon">
-              <FontAwesomeIcon icon="memory" />
+              <i className="fa fa-memory" />
             </div>
             <div className="stat">
               <div className="value" />
@@ -423,7 +423,8 @@ class AccountInfo extends Component {
                 <div className={`card-header row m-0 shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                   <div className="col p-0 d-flex flex-row">
                     <div className="pt-2 pl-2">
-                      <FontAwesomeIcon icon="user" className="mr-2 text-info fa-lg" />
+                      {/* <FontAwesomeIcon icon="user" className="mr-2 text-info fa-lg" /> */}
+                      <i className="fa fa-user text-info fa-lg mr-2" />
                     </div>
                     <div className="">
                       <div>
@@ -449,7 +450,7 @@ class AccountInfo extends Component {
                 >
                   <div className={`card-header card-header-sm shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}  mb-1`}>
                     <div className="header-block pl-2">
-                      <FontAwesomeIcon icon="globe" className="mr-2 text-info" />
+                      <i className="fa fa-globe text-info mr-2" />
                       <h1 className="title text-info">
                         General info
                         {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
@@ -481,7 +482,7 @@ class AccountInfo extends Component {
                     <div className="col-6 col-sm-4 stat-col pr-1 pl-1 d-none d-sm-block">
                       <div className="pd-bl">
                         <div className="stat-icon">
-                          <FontAwesomeIcon icon="dollar-sign" />
+                          <i className="fa fa-dollar-sign" />
                         </div>
                         <div className="stat">
                           <div className="value">
@@ -501,7 +502,7 @@ class AccountInfo extends Component {
                     </div>
                     <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
                       <div className="stat-icon">
-                        <FontAwesomeIcon icon="dollar-sign" />
+                        <i className="fa fa-dollar-sign" />
                       </div>
                       <div className="stat">
                         <div className="value">{renderToFiatColor(to_fiat, isDarkMode)} USD</div>
@@ -518,7 +519,7 @@ class AccountInfo extends Component {
                     </div>
                     <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
                       <div className="stat-icon">
-                        <FontAwesomeIcon icon="lock-open" />
+                        <i className="fa fa-lock-open" />
                       </div>
                       <div className="stat">
                         <div className="value">
@@ -539,7 +540,7 @@ class AccountInfo extends Component {
                     </div>
                     <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
                       <div className="stat-icon">
-                        <FontAwesomeIcon icon="lock" />
+                        <i className="fa fa-lock" />
                       </div>
                       <div className="stat">
                         <div className="value">
@@ -560,7 +561,7 @@ class AccountInfo extends Component {
                     </div>
                     <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
                       <div className="stat-icon">
-                        <FontAwesomeIcon icon="key" />
+                        <i className="fa fa-key" />
                       </div>
                       <div className="stat">
                         <div className="value">
@@ -570,7 +571,7 @@ class AccountInfo extends Component {
                           EOS
                         </div>
                         <div className="name">
-                          Refunding<span className="ftz-8 text-success font-weight-bold"> {refunded_time}</span>{' '}
+                          Refunding<span className="ftz-8 text-success"> {refunded_time}</span>{' '}
                         </div>
                       </div>
                       <div className="progress stat-progress">
@@ -585,7 +586,7 @@ class AccountInfo extends Component {
 
                     <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
                       <div className="stat-icon">
-                        <FontAwesomeIcon icon="microchip" />
+                        <i className="fa fa-microchip" />
                       </div>
                       <div className="stat">
                         <div className="value">{`${used_cpu}/${limited_cpu}`}</div>
@@ -604,7 +605,7 @@ class AccountInfo extends Component {
                     </div>
                     <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
                       <div className="stat-icon">
-                        <FontAwesomeIcon icon="bolt" />
+                        <i className="fa fa-bolt" />
                       </div>
                       <div className="stat">
                         <div className="value">{`${used_net}/${limited_net}`}</div>
@@ -623,7 +624,7 @@ class AccountInfo extends Component {
                     </div>
                     <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
                       <div className="stat-icon">
-                        <FontAwesomeIcon icon="memory" />
+                        <i className="fa fa-memory" />
                       </div>
                       <div className="stat">
                         <div className="value">{`${used_ram}/${limited_ram}`}</div>

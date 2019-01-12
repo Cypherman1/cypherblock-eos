@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import GetConfirmations from '../../queries/GetConfirmations';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {renderConfNum} from '../utils/RenderColors';
 
 class BlockConfirmation extends Component {
@@ -13,7 +12,7 @@ class BlockConfirmation extends Component {
             return (
               <section className="section">
                 <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
+                  <i className="fa fa-spinner fa-spin text-info" />
                 </div>
               </section>
               //   );
@@ -22,7 +21,7 @@ class BlockConfirmation extends Component {
             return (
               <section className="section">
                 <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
+                  <i className="fa fa-spinner fa-spin text-info" />
                 </div>
               </section>
             );
@@ -45,7 +44,7 @@ class BlockConfirmation extends Component {
                 return (
                   <section className="section">
                     <div className="text-center">
-                      <FontAwesomeIcon icon="spinner" spin className="text-info" />
+                      <i className="fa fa-spinner fa-spin text-info" />
                     </div>
                   </section>
                 );
@@ -54,7 +53,7 @@ class BlockConfirmation extends Component {
             return (
               <section className="section">
                 <div className="text-center">
-                  <FontAwesomeIcon icon="spinner" spin className="text-info" />
+                  <i className="fa fa-spinner fa-spin text-info" />
                 </div>
               </section>
             );

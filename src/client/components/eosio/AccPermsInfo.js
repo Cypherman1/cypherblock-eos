@@ -1,5 +1,5 @@
 import React from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {connect} from 'react-redux';
 
 import {setPermInfoCollapsed} from '../../actions/common';
@@ -45,7 +45,7 @@ const AccPermsInfo = ({permissions, account_name, isDarkMode, common, setPermInf
             aria-controls={`collapse_perm_info`}
             onClick={() => setPermInfoCollapsed(!perm_collapsed)}
           >
-            <FontAwesomeIcon icon="user-lock" className="mr-2 text-info" />
+            <i className="fa fa-user-lock mr-2 text-info" />
             <h1 className="title text-info">
               Permissions info
               {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}

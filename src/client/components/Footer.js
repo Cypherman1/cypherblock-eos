@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 const images = require.context('../assets/imgs/symbols');
 const telegram_logo = images(`./telegram.png`);
 const Footer = ({sidebar}) => {
@@ -12,7 +11,7 @@ const Footer = ({sidebar}) => {
     >
       <div className="footer-block buttons col m-0 p-0">
         <div>
-          <FontAwesomeIcon icon="heart" className="mr-1 text-success" size="lg" />
+          <i className="fa fa-heart text-success fa-lg mr-1" />
           Vote for <a href="https://github.com/greymass/eos-voter"> cypherblocks</a>
         </div>
       </div>

@@ -4,7 +4,6 @@ import isLowercase from 'validator/lib/isLowercase';
 import {connect} from 'react-redux';
 // import * as actions from '../actions/auth';
 import {setSidebarStatus} from '../actions/sidebar';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import history from './history';
 import KeyAccountsModal from './eosio/KeyAccountsModal';
 // const images = require.context('../assets/imgs');
@@ -100,7 +99,7 @@ class Header extends Component {
         >
           <div className="header-block header-block-collapse d-lg-none d-xl-none">
             <button className="collapse-btn" id="sidebar-collapse-btn" onClick={this.submitSidebarStatus}>
-              <FontAwesomeIcon icon="bars" />
+              <i className="fa fa-bars" />
             </button>
           </div>
           <div className="w-100 row m-0 pr-1 pt-2">

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import history from '../history';
 import Modal from 'react-responsive-modal';
 import {Link} from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Query} from 'react-apollo';
 import GetKeyAccounts from '../../queries/GetKeyAccounts';
 
@@ -13,7 +12,8 @@ class KeyAccountsModal extends Component {
       items.push(
         <div key={accountName}>
           <Link to={`/account/${accountName}`} className="text-secondary" onClick={this.props.onCloseModal}>
-            <FontAwesomeIcon icon="chalkboard-teacher" className="mr-2" /> {accountName}
+            <i className="fa fa-chalkboard-teacher mr-2" />
+            {accountName}
           </Link>
         </div>
       );

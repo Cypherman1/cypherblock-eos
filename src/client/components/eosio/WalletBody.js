@@ -8,14 +8,12 @@ import NumberEasing from '../utils/NumberEasing';
 import {renderEOSNum, renderPPColor} from '../utils/RenderColors';
 import {renderProjectLink} from '../utils/Tools';
 
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetWalletInfo from '../../queries/GetWalletInfo';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {setRefetchWalletFunc, setTokenBalanceUnitl} from '../../actions/common';
 
 const images = '../imgs';
 
-let tokens1 = null;
 let token_logo = null;
 let fallback_logo = `${images}/COMMON.png`;
 let AllTokens = [];
@@ -42,7 +40,7 @@ const WalletLoading = ({display, isDarkMode}) => {
       </div>
       <div className="card-block p-0">
         <div className="text-center align-middle overlay " style={{paddingTop: 74}}>
-          <FontAwesomeIcon icon="spinner" spin className="text-info fa-2x" />
+          <i className="fa fa-spinner fa-spin text-info fa-2x" />
         </div>
         <div className="title-block row m-0 pb-1 shadow-sm ">
           <div className={`col-12 col-sm-12 header-col  p-0 ${isDarkMode ? 'bg-dark-1 ' : 'bg-white'}`}>
@@ -235,7 +233,7 @@ class WalletBody extends Component {
     return items;
   }
   renderWPrice(price) {
-    return price ? <div>{price} </div> : <FontAwesomeIcon icon="spinner" spin className="text-info" />;
+    return price ? <div>{price} </div> : <i className="fa fa-spinner fa-spin text-info" />;
   }
   renderPriceinfo(token) {
     if (Number(token.price) > 0) {

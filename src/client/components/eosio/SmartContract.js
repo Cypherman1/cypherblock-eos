@@ -1,5 +1,4 @@
 import React from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Query} from 'react-apollo';
 import {Link} from 'react-router-dom';
 import GetABI from '../../queries/GetABI';
@@ -18,7 +17,7 @@ const SmartContract = ({account_name, isDarkMode}) => {
             >
               <div className="card-header card-header-sm bg-white">
                 <div className="header-block pl-2 pr-2">
-                  <FontAwesomeIcon icon="cogs" className="mr-2 text-info" />
+                  <i className="fa fa-cogs text-info mr-2" />
                   <h1 className="title text-info">
                     Smart contract
                     {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}

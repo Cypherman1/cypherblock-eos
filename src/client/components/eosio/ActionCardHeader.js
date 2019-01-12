@@ -1,7 +1,7 @@
 import React from 'react';
 import TagsInput from 'react-tagsinput';
 import {renderAccountLink} from '../utils/Tools';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {connect} from 'react-redux';
 import {
   setLiveActions,
@@ -25,7 +25,7 @@ const renderRefetchBtn = (refetch, setIsRefetch, setIsMore, islive, isrefetch, i
       return (
         <button
           type="button"
-          className={`btn ${isDarkMode ? 'bg-dark' : 'btn-white'}  btn-pill p-1`}
+          className={`btn ${isDarkMode ? 'bg-dark' : 'btn-white'}  btn-pill p-0 mr-2`}
           onClick={() => {
             setIsRefetch(true);
             refetch().then(() => {
@@ -34,7 +34,8 @@ const renderRefetchBtn = (refetch, setIsRefetch, setIsMore, islive, isrefetch, i
             });
           }}
         >
-          <FontAwesomeIcon icon="sync-alt" className="text-info" size="lg" />
+          {/* <FontAwesomeIcon icon="sync-alt" className="text-info" size="lg" /> */}
+          <i className="fa fa-sync-alt text-info fa-lg" />
         </button>
       );
   } else {
@@ -79,7 +80,8 @@ const ActionCardHeader = ({
     <div>
       <div className={`card-header row m-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}  `}>
         <div className="header-block pl-1 col stat-col">
-          <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" />
+          {/* <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" /> */}
+          <i className="fa fa-list-alt text-info fa-lg mr-2" />
           <h1 className="title text-info">
             Recent <span className="ml-1 mr-1">{renderAccountLink(account_name)}</span> actions
           </h1>
@@ -88,7 +90,7 @@ const ActionCardHeader = ({
           {renderRefetchBtn(refetch, setIsRefetch, setIsMore, islive, isrefetch, isDarkMode)}
           <button
             type="button"
-            className={`btn ${isDarkMode ? 'btn-dark' : 'btn-white'}  btn-pill p-1`}
+            className={`btn ${isDarkMode ? 'btn-dark' : 'btn-white'}  btn-pill p-0`}
             data-toggle="collapse"
             data-target="#collapseExample"
             aria-expanded="false"
@@ -98,7 +100,7 @@ const ActionCardHeader = ({
             }}
           >
             {!isSettingOpen ? (
-              <FontAwesomeIcon icon="cog" className="text-info" size="lg" />
+              <i className="fa fa-cog text-info fa-lg" />
             ) : (
               <i className="fa fa-chevron-circle-up fa-lg text-success" />
             )}

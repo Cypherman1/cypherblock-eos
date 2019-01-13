@@ -98,7 +98,12 @@ class Header extends Component {
           }`}
         >
           <div className="header-block header-block-collapse d-lg-none d-xl-none">
-            <button className="collapse-btn" id="sidebar-collapse-btn" onClick={this.submitSidebarStatus}>
+            <button
+              aria-label="menu"
+              className="collapse-btn"
+              id="sidebar-collapse-btn"
+              onClick={this.submitSidebarStatus}
+            >
               <i className="fa fa-bars" />
             </button>
           </div>
@@ -108,6 +113,7 @@ class Header extends Component {
                 <div className="input-group input-group-seamless">
                   <input
                     type="text"
+                    aria-label="search"
                     placeholder="Search by account/pubkey/trx/blockid"
                     className={`w-100 form-control rounded border ${
                       isDarkMode ? 'border-secondary' : 'border-info'
@@ -119,6 +125,7 @@ class Header extends Component {
                   />
                   <div className="input-group-append">
                     <button
+                      aria-label="search"
                       type="button"
                       className={`btn ${isDarkMode ? 'btn-success' : 'btn-info'}  mb-0`}
                       onClick={this.submit}

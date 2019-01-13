@@ -134,7 +134,7 @@ class SideBar extends Component {
           <div className="sidebar-container">
             <div className="sidebar-header">
               <div className={`${isDarkMode ? 'bg-black' : 'bg-white'} brand-container d-flex align-items-center`}>
-                {isDesktop && isSidebarHide ? '' : <img src={logo} className="main-logo" />}
+                {isDesktop && isSidebarHide ? '' : <img src={logo} alt="cypherblock" className="main-logo" />}
                 {isDesktop ? (
                   <a
                     className={`${isSidebarHide ? 'ml-2' : 'ml-3'} text-info  d-flex align-items-center `}

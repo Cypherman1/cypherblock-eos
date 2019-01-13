@@ -2,6 +2,7 @@ const {resolve, join} = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 
 const IS_DEV = process.env.NODE_ENV !== 'production';
 
@@ -96,7 +97,11 @@ module.exports = {
       filename: '[name].css',
       disable: IS_DEV
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV'])
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new ServiceWorkerWebpackPlugin({
+      entry: './src/client/sw.js'
+    })
+    // new BundleAnalyzerPlugin()
   ],
   resolve: {
     modules: ['node_modules', join('src', 'client')]

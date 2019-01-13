@@ -7,6 +7,7 @@ import Header from './Header';
 import Footer from './Footer';
 import history from './history';
 import {connect} from 'react-redux';
+import runtime from 'serviceworker-webpack-plugin/lib/runtime';
 import {setSidebarStatus} from '../actions/sidebar';
 // import Account from './eosio/Account';
 // import TransactionView from './eosio/TransactionView';
@@ -101,6 +102,10 @@ const ABIView = Loadable({
 //     {(Component) => (Component === null ? <p>Loading</p> : <Component {...props} />)}
 //   </DynamicImport>
 // );
+
+if ('serviceWorker' in navigator) {
+  const registration = runtime.register();
+}
 
 class App extends Component {
   componentDidMount() {

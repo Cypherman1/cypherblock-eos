@@ -47,7 +47,7 @@ class Producers extends Component {
           <div className="stat">
             <div className="value ftz-13">{renderAccountLink(producer.owner)}</div>
             <div className="name">
-              <a href={producer.url} target="_blank" className="font-weight-acttype ftz-12">
+              <a href={producer.url} target="_blank" rel="noopener" className="font-weight-acttype ftz-12">
                 {producer.url}
               </a>
             </div>

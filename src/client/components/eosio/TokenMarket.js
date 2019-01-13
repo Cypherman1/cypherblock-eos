@@ -223,7 +223,7 @@ class TokenMarket extends Component {
               >
                 <div className="card-header shadow-sm bg-white row m-0">
                   <div className="header-block pl-2 col">
-                    <Link className="font-weight-normal text-info" to={`/eosmarketcap`}>
+                    <Link className="font-weight-normal text-info" aria-label="eos marketcap" to={`/eosmarketcap`}>
                       <i className="fa fa-chart-bar text-info fa-lg mr-2" />
                     </Link>
                     <h1 className="title text-info">

@@ -34,6 +34,7 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
             <a
               href={exchange.url}
               target="_blank"
+              rel="noopener"
               className={`${isDarkMode ? 'linkcolor-dark' : ''}  font-weight-normal`}
             >
               {exchange.name} (<span className="ftz-10">{exchange.percent}%</span>)
@@ -192,7 +193,7 @@ class Project extends Component {
                           </div>
                           <div className="d-flex align-items-center m-1 ftz-14">
                             <i className="fa fa-link mr-3 ftz-18" />
-                            <a href={data.company.company_info.website} target="_blank">
+                            <a href={data.company.company_info.website} target="_blank" rel="noopener">
                               website
                             </a>
                           </div>

@@ -1,0 +1,19 @@
+{
+  "short_name": "Cypherblock",
+  "name": "Cypherblock",
+  "icons": [
+    {
+      "src": "/imgs/cypherblock_logo_192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/imgs/cypherblock_logo_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#00b8d8",
+  "display": "standalone",
+  "theme_color": "#00b8d8"
+}

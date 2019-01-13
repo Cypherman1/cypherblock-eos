@@ -97,6 +97,7 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
             <a
               href={exchange.url}
               target="_blank"
+              rel="noopener"
               className={`${isDarkMode ? 'linkcolor-dark' : ''}  font-weight-normal`}
             >
               {exchange.name} (<span className="ftz-10">{exchange.percent}%</span>)
@@ -441,6 +442,7 @@ class EOSMarketCap extends Component {
                           <a
                             href={companies.data[companies.data.findIndex((e) => e.symbol == token.symbol)].website}
                             target="_blank"
+                            rel="noopener"
                           >
                             {companies.data[companies.data.findIndex((e) => e.symbol == token.symbol)].website}
                           </a>
@@ -557,6 +559,7 @@ class EOSMarketCap extends Component {
                           <a
                             href={companies.data[companies.data.findIndex((e) => e.symbol == token.symbol)].website}
                             target="_blank"
+                            rel="noopener"
                           >
                             {companies.data[companies.data.findIndex((e) => e.symbol == token.symbol)].website}
                           </a>

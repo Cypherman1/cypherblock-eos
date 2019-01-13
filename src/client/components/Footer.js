@@ -18,7 +18,7 @@ const Footer = ({sidebar}) => {
       <div className="footer-block author col m-0 p-0">
         <div className="text-right">
           <a href="https://t.me/cypherblockio">
-            <img src={telegram_logo} className="telegram_logo" /> Contact us
+            <img src={telegram_logo} alt="telegram" className="telegram_logo" /> Contact us
           </a>
         </div>
       </div>

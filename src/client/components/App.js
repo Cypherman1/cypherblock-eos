@@ -16,6 +16,8 @@ import BlockProducers from './eosio/BlockProducers';
 // import EOSMarketCap from './eosio/EOSMarketCap2';
 import Project from './eosio/Project';
 
+let deferredPrompt;
+
 const AppLoader = () => {
   return <div> Loading .. </div>;
 };
@@ -110,6 +112,17 @@ if ('serviceWorker' in navigator) {
 class App extends Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname);
+
+    window.addEventListener('beforeinstallprompt', function(e) {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+
+      console.log('abc');
+
+      deferredPrompt.prompt();
+    });
   }
   render() {
     const {sidebar} = this.props;

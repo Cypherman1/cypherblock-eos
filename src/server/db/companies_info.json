@@ -1215,5 +1215,50 @@
     "website": "https://luckylot.io",
     "intro":
       "LOTC is the game ecology certificate issued by Dapp Goose. As the only platform-level token, the holder will participate in the profit sharing of the whole platform project."
+  },
+  {
+    "symbol": "eoshashcoins-hash-eos",
+    "contract": "eoshashcoins",
+    "currency": "HASH",
+    "name": "HASH",
+    "website": "https://eoshash.win",
+    "intro":
+      "The FAIREST Satoshi-style Decentralized Crypto Casino Built on EOS, use hash to draw winning numbers to guarantee absolute Fairness, No Chance for Cheating at All! Generous rewards, high referral bonus!"
+  },
+  {
+    "symbol": "frogfrogcoin-frog-eos",
+    "contract": "frogfrogcoin",
+    "currency": "FROG",
+    "name": "FROG",
+    "website": "https://www.catchthefrog.com",
+    "intro":
+      "The FROG token is the token to benefit users for playing CatchTheFrog and other DApps in the CatchTheFrog.com - space. During the period of distribution every single game will result in an instant payout of FROG. Users can stake FROG in order to benefit from 50% of the house profit."
+  },
+  {
+    "symbol": "eosggshost11-ggs-eos",
+    "contract": "eosggshost11",
+    "currency": "GGS",
+    "name": "GGS",
+    "website": "https://www.ggs.one",
+    "intro":
+      "GGS is a globally innovative online block chain gambling platform for players and shareholders. The platform is based on EOS.IO block chain and EOS intelligent contract underlying operating environment. We fully use the block chain and EOS ecosystem to build a fully secure, verifiable fairness, decentralization, de-trust, borderless play. Globalized online gambling and entertainment game system with the most complete law and the largest scale."
+  },
+  {
+    "symbol": "openbrmeos11-brm-eos",
+    "contract": "openbrmeos11",
+    "currency": "BRM",
+    "name": "BRM",
+    "website": "http://openbrm.io",
+    "intro":
+      "OpenBRM is a carrier-grade billing platform aimed at telecommunications, Subscription, Utilities and logistics organizations. Built using state of the art but future proof technology."
+  },
+  {
+    "symbol": "fight22death-nft-eos",
+    "contract": "fight22death",
+    "currency": "NFT",
+    "name": "NFT",
+    "website": "https://cb.fight2death.info",
+    "intro":
+      "NFT is the game token issued by the game development platform, as a reward voucher for the player's contribution in the game. NFT has a total of 1 billion, the accuracy of the last four decimal points, 10% owned by the development team, the remaining 90% will be released gradually in the NFT DEATH series games. Christmas Battle game will release part of the NFT, as the amount of NFT decreases, players will gradually increase the difficulty of obtaining NFT."
   }
 ]

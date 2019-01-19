@@ -44,10 +44,10 @@ const WalletLoading = ({display, isDarkMode}) => {
         </div>
         <div className="title-block row m-0 pb-1 shadow-sm ">
           <div className={`col-12 col-sm-12 header-col  p-0 ${isDarkMode ? 'bg-dark-1 ' : 'bg-white'}`}>
-            <div className="row  m-0">
-              <div className="col-3 float-left ftz-10 text-info  pl-2" />
-              <div className="col-5 text-right ftz-10  p-0  text-info pl-2">Holding</div>
-              <div className="col-4 text-right ftz-10  pr-1 text-info">Price(EOS)</div>
+            <div className={`row border-top ${isDarkMode ? 'border-secondary' : ''} m-0 pt-1`}>
+              <div className="col-3 float-left ftz-12 text-info  pl-2"> Holding </div>
+              <div className="col-5 text-right ftz-12  p-0  text-info pl-2">Value</div>
+              <div className="col-4 text-right ftz-12  pr-1 text-info">Price(EOS)</div>
             </div>
           </div>
         </div>
@@ -134,19 +134,22 @@ class WalletBody extends Component {
                     className="token_logo"
                   />
                 </div>
-                <div className="">{renderProjectLink(token)}</div>
+                <div>
+                  <div className="">{renderProjectLink(token)}</div>
+                  <div className="ftz-13">{renderEOSNum(token.ammount)}</div>
+                </div>
               </div>
               {/* Balance info */}
-              <div className="col-5 p-0 ">
+              <div className="col-5 p-0 d-flex align-items-center flex-row-reverse">
                 <div className="text-right">
-                  <div className="ftz-12 font-weight-acttype">
+                  <div className="ftz-13 font-weight-acttype">
                     {isEOSUnit ? (
                       <div className="d-inline-block " style={{width: 13}}>
                         <img src={eoslogo} alt="eos" />
                       </div>
                     ) : (
                       <div className="d-inline-block pl-1" style={{width: 13}}>
-                        <i className="fa fa-dollar" style={{fontSize: 11}} />
+                        <i className="fa fa-dollar-sign" style={{fontSize: 11}} />
                       </div>
                     )}
                     <div
@@ -166,7 +169,6 @@ class WalletBody extends Component {
                       />
                     </div>
                   </div>
-                  <div className="ftz-10">{renderEOSNum(token.ammount)}</div>
                 </div>
               </div>
               <div className="col-4 p-0">{this.renderPriceinfo(token)}</div>
@@ -176,7 +178,7 @@ class WalletBody extends Component {
           token_value = 0;
           items.push(
             <div
-              className={`${isDarkMode ? 'bg-dark-1' : ''} card-token-price  row shadow-sm mbt-1px ftz-12 `}
+              className={`${isDarkMode ? 'bg-dark-1' : ''} card-token-price  row shadow-sm mbt-1px ftz-13 `}
               key={token.name}
             >
               {/* token info */}
@@ -192,8 +194,8 @@ class WalletBody extends Component {
                 <div className="">{token.name}</div>
               </div>
               {/* Balance info */}
-              <div className="col-5 p-0 ">
-                <div className="text-right">
+              <div className="col-5 p-0">
+                <div className="text-right d-flex align-items-center">
                   <div className="ftz-13 font-weight-acttype">
                     {isEOSUnit ? (
                       <div className="d-inline-block " style={{width: 13}}>
@@ -201,7 +203,7 @@ class WalletBody extends Component {
                       </div>
                     ) : (
                       <div className="d-inline-block pl-1" style={{width: 13}}>
-                        <i className="fa fa-dollar" style={{fontSize: 11}} />
+                        <i className="fa fa-dollar-sign" style={{fontSize: 11}} />
                       </div>
                     )}
                     <div
@@ -221,7 +223,7 @@ class WalletBody extends Component {
                       />
                     </div>
                   </div>
-                  <div className="ftz-11">{renderEOSNum(token.ammount)}</div>
+                  <div className="ftz-13">{renderEOSNum(token.ammount)}</div>
                 </div>
               </div>
               <div className="col-4 p-0">{this.renderPriceinfo(token)}</div>
@@ -239,8 +241,8 @@ class WalletBody extends Component {
     if (Number(token.price) > 0) {
       return (
         <div className="text-right ml-2 mr-1">
-          <div className="">{Number(token.price).toLocaleString(undefined, {maximumSignificantDigits: 4})}</div>
-          <div className="ftz-10 ">{renderPPColor(token.percent.toFixed(2))}</div>
+          <div className="ftz-13">{Number(token.price).toLocaleString(undefined, {maximumSignificantDigits: 4})}</div>
+          <div className="ftz-12 ">{renderPPColor(token.percent.toFixed(2))}</div>
         </div>
       );
     } else return null;
@@ -266,7 +268,7 @@ class WalletBody extends Component {
       </div>
     ) : (
       <div className="pl-1 d-inline-block" style={{width: 13}}>
-        <i className="fa fa-dollar" style={{fontSize: 11}} />
+        <i className="fa fa-dollar-sign" style={{fontSize: 11}} />
       </div>
     );
 
@@ -274,7 +276,7 @@ class WalletBody extends Component {
       <div>
         {unitsign}
         <div
-          className="d-inline-block  ftz-12 pcursor"
+          className="d-inline-block  ftz-13 pcursor"
           role="button"
           onClick={() => {
             this.props.setTokenBalanceUnitl(!this.props.common.isEOSUnit);
@@ -299,7 +301,7 @@ class WalletBody extends Component {
       </div>
     ) : (
       <div className="d-inline">
-        <i className="fa fa-dollar" style={{fontSize: 12}} />
+        <i className="fa fa-dollar-sign" style={{fontSize: 12}} />
       </div>
     );
   }
@@ -329,7 +331,7 @@ class WalletBody extends Component {
             </div>
             <div className="pr-2">
               <div className="text-info text-right ftz-9 mb-1"># ASSETS</div>
-              <div className="text-right  ftz-12"> {AllTokens.length} </div>
+              <div className="text-right  ftz-13"> {AllTokens.length} </div>
             </div>
           </div>
           <div className="card-body p-0">
@@ -339,9 +341,9 @@ class WalletBody extends Component {
                   isDarkMode ? 'bg-dark-1 border-bottom border-top border-dark' : 'bg-white'
                 }`}
               >
-                <div className="row  m-0">
-                  <div className="col-3 float-left ftz-12 text-info  pl-2" />
-                  <div className="col-5 text-right ftz-12  p-0  text-info pl-2">Holding</div>
+                <div className={`row border-top ${isDarkMode ? 'border-secondary' : ''} m-0 pt-1`}>
+                  <div className="col-3 float-left ftz-12 text-info  pl-2"> Holding </div>
+                  <div className="col-5 text-right ftz-12  p-0  text-info pl-2">Value</div>
                   <div className="col-4 text-right ftz-12  pr-1 text-info">Price(EOS)</div>
                 </div>
               </div>

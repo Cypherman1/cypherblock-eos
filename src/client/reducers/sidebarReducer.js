@@ -3,7 +3,9 @@ import {
   SET_SIDEBAR_STATUS,
   SET_IS_DARK_MODE,
   SET_MARKETCAP_UNIT,
-  SET_IS_SIDEBAR_HIDE
+  SET_IS_SIDEBAR_HIDE,
+  SET_ADDED_TO_HOMESCREEN,
+  SET_DEFERRED_PROMPT
 } from '../actions/types';
 
 const INNITAL_STATE = {
@@ -12,6 +14,8 @@ const INNITAL_STATE = {
   isDarkMode: false,
   mcUnit: 2,
   isSidebarHide: true,
+  addedToHomesceen: true,
+  deferredPrompt: null,
   menu: [
     {
       id: 1,
@@ -40,6 +44,10 @@ export default function(state = INNITAL_STATE, action) {
       return {...state, isDarkMode: action.payload};
     case SET_MARKETCAP_UNIT:
       return {...state, mcUnit: action.payload};
+    case SET_ADDED_TO_HOMESCREEN:
+      return {...state, addedToHomesceen: action.payload};
+    case SET_DEFERRED_PROMPT:
+      return {...state, deferredPrompt: action.payload};
     case SET_IS_SIDEBAR_HIDE:
       return {
         ...state,

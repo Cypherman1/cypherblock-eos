@@ -4,6 +4,8 @@ import {
   SET_IS_DARK_MODE,
   SET_MARKETCAP_UNIT,
   SET_IS_SIDEBAR_HIDE,
+  SET_ADDED_TO_HOMESCREEN,
+  SET_DEFERRED_PROMPT,
   SET_SIDEBAR_MENU
 } from './types';
 
@@ -13,6 +15,19 @@ import {
 //     payload: isSidebarHide
 //   };
 // }
+export function setDeferredPrompt(deferredPrompt) {
+  return {
+    type: SET_DEFERRED_PROMPT,
+    payload: deferredPrompt
+  };
+}
+
+export function setAddedToHomescreen(addedToHomesceen) {
+  return {
+    type: SET_ADDED_TO_HOMESCREEN,
+    payload: addedToHomesceen
+  };
+}
 
 export function setIsSidebarHide(isSidebarHide) {
   return {

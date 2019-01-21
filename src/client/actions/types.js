@@ -27,7 +27,8 @@ export const SET_IS_DARK_MODE = 'set_is_dark_mode';
 export const SET_MARKETCAP_UNIT = 'set_marketcap_unit';
 export const SET_IS_SIDEBAR_HIDE = 'set_is_sidebar_hide';
 export const SET_SIDEBAR_MENU = 'set_sidebar_menu';
-
+export const SET_ADDED_TO_HOMESCREEN = 'set_added_to_homescreen';
+export const SET_DEFERRED_PROMPT = 'set_deferredPrompt';
 // antispam
 
 export const SET_ANTISPAM_CONFIG = 'set_antispam_config';

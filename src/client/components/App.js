@@ -8,15 +8,13 @@ import Footer from './Footer';
 import history from './history';
 import {connect} from 'react-redux';
 import runtime from 'serviceworker-webpack-plugin/lib/runtime';
-import {setSidebarStatus} from '../actions/sidebar';
+import {setSidebarStatus, setAddedToHomescreen, setDeferredPrompt} from '../actions/sidebar';
 // import Account from './eosio/Account';
 // import TransactionView from './eosio/TransactionView';
 // import BlockView from './eosio/BlockView';
 import BlockProducers from './eosio/BlockProducers';
 // import EOSMarketCap from './eosio/EOSMarketCap2';
 import Project from './eosio/Project';
-
-let deferredPrompt;
 
 const AppLoader = () => {
   return <div> Loading .. </div>;
@@ -113,15 +111,13 @@ class App extends Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname);
 
-    window.addEventListener('beforeinstallprompt', function(e) {
+    window.addEventListener('beforeinstallprompt', (e) => {
+      this.props.setAddedToHomescreen(false);
       // Prevent Chrome 67 and earlier from automatically showing the prompt
-      e.preventDefault();
+      // e.preventDefault();
       // Stash the event so it can be triggered later.
-      deferredPrompt = e;
 
-      console.log('abc');
-
-      deferredPrompt.prompt();
+      this.props.setDeferredPrompt(e);
     });
   }
   render() {
@@ -163,5 +159,5 @@ function mapStateToProps({myStore}) {
 
 export default connect(
   mapStateToProps,
-  {setSidebarStatus}
+  {setSidebarStatus, setAddedToHomescreen, setDeferredPrompt}
 )(App);

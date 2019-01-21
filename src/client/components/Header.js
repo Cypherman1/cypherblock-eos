@@ -3,7 +3,7 @@ import isHash from 'validator/lib/isHash';
 import isLowercase from 'validator/lib/isLowercase';
 import {connect} from 'react-redux';
 // import * as actions from '../actions/auth';
-import {setSidebarStatus} from '../actions/sidebar';
+import {setSidebarStatus, setAddedToHomescreen, setDeferredPrompt} from '../actions/sidebar';
 import history from './history';
 import KeyAccountsModal from './eosio/KeyAccountsModal';
 // const images = require.context('../assets/imgs');
@@ -89,7 +89,7 @@ class Header extends Component {
   // }
 
   render() {
-    const {isDarkMode, isSidebarHide} = this.props.sidebar;
+    const {isDarkMode, isSidebarHide, deferredPrompt, addedToHomesceen} = this.props.sidebar;
     return (
       <div>
         <header
@@ -132,6 +132,26 @@ class Header extends Component {
                     >
                       <i className="fa fa-search text-light" />
                     </button>
+                    {!addedToHomesceen ? (
+                      <button
+                        aria-label="search"
+                        type="button"
+                        className={`btn ${isDarkMode ? 'btn-success' : 'btn-info'}  mb-0 border-left`}
+                        onClick={() => {
+                          deferredPrompt.prompt(); // Wait for the user to respond to the prompt
+                          deferredPrompt.userChoice.then(function(choiceResult) {
+                            if (choiceResult.outcome === 'accepted') {
+                              setAddedToHomescreen(true);
+                            } else {
+                              setAddedToHomescreen(false);
+                            }
+                            setDeferredPrompt(null);
+                          });
+                        }}
+                      >
+                        <i className="fa fa-plus-square text-light" />
+                      </button>
+                    ) : null}
                   </div>
                 </div>
                 {/* <div className="col-auto pl-1 pr-3">
@@ -157,7 +177,7 @@ function mapStateToProps({myStore}) {
 
 export default connect(
   mapStateToProps,
-  {setSidebarStatus}
+  {setSidebarStatus, setAddedToHomescreen, setDeferredPrompt}
 )(Header);
 
 // export default Header;

@@ -124,31 +124,6 @@ class Project extends Component {
               <article className="content dashboard-page">
                 <Helmet>
                   <title>{currency} eos marketcap, price, project, ranking | Cypherblock </title>
-                  <meta
-                    name="keywords"
-                    content="eos, eosio, eos block explorer, account, transaction, block, balance, RAM, voting, block producer, token, airdrop, price, wallet, dapp, project, marketcap, blockchain, mainnet, crypto, currency"
-                  />
-                  <meta name="title" content={`${currency} eos marketcap, price, project, ranking | Cypherblock`} />
-                  <meta
-                    name="description"
-                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainnet"
-                  />
-                  <meta
-                    property="og:title"
-                    content={`${currency} eos marketcap, price, project, ranking | Cypherblock`}
-                  />
-                  <meta
-                    property="og:description"
-                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainnet"
-                  />
-                  <meta
-                    name="twitter:title"
-                    content={`${currency} eos marketcap, price, project, ranking | Cypherblock`}
-                  />
-                  <meta
-                    name="twitter:description"
-                    content="Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainnet"
-                  />
                 </Helmet>
                 <section className="section">
                   <div className={`card ${isDarkMode ? 'bg-dark' : ''}`}>

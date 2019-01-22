@@ -1260,5 +1260,49 @@
     "website": "https://cb.fight2death.info",
     "intro":
       "NFT is the game token issued by the game development platform, as a reward voucher for the player's contribution in the game. NFT has a total of 1 billion, the accuracy of the last four decimal points, 10% owned by the development team, the remaining 90% will be released gradually in the NFT DEATH series games. Christmas Battle game will release part of the NFT, as the amount of NFT decreases, players will gradually increase the difficulty of obtaining NFT."
+  },
+  {
+    "symbol": "xiaomiaocoin-xmc-eos",
+    "contract": "xiaomiaocoin",
+    "currency": "XMC",
+    "name": "Miao",
+    "website": "http://aixiaomiao.top",
+    "intro":
+      "Miao coin (XMC) is an encrypted currency with EOS as the underlying technology. It aims to build a decentralized platform, including but not limited to social networking, shopping, entertainment and other aspects. Users can use Miao coin as a medium for consumption, reward and other behaviors. Miao coin will also be used as an incentive scheme for users in some Internet behaviors."
+  },
+  {
+    "symbol": "slamdevelops-slam-eos",
+    "contract": "slamdevelops",
+    "currency": "SLAM",
+    "name": "SLAM",
+    "website": "https://www.slamgames.io",
+    "intro": "SLAM is an EOS-based game platform."
+  },
+  {
+    "symbol": "okkkkkkkkkkk-ogm-eos",
+    "contract": "okkkkkkkkkkk",
+    "currency": "OGM",
+    "name": "OMG",
+    "website": "http://u9159413.viewer.maka.im/pcviewer/IYJZ2UJG",
+    "intro":
+      "Wake up the attention of game players to their rights and interests! Pay is rewarded, time is money, you are worth every drop of the game."
+  },
+  {
+    "symbol": "sandgrptoken-sand-eos",
+    "contract": "sandgrptoken",
+    "currency": "SAND",
+    "name": "BetSand",
+    "website": "https://betsand.com",
+    "intro":
+      "BetSand is a decentralized profitable Game Center .Now we have three popular Casino games: The first No Commission Baccarat, The first Europe Roulette and Sic bo. We will bring more attractive games to our users in the future."
+  },
+  {
+    "symbol": "auctionnet11-anc-eos",
+    "contract": "auctionnet11",
+    "currency": "ANC",
+    "name": "ANC",
+    "website": "https://www.slamgames.io",
+    "intro":
+      "ANC aims to lay out a decentralized, transparent, open and secure blockchain digital auction platform. ANC will provide users with professional, safe and fair services. The auction process and transaction records are recorded in the public chain. On the user side, the user will no longer be a trading participant and will also act as the supervisor of the transaction."
   }
 ]

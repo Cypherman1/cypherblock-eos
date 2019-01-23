@@ -1,14 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const ErrorPage = (error) => {
+const ErrorAccNotFound = ({account_name}) => {
   return (
-    <article className="content error-404-page">
+    <article className="error-404-page">
       <section className="section">
         <div className="error-card">
           <div className="error-title-block">
             <h1 className="error-title">404</h1>
-            <h2 className="error-sub-title"> Sorry, page not found </h2>
+            <h2 className="error-sub-title">
+              Sorry, account <span className="text-info">{account_name}</span> not found!
+            </h2>
           </div>
           <div className="text-center">
             <Link to="/" className="btn btn-primary">
@@ -21,4 +23,4 @@ const ErrorPage = (error) => {
   );
 };
 
-export default ErrorPage;
+export default ErrorAccNotFound;

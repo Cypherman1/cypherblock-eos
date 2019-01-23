@@ -231,7 +231,13 @@ class ActionsCardBody extends Component {
         );
       }
     } else {
-      return <ActionsCardLoading />;
+      return (
+        <div>
+          <div className="card-block pt-1 pb-0 pr-1 pl-1 ">
+            <div className="text-center align-middle pd-vi">No actions found!</div>
+          </div>
+        </div>
+      );
     }
   }
 }

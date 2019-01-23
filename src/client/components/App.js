@@ -3,6 +3,7 @@ import {Router, Route, Switch} from 'react-router-dom';
 import ReactGA from 'react-ga';
 // import Dashboard from './Dashboard';
 import LeftSideBar from './LeftSideBar';
+import ErrorPage from './ErrorPage';
 import Header from './Header';
 import Footer from './Footer';
 import history from './history';
@@ -144,6 +145,7 @@ class App extends Component {
               <Route path="/blockproducers" component={BlockProducers} />
               <Route path="/eosmarketcap" component={EOSMarketCap} />
               <Route path="/project/:symbol" component={Project} />
+              <Route component={ErrorPage} />
             </Switch>
             <Footer />
           </div>

@@ -10,6 +10,7 @@ import {ToastContainer, toast} from 'react-toastify';
 import VoterInfo from './VoterInfo';
 import AccPermsInfo from './AccPermsInfo';
 import SmartContract from './SmartContract';
+import ErrorAccNotFound from '../ErrorAccNotFound';
 
 // import ErrorBoundary from '../ErrorBoundary';
 
@@ -647,8 +648,7 @@ class AccountInfo extends Component {
               </div>
             );
           else {
-            this.notify();
-            return <ToastContainer autoClose={2000} />;
+            return <ErrorAccNotFound account_name={this.props.account_name} />;
           }
         }}
       </Query>

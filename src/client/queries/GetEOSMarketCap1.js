@@ -35,7 +35,7 @@ export default gql`
       }
     }
     cmc {
-      data {
+      EOS {
         quotes {
           USD {
             price

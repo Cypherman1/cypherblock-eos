@@ -6,8 +6,8 @@ export default gql`
       core_liquid_balance
     }
     cmc {
-      data {
-        quotes {
+      EOS {
+        quote {
           USD {
             price
             volume_24h

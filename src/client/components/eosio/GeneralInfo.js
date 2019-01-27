@@ -289,9 +289,9 @@ const GeneralInfo = ({isDarkMode}) => {
               Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
               Number(table_rows.rows[0].base.balance.split(' ')[0])
             ).toFixed(8) * 1024;
-          eos_price = Number(cmc.data.quotes.USD.price).toFixed(2);
-          percent_change_24h = cmc.data.quotes.USD.percent_change_24h;
-          eos_volume = Number(cmc.data.quotes.USD.volume_24h).toLocaleString('en', {maximumFractionDigits: 0});
+          eos_price = Number(cmc.EOS.quote.USD.price).toFixed(2);
+          percent_change_24h = cmc.EOS.quote.USD.percent_change_24h;
+          eos_volume = Number(cmc.EOS.quote.USD.volume_24h).toLocaleString('en', {maximumFractionDigits: 0});
 
           return (
             <div

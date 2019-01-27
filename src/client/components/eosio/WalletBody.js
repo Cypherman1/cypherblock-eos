@@ -317,7 +317,7 @@ class WalletBody extends Component {
     if (data && data.cmc && data.eosmarketcap) {
       this.setAllTokens(data);
       total_token_value = 0;
-      eos_price = Number(data.cmc.data.quotes.USD.price);
+      eos_price = Number(data.cmc.EOS.quote.USD.price);
       AllTokens.map((token) => {
         total_token_value += Number(token.ammount) * Number(token.price);
       });

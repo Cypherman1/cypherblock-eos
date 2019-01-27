@@ -3,8 +3,8 @@ import gql from 'graphql-tag';
 export default gql`
   query get_company($symbol: String) {
     cmc {
-      data {
-        quotes {
+      EOS {
+        quote {
           USD {
             price
             volume_24h

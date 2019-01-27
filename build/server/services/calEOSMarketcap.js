@@ -120,7 +120,10 @@ const AddBlocksenceTickers = () => {
 
   for (var ticker in BlocksenceTickers) {
     if (['source', 'EOS', 'BTC', 'RAM', 'ETH'].indexOf(ticker) == -1) {
-      index = EOSMarkets.findIndex((e) => e.symbol == e.contract + '-' + ticker.toLowerCase() + '-eos');
+      index = EOSMarkets.findIndex(
+        (e) => e.symbol == e.contract + '-' + ticker.toLowerCase() + '-eos' && e.symbol != 'ethsidechain-eeth-eos'
+      );
+
       if (index === -1) {
         //if not existed, add ticker to the list
         // EOSMarkets.push({
@@ -317,7 +320,7 @@ const AddNewdexTickers = () => {
 };
 
 const calEOSMarketcap = () => {
-  eos_price = JSON.parse(fs.readFileSync(CMC_PATH)).data.quotes.USD.price;
+  eos_price = JSON.parse(fs.readFileSync(CMC_PATH)).data.EOS.quote.USD.price;
 
   EOSMarkets = [];
 

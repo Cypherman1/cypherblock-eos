@@ -394,9 +394,9 @@ class AccountInfo extends Component {
 
         if (total_balance && cmc) {
           total_balance_ramincluded = total_balance + Number(eos_ram_equivalent);
-          if (cmc.data.quotes.USD.price) {
-            to_fiat = (total_balance_ramincluded * Number(cmc.data.quotes.USD.price)).toFixed(0);
-            total_balance_usd = total_balance * Number(cmc.data.quotes.USD.price);
+          if (cmc.EOS.quote.USD.price) {
+            to_fiat = (total_balance_ramincluded * Number(cmc.EOS.quote.USD.price)).toFixed(0);
+            total_balance_usd = total_balance * Number(cmc.EOS.quote.USD.price);
           }
         }
       }

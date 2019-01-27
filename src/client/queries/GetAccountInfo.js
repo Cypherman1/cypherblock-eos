@@ -54,8 +54,8 @@ export default gql`
       }
     }
     cmc {
-      data {
-        quotes {
+      EOS {
+        quote {
           USD {
             price
             volume_24h

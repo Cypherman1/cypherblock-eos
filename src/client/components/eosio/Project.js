@@ -108,7 +108,7 @@ class Project extends Component {
           if (error) return <ProjectLoading isDarkMode={isDarkMode} />;
 
           if (data && data.company && data.cmc) {
-            eos_price = Number(data.cmc.data.quotes.USD.price);
+            eos_price = Number(data.cmc.EOS.quote.USD.price);
             const {
               symbol,
               contract,

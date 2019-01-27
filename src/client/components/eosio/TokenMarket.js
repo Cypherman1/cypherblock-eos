@@ -107,9 +107,9 @@ class TokenMarket extends Component {
             ).toFixed(4);
             eos_total_supply = Number(eos_stat.rows[0].supply.split(' ')[0]);
 
-            eos_price = Number(cmc.data.quotes.USD.price);
-            eos_percent_change_24h = cmc.data.quotes.USD.percent_change_24h;
-            eos_volume_24h = cmc.data.quotes.USD.volume_24h;
+            eos_price = Number(cmc.EOS.quote.USD.price);
+            eos_percent_change_24h = cmc.EOS.quote.USD.percent_change_24h;
+            eos_volume_24h = cmc.EOS.quote.USD.volume_24h;
 
             items = [];
 

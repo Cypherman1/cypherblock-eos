@@ -165,7 +165,7 @@ var j9 = schedule.scheduleJob('20 * * * * *', function() {
   }
 });
 
-var j7 = schedule.scheduleJob('31 * * * * *', function() {
+var j7 = schedule.scheduleJob('*/5 * * * *', function() {
   try {
     getCMC();
   } catch (err) {

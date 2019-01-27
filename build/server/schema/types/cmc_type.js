@@ -26,29 +26,28 @@ const DataType = new GraphQLObjectType({
     id: {type: GraphQLString},
     name: {type: GraphQLString},
     symbol: {type: GraphQLString},
-    website_slug: {type: GraphQLString},
-    rank: {type: GraphQLString},
-    circulating_supply: {type: GraphQLString},
-    total_supply: {type: GraphQLString},
-    max_supply: {type: GraphQLString},
-    quotes: {type: QuotesType},
-    last_updated: {type: GraphQLString}
+    // website_slug: {type: GraphQLString},
+    // rank: {type: GraphQLString},
+    // circulating_supply: {type: GraphQLString},
+    // total_supply: {type: GraphQLString},
+    // max_supply: {type: GraphQLString},
+    quote: {type: QuotesType}
+    // last_updated: {type: GraphQLString}
   })
 });
 
-const MetaDataType = new GraphQLObjectType({
-  name: 'MetaDataType',
-  fields: () => ({
-    timestamp: {type: GraphQLString},
-    error: {type: GraphQLString}
-  })
-});
+// const MetaDataType = new GraphQLObjectType({
+//   name: 'MetaDataType',
+//   fields: () => ({
+//     timestamp: {type: GraphQLString},
+//     error: {type: GraphQLString}
+//   })
+// });
 
 const CMCType = new GraphQLObjectType({
   name: 'CMCType',
   fields: () => ({
-    data: {type: DataType},
-    metadata: {type: MetaDataType}
+    EOS: {type: DataType}
   })
 });
 

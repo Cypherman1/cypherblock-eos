@@ -116,9 +116,9 @@
 //               maximumFractionDigits: 0
 //             });
 
-//             eos_price = Number(cmc.data.quotes.USD.price);
-//             percent_change_24h = cmc.data.quotes.USD.percent_change_24h;
-//             eos_volume = Number(cmc.data.quotes.USD.volume_24h).toLocaleString('en', {maximumFractionDigits: 0});
+//             eos_price = Number(cmc.EOS.quote.USD.price);
+//             percent_change_24h = cmc.EOS.quote.USD.percent_change_24h;
+//             eos_volume = Number(cmc.EOS.quote.USD.volume_24h).toLocaleString('en', {maximumFractionDigits: 0});
 
 //             return (
 //               <div className="card sameheight-item stats mb-1 d-none d-xl-block" data-exclude="xs">

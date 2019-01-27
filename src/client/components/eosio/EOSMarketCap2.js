@@ -44,8 +44,10 @@ const calTotal = (eosmarketcap) => {
   total_token_marketcap = 0;
   total_token_volume = 0;
   eosmarketcap.data.map((token) => {
-    total_token_volume += Number(token.volume);
-    total_token_marketcap += Number(token.last) * Number(token.supply.current);
+    if (token.symbol != 'eosio.token-eos-eusd' && token.symbol.substring(token.symbol.length - 4) == '-eos') {
+      total_token_volume += Number(token.volume);
+      total_token_marketcap += Number(token.last) * Number(token.supply.current);
+    }
   });
 };
 
@@ -207,9 +209,9 @@ class EOSMarketCap extends Component {
             ).toFixed(4);
             max_ram_size = Number(global_data.rows[0].max_ram_size);
             eos_total_supply = Number(eos_stat.rows[0].supply.split(' ')[0]);
-            eos_price = Number(cmc.data.quotes.USD.price);
-            eos_percent_change_24h = cmc.data.quotes.USD.percent_change_24h;
-            eos_volume_24h = cmc.data.quotes.USD.volume_24h;
+            eos_price = Number(cmc.EOS.quote.USD.price);
+            eos_percent_change_24h = cmc.EOS.quote.USD.percent_change_24h;
+            eos_volume_24h = cmc.EOS.quote.USD.volume_24h;
 
             //RAM
             tokens.push(

@@ -1304,5 +1304,108 @@
     "website": "https://www.slamgames.io",
     "intro":
       "ANC aims to lay out a decentralized, transparent, open and secure blockchain digital auction platform. ANC will provide users with professional, safe and fair services. The auction process and transaction records are recorded in the public chain. On the user side, the user will no longer be a trading participant and will also act as the supervisor of the transaction."
+  },
+  {
+    "symbol": "pickowntoken-own-eos",
+    "contract": "pickowntoken",
+    "currency": "OWN",
+    "name": "OWN",
+    "website": "https://www.pickown.com",
+    "intro": "Hunter red envelope game token."
+  },
+  {
+    "symbol": "seekeos1seek-seek-eos",
+    "contract": "seekeos1seek",
+    "currency": "SEEK",
+    "name": "SEEK GROUP",
+    "website": "https://eoseek.org",
+    "intro":
+      "Seek Group is a content sharing and publishing community of electronic life light media, where you can create various interesting groups or share experiences from life, including but not limited to technology, entertainment, history and so on, your ideas will be released here, we welcome your participation!"
+  },
+  {
+    "symbol": "zosdiscounts-zos-eos",
+    "contract": "zosdiscounts",
+    "currency": "ZOS",
+    "name": "ZOS",
+    "website": "https://www.airdropsdac.com/zos",
+    "intro":
+      "ZOS is a token deployed on the chain of EOS blocks. ZOS is an electronic payment token that can be discounted when used to pay for Airdrops DAC services."
+  },
+  {
+    "symbol": "iteosithbxmf-itb-eos",
+    "contract": "iteosithbxmf",
+    "currency": "ITB",
+    "name": "ITB",
+    "website": "http://u9159413.viewer.maka.im/k/IYJZ2UJG",
+    "intro":
+      "ITB coin is the center of economic development under the future of mouse science and technology. It is a project developed by young people. It has the value of future regional ecology. ITB coin creates value at the beginning."
+  },
+  {
+    "symbol": "pokerktoken1-king-eos",
+    "contract": "pokerktoken1",
+    "currency": "KING",
+    "name": "PokerKing",
+    "website": "https://www.pokerking.one",
+    "intro": "Holding KING tokens can share the profits of the PokerKing platform."
+  },
+  {
+    "symbol": "higoldtokens-hig-eos",
+    "contract": "higoldtokens",
+    "currency": "HIG",
+    "name": "Hiking community",
+    "website": "https://hi.gold",
+    "intro":
+      "HIG is the community token of the Hiking community. Hiking Community is committed to building a new ecosystem and an encrypted currency community focusing on distributed applications together with block chain enthusiasts."
+  },
+  {
+    "symbol": "nakamotorun1-run-eos",
+    "contract": "nakamotorun1",
+    "currency": "RUN",
+    "name": "RUN",
+    "website": "https://nakamoto.run",
+    "intro": "The First Guinea Pig Racing Game on EOS Blockchain."
+  },
+  {
+    "symbol": "gamebettoken-gbt-eos",
+    "contract": "gamebettoken",
+    "currency": "GBT",
+    "name": "Gamebet",
+    "website": "http://gamebet.one",
+    "intro": "EOS game plateform,now has rolldice and blackjack game.can dig miner,take it bonus."
+  },
+  {
+    "symbol": "bitsplatform-mgt-eos",
+    "contract": "bitsplatform",
+    "currency": "MGT",
+    "name": "MGT",
+    "website": "https://www.54497.com",
+    "intro":
+      "Mini-Game is a fully intelligent contract game platform based on EOS. All games on the platform are implemented by contract. The fairness of the game is verifiable. The online team on the platform is the open source contract. We combine play and recommendation to form a new game is mining model, through which MGT Token will be given to game players free of charge, and players who hold MGT will enjoy a high dividend from platform revenue. At the same time, we have also innovated Token allocation and holding dividend algorithm, and put allocation and dividend into the contract to achieve code is rule."
+  },
+  {
+    "symbol": "murmurtokens-mur-eos",
+    "contract": "murmurtokens",
+    "currency": "MUR",
+    "name": "Murmur",
+    "website": "https://www.murmurdapp.com",
+    "intro": "Murmur is a decentralized microblogging platform based on EOS."
+  },
+  {
+    "symbol": "okbettoken11-okt-eos",
+    "contract": "okbettoken11",
+    "currency": "OKT",
+    "name": "OKBET",
+    "website": "https://www.okbet.im",
+    "intro":
+      "OKT is a rights pass issued by OKBET game platform, totaling 600 million. It will never be issued again. OKBET team has many years of experience in game development and operation. OKT has huge value-added space in the future. OKT team can enjoy the Profit Dividend of all online games on OKBET platform."
+  },
+  {
+    "symbol": "eosio.token-bos-eos",
+    "contract": "eosio.token",
+    "currency": "BOS",
+    "name": "Business Operating System",
+    "website": "https://boscore.io",
+    "intro":
+      "The goal of BOS(Business Operating System) is to build an EOSIO ecosystem that supports more DApp and solve real-world problems using blockchain technology. From the perspective of the evolution of the blockchain, in addition to being the preferred base chain of DApp, BOS can also serve as a circulation chain for various heterogeneous chain coins or tokens, and as a free port in the blockchain world. BOS comes from the community and will develop better with a joint effort by the community."
   }
 ]

@@ -35,6 +35,7 @@ module.exports = function setup(app) {
         /\$OG_DESCRIPTION/g,
         'Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet'
       );
+      data = data.replace(/\$OG_CANONICAL/g, 'https://www.cypherblock.io');
       res.send(data);
     });
   });
@@ -47,11 +48,12 @@ module.exports = function setup(app) {
       }
 
       // replace the special strings with server generated strings
-      data = data.replace(/\$OG_TITLE/g, 'Cypherblock | EOS Marketcap | Token, Project, Price, Ranking');
+      data = data.replace(/\$OG_TITLE/g, 'EOS Market cap | eos airdrop, Dapp, Project, Price, Ranking');
       data = data.replace(
         /\$OG_DESCRIPTION/g,
-        'Cypherblock | EOS Marketcap show Ranking, Token, Airdrop, Price, Volume, Supply, Value, Market, Exchanges, Project, Dapp on EOSIO Blockchain mainnet'
+        'Cypherblock | EOS Market cap show Ranking, eos airdrop, Price, Volume, Supply, Value, Exchanges, Project, Dapp on EOSIO Blockchain mainnet'
       );
+      data = data.replace(/\$OG_CANONICAL/g, 'https://www.cypherblock.io/eosmarketcap');
       res.send(data);
     });
   });
@@ -63,11 +65,15 @@ module.exports = function setup(app) {
         return console.log(err);
       }
 
-      data = data.replace(/\$OG_TITLE/g, req.params.account_name + ' | EOS Block Explorer | Account, Airdrop, Price');
+      data = data.replace(
+        /\$OG_TITLE/g,
+        req.params.account_name + ' | EOS Block Explorer |EOS Account, Airdrops, Price, Value'
+      );
       data = data.replace(
         /\$OG_DESCRIPTION/g,
         'Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet'
       );
+      data = data.replace(/\$OG_CANONICAL/g, 'https://www.cypherblock.io/account/' + req.params.account_name);
       res.send(data);
     });
   });
@@ -84,12 +90,13 @@ module.exports = function setup(app) {
         req.params.symbol
           .substring(0, req.params.symbol.indexOf('-eos'))
           .toUpperCase()
-          .replace('-', ' ') + ' | EOS Block Explorer | Account, Airdrop, Price'
+          .replace('-', ' ') + ' | EOS Block Explorer |EOS Project, Airdrop, Dapp'
       );
       data = data.replace(
         /\$OG_DESCRIPTION/g,
         'Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet'
       );
+      data = data.replace(/\$OG_CANONICAL/g, 'https://www.cypherblock.io/project/' + req.params.symbol);
       res.send(data);
     });
   });
@@ -109,6 +116,7 @@ module.exports = function setup(app) {
         /\$OG_DESCRIPTION/g,
         'Cypherblock | One of top EOS Block Explorer showing account, RAM, token, airdrop, price, voting, smart contract, transaction, dapp on EOSIO blockchain mainnet'
       );
+      data = data.replace(/\$OG_CANONICAL/g, 'https://www.cypherblock.io');
       res.send(data);
     });
   });

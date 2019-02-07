@@ -130,7 +130,7 @@ class WalletBody extends Component {
                   <ReactImageFallback
                     src={token_logo}
                     fallbackImage={fallback_logo}
-                    alt={`${token.name} eos token airdrop`}
+                    alt={`${token.name} eos airdrop`}
                     className="token_logo"
                   />
                 </div>
@@ -145,7 +145,7 @@ class WalletBody extends Component {
                   <div className="ftz-13 font-weight-acttype">
                     {isEOSUnit ? (
                       <div className="d-inline-block " style={{width: 13}}>
-                        <img src={eoslogo} alt="eos" />
+                        <img src={eoslogo} alt="eos airdrop" />
                       </div>
                     ) : (
                       <div className="d-inline-block pl-1" style={{width: 13}}>
@@ -187,7 +187,7 @@ class WalletBody extends Component {
                   <ReactImageFallback
                     src={token_logo}
                     fallbackImage={fallback_logo}
-                    alt={`${token.name} eos token airdrop`}
+                    alt={`${token.name}`}
                     className="token_logo"
                   />
                 </div>
@@ -199,7 +199,7 @@ class WalletBody extends Component {
                   <div className="ftz-13 font-weight-acttype">
                     {isEOSUnit ? (
                       <div className="d-inline-block " style={{width: 13}}>
-                        <img src={eoslogo} alt="eos" />
+                        <img src={eoslogo} alt="eos block explorer" />
                       </div>
                     ) : (
                       <div className="d-inline-block pl-1" style={{width: 13}}>
@@ -264,7 +264,7 @@ class WalletBody extends Component {
     total_value = isEOSUnit ? total_token_value : token_usd_value.toFixed(2);
     unitsign = isEOSUnit ? (
       <div className="d-inline-block" style={{width: 13}}>
-        <img src={eoslogo} alt="eos" />
+        <img src={eoslogo} alt="eos airdrop" />
       </div>
     ) : (
       <div className="pl-1 d-inline-block" style={{width: 13}}>
@@ -297,7 +297,7 @@ class WalletBody extends Component {
   renderHoldingUnit(isEOSUnit) {
     return isEOSUnit ? (
       <div className="d-inline-block " style={{width: 13}}>
-        <img src={eoslogo} alt="eos" />
+        <img src={eoslogo} alt="eos airdrop" />
       </div>
     ) : (
       <div className="d-inline">

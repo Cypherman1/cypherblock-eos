@@ -131,7 +131,7 @@ const AccountInfoLoading = ({isDarkMode}) => {
         <div className=" row row-sm stats-container m-0 ">
           <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
             <div className="mr-1 eos-icon">
-              <img src={eoslogo} />
+              <img src={eoslogo} alt="eos block explorer" />
             </div>
             <div className="stat">
               <div className="value"> EOS</div>
@@ -150,7 +150,7 @@ const AccountInfoLoading = ({isDarkMode}) => {
           <div className="col-6 col-sm-4 stat-col pr-1 pl-1 d-none d-sm-block">
             <div className="pd-bl">
               <div className=" mr-2 eos-icon">
-                <img src={eoslogo} />
+                <img src={eoslogo} alt="eos block explorer" />
               </div>
               <div className="stat">
                 <div className="value"> USD</div>
@@ -461,7 +461,7 @@ class AccountInfo extends Component {
                   <div className=" row row-sm stats-container m-0 ">
                     <div className="col-6 col-sm-4 stat-col pr-1 pl-1">
                       <div className="mr-1 eos-icon">
-                        <img src={eoslogo} />
+                        <img src={eoslogo} alt="eos block explorer" />
                       </div>
                       <div className="stat">
                         <div className="value">{`${total_balance.toLocaleString('en', {

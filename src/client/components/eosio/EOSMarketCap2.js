@@ -64,7 +64,7 @@ const EOSMarketCapLoading = ({isDarkMode}) => {
             {/* <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" /> */}
             <i className="fa fa-chart-bar text-info fa-lg mr-2" />
 
-            <h1 className="title text-info">EOS Marketcap</h1>
+            <h1 className="title text-info">EOS Market Cap</h1>
           </div>
           <div className="card-body bg-white p-0">
             <div style={{height: 50}} />
@@ -255,7 +255,7 @@ class EOSMarketCap extends Component {
                       <ReactImageFallback
                         src={`${images}/EOS.png`}
                         fallbackImage={`${images}/COMMON.png`}
-                        alt={`eos token airdrop`}
+                        alt={`eos airdrop`}
                         className="token_logo"
                       />
                     </div>
@@ -352,7 +352,7 @@ class EOSMarketCap extends Component {
                           <ReactImageFallback
                             src={`${images}/${token.symbol}.png`}
                             fallbackImage={`${images}/COMMON.png`}
-                            alt={`${token.currency} eos token airdrop`}
+                            alt={`${token.currency}`}
                             className="token_logo"
                           />
                         </div>
@@ -469,7 +469,7 @@ class EOSMarketCap extends Component {
                           <ReactImageFallback
                             src={`${images}/${token.symbol}.png`}
                             fallbackImage={`${images}/COMMON.png`}
-                            alt={`${token.currency} eos token airdrop`}
+                            alt={`${token.currency}`}
                             className="token_logo"
                           />
                         </div>
@@ -587,7 +587,7 @@ class EOSMarketCap extends Component {
                       <div className="col-12 p-2 row m-0">
                         <div className="col p-0 d-flex align-items-center">
                           <i className="fa fa-chart-bar text-info fa-lg mr-2" />
-                          <h1 className="title text-info">EOS Marketcap</h1>
+                          <h1 className="title text-info">EOS Market Cap</h1>
                         </div>
                         <label className="font-weight-normal float-right mb-0">
                           <select
@@ -645,7 +645,7 @@ class EOSMarketCap extends Component {
                         </div>
                         <div className="col-4  row pl-0 m-0">
                           <div className="col-12 col-sm-6 p-0">
-                            <div className="text-info ftz-headermc text-right"> MARKETCAP </div>
+                            <div className="text-info ftz-headermc text-right"> MARKET CAP </div>
                             <div className="text-right">{renderMCVal(total_token_marketcap, mcUnit, eos_price)}</div>
                           </div>
                           <div className="col-12 col-sm-6 p-0 ">

@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import isHash from 'validator/lib/isHash';
 import isLowercase from 'validator/lib/isLowercase';
 import {connect} from 'react-redux';
-// import * as actions from '../actions/auth';
+// import {getIdentity, getScatter} from '../actions/auth';
 import {setSidebarStatus, setAddedToHomescreen, setDeferredPrompt} from '../actions/sidebar';
 import history from './history';
 import KeyAccountsModal from './eosio/KeyAccountsModal';
-// const images = require.context('../assets/imgs');
-// let scatterimg = images('./Scatter.jpg');
+const images = require.context('../assets/imgs');
+let scatterimg = images('./Scatter.jpg');
 
 class Header extends Component {
   constructor(props) {
@@ -23,12 +23,12 @@ class Header extends Component {
     // this.onScatterLogout = this.onScatterLogout.bind(this);
   }
   // componentDidMount() {
-  //   // try {
-  //   //   this.props.getScatter();
-  //   // } catch (ex) {
-  //   //   return null;
-  //   // }
-  //   // return null;
+  //   try {
+  //     this.props.getScatter();
+  //   } catch (ex) {
+  //     return null;
+  //   }
+  //   return null;
   // }
   changeTerm(event) {
     this.setState({term: event.target.value});
@@ -172,7 +172,7 @@ class Header extends Component {
 }
 
 function mapStateToProps({myStore}) {
-  return {sidebar: myStore.sidebar};
+  return {sidebar: myStore.sidebar, auth: myStore.auth};
 }
 
 export default connect(
@@ -181,3 +181,4 @@ export default connect(
 )(Header);
 
 // export default Header;
+//, getIdentity, getScatter

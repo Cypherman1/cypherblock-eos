@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 const images = require.context('../assets/imgs/symbols');
 const telegram_logo = images(`./telegram.png`);
+const twitter_logo = images(`./twitter.png`);
+const medium_logo = images(`./medium.png`);
 const Footer = ({sidebar}) => {
   return (
     <footer
@@ -17,6 +19,12 @@ const Footer = ({sidebar}) => {
       </div>
       <div className="footer-block author col m-0 p-0">
         <div className="text-right">
+          <a href="https://twitter.com/tungnt2112">
+            <img src={twitter_logo} alt="twitter" className="telegram_logo" />
+          </a>
+          <a href="https://medium.com/@tungnt.billing">
+            <img src={medium_logo} alt="medium" className="telegram_logo" />
+          </a>
           <a href="https://t.me/cypherblockio">
             <img src={telegram_logo} alt="telegram" className="telegram_logo" /> Contact us
           </a>

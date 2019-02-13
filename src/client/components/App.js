@@ -6,6 +6,7 @@ import LeftSideBar from './LeftSideBar';
 import ErrorPage from './ErrorPage';
 import Header from './Header';
 import Footer from './Footer';
+import SocialShare from './eosio/SocialShare';
 import history from './history';
 import {connect} from 'react-redux';
 import runtime from 'serviceworker-webpack-plugin/lib/runtime';

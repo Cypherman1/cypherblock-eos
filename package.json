@@ -153,6 +153,7 @@
     "react-redux": "^5.0.7",
     "react-responsive-modal": "^3.2.0",
     "react-router-dom": "^4.3.1",
+    "react-share": "^2.4.0",
     "react-sizes": "^1.0.4",
     "react-tagsinput": "^3.19.0",
     "react-toastify": "^4.2.0",

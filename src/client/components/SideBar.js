@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {setActiveLinkID, setSidebarStatus, setIsDarkMode, setIsSidebarHide} from '../actions/sidebar';
 import logo from '../assets/imgs/logo.png';
 import {mainstore} from '../store';
+import SocialShare from './eosio/SocialShare';
 
 let menu1 = [
   {
@@ -173,6 +174,9 @@ class SideBar extends Component {
           </div>
           <footer className="sidebar-footer">
             <div className={`sidebar-menu ${isSidebarHide ? 'whide' : ''}`} id="customize-menu">
+              <div className={`${isDarkMode ? 'border-secondary' : ''}  pl-1 border-bottom pb-1 `}>
+                <SocialShare />
+              </div>
               <button
                 className={`btn ${isDarkMode ? 'btn-dark' : 'btn-secondary'}  btn-squared w-100 pl-3 mb-0`}
                 style={{height: 50}}

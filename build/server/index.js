@@ -52,25 +52,25 @@ const app = express();
 //   process.exit(1);
 // }
 
-const MONGO_URI = keys.mongoURI;
+// const MONGO_URI = keys.mongoURI;
 
-const options = {
-  server: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}},
-  replset: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}}
-};
+// const options = {
+//   server: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}},
+//   replset: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}}
+// };
 
-// // Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
-mongoose.Promise = global.Promise;
+// // // Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
+// mongoose.Promise = global.Promise;
 
-// Connect to the mongoDB instance and log a message
-// on success or failure
-mongoose.connect(
-  MONGO_URI,
-  options
-);
-mongoose.connection
-  .once('open', () => console.log('Connected to MongoLab instance.'))
-  .on('error', (error) => console.log('Error connecting to MongoLab:', error));
+// // Connect to the mongoDB instance and log a message
+// // on success or failure
+// mongoose.connect(
+//   MONGO_URI,
+//   options
+// );
+// mongoose.connection
+//   .once('open', () => console.log('Connected to MongoLab instance.'))
+//   .on('error', (error) => console.log('Error connecting to MongoLab:', error));
 
 // Configures express to use sessions.  This places an encrypted identifier
 // on the users cookie.  When a user makes a request, this middleware examines
@@ -111,7 +111,7 @@ logger.info(`Application env: ${process.env.NODE_ENV}`);
 app.use(logger.expressMiddleware);
 app.use(bodyParser.json());
 
-getVoters();
+// getVoters();
 
 var j = schedule.scheduleJob('42 * * * * *', function() {
   try {

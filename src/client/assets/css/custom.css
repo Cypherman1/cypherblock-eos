@@ -1795,8 +1795,8 @@ i.metismenu-state-icon.rotate-minus-90 {
 }
 
 .telegram_logo {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
 }
 
 .pad-3 {
@@ -1896,4 +1896,8 @@ i.metismenu-state-icon.rotate-minus-90 {
 .cp li > a {
   text-decoration: none !important;
   font-weight: 300 !important;
+}
+
+.ss-height {
+  height: 40px !important;
 }

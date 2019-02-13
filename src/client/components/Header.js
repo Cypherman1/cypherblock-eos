@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import isHash from 'validator/lib/isHash';
 import isLowercase from 'validator/lib/isLowercase';
 import {connect} from 'react-redux';
-import {getIdentity, getScatter, forgetIdentity, login} from '../actions/auth';
+// import {getIdentity, getScatter, forgetIdentity, login} from '../actions/auth';
 import {setSidebarStatus, setAddedToHomescreen, setDeferredPrompt} from '../actions/sidebar';
 import history from './history';
 import KeyAccountsModal from './eosio/KeyAccountsModal';
@@ -19,8 +19,8 @@ class Header extends Component {
     this.submit = this.submit.bind(this);
     this.changeTerm = this.changeTerm.bind(this);
     this.submitSidebarStatus = this.submitSidebarStatus.bind(this);
-    this.onScatterOpen = this.onScatterOpen.bind(this);
-    this.onScatterLogout = this.onScatterLogout.bind(this);
+    // this.onScatterOpen = this.onScatterOpen.bind(this);
+    // this.onScatterLogout = this.onScatterLogout.bind(this);
   }
   componentDidMount() {
     // try {
@@ -40,14 +40,14 @@ class Header extends Component {
   onCloseModal = () => {
     this.setState({open: false});
   };
-  onScatterOpen(event) {
-    event.preventDefault();
-    this.props.getIdentity(this.props.auth.scatter);
-  }
-  onScatterLogout(event) {
-    event.preventDefault();
-    this.props.auth.scatter.forgetIdentity();
-  }
+  // onScatterOpen(event) {
+  //   event.preventDefault();
+  //   this.props.getIdentity(this.props.auth.scatter);
+  // }
+  // onScatterLogout(event) {
+  //   event.preventDefault();
+  //   this.props.auth.scatter.forgetIdentity();
+  // }
   submitSidebarStatus(event) {
     event.preventDefault();
     this.props.setSidebarStatus(true);
@@ -69,29 +69,29 @@ class Header extends Component {
       return <KeyAccountsModal public_key={this.state.term} onCloseModal={this.onCloseModal} open={this.state.open} />;
     } else return null;
   }
-  renderAccount() {
-    let result = null;
+  // renderAccount() {
+  //   let result = null;
 
-    if (!this.props.auth.account) {
-      result = (
-        <div className="col-auto pt-auth">
-          <button type="button" className="btn btn-outline-info p-1 pr-2" onClick={() => this.props.login()}>
-            <img src={scatterimg} className="img-logo rounded-circle" /> Login
-          </button>
-        </div>
-      );
-    } else {
-      result = (
-        <div>
-          <button className="btn btn-success" onClick={() => this.props.forgetIdentity(this.props.auth.scatter)}>
-            {this.props.auth.account.name}
-          </button>
-        </div>
-      );
-    }
+  //   if (!this.props.auth.account) {
+  //     result = (
+  //       <div className="col-auto pt-auth">
+  //         <button type="button" className="btn btn-outline-info p-1 pr-2" onClick={() => this.props.login()}>
+  //           <img src={scatterimg} className="img-logo rounded-circle" /> Login
+  //         </button>
+  //       </div>
+  //     );
+  //   } else {
+  //     result = (
+  //       <div>
+  //         <button className="btn btn-success" onClick={() => this.props.forgetIdentity(this.props.auth.scatter)}>
+  //           {this.props.auth.account.name}
+  //         </button>
+  //       </div>
+  //     );
+  //   }
 
-    return result;
-  }
+  //   return result;
+  // }
 
   render() {
     const {isDarkMode, isSidebarHide, deferredPrompt, addedToHomesceen} = this.props.sidebar;
@@ -182,8 +182,10 @@ function mapStateToProps({myStore}) {
 
 export default connect(
   mapStateToProps,
-  {setSidebarStatus, setAddedToHomescreen, setDeferredPrompt, getIdentity, getScatter, forgetIdentity, login}
+  {setSidebarStatus, setAddedToHomescreen, setDeferredPrompt}
 )(Header);
+
+// , getIdentity, getScatter, forgetIdentity, login
 
 // export default Header;
 //, getIdentity, getScatter

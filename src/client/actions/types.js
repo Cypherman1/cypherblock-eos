@@ -2,6 +2,8 @@
 export const GET_SCATTER = 'get_scatter';
 export const SCATTER_FORGET_IDENTITY = 'scatter_forget_identity';
 export const SCATTER_GET_IDENTITY = 'scatter_get_identity';
+export const GET_SCATTER_FAIL = 'get_scatter_fail';
+export const GET_SCATTER_SUCCESS = 'get_scatter_success';
 // eosActions
 export const TOGGLE_LIVE_ACTIONS = 'toggle_live_actions';
 export const SET_IS_REFETCH = 'set_is_refetch';

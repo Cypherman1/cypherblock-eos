@@ -6,7 +6,7 @@ const logger = require('./logger');
 
 const models = require('./models');
 const expressGraphQL = require('express-graphql');
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportConfig = require('./services/auth');
@@ -24,6 +24,7 @@ const getBitfinexTickers = require('./services/getBitfinexTickers');
 const getNewdexTickers = require('./services/getNewdexTickers');
 const calEOSMarketcap = require('./services/calEOSMarketcap');
 const getCMC = require('./services/getCMC');
+const getVoters = require('./services/getVoters');
 var schedule = require('node-schedule');
 
 //process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -51,48 +52,48 @@ const app = express();
 //   process.exit(1);
 // }
 
-// const MONGO_URI = keys.mongoURI;
+const MONGO_URI = keys.mongoURI;
 
-// const options = {
-//   server: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}},
-//   replset: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}}
-// };
+const options = {
+  server: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}},
+  replset: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}}
+};
 
 // // Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
-// // Connect to the mongoDB instance and log a message
-// // on success or failure
-// mongoose.connect(
-//   MONGO_URI,
-//   options
-// );
-// mongoose.connection
-//   .once('open', () => console.log('Connected to MongoLab instance.'))
-//   .on('error', (error) => console.log('Error connecting to MongoLab:', error));
+// Connect to the mongoDB instance and log a message
+// on success or failure
+mongoose.connect(
+  MONGO_URI,
+  options
+);
+mongoose.connection
+  .once('open', () => console.log('Connected to MongoLab instance.'))
+  .on('error', (error) => console.log('Error connecting to MongoLab:', error));
 
 // Configures express to use sessions.  This places an encrypted identifier
 // on the users cookie.  When a user makes a request, this middleware examines
 // the cookie and modifies the request object to indicate which user made the request
 // The cookie itself only contains the id of a session; more data about the session
 // is stored inside of MongoDB.
-app.use(
-  session({
-    resave: true,
-    saveUninitialized: true,
-    secret: keys.cookieKey
-    // store: new MongoStore({
-    //   url: MONGO_URI,
-    //   autoReconnect: true
-    // })
-  })
-);
+// app.use(
+//   session({
+//     resave: true,
+//     saveUninitialized: true,
+//     secret: keys.cookieKey
+//     // store: new MongoStore({
+//     //   url: MONGO_URI,
+//     //   autoReconnect: true
+//     // })
+//   })
+// );
 
-// Passport is wired into express as a middleware. When a request comes in,
-// Passport will examine the request's session (as set by the above config) and
-// assign the current user to the 'req.user' object.  See also servces/auth.js
-app.use(passport.initialize());
-app.use(passport.session());
+// // Passport is wired into express as a middleware. When a request comes in,
+// // Passport will examine the request's session (as set by the above config) and
+// // assign the current user to the 'req.user' object.  See also servces/auth.js
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Instruct Express to pass on any request made to the '/graphql' route
 // to the GraphQL instance.
@@ -109,6 +110,8 @@ logger.info(`Application env: ${process.env.NODE_ENV}`);
 
 app.use(logger.expressMiddleware);
 app.use(bodyParser.json());
+
+getVoters();
 
 var j = schedule.scheduleJob('42 * * * * *', function() {
   try {

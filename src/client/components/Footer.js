@@ -19,11 +19,11 @@ const Footer = ({sidebar}) => {
       </div>
       <div className="footer-block author col m-0 p-0">
         <div className="text-right">
-          <a href="https://twitter.com/tungnt2112">
+          <a href="https://twitter.com/tungnt2112 ">
             <img src={twitter_logo} alt="twitter" className="telegram_logo" />
           </a>
           <a href="https://medium.com/@tungnt.billing">
-            <img src={medium_logo} alt="medium" className="telegram_logo" />
+            <img src={medium_logo} alt="medium" className="telegram_logo"/>
           </a>
           <a href="https://t.me/cypherblockio">
             <img src={telegram_logo} alt="telegram" className="telegram_logo" /> Contact us

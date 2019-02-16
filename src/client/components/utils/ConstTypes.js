@@ -56,7 +56,8 @@ export const AntiSpams = {
     'gameboylucky',
     'eosjackscool',
     'lelego.x',
-    'goldioioioio'
+    'goldioioioio',
+    'okbetteam111'
   ],
   black_list: [
     {
@@ -138,6 +139,10 @@ export const AntiSpams = {
     {
       act_account: 'ecafofficiel',
       act_name: 'arbitration'
+    },
+    {
+      act_account: 'cryptotim.e',
+      act_name: 'broadcast'
     }
   ]
 };

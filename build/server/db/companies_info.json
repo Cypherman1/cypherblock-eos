@@ -1407,5 +1407,23 @@
     "website": "https://boscore.io",
     "intro":
       "The goal of BOS(Business Operating System) is to build an EOSIO ecosystem that supports more DApp and solve real-world problems using blockchain technology. From the perspective of the evolution of the blockchain, in addition to being the preferred base chain of DApp, BOS can also serve as a circulation chain for various heterogeneous chain coins or tokens, and as a free port in the blockchain world. BOS comes from the community and will develop better with a joint effort by the community."
+  },
+  {
+    "symbol": "goldioioioio-gio-eos",
+    "contract": "goldioioioio",
+    "currency": "GIO",
+    "name": "GOLD.IO",
+    "website": "https://gold.io",
+    "intro":
+      "GOLD.IO is a Decentralized Autonomous Exchange (DEX)1 based on EOSIO. As a Decentralized Autonomous Community (DAC), GOLD.IO’s open democracy is achieved through complete on-chain governance. More specifically, GOLD.IO functions entirely through smart contracts that are independent and goal oriented, created by the people in the system who share similar visions about the future and are willing to adhere to common rules, all distributed across distinct locations around the globe through copies and backups."
+  },
+  {
+    "symbol": "patreostoken-patr-eos",
+    "contract": "patreostoken",
+    "currency": "PATR",
+    "name": "Patreos",
+    "website": "https://www.patreos.com",
+    "intro":
+      "Patreos is a decentralized content ecosystem built on the EOS blockchain that powers content sharing, subscriptions, funding, and campaigns to promote community growth and creative freedom."
   }
 ]

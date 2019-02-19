@@ -114,7 +114,7 @@ class Header extends Component {
           </div>
           <div className="w-100 row m-0 pr-1 pt-2">
             <div className="header-block header-block-search col pr-0 pl-search">
-              <form role="search" className="float-left w-100" onSubmit={this.submit}>
+              <form role="search" className="float-left w-100" onSubmit={this.submit} autoComplete="on">
                 <div className="input-group input-group-seamless">
                   <input
                     type="text"
@@ -131,9 +131,9 @@ class Header extends Component {
                   <div className="input-group-append">
                     <button
                       aria-label="search"
-                      type="button"
+                      type="submit"
                       className={`btn ${isDarkMode ? 'btn-success' : 'btn-info'}  mb-0`}
-                      onClick={this.submit}
+                      onSubmit={this.submit}
                     >
                       <i className="fa fa-search text-light" />
                     </button>

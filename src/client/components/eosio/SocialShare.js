@@ -22,7 +22,7 @@ const SocialShare = () => {
       <FacebookShareButton
         url={shareUrl}
         quote={title}
-        className="Demo__some-network__share-button"
+        className="Demo__some-network__share-button mb-1"
         aria-label="mobile navigation"
       >
         <FacebookIcon size={26} round />
@@ -31,7 +31,7 @@ const SocialShare = () => {
       <TwitterShareButton
         url={shareUrl}
         title={title}
-        className="Demo__some-network__share-button"
+        className="Demo__some-network__share-button mb-1"
         aria-label="mobile navigation"
       >
         <TwitterIcon size={26} round />
@@ -40,7 +40,7 @@ const SocialShare = () => {
       <TelegramShareButton
         url={shareUrl}
         title={title}
-        className="Demo__some-network__share-button"
+        className="Demo__some-network__share-button mb-1"
         aria-label="mobile navigation"
       >
         <TelegramIcon size={26} round />

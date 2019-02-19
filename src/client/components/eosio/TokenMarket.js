@@ -78,7 +78,7 @@ const TokenMarketLoading = ({isDarkMode}) => {
       </div>
       <div className={`card-block p-0 market-scroll`}>
         <div style={{height: 40}} />
-        <div className="text-center align-middle overlay" style={{paddingTop: 100}}>
+        <div className="text-center align-middle overlay" style={{paddingTop: 92}}>
           <i className="fa fa-spinner fa-spin text-info fa-2x" />
         </div>
       </div>

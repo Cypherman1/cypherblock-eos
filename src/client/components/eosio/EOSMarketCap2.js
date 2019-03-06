@@ -604,17 +604,15 @@ class EOSMarketCap extends Component {
                           </select>
                         </label>
                         <div className="ml-1">
-                          <div
-                            className="input-group input-group-seamless mb-0 pr-1 float-right"
-                            style={{width: 100, height: 30}}
-                          >
+                          <div className="input-group input-group-seamless mb-0 pr-1 float-right">
                             <input
                               type="text"
-                              className="form-control border-0"
+                              className="form-control-sm border-0"
                               aria-label="Text input with checkbox"
                               onChange={(event) => {
                                 this.props.setMCSearchSymbol(event.target.value);
                               }}
+                              style={{width: 100, height: 30}}
                             />
                             <div className="input-group-append">
                               <div className="input-group-text">

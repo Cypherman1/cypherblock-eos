@@ -56,7 +56,7 @@ const getSupply = () => {
           limit: 10
         })
         .catch((err) => {
-          process.stdout.write('Promises Fail!' + err);
+          process.stdout.write('Promises Fail!: ' + token.contract + '-' + token.currency.toUpperCase() + ':' + err);
         })
     );
   });
@@ -66,7 +66,14 @@ const getSupply = () => {
     .then((results) => {
       results.map((response) => {
         if (response && response.status == '200') {
-          if (response.data && response.data.rows && response.data.rows[0] && JSON.parse(response.config.data)) {
+          if (
+            response.data &&
+            response.data.rows &&
+            response.data.rows[0] &&
+            response.data.rows[0].supply &&
+            response.data.rows[0].max_supply &&
+            JSON.parse(response.config.data)
+          ) {
             mainObject.data.push({
               symbol:
                 JSON.parse(response.config.data).code +

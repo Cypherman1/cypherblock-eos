@@ -57,7 +57,8 @@ export const AntiSpams = {
     'eosjackscool',
     'lelego.x',
     'goldioioioio',
-    'okbetteam111'
+    'okbetteam111',
+    'eoscrashplay'
   ],
   black_list: [
     {

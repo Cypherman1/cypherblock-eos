@@ -40,7 +40,7 @@ const client = new ApolloClient({
   queryDeduplication: true
 });
 
-// Rea ctGA.initialize('UA-125792941-1');
+ReactGA.initialize('UA-125792941-1');
 
 const Root = () => {
   return (

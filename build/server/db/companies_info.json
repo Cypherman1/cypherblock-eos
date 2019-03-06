@@ -1425,5 +1425,147 @@
     "website": "https://www.patreos.com",
     "intro":
       "Patreos is a decentralized content ecosystem built on the EOS blockchain that powers content sharing, subscriptions, funding, and campaigns to promote community growth and creative freedom."
+  },
+  {
+    "symbol": "mutualaidaid-mtd-eos",
+    "contract": "mutualaidaid",
+    "currency": "MTD",
+    "name": "MTD",
+    "website": "https://eosmtd.net",
+    "intro":
+      "As the most popular public chain infrastructure, EOSIO currently has a single gambling application in Dapp application scenario. Many good ideas and ideas can not be well realized because of technology and capital cost. In this context, we build MTD-skills mutual reward platform! Publish block chains and various network-related service information on MTD platform, and get development support from technology enthusiasts from all over the world by offering rewards and mutual assistance."
+  },
+  {
+    "symbol": "untowermain1-utg-eos",
+    "contract": "untowermain1",
+    "currency": "UTG",
+    "name": "Unlimited Tower",
+    "website": "https://www.unlimitedtower.com",
+    "intro":
+      "Unlimited Tower is the next generation on-chain battle SRPG Dapp powered by the EOS blockchain. You may upgrade the items, servants, and monsters to form a blockchain-based party to dominate the Unlimited Tower. Be the final hero and leave your legacy now!"
+  },
+  {
+    "symbol": "okkkkkkkkkkk-led-eos",
+    "contract": "okkkkkkkkkkk",
+    "currency": "LED",
+    "name": "LED",
+    "website": "http://www.chled.io",
+    "intro":
+      "LED is based on the lighting passport issued by EOS main network, with a total circulation of 1 billion yuan and a real circulation of 20 million yuan. It is a de-centralized digital passport. In the future, LED can be used to pay for lighting products. At present, it is the first technology application of energy-saving lighting industry in the block chain in the world. It combines the technical characteristics such as unalterable, makes the energy-saving lighting industry chain realize the information consensus of upstream, middle and downstream, and creates a digital passport combining the real economy of energy-saving lighting with the assets of block chain."
+  },
+  {
+    "symbol": "eosauctionpt-eap-eos",
+    "contract": "eosauctionpt",
+    "currency": "EAP",
+    "name": "EAP",
+    "website": "https://www.eosauctionplatform.com",
+    "intro":
+      "An online auction platform built on the EOS blockchain, EAP aims to provide users with a decentralised, scalable and fair auction experience. It is free fees for users and partners, also EAP is the leading provider of auction market, data analysis and advanced decision support platform."
+  },
+  {
+    "symbol": "creditmanage-cre-eos",
+    "contract": "creditmanage",
+    "currency": "CRE",
+    "name": "CRE",
+    "website": "https://www.eos-credit.com",
+    "intro":
+      "Based on the characteristics of decentralization, non-tampering and transparency in the chain, the establishment of a personal credit system, giving priority to the establishment of a credit mutual assistance platform, and the expansion of financial, public welfare, education, catering and other fields, through the integration with the traditional credit system The way to open up the integrity of the credit system in the Internet Internet era."
+  },
+  {
+    "symbol": "thepeostoken-peos-eos",
+    "contract": "thepeostoken",
+    "currency": "PEOS",
+    "name": "pEOS",
+    "website": "https://peos.one",
+    "intro":
+      "pEOS enables private and untraceable transactions on EOS. Leveraging ring signatures, ring confidential transactions and stealth addresses pEOS is truly private. It combines Monero's technology with EOS' performance."
+  },
+  {
+    "symbol": "novusphereio-atmos-eos",
+    "contract": "novusphereio",
+    "currency": "ATMOS",
+    "name": "ATMOS",
+    "website": "https://eos.discussions.app/#/e/novusphere",
+    "intro":
+      "ATMOS is a marker on the EOS block chain. It provides substitution and anonymity through the use of a delinked token system (side chain) of secret addresses, ring signatures and secret transactions. ATMOS is placed on the main chain of EOS to participate in the verification of side chains. The authenticator approves that any standard EOS token (including the EOS itself) can go out of the side chain. The verifier charges a fee to the system, such as when the token moves from the main chain to the side chain and returns."
+  },
+  {
+    "symbol": "betkingtoken-bkt-eos",
+    "contract": "betkingtoken",
+    "currency": "BKT",
+    "name": "BetKing",
+    "website": "https://betking.io",
+    "intro": "BetKing game token."
+  },
+  {
+    "symbol": "stablecarbon-cusd-eos",
+    "contract": "stablecarbon",
+    "currency": "CUSD",
+    "name": "CUSD",
+    "website": "https://fiat.carbon.money",
+    "intro":
+      "CUSD is a compliant, price-stable cryptocurrency, that is 1-to-1 backed by fiat. Most importantly, it is also the first stablecoin to be introduced to EOS."
+  },
+  {
+    "symbol": "oneplaytoken-one-eos",
+    "contract": "oneplaytoken",
+    "currency": "ONE",
+    "name": "OnePlay",
+    "website": "https://oneplay.io",
+    "intro":
+      "OnePlay is a gambling platform which was build in EOS network. Our goal to make a fun and fair game where every body can go there relax as well as earn some free daily ONE&amp;BEAN tokens."
+  },
+  {
+    "symbol": "iwedicetoken-we-eos",
+    "contract": "iwedicetoken",
+    "currency": "WE",
+    "name": "WeDice",
+    "website": "https://wedice.one",
+    "intro":
+      "WeDice is an innovative profit-sharing dice game that entitles each owner of a dice number to sharing profit derived from corresponding rolling dice bets."
+  },
+  {
+    "symbol": "rosdappcomio-ros-eos",
+    "contract": "rosdappcomio",
+    "currency": "ROS",
+    "name": "ROS",
+    "website": "http://www.rosdapp.com",
+    "intro":
+      "ROS is a super red envelope platform coin,which can be obtained by unpacking and mining.Each time you put 1EOS,you can get 200ROS reward,and even more mines and explosives,up to ten times. Holding ROS enjoys the distribution rights of the platform,holding the currency dividends,repurchasing and destorying,locking the dividends,etc.Welcome your participation!"
+  },
+  {
+    "symbol": "eosreeltoken-er-eos",
+    "contract": "eosreeltoken",
+    "currency": "ER",
+    "name": "EOSreel",
+    "website": "https://eosreel.io",
+    "intro": "EOSreel Game token."
+  },
+  {
+    "symbol": "bosredsystem-bosred-eos",
+    "contract": "bosredsystem",
+    "currency": "BOSRED",
+    "name": "BR PLUS",
+    "website": "https://www.blockpin.net",
+    "intro":
+      "BR PLUS is a multi-currency, multi-bottom general-purpose aggregate payment system hatched by the flag-like community. Boss BR PLUS covers the main digital currency payment channels of BTC, ETH, EOS and BOS. It gives you the simplest and quickest access experience. At the same time, it provides a simple and easy-to-use management platform so that you can centralize cross-channel transaction management and financial management. The owner BR PLUS is not a simple aggregate payment channel and routing, but a virtual payment expert team within each start-up block chain enterprise. It is dedicated to helping small and micro enterprises in block chain to establish pan-block chain payment module quickly, efficiently and high-quality, and to meet the challenges of any block chain transaction scenario calmly."
+  },
+  {
+    "symbol": "gambeostoken-gam-eos",
+    "contract": "gambeostoken",
+    "currency": "GAM",
+    "name": "Gamble EOS",
+    "website": "http://gambleeos.io",
+    "intro":
+      "Gamble EOS dragon and tiger fight, the player as a banker, the block open the award, the fair, the justice."
+  },
+  {
+    "symbol": "billionairet-xbl-eos",
+    "contract": "billionairet",
+    "currency": "XBL",
+    "name": "Billionaire Token",
+    "website": "https://BillionaireToken.com",
+    "intro":
+      "Billionaire Token is an EOS Token with a deflationary mechanism instead of a mining system. Which means that 30% of all the gambled tokens are permanently destroyed. Thus the tokens become more and more rare as more and more people gamble. Billionaire Tokens are used as the in-game-currency for the Billionaire Token Games.The Billionaire Token games, unlike other popular gambling platforms, are fully decentralized. Billionaire Token has no house and does not host anything on their servers. Everything is as it should be - on the Blockchain."
   }
 ]

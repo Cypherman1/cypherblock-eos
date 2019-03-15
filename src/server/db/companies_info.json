@@ -1567,5 +1567,68 @@
     "website": "https://BillionaireToken.com",
     "intro":
       "Billionaire Token is an EOS Token with a deflationary mechanism instead of a mining system. Which means that 30% of all the gambled tokens are permanently destroyed. Thus the tokens become more and more rare as more and more people gamble. Billionaire Tokens are used as the in-game-currency for the Billionaire Token Games.The Billionaire Token games, unlike other popular gambling platforms, are fully decentralized. Billionaire Token has no house and does not host anything on their servers. Everything is as it should be - on the Blockchain."
+  },
+  {
+    "symbol": "324fki1w4eeg-nast-eos",
+    "contract": "324fki1w4eeg",
+    "currency": "NAST",
+    "name": "NAST",
+    "website": "http://nast.one",
+    "intro":
+      "Node All-Star Foundation LTD issues the token NAST based on the EOS blockchain; NAST is the utility token within the node all-star ecosystem, NAST can be used to get the service within the interblockchain wallet Fantertainment. The service of this wallet include blockchain games. entertianment and social, plus users can buy different IP related products using NAST."
+  },
+  {
+    "symbol": "packeostoken-pack-eos",
+    "contract": "packeostoken",
+    "currency": "PACK",
+    "name": "EOS Pack",
+    "website": "https://eospack.fun",
+    "intro":
+      "EOS Pack is a simulation miner game based on EOS main network. The game sets up a double-currency balance playing method. PACK coin is the only passport of PACK ecology. PACK ecology will include many kinds of DApp such as PACK miners, PACK F1, PACK POKER, and introduce the passport economic model to establish a perfect PACK DApp ecology."
+  },
+  {
+    "symbol": "vsvscontract-vs-eos",
+    "contract": "vsvscontract",
+    "currency": "VS",
+    "name": "Versus",
+    "website": "http://eos.vsbet.io",
+    "intro":
+      "VS is the abbreviation of Versus. It is the token issued by VSbet, the first PVP game on EOS. VS pioneered bank financial dividend, which binds the long-term interests and benefits of users and platforms, and encourages more users to join the VS coin-holding ecology. The vision of VS, together with all VS holders, is to build a sustainable and innovative EOS Dapp ecosystem, which will continue to promote Dapp's innovation and development in the long run."
+  },
+  {
+    "symbol": "eosabctokens-eosabc-eos",
+    "contract": "eosabctokens",
+    "currency": "EOSABC",
+    "name": "EOSABC",
+    "website": "https://www.eosabc.io",
+    "intro":
+      "EOSABC token is the only ecological passport of EOSABC. It can be applied to various functions of EOSABC wallet and DApp, including asset management, resource leasing, account management, advertising bidding, financial management, Dapp game speculation, pledge dividend and so on."
+  },
+  {
+    "symbol": "worktokenbvi-lynx-eos",
+    "contract": "worktokenbvi",
+    "currency": "LYNX",
+    "name": "Lynx",
+    "website": "https://eoslynx.com",
+    "intro":
+      "Lynx is a new consumer focused wallet that has been released on iOS, Android and desktop that is specifically geared towards the EOS token ecosystem. It was designed with the end-user in mind as a way to easily transfer and exchange EOS tokens and interface with EOS based dApps."
+  },
+  {
+    "symbol": "worktokenbvi-wrk-eos",
+    "contract": "worktokenbvi",
+    "currency": "WRK",
+    "name": "Workcoin",
+    "website": "https://workcoin.market",
+    "intro":
+      "Workcoin is the first platform for freelancers on EOS. Businessmen can issue jobs to recruit temporary workers."
+  },
+  {
+    "symbol": "eostimetoken-time-eos",
+    "contract": "eostimetoken",
+    "currency": "TIME",
+    "name": "EOSTIME",
+    "website": "https://eostime.io",
+    "intro":
+      "The first fast and fair EOS bidding application. Throughout the day, you can win EOS by bidding in fast and fun auctions. Auctions are designed to end quickly and pay prizes immediately. New auctions are started frequently so there is always a game to play. Receive TIME tokens with every bid and get your share of hourly dividends based on how many TIME tokens you hold (no staking required)."
   }
 ]

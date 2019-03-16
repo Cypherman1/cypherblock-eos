@@ -209,7 +209,8 @@ class ActionsCardBody extends Component {
                 Oops! No action found! Do you want to "Fetch more" or change actions view settings
                 <button
                   type="button"
-                  className="btn btn-light btn-pill p-0"
+                  className="btn btn-light btn-pill"
+                  style={{paddingTop: 4, paddingBottom: 1, paddingLeft: 1, paddingRight: 1}}
                   data-toggle="collapse"
                   data-target="#collapseExample"
                   aria-expanded="false"

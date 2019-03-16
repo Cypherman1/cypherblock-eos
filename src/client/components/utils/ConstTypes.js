@@ -144,6 +144,18 @@ export const AntiSpams = {
     {
       act_account: 'cryptotim.e',
       act_name: 'broadcast'
+    },
+    {
+      act_account: 'winplayworld',
+      act_name: 'sayto'
+    },
+    {
+      act_account: 'thedeosgames',
+      act_name: 'hello'
+    },
+    {
+      act_account: 'prospectorss',
+      act_name: 'welcome'
     }
   ]
 };

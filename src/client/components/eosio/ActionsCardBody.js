@@ -22,6 +22,7 @@ import {
 } from '../../actions/eosActions';
 
 var action_digests_tmp = '';
+let trx_id_tmp = '';
 let actions_data = null;
 let total_actions = 0;
 let actions_fetched = 0;
@@ -144,6 +145,7 @@ class ActionsCardBody extends Component {
     let items = [];
     if (data && data.actions && data.chain && data.total && data.total.actions[0]) {
       action_digests_tmp = '';
+      trx_id_tmp = '';
       actions_data = [...data.actions.actions].sort(
         (a, b) => Number(b.account_action_seq) - Number(a.account_action_seq)
       );
@@ -158,7 +160,8 @@ class ActionsCardBody extends Component {
 
       actions_data.map((action) => {
         if (
-          action.action_trace.receipt.act_digest !== action_digests_tmp &&
+          (action.action_trace.receipt.act_digest !== action_digests_tmp ||
+            action.action_trace.trx_id !== trx_id_tmp) &&
           !IsSpam(action.action_trace, isAntiSpamed) &&
           IsFiltered(
             action.action_trace,
@@ -171,6 +174,7 @@ class ActionsCardBody extends Component {
           IsSearched(action.action_trace, memoTags)
         ) {
           action_digests_tmp = action.action_trace.receipt.act_digest;
+          trx_id_tmp = action.action_trace.trx_id;
           items.push(
             <ActionCard
               key={action.global_action_seq}

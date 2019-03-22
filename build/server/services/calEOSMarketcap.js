@@ -4,6 +4,7 @@ const BIGONE_TICKERS_PATH = __dirname + '/../db/bigone_tickers.json';
 const BANCOR_TICKERS_PATH = __dirname + '/../db/bancor_tickers.json';
 const BITFINEX_TICKERS_PATH = __dirname + '/../db/bitfinex_tickers.json';
 const BLOCKSENCE_TICKERS_PATH = __dirname + '/../db/blocksence_tickers.json';
+const CHAINCE_TICKERS_PATH = __dirname + '/../db/chaince_tickers.json';
 const NEWDEX_TICKERS_PATH = __dirname + '/../db/newdex_tickers.json';
 const EOSMARKETCAP_PATH = __dirname + '/../db/eosmarketcap.json';
 const CMC_PATH = __dirname + '/../db/cmc.json';
@@ -14,6 +15,7 @@ let NewdexTickers = [];
 let BigoneTickers = [];
 let BancorTickers = [];
 let BlocksenceTickers = [];
+let ChainceTickers = [];
 let BitfinexPairs = [];
 let TokensSupply = [];
 let index = 0;
@@ -55,11 +57,13 @@ const Aggregate_Markets = () => {
         );
       });
       //update price and change percent of each token
-      EOSMarkets[i].last = tmp_last / tmp_amount;
       EOSMarkets[i].change = tmp_change / tmp_change_amount;
+      EOSMarkets[i].last = tmp_last / tmp_amount;
     } else {
-      EOSMarkets[i].last = EOSMarkets[i].exchanges[0].last;
-      EOSMarkets[i].change = EOSMarkets[i].exchanges[0].change;
+      if (EOSMarkets[i].exchanges[0]) {
+        EOSMarkets[i].change = EOSMarkets[i].exchanges[0].change;
+        EOSMarkets[i].last = EOSMarkets[i].exchanges[0].last;
+      }
     }
     //calcualate total statistic
   }
@@ -113,6 +117,33 @@ const AddBitfinexPairs = () => {
       });
     }
   });
+};
+
+const AddChaiceTickers = () => {
+  ChainceTickers = JSON.parse(fs.readFileSync(CHAINCE_TICKERS_PATH));
+
+  for (var ticker in ChainceTickers) {
+    if (ticker.substr(ticker.length - 3) == 'eos') {
+      index = EOSMarkets.findIndex(
+        (e) =>
+          e.symbol ==
+          ChainceTickers[ticker].base_contract + '-' + ticker.toLowerCase().substr(0, ticker.length - 3) + '-eos'
+      );
+
+      if (index == -1) {
+      } else if (index >= 0) {
+        EOSMarkets[index].exchanges.push({
+          name: 'Chaince',
+          url: 'https://chaince.com/trade/' + ticker.toLowerCase(),
+          percent: 0,
+          last: Number(ChainceTickers[ticker].price),
+          change: Number(ChainceTickers[ticker].change.substr(0, ChainceTickers[ticker].change - 1)),
+          amount: Number(ChainceTickers[ticker].volume),
+          volume: Number(ChainceTickers[ticker].volume) * Number(ChainceTickers[ticker].price)
+        });
+      }
+    }
+  }
 };
 
 const AddBlocksenceTickers = () => {
@@ -320,33 +351,39 @@ const AddNewdexTickers = () => {
 };
 
 const calEOSMarketcap = () => {
-  eos_price = JSON.parse(fs.readFileSync(CMC_PATH)).data.EOS.quote.USD.price;
+  try {
+    eos_price = JSON.parse(fs.readFileSync(CMC_PATH)).data.EOS.quote.USD.price;
 
-  EOSMarkets = [];
+    EOSMarkets = [];
 
-  AddNewdexTickers();
+    AddNewdexTickers();
 
-  AddBigoneTickers();
+    AddBigoneTickers();
 
-  AddBancorTickers(eos_price);
+    AddBancorTickers(eos_price);
 
-  AddBlocksenceTickers();
+    AddChaiceTickers();
 
-  AddBitfinexPairs();
+    // AddBlocksenceTickers();
 
-  AddTokensSupply();
+    AddBitfinexPairs();
 
-  Aggregate_Markets();
+    AddTokensSupply();
 
-  fs.writeFile(
-    EOSMARKETCAP_PATH,
-    JSON.stringify(
-      EOSMarkets.sort((a, b) => Number(b.supply.current) * Number(b.last) - Number(a.supply.current) * Number(a.last))
-    ),
-    (err) => {
-      if (err) process.stdout.write('Write tokens file fail!' + err);
-    }
-  );
+    Aggregate_Markets();
+
+    fs.writeFile(
+      EOSMARKETCAP_PATH,
+      JSON.stringify(
+        EOSMarkets.sort((a, b) => Number(b.supply.current) * Number(b.last) - Number(a.supply.current) * Number(a.last))
+      ),
+      (err) => {
+        if (err) process.stdout.write('Write tokens file fail!' + err);
+      }
+    );
+  } catch (ex) {
+    console.log('calEOSMarketcap fail!' + ex);
+  }
 };
 
 module.exports = calEOSMarketcap;

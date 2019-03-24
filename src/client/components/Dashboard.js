@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 import {setLimitValue} from '../actions/eosActions';
 import {setActiveLinkID} from '../actions/sidebar';
 
-const GeneralInfo = React.lazy(() => import('./eosio/GeneralInfo'));
+const GeneralInfo = React.lazy(() => import('./eosio/GeneralInfo'))
 const ActionsCard = React.lazy(() => import('./eosio/ActionsCard'));
 // const Producers = React.lazy(() => import('./eosio/Producers'));
 // const TokenMarket = React.lazy(() => import('./eosio/TokenMarket'));

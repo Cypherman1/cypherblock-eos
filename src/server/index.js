@@ -24,6 +24,7 @@ const getBitfinexTickers = require('./services/getBitfinexTickers');
 const getNewdexTickers = require('./services/getNewdexTickers');
 const calEOSMarketcap = require('./services/calEOSMarketcap');
 const getCMC = require('./services/getCMC');
+const getChainceTickers = require('./services/getChainceTickers');
 const getVoters = require('./services/getVoters');
 var schedule = require('node-schedule');
 
@@ -144,13 +145,13 @@ var j4 = schedule.scheduleJob('17 * * * * *', function() {
   }
 });
 
-var j5 = schedule.scheduleJob('18 * * * * *', function() {
-  try {
-    getBlocksenceTickers();
-  } catch (err) {
-    process.stdout.write('getBlocksenceTickers Fail! index ' + err);
-  }
-});
+// var j5 = schedule.scheduleJob('18 * * * * *', function() {
+//   try {
+//     getBlocksenceTickers();
+//   } catch (err) {
+//     process.stdout.write('getBlocksenceTickers Fail! index ' + err);
+//   }
+// });
 
 var j6 = schedule.scheduleJob('19 * * * * *', function() {
   try {
@@ -181,6 +182,14 @@ var j8 = schedule.scheduleJob('33 * * * * *', function() {
     calEOSMarketcap();
   } catch (err) {
     process.stdout.write('calEOSMarketcap Fail! index ' + err);
+  }
+});
+
+var j9 = schedule.scheduleJob('33 * * * * *', function() {
+  try {
+    getChainceTickers();
+  } catch (err) {
+    process.stdout.write('getChainceTickers Fail! index ' + err);
   }
 });
 

@@ -1901,3 +1901,7 @@ i.metismenu-state-icon.rotate-minus-90 {
 .ss-height {
   height: 40px !important;
 }
+
+.white-space {
+  white-space: pre-line !important;
+}

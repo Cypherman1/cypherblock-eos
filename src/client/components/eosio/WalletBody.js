@@ -78,8 +78,7 @@ class WalletBody extends Component {
             price: Number(data.eosmarketcap.data[index].last),
             percent: Number(data.eosmarketcap.data[index].change)
           };
-
-          AllTokens.push(atoken);
+          if (atoken.name != 'EOS' && atoken.price > 0) AllTokens.push(atoken);
         }
       }
     }
@@ -175,60 +174,60 @@ class WalletBody extends Component {
             </div>
           );
         } else {
-          token_value = 0;
-          items.push(
-            <div
-              className={`${isDarkMode ? 'bg-dark-1' : ''} card-token-price  row shadow-sm mbt-1px ftz-13 `}
-              key={token.name}
-            >
-              {/* token info */}
-              <div className="col-3 p-0 d-flex align-items-center">
-                <div className="ml-2 bg-white mr-2 logo-bgr">
-                  <ReactImageFallback
-                    src={token_logo}
-                    fallbackImage={fallback_logo}
-                    alt={`${token.name}`}
-                    className="token_logo"
-                  />
-                </div>
-                <div className="">{token.name}</div>
-              </div>
-              {/* Balance info */}
-              <div className="col-5 p-0">
-                <div className="text-right d-flex align-items-center">
-                  <div className="ftz-13 font-weight-acttype">
-                    {isEOSUnit ? (
-                      <div className="d-inline-block " style={{width: 13}}>
-                        <img src={eoslogo} alt="eos block explorer" />
-                      </div>
-                    ) : (
-                      <div className="d-inline-block pl-1" style={{width: 13}}>
-                        <i className="fa fa-dollar-sign" style={{fontSize: 11}} />
-                      </div>
-                    )}
-                    <div
-                      className="d-inline pcursor"
-                      role="button"
-                      onClick={() => {
-                        this.props.setTokenBalanceUnitl(!this.props.common.isEOSUnit);
-                      }}
-                    >
-                      <NumberEasing
-                        value={token_value}
-                        ease="backIn"
-                        precision={4}
-                        speed={500}
-                        trail={true}
-                        useLocaleString={true}
-                      />
-                    </div>
-                  </div>
-                  <div className="ftz-13">{renderEOSNum(token.ammount)}</div>
-                </div>
-              </div>
-              <div className="col-4 p-0">{this.renderPriceinfo(token)}</div>
-            </div>
-          );
+          // token_value = 0;
+          // items.push(
+          //   <div
+          //     className={`${isDarkMode ? 'bg-dark-1' : ''} card-token-price  row shadow-sm mbt-1px ftz-13 `}
+          //     key={token.name}
+          //   >
+          //     {/* token info */}
+          //     <div className="col-3 p-0 d-flex align-items-center">
+          //       <div className="ml-2 bg-white mr-2 logo-bgr">
+          //         <ReactImageFallback
+          //           src={token_logo}
+          //           fallbackImage={fallback_logo}
+          //           alt={`${token.name}`}
+          //           className="token_logo"
+          //         />
+          //       </div>
+          //       <div className="">{token.name}</div>
+          //     </div>
+          //     {/* Balance info */}
+          //     <div className="col-5 p-0">
+          //       <div className="text-right d-flex align-items-center">
+          //         <div className="ftz-13 font-weight-acttype">
+          //           {isEOSUnit ? (
+          //             <div className="d-inline-block " style={{width: 13}}>
+          //               <img src={eoslogo} alt="eos block explorer" />
+          //             </div>
+          //           ) : (
+          //             <div className="d-inline-block pl-1" style={{width: 13}}>
+          //               <i className="fa fa-dollar-sign" style={{fontSize: 11}} />
+          //             </div>
+          //           )}
+          //           <div
+          //             className="d-inline pcursor"
+          //             role="button"
+          //             onClick={() => {
+          //               this.props.setTokenBalanceUnitl(!this.props.common.isEOSUnit);
+          //             }}
+          //           >
+          //             <NumberEasing
+          //               value={token_value}
+          //               ease="backIn"
+          //               precision={4}
+          //               speed={500}
+          //               trail={true}
+          //               useLocaleString={true}
+          //             />
+          //           </div>
+          //         </div>
+          //         <div className="ftz-13">{renderEOSNum(token.ammount)}</div>
+          //       </div>
+          //     </div>
+          //     <div className="col-4 p-0">{this.renderPriceinfo(token)}</div>
+          //   </div>
+          // );
         }
       }
     });

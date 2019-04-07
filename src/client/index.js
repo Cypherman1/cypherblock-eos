@@ -40,7 +40,11 @@ const client = new ApolloClient({
   queryDeduplication: true
 });
 
+// Init Google Analytic
+
 ReactGA.initialize('UA-125792941-1');
+
+// Setup Root component
 
 const Root = () => {
   return (

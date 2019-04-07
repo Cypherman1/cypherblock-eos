@@ -255,7 +255,7 @@ class Project extends Component {
                         </ul>
                         <div className="tab-content" id="myTabContent">
                           <div
-                            className="tab-pane fade show active p-1"
+                            className="tab-pane fade show active p-1 white-space"
                             id="home"
                             role="tabpanel"
                             aria-labelledby="home-tab"

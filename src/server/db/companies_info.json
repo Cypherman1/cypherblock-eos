@@ -1674,5 +1674,50 @@
     "name": "PlayerOne",
     "website": "https://playerone.id/",
     "intro": "PlayerOne facilitates gamers to own and monetize their gameplay data by utilizing blockchain technology."
+  },
+  {
+    "symbol": "liccommunity-licc-eos",
+    "contract": "liccommunity",
+    "currency": "LICC",
+    "name": "LICC",
+    "website": "https://licc.kr/",
+    "intro":
+      "LICC is the world's first EOS-based Camping &amp; Travel community, with the aim of sharing the life learned in nature through camping and traveling. LICC users can share travel and camping experiences and create content to generate revenue, and the Web.Mobile-based Community Demo is up and running. LICC is working on various projects in line with the road map in the white paper, and will launch online shopping malls in collaboration with affiliated companies to become LICCoin, which is used in real life."
+  },
+  {
+    "symbol": "eoslandadmin-ero-eos",
+    "contract": "eoslandadmin",
+    "currency": "ERO",
+    "name": "EOSLAND",
+    "website": "https://neoworld.io/eosland",
+    "intro":
+      "EOSLAND is a multiplayer virtual world based on blockchain technology and a 3D space created by a global collaboration. In the world of EOSLAND, users create value and users gain wealth. EOSLAND, an independent world in NeoWorld, is an archipelago model consisting of 21 islands. ERO is based on the EOS issued, is the necessary construction materials for EOS exclusive buildings, and is the only way to obtain EOSLAND islands' equity points. The ERO has a maximum circulation of 21 million. Each island of EOSLAND has a production capacity of 1 million each. Whenever a new island is opened, its corresponding output quota will be activated. 95% of the ERO will be produced by building an ERO collection plant on the island; 5% of the ERO will be an operational pool that will be used for pre-opening pre-heating activities and subsequent rewards for various operational activities."
+  },
+  {
+    "symbol": "anoxanoxanox-anx-eos",
+    "contract": "anoxanoxanox",
+    "currency": "ANX",
+    "name": "ANX",
+    "website": "https://anox.io/",
+    "intro":
+      "The first security token issued on the EOS blockchain. ANX will act as a conduit between every day people and exclusive hedge funds, delivering professional funds management to the masses. Our closed-end/fund-of-funds hybrid is a novel spin on traditional fund structures; readily accessible yet fully compliant. The infinitely divisible nature of cryptocurrency delivers access for all - great and small."
+  },
+  {
+    "symbol": "eosbtextoken-bt-eos",
+    "contract": "eosbtextoken",
+    "currency": "BT",
+    "name": "BTEX",
+    "website": "https://btex.org/",
+    "intro":
+      "BTEX is a de-centralized exchange on EOS, which push all the exchange core functions to the blockchain, such as listing, matching, clearing and so on. Greatly guaranteeing the security of trader' assets, and token issuer can self-help list on BTEX. BT is a platform token, through the holding of BT enjoy the relevant rights and interests, including 100% Commission dividends, voting rights, value-added profits, etc."
+  },
+  {
+    "symbol": "gemcitytoken-gem-eos",
+    "contract": "gemcitytoken",
+    "currency": "GEM",
+    "name": "GemCity",
+    "website": "https://www.gemcity.io/",
+    "intro":
+      "After two centuries, space explorers finally discovered GEM. I heard that getting GEM can get a lot of wealth. Come to GemCity to open the EOS Eco Treasure New World era."
   }
 ]

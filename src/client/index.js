@@ -42,7 +42,7 @@ const client = new ApolloClient({
 
 // Init Google Analytic
 
-ReactGA.initialize('UA-125792941-1');
+if (process.env.NODE_ENV === 'production') ReactGA.initialize(process.env.GA_KEY);
 
 // Setup Root component
 

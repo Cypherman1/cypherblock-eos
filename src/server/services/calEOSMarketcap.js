@@ -355,6 +355,12 @@ const calEOSMarketcap = () => {
     eos_price = JSON.parse(fs.readFileSync(CMC_PATH)).data.EOS.quote.USD.price;
 
     EOSMarkets = [];
+    if (!fs.existsSync(EOSMARKETCAP_PATH)) {
+      fs.writeFile(EOSMARKETCAP_PATH, JSON.stringify(EOSMarkets), (err) => {
+        if (err) process.stdout.write('Write tokens file fail!' + err);
+      });
+      //file not exists
+    }
 
     AddNewdexTickers();
 

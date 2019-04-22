@@ -1,0 +1,60 @@
+{
+  "producer_account_name": "cypherblocks",
+  "org": {
+    "candidate_name": "Cypherblock",
+    "website": "https://www.cypherblock.io",
+    "code_of_conduct": "",
+    "ownership_disclosure": "",
+    "email": "cypherblockio@gmail.com",
+    "branding": {
+      "logo_256": "https://www.cypherblock.io/imgs/cypherblock_logo_256.png",
+      "logo_1024": "https://www.cypherblock.io/imgs/cypherblock_logo_1024.png",
+      "logo_svg": "https://www.cypherblock.io/imgs/cypherblock_logo_svg.svg"
+    },
+    "location": {
+      "name": "Hanoi",
+      "country": "Vietnam",
+      "latitude": 21.028511,
+      "longitude": 105.804817
+    },
+    "social": {
+      "steemit": "https://steemit.com/@cypherman",
+      "twitter": "",
+      "youtube": "https://www.youtube.com/channel/UClHoi4T0FuZBSLdPOgK3d3w",
+      "facebook": "",
+      "github": "https://github.com/Cypherman1/",
+      "reddit": "",
+      "keybase": "",
+      "telegram": "https://t.me/cypherblockio",
+      "wechat": ""
+    }
+  },
+  "nodes": [
+    {
+      "location": {
+        "name": "Hanoi",
+        "country": "Vietnam",
+        "latitude": 21.028511,
+        "longitude": 105.804817
+      },
+      "node_type": "producer",
+      "p2p_endpoint": "167.99.12.191:9876",
+      "bnet_endpoint": "167.99.12.191:9875",
+      "api_endpoint": "http://167.99.12.191:8888",
+      "ssl_endpoint": "https://167.99.12.191:443"
+    },
+    {
+      "location": {
+        "name": "Hanoi",
+        "country": "Vietnam",
+        "latitude": 21.028511,
+        "longitude": 105.804817
+      },
+      "node_type": "seed",
+      "p2p_endpoint": "167.99.12.191:9876",
+      "bnet_endpoint": "167.99.12.191:9875",
+      "api_endpoint": "http://167.99.12.191:8888",
+      "ssl_endpoint": "https://167.99.12.191:443"
+    }
+  ]
+}

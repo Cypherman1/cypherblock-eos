@@ -2,7 +2,7 @@
 
 Cypherblock is one of the most popular a Block Explorer for EOSIO Blockchain. 
 
-![alt text](https://www.cypherblock.io/header_pro.png "Cypherblock")
+![alt text](https://www.cypherblock.io/header_pro1.png "Cypherblock")
 
 It's 
 

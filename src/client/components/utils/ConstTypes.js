@@ -156,6 +156,14 @@ export const AntiSpams = {
     {
       act_account: 'prospectorss',
       act_name: 'welcome'
+    },
+    {
+      act_account: 'prospectorsa',
+      act_name: 'welcome'
+    },
+    {
+      act_account: 'cryptoketeos',
+      act_name: 'send'
     }
   ]
 };

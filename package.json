@@ -1,15 +1,14 @@
 {
-  "version": "2.3.0",
+  "version": "1.0.0",
   "author": {
-    "name": "Anton Fisher",
-    "email": "a.fschr@gmail.com",
-    "url": "http://antonfisher.com"
+    "name": "Cypherman",
+    "email": "tungnt.billing@gmail.com",
+    "url": "httpw://www.cypherblock.io"
   },
-  "description": "React boilerplate with ES2015, Express.js, and Webpack",
+  "description": "A handy Block Explorer for EOSIO blockchain",
   "license": "MIT",
   "engines": {
-    "node": "11.11.0",
-    "npm": "6.1.0"
+    "node": ">=10.10.0"
   },
   "repository": {
     "type": "git",

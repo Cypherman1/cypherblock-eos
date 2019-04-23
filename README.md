@@ -1,18 +1,29 @@
-# Project Title
+# Welcome to [Cypherblock](https://www.cypherblock.io)
 
-Cypherblock is one of the most popular a Block Explorer for EOSIO Blockchain. 
+<p align="center">
+  <img alt="Cypherblock" src="https://www.cypherblock.io/header_pro1.png">
+</p>
 
-![alt text](https://www.cypherblock.io/header_pro1.png "Cypherblock")
+Cypherblock is one of the most popular Block Explorer for [EOSIO](https://github.com/EOSIO/eos)  Blockchain. It's nice, simple and powerful. 
 
-It's 
+## Technology 
+
+* [Nodejs](https://nodejs.org/en/), [Express](https://expressjs.com/), [React](https://reactjs.org/) (v16) , [Redux](https://redux.js.org/)(v4)
+* [GraphQL](https://graphql.org/), [Apollo](https://www.apollographql.com/)
+* [Webpack](https://webpack.js.org/)(v4), React router(v4), Bootstrap
+* [EOSIO APIs](https://developers.eos.io/)
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+* [Nodejs](https://nodejs.org/en/)
+* [Yarn](https://yarnpkg.com/en/docs/install) (Recommened)
+* [VSCode](https://code.visualstudio.com/) (Recommened)
+  * [ESLint](https://github.com/Microsoft/vscode-eslint)
+  * [Prettier - Code formatter](https://github.com/prettier/prettier-vscode)
 
 ```
 Give examples
@@ -76,16 +87,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-- **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+- **Nguyen Thanh Tung** - _Initial work_ - [Cypherman](https://github.com/Cypherman1)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Cypherblock is released under the [MIT License](LICENSE.md).
 
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc

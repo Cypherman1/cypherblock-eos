@@ -5,14 +5,14 @@
     "email": "tungnt.billing@gmail.com",
     "url": "httpw://www.cypherblock.io"
   },
-  "description": "A handy Block Explorer for EOSIO blockchain",
+  "description": "A handdy Block Explorer for EOSIO blockchain",
   "license": "MIT",
   "engines": {
-    "node": ">=10.10.0"
+    "node": ">=10.10.0 <=11.11.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/antonfisher/react-express-webpack.git"
+    "url": "https://github.com/Cypherman1/cypherblock-eos"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development node src/server",

@@ -65,84 +65,86 @@ try {
   logger.info('Init Fail!' + err);
 }
 
-var j = schedule.scheduleJob('42 * * * * *', function() {
-  try {
-    getTokens();
-  } catch (err) {
-    logger.info('getTokens Fail index!' + err);
-  }
-});
-var j1 = schedule.scheduleJob('52 * * * * *', function() {
-  try {
-    getSupply();
-  } catch (err) {
-    process.stdout.write('getTokensSupply Fail! index ' + err);
-  }
-});
+if (process.env.NODE_ENV === 'production') {
+  var j = schedule.scheduleJob('42 * * * * *', function() {
+    try {
+      getTokens();
+    } catch (err) {
+      logger.info('getTokens Fail index!' + err);
+    }
+  });
+  var j1 = schedule.scheduleJob('52 * * * * *', function() {
+    try {
+      getSupply();
+    } catch (err) {
+      process.stdout.write('getTokensSupply Fail! index ' + err);
+    }
+  });
 
-var j3 = schedule.scheduleJob('16 * * * * *', function() {
-  try {
-    getBigoneTickers();
-  } catch (err) {
-    process.stdout.write('getBigoneTickers Fail! index ' + err);
-  }
-});
+  var j3 = schedule.scheduleJob('16 * * * * *', function() {
+    try {
+      getBigoneTickers();
+    } catch (err) {
+      process.stdout.write('getBigoneTickers Fail! index ' + err);
+    }
+  });
 
-var j4 = schedule.scheduleJob('17 * * * * *', function() {
-  try {
-    getNewdexTickers();
-  } catch (err) {
-    process.stdout.write('getNewdexTickers Fail! index ' + err);
-  }
-});
+  var j4 = schedule.scheduleJob('17 * * * * *', function() {
+    try {
+      getNewdexTickers();
+    } catch (err) {
+      process.stdout.write('getNewdexTickers Fail! index ' + err);
+    }
+  });
 
-// var j5 = schedule.scheduleJob('18 * * * * *', function() {
-//   try {
-//     getBlocksenceTickers();
-//   } catch (err) {
-//     process.stdout.write('getBlocksenceTickers Fail! index ' + err);
-//   }
-// });
+  // var j5 = schedule.scheduleJob('18 * * * * *', function() {
+  //   try {
+  //     getBlocksenceTickers();
+  //   } catch (err) {
+  //     process.stdout.write('getBlocksenceTickers Fail! index ' + err);
+  //   }
+  // });
 
-var j6 = schedule.scheduleJob('19 * * * * *', function() {
-  try {
-    getBitfinexTickers();
-  } catch (err) {
-    process.stdout.write('getBigoneTickers Fail! index ' + err);
-  }
-});
+  var j6 = schedule.scheduleJob('19 * * * * *', function() {
+    try {
+      getBitfinexTickers();
+    } catch (err) {
+      process.stdout.write('getBigoneTickers Fail! index ' + err);
+    }
+  });
 
-var j9 = schedule.scheduleJob('20 * * * * *', function() {
-  try {
-    getBancorTickers();
-  } catch (err) {
-    process.stdout.write('getBigoneTickers Fail! index ' + err);
-  }
-});
+  var j9 = schedule.scheduleJob('20 * * * * *', function() {
+    try {
+      getBancorTickers();
+    } catch (err) {
+      process.stdout.write('getBigoneTickers Fail! index ' + err);
+    }
+  });
 
-var j7 = schedule.scheduleJob('*/5 * * * *', function() {
-  try {
-    getCMC();
-  } catch (err) {
-    process.stdout.write('getCMC Fail! index ' + err);
-  }
-});
+  var j7 = schedule.scheduleJob('*/5 * * * *', function() {
+    try {
+      getCMC();
+    } catch (err) {
+      process.stdout.write('getCMC Fail! index ' + err);
+    }
+  });
 
-var j8 = schedule.scheduleJob('33 * * * * *', function() {
-  try {
-    calEOSMarketcap();
-  } catch (err) {
-    process.stdout.write('calEOSMarketcap Fail! index ' + err);
-  }
-});
+  var j8 = schedule.scheduleJob('33 * * * * *', function() {
+    try {
+      calEOSMarketcap();
+    } catch (err) {
+      process.stdout.write('calEOSMarketcap Fail! index ' + err);
+    }
+  });
 
-var j9 = schedule.scheduleJob('33 * * * * *', function() {
-  try {
-    getChainceTickers();
-  } catch (err) {
-    process.stdout.write('getChainceTickers Fail! index ' + err);
-  }
-});
+  var j9 = schedule.scheduleJob('33 * * * * *', function() {
+    try {
+      getChainceTickers();
+    } catch (err) {
+      process.stdout.write('getChainceTickers Fail! index ' + err);
+    }
+  });
+}
 
 // application routes
 //setupApiRoutes(app);

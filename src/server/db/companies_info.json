@@ -1719,5 +1719,23 @@
     "website": "https://www.gemcity.io/",
     "intro":
       "After two centuries, space explorers finally discovered GEM. I heard that getting GEM can get a lot of wealth. Come to GemCity to open the EOS Eco Treasure New World era."
+  },
+  {
+    "symbol": "ploutoztoken-plo-eos",
+    "contract": "ploutoztoken",
+    "currency": "PLO",
+    "name": "PLOUTOZ",
+    "website": "https://ploutoz.com/",
+    "intro":
+      "PLOUTOZ Token, also known as “PLO”, is based on the EOS public chain and is a proof of equity in the PLOUTOZ blockchain derivatives market. It can be used as a payment token for the PLOUTOZ derivatives ecosystem and for margin. It will also be used for partner funds, alliance co-establishment, community building, and for all deposits, settlements, payments, and cross-chain derivatives settlement and payment in the public chain derivatives market created by PLOUTOZ."
+  },
+  {
+    "symbol": "eosdragontkn-dragon-eos",
+    "contract": "eosdragontkn",
+    "currency": "DRAGON",
+    "name": "DRAGON",
+    "website": "https://dragonoption.io/",
+    "intro":
+      "The first binary option game on EOS with verifiable fairness. Predict the short term price movements and earn! Win even more, if you are a crypto-professional and know everything about blockchain. Get DRAGON token for every EOS you bet and use it to play any game from upcoming DRAGON ecosystem! Play Dragon Option and catch your lucky dragon!"
   }
 ]

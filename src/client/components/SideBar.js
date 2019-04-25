@@ -1,3 +1,13 @@
+/***********************************************************************
+ * FILENAME :        Sidebar.js
+ *
+ * DESCRIPTION :
+ *       Implementing left sidebar .
+ *
+ * AUTHOR :    Cypherman        START DATE :
+ *
+ */
+
 import React, {Component} from 'react';
 import MetisMenu from 'react-metismenu';
 import withSizes from 'react-sizes';
@@ -33,51 +43,12 @@ const genMenu = (isSidebarHide) => {
       label: 'Block Explorer',
       to: '/'
     },
-    // {
-    //   id: 2,
-    //   icon: 'cogs',
-    //   label: 'Block producers',
-    //   to: '/blockproducers'
-    // },
     {
       id: 3,
       icon: 'bar-chart',
       label: 'EOS Marketcap',
       to: '/eosmarketcap'
     }
-    // ,
-    // {
-    //   id: 2,
-    //   icon: 'bolt',
-    //   label: 'Account',
-    //   to: '/account'
-    //   // content: [
-    //   //   {
-    //   //     icon: 'bolt',
-    //   //     label: 'Sub Menu',
-    //   //     to: 'sub-menu'
-    //   //   }
-    //   // ]
-    // },
-    // {
-    //   id: 3,
-    //   icon: 'bolt',
-    //   label: 'Blocks',
-    //   to: '/block'
-    //   // content: [
-    //   //   {
-    //   //     icon: 'bolt',
-    //   //     label: 'Sub Menu',
-    //   //     to: 'sub-menu'
-    //   //   }
-    //   // ]
-    // },
-    // {
-    //   id: 4,
-    //   icon: 'bell',
-    //   label: 'transaction',
-    //   to: '/transaction'
-    // }
   ];
 };
 
@@ -97,23 +68,7 @@ class SideBar extends Component {
     if (!this.props.isDesktop) menu1 = UpdateName(menu1, true);
     else menu1 = UpdateName(menu1, !this.props.sidebar.isSidebarHide);
   }
-  componentDidMount() {}
 
-  // renderMenu() {
-
-  //   return this.props.sidebar.isDarkMode ? (
-  //     <MetisMenu
-  //       className="metismenu-dark"
-  //       classNameItem="metismenu-item-dark"
-  //       classNameContainer="metismenu-container-dark"
-  //       content={menu}
-  //       LinkComponent={RouterLink}
-  //       activeLinkId={this.props.sidebar.activeLinkId}
-  //     />
-  //   ) : (
-  //     <MetisMenu content={menu} LinkComponent={RouterLink} activeLinkId={this.props.sidebar.activeLinkId} />
-  //   );
-  // }
   componentWillReceiveProps(nextProps) {
     if (
       this.props.isDesktop !== nextProps.isDesktop ||
@@ -126,8 +81,6 @@ class SideBar extends Component {
   render() {
     const {setSidebarStatus, sidebar, isDesktop, setIsDarkMode, setIsSidebarHide, setActiveLinkID} = this.props;
     const {isDarkMode, isSidebarHide, menu} = sidebar;
-    // if (!this.props.isDesktop) menu1 = UpdateName(menu1, true);
-    // else menu1 = UpdateName(menu1, !isSidebarHide);
 
     return (
       <div>

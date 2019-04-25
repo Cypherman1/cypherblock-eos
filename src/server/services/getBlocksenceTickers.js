@@ -1,5 +1,5 @@
+//Getting Chaince tickers from Blocksence's APIs
 const axios = require('axios');
-// const keys = require('../config/keys');
 const BLOCKSENCE_TICKERS_PATH = __dirname + '/../db/blocksence_tickers.json';
 
 let fs = require('fs');

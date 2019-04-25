@@ -1,5 +1,6 @@
+//Getting Bitfinex tickers from Bitfinex's APIs
+
 const axios = require('axios');
-// const keys = require('../config/keys');
 const BITFINEX_TICKERS_PATH = __dirname + '/../db/bitfinex_tickers.json';
 
 let fs = require('fs');

@@ -1,18 +1,14 @@
 import React, {Component, Suspense} from 'react';
 import withSizes from 'react-sizes';
 import {Helmet} from 'react-helmet';
-// import GeneralInfo from './eosio/GeneralInfo';
-// import ActionsCard from './eosio/ActionsCard';
 import Producers from './eosio/Producers';
 import TokenMarket from './eosio/TokenMarket';
 import {connect} from 'react-redux';
 import {setLimitValue} from '../actions/eosActions';
 import {setActiveLinkID} from '../actions/sidebar';
 
-const GeneralInfo = React.lazy(() => import('./eosio/GeneralInfo'))
+const GeneralInfo = React.lazy(() => import('./eosio/GeneralInfo'));
 const ActionsCard = React.lazy(() => import('./eosio/ActionsCard'));
-// const Producers = React.lazy(() => import('./eosio/Producers'));
-// const TokenMarket = React.lazy(() => import('./eosio/TokenMarket'));
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -33,8 +29,7 @@ class Dashboard extends Component {
               <Suspense fallback={<div> Loading... </div>}>
                 <GeneralInfo isDarkMode={sidebar.isDarkMode} />
               </Suspense>
-              {/* <TokenMarket display="d-xl-none" isDarkMode={sidebar.isDarkMode} />
-            <Producers limit="30" display="d-xl-none" isDarkMode={sidebar.isDarkMode} /> */}
+
               <Suspense fallback={<div> Loading... </div>}>
                 <ActionsCard
                   account_name="eosio"
@@ -68,21 +63,13 @@ class Dashboard extends Component {
               <Suspense fallback={<div> Loading... </div>}>
                 <GeneralInfo isDarkMode={sidebar.isDarkMode} />
               </Suspense>
-              {/* <TokenMarket display="d-xl-none" isDarkMode={sidebar.isDarkMode} />
-            <Producers limit="30" display="d-xl-none" isDarkMode={sidebar.isDarkMode} /> */}
+
               <Suspense fallback={<div> Loading... </div>}>
                 <TokenMarket isDarkMode={sidebar.isDarkMode} />
               </Suspense>
               <Suspense fallback={<div> Loading... </div>}>
                 <Producers limit="21" isDarkMode={sidebar.isDarkMode} />
               </Suspense>
-              {/* <ActionsCard
-              account_name="eosio"
-              notifyOnNetworkStatusChange={false}
-              showRefetch={true}
-              isLive={true}
-              isDarkMode={sidebar.isDarkMode}
-            /> */}
             </div>
           </div>
         </section>
@@ -103,5 +90,3 @@ export default connect(
   mapStateToProps,
   {setLimitValue, setActiveLinkID}
 )(withSizes(mapSizesToProps)(Dashboard));
-
-// export default Dashboard;

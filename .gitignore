@@ -11,7 +11,7 @@ src/server/db/bitfinex_tickers.json
 src/server/db/blocksence_tickers.json
 src/server/db/chaince_tickers.json
 src/server/db/cmc.json
-src/server/db/eosmarketcap.json
+# src/server/db/eosmarketcap.json
 src/server/db/tokens_supply.json
 src/server/db/tokens.json
 src/server/db/newdex_tickers.json

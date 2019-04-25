@@ -1,3 +1,4 @@
+// Tokens listed on other exchanges but not on Newdex
 module.exports = [
   {
     symbol: 'taketooktook-took-eos',

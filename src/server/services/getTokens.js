@@ -1,5 +1,5 @@
+//Getting list of tokens from Newdex's APIs
 const axios = require('axios');
-// const keys = require('../config/keys');
 const TOKENS_PATH = __dirname + '/../db/tokens.json';
 
 let fs = require('fs');

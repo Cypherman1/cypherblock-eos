@@ -11,8 +11,6 @@ import {Provider} from 'react-redux';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 require('typeface-poppins');
 import {mainstore} from './store';
-
-// import './assets/css/all.min.css';
 import './assets/css/bootstrap.css';
 import './assets/fontawesome/css/all.css';
 import 'react-toastify/dist/ReactToastify.css';

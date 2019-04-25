@@ -1,27 +1,11 @@
 const {resolve} = require('path');
-//const express = require('express');
-// const compression = require('compression');
+
 const expressStaticGzip = require('express-static-gzip');
 
 const clientBuildPath = resolve(__dirname, '..', '..', 'client');
 let fs = require('fs');
 
 module.exports = function setup(app) {
-  // app.use(compression());
-  // app.get('*.js', function(req, res, next) {
-  //   req.url += '.gz';
-  //   res.set('Content-Encoding', 'gzip');
-  //   res.set('Content-Type', 'text/javascript');
-  //   next();
-  // });
-
-  // app.get('*.css', function(req, res, next) {
-  //   req.url += '.gz';
-  //   res.set('Content-Encoding', 'gzip');
-  //   res.set('Content-Type', 'text/css');
-  //   next();
-  // });
-
   app.get('/', (req, res) => {
     const filePath = resolve(clientBuildPath, 'index.html');
     fs.readFile(filePath, 'utf8', function(err, data) {
@@ -29,7 +13,7 @@ module.exports = function setup(app) {
         return console.log(err);
       }
 
-      // replace the special strings with server generated strings
+      // Set Title, Description, Canonical tag for Home Page
       data = data.replace(/\$OG_TITLE/g, 'Cypherblock | EOS Block Explorer | Account, Token, Airdrop, Price');
       data = data.replace(
         /\$OG_DESCRIPTION/g,
@@ -47,7 +31,7 @@ module.exports = function setup(app) {
         return console.log(err);
       }
 
-      // replace the special strings with server generated strings
+      // Set Title, Description, Canonical tag for /eosmarketcap page
       data = data.replace(/\$OG_TITLE/g, 'EOS Market cap | eos airdrop, Dapp, Project, Price, Ranking');
       data = data.replace(
         /\$OG_DESCRIPTION/g,
@@ -64,7 +48,7 @@ module.exports = function setup(app) {
       if (err) {
         return console.log(err);
       }
-
+      // Set Title, Description, Canonical tag for account pages
       data = data.replace(
         /\$OG_TITLE/g,
         req.params.account_name + ' | EOS Block Explorer |EOS Account, Airdrops, Price, Value'
@@ -84,7 +68,7 @@ module.exports = function setup(app) {
       if (err) {
         return console.log(err);
       }
-
+      // Set Title, Description, Canonical tag for /project pages
       data = data.replace(
         /\$OG_TITLE/g,
         req.params.symbol
@@ -110,7 +94,7 @@ module.exports = function setup(app) {
         return console.log(err);
       }
 
-      // replace the special strings with server generated strings
+      // Set Title, Description, Canonical tag for other pages
       data = data.replace(/\$OG_TITLE/g, 'Cypherblock | EOS Block Explorer | Account, Token, Airdrop, Price');
       data = data.replace(
         /\$OG_DESCRIPTION/g,

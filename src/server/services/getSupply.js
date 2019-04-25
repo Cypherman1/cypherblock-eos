@@ -1,9 +1,7 @@
+//Getting Circulatig supply of tokens from EOSIO Blockchain
 const axios = require('axios');
 const TOKENS_PATH = __dirname + '/../db/tokens.json';
 const TOKENS_SUPPLY_PATH = __dirname + '/../db/tokens_supply.json';
-const NEWDEX_TICKERS_PATH = __dirname + '/../db/newdex_tickers.json';
-
-const keys = require('../config/keys');
 
 let fs = require('fs');
 const other_exs = require('./other_exs.js');
@@ -19,14 +17,8 @@ const getSupply = () => {
 
   tokens = JSON.parse(fs.readFileSync(TOKENS_PATH));
 
-  // tokens.forEach((token, index) => {
-  //   console.log(token);
-  //   console.log(index);
-  // });
-
   other_exs.map((ticker) => {
     index = tokens.findIndex((e) => e.symbol == ticker.symbol);
-
     if (index == -1) {
       tokens.push({
         symbol: ticker.symbol,
@@ -56,7 +48,7 @@ const getSupply = () => {
           limit: 10
         })
         .catch((err) => {
-          process.stdout.write('Promises Fail!: ' + token.contract + '-' + token.currency.toUpperCase() + ':' + err);
+          //process.stdout.write('Promises Fail!: ' + token.contract + '-' + token.currency.toUpperCase() + ':' + err);
         })
     );
   });

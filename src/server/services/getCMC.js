@@ -1,5 +1,5 @@
+//Getting EOS price from Coinmarketcap's APIs
 const axios = require('axios');
-// const keys = require('../config/keys');
 const CMC_PATH = __dirname + '/../db/cmc.json';
 const keys = require('../config/keys');
 

@@ -1,12 +1,12 @@
+//Getting bancor tickers from bancor's APIs
+
 const axios = require('axios');
-// const keys = require('../config/keys');
 const BANCOR_TICKERS_PATH = __dirname + '/../db/bancor_tickers.json';
 
 let fs = require('fs');
-
 let result = {rows: []};
 
-const getBigoneTickers = () => {
+const getBancorTickers = () => {
   result = {rows: []};
   return axios
     .get('https://api.bancor.network/0.1/volume')
@@ -25,4 +25,4 @@ const getBigoneTickers = () => {
     });
 };
 
-module.exports = getBigoneTickers;
+module.exports = getBancorTickers;

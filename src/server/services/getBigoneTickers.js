@@ -1,9 +1,8 @@
+//Getting Bigone tickers from Bigone's APIs
 const axios = require('axios');
-// const keys = require('../config/keys');
 const BIGONE_TICKERS_PATH = __dirname + '/../db/bigone_tickers.json';
 
 let fs = require('fs');
-
 let result = {data: []};
 
 const getBigoneTickers = () => {

@@ -15,7 +15,7 @@ Cypherblock is one of the most popular Block Explorer for [EOSIO](https://github
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [How to Contribute](https://github.com/Cypherman1/cypherblock-eos/wiki/How-to-Contribute) for details and the process for submitting pull requests to us.
+We warmly welcome contributers for the project. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [How to Contribute](https://github.com/Cypherman1/cypherblock-eos/wiki/How-to-Contribute) for details and the process for submitting pull requests to us.
 
 Please also see our [Code of Conduct](CODE_OF_CONDUCT.md)
 

@@ -1,5 +1,5 @@
+//Getting Chaince tickers from Chaince's APIs
 const axios = require('axios');
-// const keys = require('../config/keys');
 const CHAINCE_TICKERS_PATH = __dirname + '/../db/chaince_tickers.json';
 
 let fs = require('fs');

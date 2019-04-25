@@ -1,5 +1,5 @@
+//Getting Newdex tickers from Newdex's APIs
 const axios = require('axios');
-// const keys = require('../config/keys');
 const NEWDEX_TICKERS_PATH = __dirname + '/../db/newdex_tickers.json';
 
 let fs = require('fs');

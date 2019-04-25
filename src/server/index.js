@@ -51,6 +51,7 @@ logger.info(`Application env: ${process.env.NODE_ENV}`);
 app.use(logger.expressMiddleware);
 app.use(bodyParser.json());
 
+//Initial get info from external API
 try {
   getCMC();
   getTokens();
@@ -64,6 +65,8 @@ try {
 } catch (err) {
   logger.info('Init Fail!' + err);
 }
+
+//Sceduling for calling external API in production
 
 if (process.env.NODE_ENV === 'production') {
   var j = schedule.scheduleJob('42 * * * * *', function() {
@@ -147,7 +150,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // application routes
-//setupApiRoutes(app);
 setupAppRoutes(app);
 
 app.listen(PORT, () => {

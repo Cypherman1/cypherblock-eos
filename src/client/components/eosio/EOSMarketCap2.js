@@ -1,3 +1,8 @@
+/*H**********************************************************************
+* DESCRIPTION :
+*       Implementing /eosmarketcap
+*/
+
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Query} from 'react-apollo';
@@ -61,7 +66,6 @@ const EOSMarketCapLoading = ({isDarkMode}) => {
               isDarkMode ? 'bg-dark border-secondary' : 'bg-actions border-light'
             }`}
           >
-            {/* <FontAwesomeIcon icon="chart-bar" className="mr-2 text-info fa-lg" /> */}
             <i className="fa fa-chart-bar text-info fa-lg mr-2" />
 
             <h1 className="title text-info">EOS Market Cap</h1>
@@ -107,20 +111,13 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
           </div>
         </div>
         <div className="col-3 row p-0 m-0 d-flex align-items-center ">
+          <div className="col-12 col-sm-6 p-0 text-right">{renderMCVal(exchange.volume, mcUnit, eos_price)}</div>
           <div className="col-12 col-sm-6 p-0 text-right">
-            {renderMCVal(exchange.volume, mcUnit, eos_price)}
-            {/* {Number(exchange.volume).toLocaleString(undefined, {maximumFractionDigits: 0})} */}
-          </div>
-          <div className="col-12 col-sm-6 p-0 text-right">
-            {/* {renderMCVal(exchange.amount, mcUnit, eos_price)} */}
             {Number(exchange.amount).toLocaleString(undefined, {maximumFractionDigits: 0})}
           </div>
         </div>
         <div className="col-3 row p-0 m-0 d-flex align-items-center ">
-          <div className="col-12 col-sm-7 p-0 text-right pr-1">
-            {renderMCPrice(exchange.last, mcUnit, eos_price)}
-            {/* {Number(exchange.last).toLocaleString(undefined, {maximumSignificantDigits: 4})} */}
-          </div>
+          <div className="col-12 col-sm-7 p-0 text-right pr-1">{renderMCPrice(exchange.last, mcUnit, eos_price)}</div>
           <div className="col-12 col-sm-5 p-0 text-right pr-1">
             {exchange.change ? renderPPColor(Number(exchange.change).toFixed(2)) : ''}{' '}
           </div>
@@ -533,7 +530,6 @@ class EOSMarketCap extends Component {
                           aria-controls={`collapse${token.symbol}`}
                         >
                           {renderMCPrice(token.last, mcUnit, eos_price)}
-                          {/* {Number(token.last).toLocaleString(undefined, {maximumSignificantDigits: 4})} */}
                         </a>
                       </div>
                       <div className="col-12 col-sm-5 p-0 text-right pr-1">
@@ -553,7 +549,6 @@ class EOSMarketCap extends Component {
                       className={`mt-1 collapse w-100 ${isDarkMode ? 'bg-dark-1' : 'bg-actions'}`}
                       id={`collapse${token.symbol}`}
                     >
-                      {/* <div className="pl-2 text-info border-bottom p-1">Exchanges:</div> */}
                       {RenderExchanges(token.exchanges, isDarkMode, mcUnit, eos_price)}
                       <div className="pl-2 text-info p-1">
                         Contract: {renderAccountLink(token.contract)} website:{' '}
@@ -759,7 +754,6 @@ class EOSMarketCap extends Component {
                       {tokens}
                     </div>
                     <div className="pt-2 pr-2 row m-0">
-                      {/* <div className="text-info ml-2 col p-0"> Total: {Sorted_tokens.length + 2} </div> */}
                       <div className="col text-right pr-1">
                         <ReactPaginate
                           previousLabel={'Previous'}

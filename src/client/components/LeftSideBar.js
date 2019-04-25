@@ -1,3 +1,7 @@
+/*H********************************************************************************
+* DESCRIPTION :
+*         Left sidebar component 
+*/
 import React, {Component} from 'react';
 import {graphql} from 'react-apollo';
 import query from '../queries/CurrentUser';

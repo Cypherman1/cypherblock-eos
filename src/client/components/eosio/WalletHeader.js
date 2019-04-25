@@ -1,3 +1,7 @@
+/*H********************************************************************************************
+* DESCRIPTION :
+*       WalletHeader component shows the header of Asset|Airdrop view and USD/EOS toggle button
+*/
 import React from 'react';
 import {connect} from 'react-redux';
 import {setTokenBalanceUnitl, setIsWalletRefetch} from '../../actions/common';
@@ -61,5 +65,3 @@ export default connect(
     setIsWalletRefetch
   }
 )(WalletHeader);
-
-// export default WalletHeader;

@@ -1,11 +1,14 @@
+/*H**********************************************************************
+* DESCRIPTION :
+*       Account component shows account information. 
+*       It Contains 3 components: AccountInfo, Action and Wallet
+*/
 import React, {Component, Suspense} from 'react';
 import {connect} from 'react-redux';
 import withSizes from 'react-sizes';
 import {Helmet} from 'react-helmet';
-
 import {setLimitValue} from '../../actions/eosActions';
 import {setActiveLinkID} from '../../actions/sidebar';
-
 const AccountInfo = React.lazy(() => import('./AccountInfo'));
 const Wallet = React.lazy(() => import('./Wallet'));
 const ActionsCard = React.lazy(() => import('./ActionsCard'));
@@ -29,7 +32,6 @@ class Account extends Component {
               <Suspense fallback={<div> Loading... </div>}>
                 <AccountInfo account_name={match.params.account_name} isDarkMode={sidebar.isDarkMode} />
               </Suspense>
-              {/* <Wallet account_name={match.params.account_name} isDarkMode={sidebar.isDarkMode} /> */}
               <Suspense fallback={<div> Loading... </div>}>
                 <ActionsCard
                   account_name={match.params.account_name}
@@ -79,8 +81,6 @@ class Account extends Component {
     );
   }
 }
-
-// export default Account;
 
 function mapStateToProps({myStore}) {
   return {sidebar: myStore.sidebar};

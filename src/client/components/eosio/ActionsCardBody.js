@@ -1,3 +1,8 @@
+/*H********************************************************************************
+* DESCRIPTION :
+*         ActionCardBody component shows the actions list of the account   
+*/
+
 import React, {Component} from 'react';
 import {CSSTransitionGroup} from 'react-transition-group';
 import GetActions from '../../queries/GetActions';
@@ -126,7 +131,6 @@ class ActionsCardBody extends Component {
   }
 
   render() {
-    //const {loading, error, data, fetchMore, refetch} = this.props.data;
     if (this.props.data.loading) return <ActionsCardLoading />;
     const {data, eosActions, account_name, setIsSettingOpen, isDarkMode} = this.props;
     const {fetchMore} = this.props.data;

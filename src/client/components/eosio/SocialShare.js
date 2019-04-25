@@ -1,3 +1,8 @@
+/*H**********************************************************************
+* DESCRIPTION :
+*       SocialShare component implement social share 
+*/
+
 import React from 'react';
 
 import {

@@ -1,9 +1,13 @@
+/*H**********************************************************************
+* DESCRIPTION :
+*       GeneralInfo component shows the Blockchain's general info
+*/
+
 import React from 'react';
 import {Query} from 'react-apollo';
 import {TransitionGroup} from 'react-transition-group';
 import {Link} from 'react-router-dom';
 import {renderBlockNum, renderEOSNum, renderEOSStaked} from '../utils/RenderColors';
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GetGeneralInfo from '../../queries/GetGeneralInfo';
 import {convertUTCDateToLocalDate, renderAccountLink} from '../utils/Tools';
 import {formatBandUnits} from '../utils/FormatUnits';
@@ -29,10 +33,7 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
       <div className={`card-header shadow-sm row m-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
         <div className="header-block pl-2 col">
           <i className="fa fa-globe text-info fa-lg mr-2" />
-          <h1 className="title text-info">
-            General Info
-            {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-          </h1>
+          <h1 className="title text-info">General Info</h1>
         </div>
         <div className="stat float-right">
           <TransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
@@ -206,58 +207,6 @@ const GeneralInfoLoading = ({display, isDarkMode}) => {
               />
             </div>
           </div>
-          {/* market info */}
-          {/* <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
-            <div className="stat-icon">
-              <FontAwesomeIcon icon="coins" />
-            </div>
-            <div className="stat">
-              <div className="value" />
-              <div className="name"> 24h Volume (USD) </div>
-            </div>
-            <div className="progress stat-progress">
-              <div
-                className="progress-bar"
-                style={{
-                  width: '0%'
-                }}
-              />
-            </div>
-          </div>
-          <div className="col-6 col-sm-4  stat-col p-1 d-xl-none">
-            <div className="stat-icon">
-              <FontAwesomeIcon icon="chart-bar" />
-            </div>
-            <div className="stat">
-              <div className="value" />
-              <div className="name"> RAM Price (EOS/KB) </div>
-            </div>
-            <div className="progress stat-progress">
-              <div
-                className="progress-bar"
-                style={{
-                  width: '0%'
-                }}
-              />
-            </div>
-          </div>
-          <div className="col-6 col-sm-4 stat-col p-1 d-xl-none">
-            <div className="stat-icon">
-              <FontAwesomeIcon icon="dollar-sign" />
-            </div>
-            <div className="stat">
-              <div className="value" />
-              <div className="name"> EOS Price (USD) </div>
-            </div>
-            <div className="progress stat-progress">
-              <div
-                className="progress-bar"
-                style={{
-                  width: '0%'
-                }}
-              />
-            </div>
-          </div> */}
         </div>
       </div>
     </div>
@@ -301,10 +250,7 @@ const GeneralInfo = ({isDarkMode}) => {
               <div className={`card-header shadow-sm row m-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                 <div className="header-block pl-2 col">
                   <i className="fa fa-globe text-info fa-lg mr-2" />
-                  <h1 className="title text-info">
-                    General Info
-                    {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-                  </h1>
+                  <h1 className="title text-info">General Info</h1>
                 </div>
 
                 <div className="stat float-right">

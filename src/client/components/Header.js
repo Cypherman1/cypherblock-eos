@@ -1,3 +1,7 @@
+/*H********************************************************************************
+* DESCRIPTION :
+*         Header component
+*/
 import React, {Component} from 'react';
 import isHash from 'validator/lib/isHash';
 import isLowercase from 'validator/lib/isLowercase';

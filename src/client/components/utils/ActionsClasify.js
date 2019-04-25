@@ -321,7 +321,6 @@ const renderData = (data) => {
               <Link to={`/account/${JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)}`}>
                 {JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)}
               </Link>
-              {/* <div> {JSON.stringify(data[name]).substring(1, JSON.stringify(data[name]).length - 1)} </div> */}
             </div>
           </div>
         );
@@ -363,7 +362,6 @@ export const renderBlockStatus = (block_num, last_irreversible_block, head_block
   } else {
     if (Number(last_irreversible_block) >= Number(block_num) || Number(head_block_num) - Number(block_num) > 370) {
       return <span className="badge badge-success pad-3 ftz-9 font-weight-normal">Irreversible</span>;
-      // return <div className="d-inline bg-success text-light rounded irr-mark ">Irreversible</div>;
     }
     return renderConfirmation(block_num, head_block_num);
   }
@@ -566,7 +564,6 @@ const Sellram = ({action_trace}) => {
         {renderAccountLink(action_trace.act.data.account)}
         {` sold `}
         <strong className="text-info">{action_trace.act.data.bytes}</strong> {`bytes RAM `}
-        {/* {this.renderAccountLink(action.action_trace.act.data.receiver)} */}
       </div>
     </div>
   );
@@ -640,45 +637,6 @@ const UpdateAuth = ({action_trace}) => {
     );
   }
 };
-// const RenderAuth = (auth) => {
-//   // if (auth.keys.length > 0) {
-//   //   return this.RenderKeys(auth.keys);
-//   // } else if (auth.accounts.length > 0) {
-//   //   return this.RenderAccounts(auth.accounts);
-//   // }
-//   return RenderAccounts(auth.accounts, auth.keys);
-// };
-
-// const RenderAccounts = (accounts, keys) => {
-//   let items = [];
-//   items.push(
-//     <div className="row m-0" key={1}>
-//       <div className="col-8  mb-1 mr-1 ml-0 p-0  border-bottom">Accounts/Keys</div>
-//       <div className="col  text-center m-1 p-0 border-bottom">Weight</div>
-//     </div>
-//   );
-//   if (accounts)
-//     accounts.map((account) => {
-//       items.push(
-//         <div key={account.permission.actor} className="row">
-//           <div className="col-8">
-//             {renderAccountLink(account.permission.actor)} (permission: {account.permission.permission}){' '}
-//           </div>
-//           <div className="col-4 text-center">{account.weight}</div>
-//         </div>
-//       );
-//     });
-//   if (keys)
-//     keys.map((key) => {
-//       items.push(
-//         <div key={key.key} className="row">
-//           <div className="col-8">{key.key}</div>
-//           <div className="col-4 text-center">{key.weight}</div>
-//         </div>
-//       );
-//     });
-//   return items;
-// };
 
 const SetABI = ({action_trace}) => {
   return (
@@ -693,10 +651,7 @@ const SetABI = ({action_trace}) => {
 const SetCode = ({action_trace}) => {
   return (
     <div data-title="Info" className="pt-1 pb-1 " key="2">
-      <div className="actinfo-font">
-        {renderAccountLink(action_trace.act.data.account)} set code.{' '}
-        {/* <Link to={`/code/${action_trace.act.data.account}`}>View code</Link> */}
-      </div>
+      <div className="actinfo-font">{renderAccountLink(action_trace.act.data.account)} set code. </div>
       <div />
     </div>
   );

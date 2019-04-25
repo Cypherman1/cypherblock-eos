@@ -1,7 +1,9 @@
+T; /*H************************************************************************************
+* DESCRIPTION :
+*       TransactionView component renders, aligns the Transaction component
+*/
 import React, {Component} from 'react';
-
 import Transaction from './Transaction';
-// import TransactionMongo from './TransactionMongo';
 import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
 import ErrorBoundary from '../ErrorBoundary';

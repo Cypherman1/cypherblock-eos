@@ -1,3 +1,7 @@
+/*H**********************************************************************
+* DESCRIPTION :
+*       ABIView component shows the ABI of a smart contract
+*/
 import React from 'react';
 import {Query} from 'react-apollo';
 import JSONPretty from 'react-json-pretty';
@@ -40,9 +44,7 @@ const ABIView = ({match}) => {
         return (
           <article className="content dashboard-page">
             <section className="section">
-              {/* <div className="card sameheight-item stats" data-exclude="xs"> */}
               <JSONPretty id="json-pretty" json={abi.abi} className="my-json-pretty" />
-              {/* </div> */}
             </section>
           </article>
         );

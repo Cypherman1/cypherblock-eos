@@ -1,3 +1,7 @@
+/*H*****************************************************************************
+* DESCRIPTION :
+*       Project component shows the infomation of a project and it related token
+*/
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {connect} from 'react-redux';
@@ -42,20 +46,13 @@ const RenderExchanges = (exchanges, isDarkMode, mcUnit, eos_price) => {
           </div>
         </div>
         <div className="col-3 row p-0 m-0 d-flex align-items-center ">
+          <div className="col-12 col-sm-6 p-0 text-right">{renderMCVal(exchange.volume, mcUnit, eos_price)}</div>
           <div className="col-12 col-sm-6 p-0 text-right">
-            {renderMCVal(exchange.volume, mcUnit, eos_price)}
-            {/* {Number(exchange.volume).toLocaleString(undefined, {maximumFractionDigits: 0})} */}
-          </div>
-          <div className="col-12 col-sm-6 p-0 text-right">
-            {/* {renderMCVal(exchange.amount, mcUnit, eos_price)} */}
             {Number(exchange.amount).toLocaleString(undefined, {maximumFractionDigits: 0})}
           </div>
         </div>
         <div className="col-3 row p-0 m-0 d-flex align-items-center ">
-          <div className="col-12 col-sm-7 p-0 text-right pr-1">
-            {renderMCPrice(exchange.last, mcUnit, eos_price)}
-            {/* {Number(exchange.last).toLocaleString(undefined, {maximumSignificantDigits: 4})} */}
-          </div>
+          <div className="col-12 col-sm-7 p-0 text-right pr-1">{renderMCPrice(exchange.last, mcUnit, eos_price)}</div>
           <div className="col-12 col-sm-5 p-0 text-right pr-1">
             {exchange.change ? renderPPColor(Number(exchange.change).toFixed(2)) : ''}{' '}
           </div>
@@ -270,30 +267,15 @@ class Project extends Component {
                               key={1}
                             >
                               <div className="col-6 row pl-2 p-0 m-0 d-flex align-items-center ">
-                                <div className="col-12 col-sm-6 p-0">
-                                  Exchange
-                                  {/* {Number(exchange.volume).toLocaleString(undefined, {maximumFractionDigits: 0})} */}
-                                </div>
-                                <div className="col-12 col-sm-6 p-0">
-                                  {/* {renderMCVal(exchange.amount, mcUnit, eos_price)} */}
-                                  Pair
-                                </div>
+                                <div className="col-12 col-sm-6 p-0">Exchange</div>
+                                <div className="col-12 col-sm-6 p-0">Pair</div>
                               </div>
                               <div className="col-3 row p-0 m-0 d-flex align-items-center ">
-                                <div className="col-12 col-sm-6 p-0 text-right">
-                                  24h Volume
-                                  {/* {Number(exchange.volume).toLocaleString(undefined, {maximumFractionDigits: 0})} */}
-                                </div>
-                                <div className="col-12 col-sm-6 p-0 text-right">
-                                  {/* {renderMCVal(exchange.amount, mcUnit, eos_price)} */}
-                                  Amount
-                                </div>
+                                <div className="col-12 col-sm-6 p-0 text-right">24h Volume</div>
+                                <div className="col-12 col-sm-6 p-0 text-right">Amount</div>
                               </div>
                               <div className="col-3 row p-0 m-0 d-flex align-items-center ">
-                                <div className="col-12 col-sm-7 p-0 text-right pr-1">
-                                  Price
-                                  {/* {Number(exchange.last).toLocaleString(undefined, {maximumSignificantDigits: 4})} */}
-                                </div>
+                                <div className="col-12 col-sm-7 p-0 text-right pr-1">Price</div>
                                 <div className="col-12 col-sm-5 p-0 text-right pr-1">Change</div>
                               </div>
                             </div>

@@ -1,3 +1,8 @@
+/*H**********************************************************************
+* DESCRIPTION :
+*       KeyAccountsModal component shows the accounts name coresponding 
+*       with each public key in modal, so you can chose one
+*/
 import React, {Component} from 'react';
 import history from '../history';
 import Modal from 'react-responsive-modal';

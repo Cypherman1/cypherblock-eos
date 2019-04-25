@@ -1,3 +1,10 @@
+/*H**********************************************************************
+* DESCRIPTION :
+*       AccountInfo component shows general account information, 
+*       such as: EOS Balance, Resources, Permission, Voting, Smart Contract
+*       It contains AccPermsInfo, VoterInfo, SmartContract components
+*/
+
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {TransitionGroup} from 'react-transition-group';
@@ -5,83 +12,48 @@ import {renderRamColor, renderToFiatColor} from '../utils/RenderColors';
 import {convertUTCDateToLocalDate} from '../utils/Tools';
 import {formatBandUnits, formatCPUUnits} from '../utils/FormatUnits';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
-
 import {ToastContainer, toast} from 'react-toastify';
 import VoterInfo from './VoterInfo';
 import AccPermsInfo from './AccPermsInfo';
 import SmartContract from './SmartContract';
 import ErrorAccNotFound from '../ErrorAccNotFound';
-
-// import ErrorBoundary from '../ErrorBoundary';
-
 import GetAccountInfo from '../../queries/GetAccountInfo';
 
 var staked = 0;
-
 var staked_cpu = 0;
-
 var staked_net = 0;
-
 var unstaked = 0;
-
 var refund_net = 0;
-
 var refund_cpu = 0;
-
 var refund = 0;
-
 var tmp = 0;
-
 var total_balance = 0;
-
 var total_balance_usd = 0;
-
 var total_balance_ramincluded = 0;
-
 var ram_price = 0;
-
 var ram_reserve = 0;
-
 var eos_ram_equivalent = 0;
-
 var ram_usage_num = 0;
-
 var limited_ram_num = 0;
-
 var limited_net_num = 0;
-
 var used_net_num = 0;
-
 var limited_cpu_num = 0;
-
 var used_cpu_num = 0;
-
 var to_fiat = 0;
-
 var refunded_time = null;
-
 var limited_net = '';
-
 var limited_cpu = '';
-
 var limited_ram = '';
-
 var used_net = '';
-
 var used_cpu = '';
-
 var used_ram = '';
-
 var available_net = '';
-
 var available_cpu = '';
-
 var availabe_ram = '';
-
 var account_name = '';
-
 var block_timestamp_epoch = 946684800000;
 
+// eslint-disable-next-line no-extend-native
 Date.prototype.addDays = function(days) {
   var date = new Date(this.valueOf());
   date.setDate(date.getDate() + days);
@@ -94,7 +66,6 @@ const AccountInfoLoading = ({isDarkMode}) => {
       <div className={`card-header row m-0 shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
         <div className="col p-0 d-flex flex-row">
           <div className="pt-2 pl-2">
-            {/* <FontAwesomeIcon icon="user" className="mr-2 text-info fa-lg" /> */}
             <i className="fa fa-user mr-2 text-info fa-lg" />
           </div>
           <div className="">
@@ -121,11 +92,8 @@ const AccountInfoLoading = ({isDarkMode}) => {
         <div className={`card-header card-header-sm shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}  mb-1`}>
           <div className="header-block pl-2">
             <i className="fa fa-globe text-info mr-2" />
-            {/* <FontAwesomeIcon icon="globe" className="mr-2 text-info" /> */}
-            <h1 className="title text-info">
-              General info
-              {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-            </h1>
+
+            <h1 className="title text-info">General info</h1>
           </div>
         </div>
         <div className=" row row-sm stats-container m-0 ">

@@ -1,3 +1,7 @@
+/*H************************************************************************************
+* DESCRIPTION :
+*       BlockConfirmation component show the comfirmation status of a block
+*/
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import GetConfirmations from '../../queries/GetConfirmations';

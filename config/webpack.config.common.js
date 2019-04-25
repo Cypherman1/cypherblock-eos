@@ -14,6 +14,9 @@ module.exports = {
     path: resolve(__dirname, '..', 'build', 'client'),
     filename: '[name][hash].js'
   },
+  node: {
+    fs: 'empty'
+  },
   module: {
     rules: [
       {

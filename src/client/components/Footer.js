@@ -1,3 +1,7 @@
+/*H********************************************************************************
+* DESCRIPTION :
+*         Footer component 
+*/
 import React from 'react';
 import {connect} from 'react-redux';
 const images = require.context('../assets/imgs/symbols');
@@ -23,7 +27,7 @@ const Footer = ({sidebar}) => {
             <img src={twitter_logo} alt="twitter" className="telegram_logo" />
           </a>
           <a href="https://medium.com/@tungnt.billing">
-            <img src={medium_logo} alt="medium" className="telegram_logo"/>
+            <img src={medium_logo} alt="medium" className="telegram_logo" />
           </a>
           <a href="https://t.me/cypherblockio">
             <img src={telegram_logo} alt="telegram" className="telegram_logo" /> Contact us
@@ -33,8 +37,6 @@ const Footer = ({sidebar}) => {
     </footer>
   );
 };
-
-// export default Footer;
 
 function mapStateToProps({myStore}) {
   return {sidebar: myStore.sidebar};

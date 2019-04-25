@@ -5,13 +5,10 @@ import LeftSideBar from './LeftSideBar';
 import ErrorPage from './ErrorPage';
 import Header from './Header';
 import Footer from './Footer';
-import SocialShare from './eosio/SocialShare';
 import history from './history';
 import {connect} from 'react-redux';
 import runtime from 'serviceworker-webpack-plugin/lib/runtime';
 import {setSidebarStatus, setAddedToHomescreen, setDeferredPrompt} from '../actions/sidebar';
-
-import BlockProducers from './eosio/BlockProducers';
 import Project from './eosio/Project';
 
 const AppLoader = () => {
@@ -83,7 +80,6 @@ class App extends Component {
               <Route path="/abi/:account_name" component={ABIView} />
               <Route path="/transaction/:id" component={TransactionView} />
               <Route path="/block/:block_num_or_id" component={BlockView} />
-              <Route path="/blockproducers" component={BlockProducers} />
               <Route path="/eosmarketcap" component={EOSMarketCap} />
               <Route path="/project/:symbol" component={Project} />
               <Route component={ErrorPage} />

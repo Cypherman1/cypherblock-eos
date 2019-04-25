@@ -1,11 +1,14 @@
+/*H********************************************************************************
+* DESCRIPTION :
+*         ActionCard component shows information of an actions
+*         Contained by ActionCardBody component    
+*/
+
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {renderAccountLink} from '../utils/Tools';
 import {renderBlockStatus, renderTime, RenderAct} from '../utils/ActionsClasify';
-
 import JSONPretty from 'react-json-pretty';
-
-// const deleteKey = require('key-del');
 
 function format(json_string, key_to_skip) {
   return JSON.parse(json_string, function(key, value) {

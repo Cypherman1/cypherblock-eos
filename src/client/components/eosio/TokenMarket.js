@@ -1,3 +1,7 @@
+/*H******************************************************************************
+* DESCRIPTION :
+*       TokenMarket component shows the market info of EOS, RAM and tops tokens
+*/
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {connect} from 'react-redux';
@@ -38,20 +42,6 @@ const TokenMarketLoading = ({isDarkMode}) => {
             <option value={2}>USD</option>
           </select>
         </label>
-        {/* <div>
-          <div className="input-group input-group-seamless mb-0 pr-1 float-right" style={{width: 100, height: 30}}>
-            <input
-              type="text"
-              className={`form-control ${isDarkMode ? 'border-secondary' : 'border-info'} `}
-              aria-label="Text input with checkbox"
-            />
-            <div className="input-group-append">
-              <div className="input-group-text">
-                <i className="fa fa-search" />
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
 
       <div
@@ -90,7 +80,7 @@ class TokenMarket extends Component {
   render() {
     const {display, isDarkMode} = this.props;
     const {mcUnit} = this.props.sidebar;
-    // fallback_logo = isDarkMode ? `${images}/eos_white.png` : `${images}/COMMON.png`;
+
     return (
       <Query query={GetTokenMarket} pollInterval={0}>
         {({loading, error, data}) => {
@@ -269,14 +259,6 @@ class TokenMarket extends Component {
                     </div>
                   </div>
                 </div>
-                {/* <div className="row ftz-12 pb-1 pt-1 m-0  shadow-sm" key={1}>
-                  <div className="pl-2 col-5 text-info row m-0 ">
-                    <div className="d-flex align-items-center flex-row-reverse col-2">#</div>
-                    Name <span className="badge badge-primary p-1 ">{ticker_count + 2}</span>
-                  </div>
-                  <div className="col-4 text-right pr-4 text-info"> Price </div>
-                  <div className="col-3 text-right text-info"> 24h % </div>
-                </div> */}
 
                 <div className={`card-body ${isDarkMode ? 'bg-dark' : 'bg-light'}  p-0 market-scroll `}>{items}</div>
                 <div className="text-right pr-2 mt-2">

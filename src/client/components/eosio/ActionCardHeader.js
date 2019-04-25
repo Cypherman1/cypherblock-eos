@@ -1,7 +1,11 @@
+/*H********************************************************************************
+* DESCRIPTION :
+*         ActionCardHeader component implements the header, shows configurations 
+*         of the actions list
+*/
 import React from 'react';
 import TagsInput from 'react-tagsinput';
 import {renderAccountLink} from '../utils/Tools';
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {connect} from 'react-redux';
 import {
   setLiveActions,
@@ -34,7 +38,6 @@ const renderRefetchBtn = (refetch, setIsRefetch, setIsMore, islive, isrefetch, i
             });
           }}
         >
-          {/* <FontAwesomeIcon icon="sync-alt" className="text-info" size="lg" /> */}
           <i className="fa fa-sync-alt text-info fa-lg" />
         </button>
       );
@@ -80,7 +83,6 @@ const ActionCardHeader = ({
     <div>
       <div className={`card-header row m-0 ${isDarkMode ? 'bg-dark' : 'bg-white'}  `}>
         <div className="header-block pl-1 col stat-col">
-          {/* <FontAwesomeIcon icon="list-alt" className="mr-2 text-info fa-lg" /> */}
           <i className="fa fa-list-alt text-info fa-lg mr-2" />
           <h1 className="title text-info">
             Recent <span className="ml-1 mr-1">{renderAccountLink(account_name)}</span> actions

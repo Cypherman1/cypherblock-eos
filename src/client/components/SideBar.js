@@ -1,13 +1,7 @@
-/***********************************************************************
- * FILENAME :        Sidebar.js
- *
- * DESCRIPTION :
- *       Implementing left sidebar .
- *
- * AUTHOR :    Cypherman        START DATE :
- *
- */
-
+/*H********************************************************************************
+* DESCRIPTION :
+*         Left sidebar component
+*/
 import React, {Component} from 'react';
 import MetisMenu from 'react-metismenu';
 import withSizes from 'react-sizes';

@@ -1,3 +1,7 @@
+/*H**********************************************************************
+* DESCRIPTION :
+*       Producers component shows the top 21 Block Producers
+*/
 import React, {Component} from 'react';
 import {CSSTransitionGroup} from 'react-transition-group';
 import {Query} from 'react-apollo';

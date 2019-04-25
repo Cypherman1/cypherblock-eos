@@ -1,7 +1,10 @@
+/*H************************************************************************************
+* DESCRIPTION :
+*       VoterInfo component shows the votting infomation of an account.
+*/
 import React, {Component} from 'react';
 import {renderAccountLink} from '../utils/Tools';
 import {connect} from 'react-redux';
-
 import {setVoterInfoCollapsed} from '../../actions/common';
 import {renderStake2Vote, renderDecayedPercent, renderDecayedPercentProxy} from '../utils/RenderColors';
 
@@ -21,10 +24,7 @@ const NoVote = ({isDarkMode}) => {
       <div className="card-header card-header-sm shadow-sm bg-white ">
         <div className="header-block pl-2">
           <i className="fa fa-gavel mr-2 text-info" />
-          <h1 className="title text-info">
-            Voting info
-            {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-          </h1>
+          <h1 className="title text-info">Voting info</h1>
         </div>
       </div>
       <div className={`card-block text-danger ftz-12 ${isDarkMode ? 'bg-dark-1' : ''} `}>
@@ -192,10 +192,7 @@ class VoterInfo extends Component {
                             <i className="fa fa-arrow-alt-circle-down" />
                           </div>
                           <div className="stat">
-                            <div className="value">
-                              {renderDecayedPercent(stake2vote, voteinfo.last_vote_weight)}
-                              {/* {(((stake2vote - voteinfo.last_vote_weight) / stake2vote) * 100).toFixed(2)} % */}
-                            </div>
+                            <div className="value">{renderDecayedPercent(stake2vote, voteinfo.last_vote_weight)}</div>
                             <div className="name">Vote Decayed</div>
                           </div>
                           <div className="progress stat-progress">

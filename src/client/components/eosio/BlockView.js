@@ -1,3 +1,8 @@
+/*H************************************************************************************
+* DESCRIPTION :
+*       Blockview component renders, aligns the Block component
+*/
+
 import React from 'react';
 import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';

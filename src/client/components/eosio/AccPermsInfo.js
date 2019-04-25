@@ -1,9 +1,10 @@
+/*H**********************************************************************
+* DESCRIPTION :
+*       AccPermsInfo component shows the account's permissions infomation
+*/
 import React from 'react';
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {connect} from 'react-redux';
-
 import {setPermInfoCollapsed} from '../../actions/common';
-
 import {renderPerm} from '../utils/Tools';
 
 const renderPerms = (permissions, account_name, isDarkMode) => {
@@ -46,10 +47,7 @@ const AccPermsInfo = ({permissions, account_name, isDarkMode, common, setPermInf
             onClick={() => setPermInfoCollapsed(!perm_collapsed)}
           >
             <i className="fa fa-user-lock mr-2 text-info" />
-            <h1 className="title text-info">
-              Permissions info
-              {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-            </h1>
+            <h1 className="title text-info">Permissions info</h1>
           </a>
         </div>
         <div className="col pr-1 d-flex align-items-center flex-row-reverse rounded-bottom">

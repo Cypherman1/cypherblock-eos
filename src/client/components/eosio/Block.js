@@ -1,3 +1,8 @@
+/*H************************************************************************************
+* DESCRIPTION :
+*       Block component shows the block information:  Id, timestamp, transactions,...
+*/
+
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {ToastContainer, toast} from 'react-toastify';

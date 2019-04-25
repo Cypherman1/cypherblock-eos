@@ -1,3 +1,7 @@
+/*H********************************************************************************
+* DESCRIPTION :
+*         Home page 
+*/
 import React, {Component, Suspense} from 'react';
 import withSizes from 'react-sizes';
 import {Helmet} from 'react-helmet';

@@ -1,3 +1,7 @@
+/*H********************************************************************************************
+* DESCRIPTION :
+*       WalletBody component shows the account's Assets|Airdrops balance and value
+*/
 import React, {Component} from 'react';
 import {graphql} from 'react-apollo';
 import {connect} from 'react-redux';
@@ -7,7 +11,6 @@ import {Link} from 'react-router-dom';
 import NumberEasing from '../utils/NumberEasing';
 import {renderEOSNum, renderPPColor} from '../utils/RenderColors';
 import {renderProjectLink} from '../utils/Tools';
-
 import GetWalletInfo from '../../queries/GetWalletInfo';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {setRefetchWalletFunc, setTokenBalanceUnitl} from '../../actions/common';
@@ -89,28 +92,6 @@ class WalletBody extends Component {
       token_logo = `${images}/${token.symbol}.png`;
 
       if (token.name == 'EOS') {
-        // items.push(
-        //   <div className="row row-sm stats-container shadow-sm pb-1  m-0" key={token.name}>
-        //     <div className="col-8 stat-col p-0">
-        //       <div className="stat-icon">
-        //         {/* <img src={img_src} className="img-logo" /> */}
-        //         <div>
-        //           <ReactImageFallback
-        //             src={token_logo}
-        //             fallbackImage={fallback_logo}
-        //             alt={`${token.name} token airdrop`}
-        //             className="img-logo"
-        //           />
-        //         </div>
-        //       </div>
-        //       <div className="stat">
-        //         <div className="value">{renderEOSNum(token.ammount)}</div>
-        //         <div className="name">{token.name}</div>
-        //       </div>
-        //     </div>
-        //     {this.renderBitfinexPrice(token)}
-        //   </div>
-        // );
       } else {
         //main render for wallet
         if (token.price > 0) {
@@ -174,60 +155,6 @@ class WalletBody extends Component {
             </div>
           );
         } else {
-          // token_value = 0;
-          // items.push(
-          //   <div
-          //     className={`${isDarkMode ? 'bg-dark-1' : ''} card-token-price  row shadow-sm mbt-1px ftz-13 `}
-          //     key={token.name}
-          //   >
-          //     {/* token info */}
-          //     <div className="col-3 p-0 d-flex align-items-center">
-          //       <div className="ml-2 bg-white mr-2 logo-bgr">
-          //         <ReactImageFallback
-          //           src={token_logo}
-          //           fallbackImage={fallback_logo}
-          //           alt={`${token.name}`}
-          //           className="token_logo"
-          //         />
-          //       </div>
-          //       <div className="">{token.name}</div>
-          //     </div>
-          //     {/* Balance info */}
-          //     <div className="col-5 p-0">
-          //       <div className="text-right d-flex align-items-center">
-          //         <div className="ftz-13 font-weight-acttype">
-          //           {isEOSUnit ? (
-          //             <div className="d-inline-block " style={{width: 13}}>
-          //               <img src={eoslogo} alt="eos block explorer" />
-          //             </div>
-          //           ) : (
-          //             <div className="d-inline-block pl-1" style={{width: 13}}>
-          //               <i className="fa fa-dollar-sign" style={{fontSize: 11}} />
-          //             </div>
-          //           )}
-          //           <div
-          //             className="d-inline pcursor"
-          //             role="button"
-          //             onClick={() => {
-          //               this.props.setTokenBalanceUnitl(!this.props.common.isEOSUnit);
-          //             }}
-          //           >
-          //             <NumberEasing
-          //               value={token_value}
-          //               ease="backIn"
-          //               precision={4}
-          //               speed={500}
-          //               trail={true}
-          //               useLocaleString={true}
-          //             />
-          //           </div>
-          //         </div>
-          //         <div className="ftz-13">{renderEOSNum(token.ammount)}</div>
-          //       </div>
-          //     </div>
-          //     <div className="col-4 p-0">{this.renderPriceinfo(token)}</div>
-          //   </div>
-          // );
         }
       }
     });

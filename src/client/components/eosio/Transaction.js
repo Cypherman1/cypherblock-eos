@@ -1,3 +1,8 @@
+/*H******************************************************************************
+* DESCRIPTION :
+*       Transaction component shows information of a transaction
+*/
+
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {CSSTransitionGroup} from 'react-transition-group';
@@ -93,9 +98,6 @@ class Transaction extends Component {
                           </div>
                         </div>
                         <div className="col-6 col-sm-4 col-md-2 p-1">
-                          {/* <div className="stat-icon">
-                              <FontAwesomeIcon icon="dollar-sign" />
-                            </div> */}
                           <div className="stat">
                             <div className="value ftz-11">{transaction.trx.receipt.status}</div>
                             <div className="name">Transaction status</div>
@@ -111,9 +113,6 @@ class Transaction extends Component {
                         </div>
                         {/* Irriversible */}
                         <div className="col-6 col-sm-4 col-md-2 p-1">
-                          {/* <div className="stat-icon">
-                              <FontAwesomeIcon icon="dollar-sign" />
-                            </div> */}
                           <div className="stat">
                             <div className="value ftz-11">
                               <BlockConfirmation block_num={transaction.block_num} />
@@ -130,9 +129,6 @@ class Transaction extends Component {
                           </div>
                         </div>
                         <div className="col-6 col-sm-4 col-md-2 p-1">
-                          {/* <div className="stat-icon">
-                              <FontAwesomeIcon icon="dollar-sign" />
-                            </div> */}
                           <div className="stat">
                             <div className="value ftz-11">
                               {formatCPUUnits(Number(transaction.trx.receipt.cpu_usage_us))}
@@ -150,9 +146,6 @@ class Transaction extends Component {
                         </div>
                         {/* Irriversible */}
                         <div className="col-6 col-sm-4 col-md-2 p-1">
-                          {/* <div className="stat-icon">
-                              <FontAwesomeIcon icon="dollar-sign" />
-                            </div> */}
                           <div className="stat">
                             <div className="value ftz-11">
                               {formatBandUnits(Number(transaction.trx.receipt.net_usage_words))}
@@ -203,7 +196,6 @@ class Transaction extends Component {
                                     get_block_status={false}
                                     trx_id={transaction.id}
                                     isDarkMode={isDarkMode}
-                                    /* account_name={this.props.account_name} */
                                   />
                                 );
                               }

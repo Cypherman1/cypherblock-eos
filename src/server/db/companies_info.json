@@ -183,7 +183,7 @@
     "name": "HireVibes",
     "website": "https://www.hirevibes.io",
     "intro":
-      "HireVibes is an EOS-based jobs platform that incentivises peer referrals. This platform connects job seekers, employers, referrers and recruiters, encouraging people to apply directly or recommend jobs for others. \n \n On HireVibes, hirers can set their own referral reward level (Min: 5.5% - Max 10%). \n \n Upon successful hires, HireVibes Dapp will redistribute this reward as follows: \n 3.5% back to the successful candidate (if they applied directly to the job listing, this reward will be split equally if they were referred) \n 1% to Humanitarian and Environmental projects of the successful candidates choice \n 1% to HireVibes DAC EOS Account for quarterly community voting. "
+      "HireVibes is an EOS-based jobs platform that incentivises peer referrals. This platform connects job seekers, employers, referrers and recruiters, encouraging people to apply directly or recommend jobs to others. On HireVibes, hirers can set their own referral reward level (Min: 6% - Max 12%). Upon successful hires, HireVibes Dapp will redistribute this reward as follows: 3.5% back to the successful candidate (if they applied directly to the job listing, this reward will be split equally if they were referred) 1% to Humanitarian and Environmental projects of the successful candidates choice 1.5% to HireVibes DAC EOS Account for quarterly community voting."
   },
   {
     "symbol": "keoskorea111-keos-eos",

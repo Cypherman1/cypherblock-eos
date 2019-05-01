@@ -1737,5 +1737,14 @@
     "website": "https://dragonoption.io/",
     "intro":
       "The first binary option game on EOS with verifiable fairness. Predict the short term price movements and earn! Win even more, if you are a crypto-professional and know everything about blockchain. Get DRAGON token for every EOS you bet and use it to play any game from upcoming DRAGON ecosystem! Play Dragon Option and catch your lucky dragon!"
+  },
+  {
+    "symbol": "emanateoneos-emt-eos",
+    "contract": "emanateoneos",
+    "currency": "EMT",
+    "name": "EMANATE",
+    "website": "https://emanate.live/",
+    "intro":
+      "EMANATE (EMT) TOKENS The EMANATE (EMT) token economy has been one of the primary focuses on developing the Emanate ecosystem. The EMANATE (EMT) token is central to the utility and ongoing governance of the platform. Emanate have and continue to work closely with Actuaries and Lawyers to design our token economy to be beneficial to token holders at all stages. The purchase of EMANATE (EMT) tokens is considered a to be made as an intention to participate in the future Emanate ecosystem. The tokens and token-economics are designed to also make EMANATE (EMT) tokens useful to the owner, giving token holders access to platform features, and requiring the use of EMANATE (EMT) for certain types of transactions. EMANATE (EMT) may be required for the following functions: • Artists to publish music for monetisation • For listeners to consume audio • Network node holders will likely be required to power the network; they will need to stake EMANATE (EMT) tokens and may also receive tokens as payment in return for the node operation services. The aim of the EMANATE (EMT) token is not only to utilise the services within the network but as an incentive mechanism to the broader community to provide services to the Emanate ecosystem and ultimately creating a more valuable and beneficial platform for all. This could take the form of rewards paid in return for the service of running an Emanate network node or rewards paid for other Emanate ecosystem services."
   }
 ]

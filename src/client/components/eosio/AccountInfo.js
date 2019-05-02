@@ -283,7 +283,7 @@ class AccountInfo extends Component {
         account_name = account.account_name;
         // Calculate rex_price base on return from rex pool
         rex_price = 0;
-        if (rex_pool.rows[0])
+        if (rex_pool.rows && rex_pool.rows[0])
           rex_price =
             Number(rex_pool.rows[0].total_lendable.split(' ')[0]) / Number(rex_pool.rows[0].total_rex.split(' ')[0]);
         // Calculate total rex_balance base on the first row return from rexbal table

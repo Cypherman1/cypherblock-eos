@@ -55,6 +55,18 @@ export default gql`
         max_ram_size
       }
     }
+    rex_pool(json: "true", code: "eosio", scope: "eosio", table: "rexpool") {
+      rows {
+        version
+        total_lent
+        total_unlent
+        total_rent
+        total_lendable
+        total_rex
+        namebid_proceeds
+        loan_num
+      }
+    }
     cmc {
       EOS {
         quote {

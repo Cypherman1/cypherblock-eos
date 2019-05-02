@@ -480,6 +480,16 @@ const renderMCPrice = (mcVal, mcUnit, eos_price) => {
     </div>
   );
 };
+const renderMCPriceRex = (mcVal, mcUnit, eos_price) => {
+  return (
+    <div>
+      {mcUnit == 1 ? <img src={eoslogo} alt="eos" className="eos-unit" /> : '$'}
+      {mcUnit == 1
+        ? Number(mcVal).toLocaleString(undefined, {maximumFractionDigits: 9})
+        : (Number(mcVal) * Number(eos_price)).toLocaleString(undefined, {maximumSignificantDigits: 4})}
+    </div>
+  );
+};
 
 export {
   convertUTCDateToLocalDate,
@@ -495,5 +505,6 @@ export {
   gettPairPercent,
   renderProjectLink,
   renderMCVal,
-  renderMCPrice
+  renderMCPrice,
+  renderMCPriceRex
 };

@@ -31,6 +31,18 @@ export default gql`
         supply
       }
     }
+    rex_pool(json: "true", code: "eosio", scope: "eosio", table: "rexpool") {
+      rows {
+        version
+        total_lent
+        total_unlent
+        total_rent
+        total_lendable
+        total_rex
+        namebid_proceeds
+        loan_num
+      }
+    }
     eosmarketcap(limit: "8") {
       data {
         symbol

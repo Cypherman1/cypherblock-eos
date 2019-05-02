@@ -38,6 +38,18 @@ export default gql`
         }
       }
     }
+    rex_pool(json: "true", code: "eosio", scope: "eosio", table: "rexpool") {
+      rows {
+        version
+        total_lent
+        total_unlent
+        total_rent
+        total_lendable
+        total_rex
+        namebid_proceeds
+        loan_num
+      }
+    }
     global_data(json: "true", code: "eosio", scope: "eosio", table: "global", limit: "10") {
       rows {
         max_ram_size

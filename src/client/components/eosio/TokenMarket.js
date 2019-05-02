@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import ReactImageFallback from 'react-image-fallback';
 import {Link} from 'react-router-dom';
 import GetTokenMarket from '../../queries/GetTokenMarket';
-import {renderProjectLink, renderMCVal, renderMCPrice} from '../utils/Tools';
+import {renderProjectLink, renderMCVal, renderMCPrice, renderMCPriceRex} from '../utils/Tools';
 import {renderPPColor} from '../utils/RenderColors';
 const images = './imgs';
 import {setSearchSymbol} from '../../actions/common';
@@ -24,6 +24,7 @@ let eos_percent_change_24h = 0;
 let eos_volume_24h = 0;
 let eos_total_supply = 0;
 let ticker_count = 0;
+let rex_price = 0;
 
 const TokenMarketLoading = ({isDarkMode}) => {
   return (
@@ -86,10 +87,14 @@ class TokenMarket extends Component {
         {({loading, error, data}) => {
           if (loading) return <TokenMarketLoading isDarkMode={isDarkMode} />;
           if (error) return <TokenMarketLoading isDarkMode={isDarkMode} />;
-          if (data && data.table_rows && data.cmc && data.eosmarketcap && data.eos_stat) {
-            const {table_rows, cmc, eos_stat} = data;
+          if (data && data.table_rows && data.cmc && data.eosmarketcap && data.eos_stat && data.rex_pool) {
+            const {table_rows, cmc, eos_stat, rex_pool} = data;
             ticker_count = 0;
-
+            if (rex_pool.rows && rex_pool.rows[0]) {
+              rex_price =
+                Number(rex_pool.rows[0].total_lendable.split(' ')[0]) /
+                Number(rex_pool.rows[0].total_rex.split(' ')[0]);
+            }
             ram_price = (
               (Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
                 Number(table_rows.rows[0].base.balance.split(' ')[0])) *
@@ -104,10 +109,10 @@ class TokenMarket extends Component {
             items = [];
 
             items.push(
-              <div className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark' : ''} p-1 mbt-1px`} key={2}>
+              <div className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark' : ''} p-1 mbt-1px`} key={0}>
                 <div className="row ftz-12  m-0">
                   <div className="col-6 pl-1 pr-0 d-flex align-items-center">
-                    <div className="d-flex align-items-center mr-3">0</div>
+                    <div className="d-flex align-items-center mr-3">-</div>
                     <div className="token_logo" style={{fontSize: 16}}>
                       <i className="fa fa-memory" />
                     </div>
@@ -117,6 +122,24 @@ class TokenMarket extends Component {
                   </div>
                   <div className="col-6  pr-1 d-flex align-items-center flex-row-reverse">
                     <div className="text-right">{renderMCPrice(ram_price, mcUnit, eos_price)} </div>
+                  </div>
+                </div>
+              </div>
+            );
+            items.push(
+              <div className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark' : ''} p-1 mbt-1px`} key={2}>
+                <div className="row ftz-12  m-0">
+                  <div className="col-6 pl-1 pr-0 d-flex align-items-center">
+                    <div className="d-flex align-items-center mr-3">-</div>
+                    <div className="token_logo" style={{fontSize: 16}}>
+                      <i className="fa fa-memory" />
+                    </div>
+                    <div className="ml-2 d-flex align-items-center">
+                      <div>REX</div>
+                    </div>
+                  </div>
+                  <div className="col-6  pr-1 d-flex align-items-center flex-row-reverse">
+                    <div className="text-right">{renderMCPriceRex(rex_price, mcUnit, eos_price)} </div>
                   </div>
                 </div>
               </div>

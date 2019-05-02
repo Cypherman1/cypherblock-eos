@@ -11,7 +11,7 @@ import ReactPaginate from 'react-paginate';
 import {Helmet} from 'react-helmet';
 
 import {renderPPColor} from '../utils/RenderColors';
-import {renderProjectLink, renderAccountLink} from '../utils/Tools';
+import {renderProjectLink, renderAccountLink, renderMCPriceRex} from '../utils/Tools';
 import {setActiveLinkID, setMarketcapUnit} from '../../actions/sidebar';
 import {setMCSearchSymbol, setMcSortBy, setMCPGOffset, setMCPGPageSelected} from '../../actions/common';
 import eoslogo from '../../assets/imgs/eoslogo1.svg';
@@ -44,6 +44,9 @@ let total_token_volume = 0;
 let token_num = 0;
 let Sorted_tokens = [];
 let Org_tokens = [];
+let rex_price = 0;
+let rex_supply = 0;
+let rex_marketcap = 0;
 
 const calTotal = (eosmarketcap) => {
   total_token_marketcap = 0;
@@ -193,12 +196,18 @@ class EOSMarketCap extends Component {
             dataTM.table_rows &&
             dataTM.cmc &&
             dataTM.eosmarketcap &&
-            dataTM.companies
+            dataTM.companies &&
+            dataTM.rex_pool
           ) {
-            const {global_data, eos_stat, table_rows, cmc, eosmarketcap, companies} = dataTM;
+            const {global_data, eos_stat, table_rows, cmc, eosmarketcap, companies, rex_pool} = dataTM;
 
             calTotal(eosmarketcap);
-
+            if (rex_pool.rows && rex_pool.rows[0]) {
+              rex_price =
+                Number(rex_pool.rows[0].total_lendable.split(' ')[0]) /
+                Number(rex_pool.rows[0].total_rex.split(' ')[0]);
+              rex_supply = Number(rex_pool.rows[0].total_rex.split(' ')[0]);
+            }
             ram_price = (
               (Number(table_rows.rows[0].quote.balance.split(' ')[0]) /
                 Number(table_rows.rows[0].base.balance.split(' ')[0])) *
@@ -212,9 +221,9 @@ class EOSMarketCap extends Component {
 
             //RAM
             tokens.push(
-              <div className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`} key={'EOSTOKEN'}>
+              <div className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`} key={'RAM'}>
                 <div className="col-3 pl-1 row m-0 d-flex align-items-center">
-                  <div className="col-2 p-0 d-flex align-items-center">{0}</div>
+                  <div className="col-2 p-0 d-flex align-items-center">-</div>
                   <div className="col-10 p-0 pl-2 d-flex align-items-center">
                     <div className=" mr-2 token_logo" style={{fontSize: 16}}>
                       <i className="fa fa-memory" />
@@ -235,6 +244,38 @@ class EOSMarketCap extends Component {
                 <div className="col-3 row p-0 m-0 d-flex align-items-center ">
                   <div className="col-12 col-sm-7 p-0 text-right pr-1">
                     {renderMCPrice(ram_price, mcUnit, eos_price)}
+                  </div>
+                  <div className="col-12 col-sm-5 p-0 text-right pr-1" />
+                </div>
+              </div>
+            );
+            //REX
+            tokens.push(
+              <div className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`} key={'REX'}>
+                <div className="col-3 pl-1 row m-0 d-flex align-items-center">
+                  <div className="col-2 p-0 d-flex align-items-center">-</div>
+                  <div className="col-10 p-0 pl-2 d-flex align-items-center">
+                    <div className=" mr-2 token_logo" style={{fontSize: 16}}>
+                      <i className="fa fa-memory" />
+                    </div>
+                    <div>REX</div>
+                  </div>
+                </div>
+                <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
+                  <div className="col-12 col-sm-6 p-0 text-right">
+                    {rex_supply.toLocaleString(undefined, {maximumFractionDigits: 4})}
+                  </div>
+                  <div className="col-12 col-sm-6 p-0 text-right">
+                    {renderMCVal(rex_supply * rex_price, mcUnit, eos_price)}
+                  </div>
+                </div>
+                <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
+                  <div className="col-12 col-sm-6 p-0 text-right" />
+                  <div className="col-12 col-sm-6 p-0 text-right"> </div>
+                </div>
+                <div className="col-3 row p-0 m-0 d-flex align-items-center ">
+                  <div className="col-12 col-sm-7 p-0 text-right pr-1">
+                    {renderMCPriceRex(rex_price, mcUnit, eos_price)}
                   </div>
                   <div className="col-12 col-sm-5 p-0 text-right pr-1" />
                 </div>

@@ -12,7 +12,7 @@ const INNITAL_STATE = {
   activeLinkId: 1,
   sidebarStatus: false,
   isDarkMode: false,
-  mcUnit: 2,
+  mcUnit: 1,
   isSidebarHide: true,
   addedToHomesceen: true,
   deferredPrompt: null,

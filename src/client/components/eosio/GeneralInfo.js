@@ -25,7 +25,12 @@ var eos_total_supply,
   ram_price,
   eos_price,
   percent_change_24h,
-  eos_volume;
+  eos_volume,
+  rex_price,
+  rex_loan_num,
+  rex_liquidity,
+  rex_total_borrowed,
+  rex_resource_price;
 
 const GeneralInfoLoading = ({display, isDarkMode}) => {
   return (
@@ -220,8 +225,18 @@ const GeneralInfo = ({isDarkMode}) => {
         if (loading) return <GeneralInfoLoading isDarkMode={isDarkMode} />;
 
         if (error) return <GeneralInfoLoading isDarkMode={isDarkMode} />;
-        const {eos_stat, staked, chain, global_data, cmc, table_rows} = data;
-        if (eos_stat && staked && chain && global_data && cmc && table_rows) {
+        const {eos_stat, staked, chain, global_data, cmc, table_rows, rex_pool} = data;
+        if (eos_stat && staked && chain && global_data && cmc && table_rows && rex_pool) {
+          if (rex_pool.rows && rex_pool.rows[0]) {
+            rex_price =
+              Number(rex_pool.rows[0].total_lendable.split(' ')[0]) / Number(rex_pool.rows[0].total_rex.split(' ')[0]);
+            rex_loan_num = Number(rex_pool.rows[0].loan_num);
+            rex_liquidity = Number(rex_pool.rows[0].total_lendable.split(' ')[0]);
+            rex_total_borrowed = Number(rex_pool.rows[0].total_lent.split(' ')[0]);
+            rex_resource_price =
+              Number(rex_pool.rows[0].total_unlent.split(' ')[0]) / Number(rex_pool.rows[0].total_rent.split(' ')[0]);
+          }
+
           eos_total_supply = Number(eos_stat.rows[0].supply.split(' ')[0]);
           total_staked = Number(staked.data[0].split(' ')[0]);
           head_block_num = Number(chain.head_block_num);
@@ -419,7 +434,7 @@ const GeneralInfo = ({isDarkMode}) => {
                       />
                     </div>
                   </div>
-                  <div className="col-6 col-sm-4 stat-col p-1 d-none d-sm-block">
+                  <div className="col-6 col-sm-4 stat-col p-1 ">
                     <div className="stat-icon">
                       <i className="fa fa-cogs" />
                     </div>
@@ -434,6 +449,90 @@ const GeneralInfo = ({isDarkMode}) => {
                         className="progress-bar"
                         style={{
                           width: `${((total_ram_stake * 100) / max_ram_size).toFixed(2)}%`
+                        }}
+                      />
+                    </div>
+                  </div>
+                  {/* REX liquidity */}
+                  <div className="col-6 col-sm-4 stat-col p-1 ">
+                    <div className="stat-icon">
+                      <i className="fa fa-exchange-alt" />
+                    </div>
+                    <div className="stat">
+                      <div className="value">
+                        {renderEOSNum(rex_liquidity)} EOS
+                        {/* {rex_liquidity.toLocaleString(undefined, {maximumFractionDigits: 4})} EOS */}
+                      </div>
+                      <div className="name">{`REX Liquidity (${((rex_liquidity / eos_total_supply) * 100).toFixed(
+                        2
+                      )}%)`}</div>
+                    </div>
+                    <div className="progress stat-progress">
+                      <div
+                        className="progress-bar"
+                        style={{
+                          width: `${((rex_liquidity / eos_total_supply) * 100).toFixed(2)}%`
+                        }}
+                      />
+                    </div>
+                  </div>
+                  {/* lent on loan */}
+                  <div className="col-6 col-sm-4 stat-col p-1 ">
+                    <div className="stat-icon">
+                      <i className="fa fa-exchange-alt" />
+                    </div>
+                    <div className="stat">
+                      <div className="value">
+                        {renderEOSNum(rex_total_borrowed)} EOS
+                        {/* {rex_total_borrowed.toLocaleString(undefined, {maximumFractionDigits: 4})} EOS */}
+                      </div>
+                      <div className="name">{`Lent on loans (${((rex_total_borrowed / rex_liquidity) * 100).toFixed(
+                        2
+                      )}%)`}</div>
+                    </div>
+                    <div className="progress stat-progress">
+                      <div
+                        className="progress-bar"
+                        style={{
+                          width: `${((rex_total_borrowed / rex_liquidity) * 100).toFixed(2)}%`
+                        }}
+                      />
+                    </div>
+                  </div>
+                  {/* # of loan */}
+                  <div className="col-6 col-sm-4 stat-col p-1 ">
+                    <div className="stat-icon">
+                      <i className="fa fa-exchange-alt" />
+                    </div>
+                    <div className="stat">
+                      <div className="value">{rex_loan_num.toLocaleString(undefined, {maximumFractionDigits: 0})}</div>
+                      <div className="name">{`Total # of Loans`}</div>
+                    </div>
+                    <div className="progress stat-progress">
+                      <div
+                        className="progress-bar"
+                        style={{
+                          width: `0%`
+                        }}
+                      />
+                    </div>
+                  </div>
+                  {/* Price of resource */}
+                  <div className="col-12 col-sm-12 stat-col p-1 ">
+                    <div className="stat-icon">
+                      <i className="fa fa-exchange-alt" />
+                    </div>
+                    <div className="stat">
+                      <div className="value">
+                        1 EOS can borrow {renderEOSNum(rex_resource_price)} EOS for 30 days
+                        {/* {rex_resource_price.toLocaleString(undefined, {maximumFractionDigits: 0})} */}
+                      </div>
+                    </div>
+                    <div className="progress stat-progress">
+                      <div
+                        className="progress-bar"
+                        style={{
+                          width: `0%`
                         }}
                       />
                     </div>

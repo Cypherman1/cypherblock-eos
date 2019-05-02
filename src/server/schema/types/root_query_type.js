@@ -34,6 +34,10 @@ const CMC_PATH = __dirname + '/../../db/cmc.json';
 const {EOSMarketcapType} = require('./eosmarketcap_type');
 const {CompanyType} = require('./company_type');
 const CompaniesType = require('./companies_type');
+const RexBalancesType = require('./rex_balance_type.js');
+const RexFundsType = require('./rex_fund_type.js');
+const RexPoolsType = require('./rex_pool_type.js');
+const RexResLoansType = require('./rex_resloan_type.js');
 
 let fs = require('fs');
 const readFileAsync = require('util').promisify(fs.readFile);
@@ -555,6 +559,132 @@ const RootQueryType = new GraphQLObjectType({
         return axios
           .get(keys.chainURL + '/v1/chain/get_info')
           .then((resp) => resp.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    rex_fund: {
+      type: RexFundsType,
+      args: {
+        json: {type: GraphQLString},
+        code: {type: GraphQLString},
+        scope: {type: GraphQLString},
+        table: {type: GraphQLString},
+        lower_bound: {type: GraphQLString},
+        upper_bound: {type: GraphQLString},
+        limit: {type: GraphQLString}
+      },
+      resolve(parentValue, {json, code, scope, table, lower_bound, upper_bound, limit}) {
+        return axios
+          .post(keys.chainURL + '/v1/chain/get_table_rows', {
+            json,
+            code,
+            scope,
+            table,
+            lower_bound,
+            upper_bound,
+            limit
+          })
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    rex_pool: {
+      type: RexPoolsType,
+      args: {
+        json: {type: GraphQLString},
+        code: {type: GraphQLString},
+        scope: {type: GraphQLString},
+        table: {type: GraphQLString},
+        limit: {type: GraphQLString}
+      },
+      resolve(parentValue, {json, code, scope, table, limit}) {
+        return axios
+          .post(keys.chainURL + '/v1/chain/get_table_rows', {
+            json,
+            code,
+            scope,
+            table,
+            limit
+          })
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    rex_resloan: {
+      type: RexResLoansType,
+      args: {
+        json: {type: GraphQLString},
+        code: {type: GraphQLString},
+        scope: {type: GraphQLString},
+        table: {type: GraphQLString},
+        index_position: {type: GraphQLString},
+        key_type: {type: GraphQLString},
+        table_key: {type: GraphQLString},
+        lower_bound: {type: GraphQLString},
+        upper_bound: {type: GraphQLString},
+        limit: {type: GraphQLString}
+      },
+      resolve(
+        parentValue,
+        {json, code, scope, table, index_position, key_type, table_key, lower_bound, upper_bound, limit}
+      ) {
+        return axios
+          .post(keys.chainURL + '/v1/chain/get_table_rows', {
+            json,
+            code,
+            scope,
+            table,
+            index_position,
+            key_type,
+            table_key,
+            lower_bound,
+            upper_bound,
+            limit
+          })
+          .then((res) => res.data)
+          .catch((error) => {
+            onError(error);
+          });
+      }
+    },
+    rex_balance: {
+      type: RexBalancesType,
+      args: {
+        json: {type: GraphQLString},
+        code: {type: GraphQLString},
+        scope: {type: GraphQLString},
+        table: {type: GraphQLString},
+        index_position: {type: GraphQLString},
+        key_type: {type: GraphQLString},
+        table_key: {type: GraphQLString},
+        lower_bound: {type: GraphQLString},
+        upper_bound: {type: GraphQLString},
+        limit: {type: GraphQLString}
+      },
+      resolve(
+        parentValue,
+        {json, code, scope, table, index_position, key_type, table_key, lower_bound, upper_bound, limit}
+      ) {
+        return axios
+          .post(keys.chainURL + '/v1/chain/get_table_rows', {
+            json,
+            code,
+            scope,
+            table,
+            index_position,
+            key_type,
+            table_key,
+            lower_bound,
+            upper_bound,
+            limit
+          })
+          .then((res) => res.data)
           .catch((error) => {
             onError(error);
           });

@@ -77,5 +77,97 @@ export default gql`
         }
       }
     }
+    netloan: rex_resloan(
+      json: "true"
+      code: "eosio"
+      scope: "eosio"
+      table: "netloan"
+      index_position: "3"
+      key_type: "name"
+      lower_bound: $account_name
+      upper_bound: $account_name
+      limit: "1000"
+    ) {
+      rows {
+        version
+        from
+        receiver
+        payment
+        balance
+        total_staked
+        loan_num
+        expiration
+      }
+    }
+    cpuloan: rex_resloan(
+      json: "true"
+      code: "eosio"
+      scope: "eosio"
+      table: "cpuloan"
+      index_position: "3"
+      key_type: "name"
+      lower_bound: $account_name
+      upper_bound: $account_name
+      limit: "1000"
+    ) {
+      rows {
+        version
+        from
+        receiver
+        payment
+        balance
+        total_staked
+        loan_num
+        expiration
+      }
+    }
+    rex_pool(json: "true", code: "eosio", scope: "eosio", table: "rexpool") {
+      rows {
+        version
+        total_lent
+        total_unlent
+        total_rent
+        total_lendable
+        total_rex
+        namebid_proceeds
+        loan_num
+      }
+    }
+    rex_fund(
+      json: "true"
+      code: "eosio"
+      scope: "eosio"
+      table: "rexfund"
+      lower_bound: $account_name
+      upper_bound: $account_name
+    ) {
+      rows {
+        version
+        owner
+        balance
+      }
+    }
+    rex_balance(
+      json: "true"
+      code: "eosio"
+      scope: "eosio"
+      table: "rexbal"
+      index_position: "1"
+      lower_bound: $account_name
+      upper_bound: $account_name
+      limit: "1000"
+    ) {
+      rows {
+        version
+        owner
+        vote_stake
+        rex_balance
+        matured_rex
+        rex_maturities {
+          first
+          second
+        }
+      }
+    }
   }
 `;

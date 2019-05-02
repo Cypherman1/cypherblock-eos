@@ -31,6 +31,19 @@ var total_balance = 0;
 var total_balance_usd = 0;
 var total_balance_ramincluded = 0;
 var ram_price = 0;
+var rex_price = 0;
+var rex_total = 0;
+var rex_vote_stake = 0;
+var rex_to_eos = 0;
+var rex_profit = 0;
+var rex_fund_total = 0;
+var total_res_loaned = 0;
+var cpu_loaned = 0;
+var net_loaned = 0;
+var total_res_loaned_payment = 0;
+var cpu_loaned_payment = 0;
+var net_loaned_payment = 0;
+var rex_staked = 0;
 var ram_reserve = 0;
 var eos_ram_equivalent = 0;
 var ram_usage_num = 0;
@@ -264,10 +277,65 @@ const AccountInfoLoading = ({isDarkMode}) => {
 };
 
 class AccountInfo extends Component {
-  getAccountInfo(account, table_rows, cmc) {
+  getAccountInfo(account, table_rows, cmc, rex_balance, cpuloan, netloan, rex_pool, rex_fund) {
     try {
-      if (account && table_rows && cmc) {
+      if (account && table_rows && cmc && rex_balance && cpuloan && netloan && rex_pool && rex_fund) {
         account_name = account.account_name;
+        // Calculate rex_price base on return from rex pool
+        rex_price = 0;
+        if (rex_pool.rows[0])
+          rex_price =
+            Number(rex_pool.rows[0].total_lendable.split(' ')[0]) / Number(rex_pool.rows[0].total_rex.split(' ')[0]);
+        // Calculate total rex_balance base on the first row return from rexbal table
+        rex_total = 0;
+        rex_vote_stake = 0;
+        rex_to_eos = 0;
+        rex_profit = 0;
+        if (rex_balance.rows[0] && rex_balance.rows[0].rex_balance) {
+          rex_total = Number(rex_balance.rows[0].rex_balance.split(' ')[0]);
+          rex_vote_stake = Number(rex_balance.rows[0].vote_stake.split(' ')[0]);
+          rex_to_eos = rex_total * rex_price;
+          rex_profit = rex_to_eos - rex_vote_stake;
+        }
+        // Calculate rex fund
+        rex_fund_total = 0;
+        if (rex_fund.rows && rex_fund.rows[0]) {
+          rex_fund.rows.map((row) => {
+            if (row.owner === account_name) rex_fund_total += Number(row.balance.split(' ')[0]);
+          });
+        }
+
+        // Calculate cpu loanned
+        cpu_loaned = 0;
+        cpu_loaned_payment = 0;
+        if (cpuloan.rows && cpuloan.rows[0]) {
+          cpuloan.rows.map((row) => {
+            if (row.from == account_name) {
+              cpu_loaned += Number(row.total_staked.split(' ')[0]);
+              cpu_loaned_payment += Number(row.payment.split(' ')[0]);
+            }
+          });
+        }
+        // Calculate net loanned
+        net_loaned_payment = 0;
+        net_loaned = 0;
+        if (netloan.rows && netloan.rows[0]) {
+          netloan.rows.map((row) => {
+            if (row.from == account_name) {
+              net_loaned += Number(row.total_staked.split(' ')[0]);
+              net_loaned_payment += Number(row.payment.split(' ')[0]);
+            }
+          });
+        }
+        // Cal culate resource loaned
+        total_res_loaned = 0;
+        total_res_loaned_payment = 0;
+        total_res_loaned = cpu_loaned + net_loaned;
+        total_res_loaned_payment = cpu_loaned_payment + net_loaned_payment;
+
+        console.log(total_res_loaned);
+        console.log(total_res_loaned_payment);
+
         if (account.total_resources) {
           staked_net = Number(account.total_resources.net_weight.split(' ')[0]);
         } else {
@@ -383,16 +451,16 @@ class AccountInfo extends Component {
         {({loading, error, data}) => {
           if (loading) return <AccountInfoLoading isDarkMode={isDarkMode} />;
           if (error) return <AccountInfoLoading isDarkMode={isDarkMode} />;
-          const {account, table_rows, cmc, voteinfo} = data;
-          this.getAccountInfo(account, table_rows, cmc);
+          const {account, table_rows, cmc, voteinfo, rex_balance, cpuloan, netloan, rex_pool, rex_fund} = data;
 
-          if (account && table_rows && cmc)
+          this.getAccountInfo(account, table_rows, cmc, rex_balance, cpuloan, netloan, rex_pool, rex_fund);
+
+          if ((account && table_rows && cmc, rex_balance, cpuloan, netloan, rex_pool, rex_fund))
             return (
               <div className={`card ${isDarkMode ? 'bg-dark ' : 'bg-actions'} mb-1 `}>
                 <div className={`card-header row m-0 shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}`}>
                   <div className="col p-0 d-flex flex-row">
                     <div className="pt-2 pl-2">
-                      {/* <FontAwesomeIcon icon="user" className="mr-2 text-info fa-lg" /> */}
                       <i className="fa fa-user text-info fa-lg mr-2" />
                     </div>
                     <div className="">
@@ -420,10 +488,7 @@ class AccountInfo extends Component {
                   <div className={`card-header card-header-sm shadow-sm ${isDarkMode ? 'bg-dark' : 'bg-white'}  mb-1`}>
                     <div className="header-block pl-2">
                       <i className="fa fa-globe text-info mr-2" />
-                      <h1 className="title text-info">
-                        General info
-                        {/* <Link to={`/account/${account_name}`}>{account_name}</Link> */}
-                      </h1>
+                      <h1 className="title text-info">General info</h1>
                     </div>
                   </div>
                   <div className=" row row-sm stats-container m-0 ">
@@ -604,6 +669,81 @@ class AccountInfo extends Component {
                           className="progress-bar"
                           style={{
                             width: `${((ram_usage_num / limited_ram_num) * 100).toFixed(3)}%`
+                          }}
+                        />
+                      </div>
+                    </div>
+                    {/* REX balance */}
+                    <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
+                      <div className="stat-icon">
+                        <i className="fa fa-exchange-alt" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">{`${rex_total.toLocaleString(undefined, {
+                          maximumFractionDigits: 4
+                        })}`}</div>
+                        <div className="name">
+                          REX({`${rex_to_eos.toLocaleString(undefined, {maximumFractionDigits: 4})} EOS`})
+                          <div className="text-success">
+                            ({`+${rex_profit.toLocaleString(undefined, {maximumFractionDigits: 4})} EOS`})
+                          </div>
+                        </div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `0%`
+                          }}
+                        />
+                      </div>
+                    </div>
+                    {/* REX Loaned */}
+                    <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
+                      <div className="stat-icon">
+                        <i className="fa fa-exchange-alt" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">{`${total_res_loaned.toLocaleString(undefined, {
+                          maximumFractionDigits: 4
+                        })} EOS`}</div>
+
+                        <div className="name">
+                          <div className="text-danger">
+                            {total_res_loaned_payment.toLocaleString(undefined, {maximumFractionDigits: 4})} EOS
+                          </div>
+                          Res loaned/payment
+                        </div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `0%`
+                          }}
+                        />
+                      </div>
+                    </div>
+                    {/* REX Fund */}
+                    <div className="col-6 col-sm-4  stat-col pr-1 pl-1">
+                      <div className="stat-icon">
+                        <i className="fa fa-exchange-alt" />
+                      </div>
+                      <div className="stat">
+                        <div className="value">{`${rex_fund_total.toLocaleString(undefined, {
+                          maximumFractionDigits: 4
+                        })} EOS`}</div>
+
+                        <div className="name">
+                          <div className="text-danger" />
+                          REX Fund
+                        </div>
+                      </div>
+                      <div className="progress stat-progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `0%`
                           }}
                         />
                       </div>

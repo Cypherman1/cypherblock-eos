@@ -107,7 +107,7 @@ class TokenMarket extends Component {
             eos_volume_24h = cmc.EOS.quote.USD.volume_24h;
 
             items = [];
-
+            //RAM
             items.push(
               <div className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark' : ''} p-1 mbt-1px`} key={0}>
                 <div className="row ftz-12  m-0">
@@ -122,6 +122,25 @@ class TokenMarket extends Component {
                   </div>
                   <div className="col-6  pr-1 d-flex align-items-center flex-row-reverse">
                     <div className="text-right">{renderMCPrice(ram_price, mcUnit, eos_price)} </div>
+                  </div>
+                </div>
+              </div>
+            );
+            //REX
+            items.push(
+              <div className={`card-token-price shadow-sm ${isDarkMode ? 'bg-dark' : ''} p-1 mbt-1px`} key={2}>
+                <div className="row ftz-12  m-0">
+                  <div className="col-6 pl-1 pr-0 d-flex align-items-center">
+                    <div className="d-flex align-items-center mr-3">-</div>
+                    <div className="token_logo" style={{fontSize: 16}}>
+                      <i className="fa fa-exchange-alt" />
+                    </div>
+                    <div className="ml-2 d-flex align-items-center">
+                      <div>REX</div>
+                    </div>
+                  </div>
+                  <div className="col-6  pr-1 d-flex align-items-center flex-row-reverse">
+                    <div className="text-right">{renderMCPriceRex(rex_price, mcUnit, eos_price)} </div>
                   </div>
                 </div>
               </div>

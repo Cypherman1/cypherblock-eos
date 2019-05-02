@@ -256,7 +256,7 @@ class EOSMarketCap extends Component {
                   <div className="col-2 p-0 d-flex align-items-center">-</div>
                   <div className="col-10 p-0 pl-2 d-flex align-items-center">
                     <div className=" mr-2 token_logo" style={{fontSize: 16}}>
-                      <i className="fa fa-memory" />
+                      <i className="fa fa-exchange-alt" />
                     </div>
                     <div>REX</div>
                   </div>
@@ -285,7 +285,7 @@ class EOSMarketCap extends Component {
             //EOS
             token_num = 0;
             tokens.push(
-              <div className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`} key={'RAM'}>
+              <div className={`row p-1 shadow-sm mbt-1px ${isDarkMode ? 'bg-dark' : 'bg-white'}`} key={'EOS'}>
                 <div className="col-3 pl-1 row m-0 d-flex align-items-center">
                   <div className="col-2 p-0 d-flex align-items-center">{1}</div>
                   <div className="col-10 p-0 pl-2 d-flex align-items-center">

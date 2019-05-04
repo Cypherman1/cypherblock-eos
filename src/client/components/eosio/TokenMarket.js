@@ -169,9 +169,9 @@ class TokenMarket extends Component {
                   </div>
                   <div className="col-4 p-0 ">
                     <div className="text-right">
-                      {renderMCVal(Number(eos_volume_24h) / Number(eos_price), mcUnit, eos_price)}
+                      {renderMCVal(Number(eos_volume_24h) / Number(eos_price), 2, eos_price)}
                     </div>
-                    <div className="text-right">{renderMCVal(eos_total_supply, mcUnit, eos_price)}</div>
+                    <div className="text-right">{renderMCVal(eos_total_supply, 2, eos_price)}</div>
                   </div>
                   <div className="col-4  pr-1">
                     <div className="text-right">${Number(eos_price).toFixed(2)} </div>

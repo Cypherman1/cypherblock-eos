@@ -8,8 +8,16 @@ import {
   SET_PERM_INFO_COLLAPSED,
   SET_VOTER_INFO_COLLAPSED,
   SET_MC_PG_OFFSET,
-  SET_MC_PG_SELECTED
+  SET_MC_PG_SELECTED,
+  SET_REX_INFO_COLLAPSED
 } from './types';
+
+export function setRexInfoCollapsed(rex_collapsed) {
+  return {
+    type: SET_REX_INFO_COLLAPSED,
+    payload: rex_collapsed
+  };
+}
 
 export function setMCPGOffset(mcpg_offset) {
   return {

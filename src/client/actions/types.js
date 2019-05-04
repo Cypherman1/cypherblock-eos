@@ -45,5 +45,6 @@ export const SET_MC_SEARCH_SYMBOL = 'set_mc_search_symbol';
 export const SET_MC_SORT_BY = 'set_mc_sort_by';
 export const SET_PERM_INFO_COLLAPSED = 'set_perm_info_collapsed';
 export const SET_VOTER_INFO_COLLAPSED = 'set_voter_info_collapsed';
+export const SET_REX_INFO_COLLAPSED = 'set_rex_info_collapsed';
 export const SET_MC_PG_OFFSET = 'set_mc_pg_offset';
 export const SET_MC_PG_SELECTED = 'set_mc_pg_selected';

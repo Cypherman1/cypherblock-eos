@@ -15,6 +15,7 @@ import eoslogo from '../../assets/imgs/eoslogo1.svg';
 import {ToastContainer, toast} from 'react-toastify';
 import VoterInfo from './VoterInfo';
 import AccPermsInfo from './AccPermsInfo';
+import RexDetails from './RexDetails';
 import SmartContract from './SmartContract';
 import ErrorAccNotFound from '../ErrorAccNotFound';
 import GetAccountInfo from '../../queries/GetAccountInfo';
@@ -332,9 +333,6 @@ class AccountInfo extends Component {
         total_res_loaned_payment = 0;
         total_res_loaned = cpu_loaned + net_loaned;
         total_res_loaned_payment = cpu_loaned_payment + net_loaned_payment;
-
-        console.log(total_res_loaned);
-        console.log(total_res_loaned_payment);
 
         if (account.total_resources) {
           staked_net = Number(account.total_resources.net_weight.split(' ')[0]);
@@ -750,6 +748,8 @@ class AccountInfo extends Component {
                     </div>
                   </div>
                 </div>
+
+                {/* <RexDetails account_name={account_name} isDarkMode={isDarkMode} /> */}
                 <AccPermsInfo permissions={account.permissions} account_name={account_name} isDarkMode={isDarkMode} />
                 <VoterInfo voteinfo={voteinfo} head_block_time={account.head_block_time} isDarkMode={isDarkMode} />
                 <SmartContract account_name={account_name} isDarkMode={isDarkMode} />

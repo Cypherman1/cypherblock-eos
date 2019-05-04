@@ -8,7 +8,8 @@ import {
   SET_PERM_INFO_COLLAPSED,
   SET_VOTER_INFO_COLLAPSED,
   SET_MC_PG_OFFSET,
-  SET_MC_PG_SELECTED
+  SET_MC_PG_SELECTED,
+  SET_REX_INFO_COLLAPSED
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -20,6 +21,7 @@ const INITIAL_STATE = {
   mc_sortby: 'MCAP_DEC',
   perm_collapsed: false,
   voter_collapsed: false,
+  rex_collapsed: false,
   mcpg_offset: 0,
   mcpg_selected: 0
 };
@@ -40,6 +42,8 @@ export default function(state = INITIAL_STATE, action) {
       return {...state, mc_sortby: action.payload};
     case SET_PERM_INFO_COLLAPSED:
       return {...state, perm_collapsed: action.payload};
+    case SET_REX_INFO_COLLAPSED:
+      return {...state, rex_collapsed: action.payload};
     case SET_VOTER_INFO_COLLAPSED:
       return {...state, voter_collapsed: action.payload};
     case SET_MC_PG_OFFSET:

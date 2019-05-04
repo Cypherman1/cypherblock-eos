@@ -301,16 +301,14 @@ class EOSMarketCap extends Component {
                   </div>
                 </div>
                 <div className="col-3 row p-0 m-0 d-flex align-items-center">
-                  <div className="col-12 col-sm-6 p-0 text-right">
-                    {renderMCVal(eos_total_supply, mcUnit, eos_price)}
-                  </div>
+                  <div className="col-12 col-sm-6 p-0 text-right">{renderMCVal(eos_total_supply, 2, eos_price)}</div>
                   <div className="col-12 col-sm-6 p-0 text-right">
                     {eos_total_supply.toLocaleString(undefined, {maximumFractionDigits: 0})}
                   </div>
                 </div>
                 <div className="col-3 row p-0 m-0 d-flex align-items-center ">
                   <div className="col-12 col-sm-6 p-0 text-right">
-                    {renderMCVal(eos_volume_24h / eos_price, mcUnit, eos_price)}
+                    {renderMCVal(eos_volume_24h / eos_price, 2, eos_price)}
                   </div>
                   <div className="col-12 col-sm-6 p-0 text-right">
                     {Number(eos_volume_24h / eos_price).toLocaleString(undefined, {maximumFractionDigits: 0})}

@@ -9,6 +9,7 @@ import {setRexInfoCollapsed} from '../../actions/common';
 // import {renderPerm} from '../utils/Tools';
 
 let processing_loans = 0;
+let matured_loans = 0;
 let saving_loan = 0;
 let cpu_loan = 0;
 let cpu_payment = 0;
@@ -33,7 +34,7 @@ const renderRexBalance = (rex_balance, isDarkMode) => {
                 <div className="value">
                   {(processing_loans / 10000).toLocaleString(undefined, {maximumFractionDigits: 4})} REX
                 </div>
-                <div className="name">Processing Loans</div>
+                <div className="name">Processing Loans Amt</div>
               </div>
               <div className="progress stat-progress">
                 <div
@@ -49,7 +50,23 @@ const renderRexBalance = (rex_balance, isDarkMode) => {
                 <div className="value">
                   {(saving_loan / 10000).toLocaleString(undefined, {maximumFractionDigits: 4})} REX
                 </div>
-                <div className="name">Saving Loans</div>
+                <div className="name">Saving Loans Amt</div>
+              </div>
+              <div className="progress stat-progress">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `0%`
+                  }}
+                />
+              </div>
+            </div>
+            <div className="col-6 col-sm-6 col-md-6 pl-0 pr-1 m-0 stat-col">
+              <div className="stat">
+                <div className="value">
+                  {(matured_loans / 10000).toLocaleString(undefined, {maximumFractionDigits: 4})} REX
+                </div>
+                <div className="name">Matured Loans Amt</div>
               </div>
               <div className="progress stat-progress">
                 <div
@@ -210,6 +227,7 @@ const renderCpuLoan = (cpuloan) => {
 const Calculate_values = (rex_balance, cpuloan, netloan, head_block_time, account_name) => {
   current_head_block_time = new Date(new Date(head_block_time) + 'UTC').addDays(4);
   processing_loans = 0;
+  matured_loans = 0;
   saving_loan = 0;
   cpu_loan = 0;
   cpu_payment = 0;
@@ -220,7 +238,8 @@ const Calculate_values = (rex_balance, cpuloan, netloan, head_block_time, accoun
       rex_balance.rows[0].rex_maturities.map((rex_maturity) => {
         rex_maturity_date = new Date(rex_maturity.first);
         if (rex_maturity_date > current_head_block_time) saving_loan += Number(rex_maturity.second);
-        else processing_loans += Number(rex_maturity.second);
+        else if (rex_maturity_date > new Date(head_block_time)) processing_loans += Number(rex_maturity.second);
+        else matured_loans += Number(rex_maturity.second);
       });
     }
   }
@@ -271,7 +290,7 @@ const RexDetails = ({
             aria-controls={`collapse_perm_info`}
             onClick={() => setRexInfoCollapsed(!rex_collapsed)}
           >
-            <i className="fa fa-user-lock mr-2 text-info" />
+            <i className="fa fa-exchange-alt mr-2 text-info" />
             <h1 className="title text-info">REX info</h1>
           </a>
         </div>

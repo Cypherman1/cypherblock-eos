@@ -749,7 +749,7 @@ class AccountInfo extends Component {
                   </div>
                 </div>
 
-                {/* <RexDetails account_name={account_name} isDarkMode={isDarkMode} /> */}
+                <RexDetails account_name={account_name} isDarkMode={isDarkMode} />
                 <AccPermsInfo permissions={account.permissions} account_name={account_name} isDarkMode={isDarkMode} />
                 <VoterInfo voteinfo={voteinfo} head_block_time={account.head_block_time} isDarkMode={isDarkMode} />
                 <SmartContract account_name={account_name} isDarkMode={isDarkMode} />

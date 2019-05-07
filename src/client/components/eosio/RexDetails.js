@@ -225,7 +225,7 @@ const renderCpuLoan = (cpuloan) => {
 };
 
 const Calculate_values = (rex_balance, cpuloan, netloan, head_block_time, account_name) => {
-  current_head_block_time = new Date(new Date(head_block_time) + 'UTC').addDays(4);
+  current_head_block_time = new Date(new Date(head_block_time) + 'UTC').addDays(6);
   processing_loans = 0;
   matured_loans = 0;
   saving_loan = 0;
@@ -234,12 +234,12 @@ const Calculate_values = (rex_balance, cpuloan, netloan, head_block_time, accoun
   net_loan = 0;
   net_payment = 0;
   if (rex_balance.rows && rex_balance.rows[0]) {
+    matured_loans = Number(rex_balance.rows[0].matured_rex);
     if (rex_balance.rows[0].rex_maturities) {
       rex_balance.rows[0].rex_maturities.map((rex_maturity) => {
         rex_maturity_date = new Date(rex_maturity.first);
         if (rex_maturity_date > current_head_block_time) saving_loan += Number(rex_maturity.second);
-        else if (rex_maturity_date > new Date(head_block_time)) processing_loans += Number(rex_maturity.second);
-        else matured_loans += Number(rex_maturity.second);
+        else processing_loans += Number(rex_maturity.second);
       });
     }
   }

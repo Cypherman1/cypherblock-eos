@@ -58,7 +58,8 @@ export const AntiSpams = {
     'lelego.x',
     'goldioioioio',
     'okbetteam111',
-    'eoscrashplay'
+    'eoscrashplay',
+    'ibankmessage'
   ],
   black_list: [
     {
@@ -164,6 +165,10 @@ export const AntiSpams = {
     {
       act_account: 'cryptoketeos',
       act_name: 'send'
+    },
+    {
+      act_account: 'sportbetblog',
+      act_name: 'welcome'
     }
   ]
 };

@@ -263,7 +263,7 @@ class EOSMarketCap extends Component {
                 </div>
                 <div className="col-3 row p-0 m-0 d-flex align-items-center flex-row-reverse">
                   <div className="col-12 col-sm-6 p-0 text-right">
-                    {rex_supply.toLocaleString(undefined, {maximumFractionDigits: 4})}
+                    {rex_supply.toLocaleString(undefined, {maximumFractionDigits: 0})}
                   </div>
                   <div className="col-12 col-sm-6 p-0 text-right">
                     {renderMCVal(rex_supply * rex_price, mcUnit, eos_price)}

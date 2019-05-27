@@ -30,6 +30,16 @@ export const IsSpam = (action_trace, isAntiSpamEnabled) => {
 
           return spam;
         }
+      } else if (
+        action_trace.act.name == 'transfer' &&
+        action_trace.act.account != 'eosio.token' &&
+        action_trace.act.data.quantity
+      ) {
+        if (Number(action_trace.act.data.quantity.split(' ')[0]) <= AntiSpams.min_token_ammount) {
+          spam = true;
+
+          return spam;
+        }
       }
     }
   }

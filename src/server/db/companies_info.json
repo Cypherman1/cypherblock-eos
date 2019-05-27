@@ -1755,5 +1755,49 @@
     "website": "https://pixeos.io/",
     "intro":
       "Integral to the complex smart economy that runs beneath the surface of the pixEOS platform are PIXEOS Tokens."
+  },
+  {
+    "symbol": "dinosaur1211-ieg-eos",
+    "contract": "dinosaur1211",
+    "currency": "IEG",
+    "name": "IEG",
+    "website": "https://dinosaurkingdom.org/",
+    "intro":
+      "IEG, based in Finland, is a newly established blockchain game company whose members come from well-known international game companies such as Supercell, NEXON, NCsoft, ElectronicArts, etc. The company will focus on integrating the capabilities brought by blockchain technology into changes in the relationship between players, developers and content creators, thus to creates more attractive games and to make players and developers non-opposing. IEG plans to release 10 games in the EOS ecosystem within 3 years and all of them will use the unified token IEG as incentive. The total supply of IEG is 1000,000,000. IEG can be circulated in these 10 games and enable people who hold IEG to receive game bonus, thus making IEG token a real valuable and circulative token."
+  },
+  {
+    "symbol": "ekdtokenbank-ekd-eos",
+    "contract": "ekdtokenbank",
+    "currency": "EKD",
+    "name": "EOSKingDom",
+    "website": "https://eoskingdom.io/",
+    "intro":
+      "EOSKingDom(EKD) is a multifaceted game platform developing EOS-based blockchain. The user is provided with a safe, verifiable game platform through a blockchain system. The key game of the EKD is to launch games encompassing different genres including role-playing games, arcade games, board games and casino games and to foster entertaining environment for its users. The aim of EKD is to utilize the strengths of the EOS-based blockchain platform to provide an environment in which the game developers and the play_x005fers are able to have confidence in each other, and to develop games for mutual growth and development."
+  },
+  {
+    "symbol": "tothemoonmts-mts-eos",
+    "contract": "tothemoonmts",
+    "currency": "MTS",
+    "name": "MT Blockchain",
+    "website": "http://mtblock.io/",
+    "intro":
+      "The MT blockchain is a fully decentralized social media platform focused on blockchain related content using blockchain technology, adopting an innovative approach that allows users to have the power to create and disseminate valued content compared to traditional social media platforms."
+  },
+  {
+    "symbol": "mkstaketoken-key-eos",
+    "contract": "mkstaketoken",
+    "currency": "KEY",
+    "name": "Bihu",
+    "website": "https://bihu.com/",
+    "intro":
+      "Bihu (bihu.com) is the most popular crypto community platform in China, and it is also a tool for blockchain projects to operate their communities."
+  },
+  {
+    "symbol": "sensegenesis-sense-eos",
+    "contract": "sensegenesis",
+    "currency": "SENSE",
+    "name": "SENSE Chat",
+    "website": "https://www.sense.chat/",
+    "intro": "SENSE Chat is a social network on chain."
   }
 ]

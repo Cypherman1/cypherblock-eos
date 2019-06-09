@@ -252,7 +252,7 @@ const calEOSMarketcap = () => {
 
     AddBigoneTickers();
 
-    AddBancorTickers(eos_price);
+    // AddBancorTickers(eos_price);
 
     AddChaiceTickers();
 

@@ -58,7 +58,7 @@ try {
   getBigoneTickers();
   getNewdexTickers();
   getBitfinexTickers();
-  getBancorTickers();
+  // getBancorTickers();
   getChainceTickers();
   getSupply();
   calEOSMarketcap();
@@ -116,13 +116,13 @@ if (process.env.NODE_ENV === 'production') {
     }
   });
 
-  var j9 = schedule.scheduleJob('20 * * * * *', function() {
-    try {
-      getBancorTickers();
-    } catch (err) {
-      process.stdout.write('getBigoneTickers Fail! index ' + err);
-    }
-  });
+  // var j9 = schedule.scheduleJob('20 * * * * *', function() {
+  //   try {
+  //     getBancorTickers();
+  //   } catch (err) {
+  //     process.stdout.write('getBigoneTickers Fail! index ' + err);
+  //   }
+  // });
 
   var j7 = schedule.scheduleJob('*/5 * * * *', function() {
     try {

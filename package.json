@@ -119,7 +119,7 @@
     "connect-mongo": "1.3.2",
     "cross-env": "5.1.5",
     "eosjs": "^20.0.0-beta3",
-    "express": "4.16.3",
+    "express": "4.17.3",
     "express-graphql": "0.6.12",
     "express-session": "1.15.6",
     "express-static-gzip": "^1.1.1",
